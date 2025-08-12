@@ -6,7 +6,7 @@ const CartList = () => {
     return (
         <CartListStyle>
             <div className="cart-left">
-                <label className="check-all">
+                <div className="check-all">
                     <input type="checkbox" />
                     <span>전체</span>
                     <div className="delete-wrap">
@@ -14,7 +14,7 @@ const CartList = () => {
                             선택 삭제<span>전체 삭제</span>
                         </p>
                     </div>
-                </label>
+                </div>
                 <ul>
                     <CartItem />
                     {

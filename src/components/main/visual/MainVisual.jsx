@@ -2,7 +2,9 @@ import { VisualStyle } from "./style";
 
 const MainVisual = () => {
     return (
-        <VisualStyle>
+        <VisualStyle id='visual'>
+            <div className="inner">
+
             <video
                 src="images/video.mp4"
                 autoPlay
@@ -10,6 +12,7 @@ const MainVisual = () => {
                 muted
                 playsInline
                 />
+                </div>
         </VisualStyle>
     );
 };

@@ -10,7 +10,7 @@ const CartSample = () => {
             <ul className="sample-left">
                 <li>
                     <input type="checkbox" name="" id="" />
-                    <img src="/images/item224.webp" alt="" />
+                    <img src="/images/products/item224.webp" alt="" />
                     <p>아몬드 모이스쳐라이징 샤워 오일 6ml</p>
                 </li>
             </ul>

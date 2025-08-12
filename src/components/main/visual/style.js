@@ -5,7 +5,9 @@ export const VisualStyle = styled.section`
   width: 100%;
   height: 800px;
   overflow: hidden;
-
+.inner{
+  width:100%;
+}
   video {
     width: 100%;
     height: 100%;

@@ -12,11 +12,11 @@ const CartWrap = () => {
                 로그인 돼있으면 안보이고, 안돼있으면 보이기 */}
                 <div className="login-info">
                     <strong>
-                        <img src="/images/loginguide.png" alt="로그인하기" />
+                        <img src="/images/cart/loginguide.png" alt="로그인하기" />
                         로그인 후 더 많은 혜택을 누려보세요.
                     </strong>
                     <em>
-                        <img src="/images/info.png" alt="알림" />
+                        <img src="/images/cart/info.png" alt="알림" />
                         로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.
                     </em>
                 </div>

@@ -6,6 +6,7 @@ export const BestProductStyle = styled.div`
         background-position: 0px 90px;
     .inner{
         display:flex;
+        width: 1700px;
         height: 944px;
         padding:250px 0;
     }
@@ -14,6 +15,7 @@ export const BestProductStyle = styled.div`
         margin-right: 124px;
   
         h2{
+          font-family: 'Pretendard', sans-serif;
             font-size: 50px;
             font-weight: 600;
             margin-top: 88px;

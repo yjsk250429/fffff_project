@@ -1,7 +1,4 @@
-import BestGift from '../../components/gift/BestGift';
-import ForMyself from '../../components/gift/ForMyself';
-import ForWho from '../../components/gift/ForWho';
-import SheaButter from '../../components/gift/SheaButter';
+import GiftList from '../../components/gift/GiftList';
 import { AutoSliderStyle, GiftVisualStyle, SliderStyle } from './style';
 
 const gift = [
@@ -38,10 +35,7 @@ const Gift = () => {
                     </div>
                 </AutoSliderStyle>
             </SliderStyle>
-            <BestGift />
-            <ForWho />
-            <ForMyself />
-            <SheaButter />
+            <GiftList/>
         </>
     );
 };

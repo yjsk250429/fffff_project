@@ -10,7 +10,7 @@ const CartItem = () => {
                     <input type="checkbox" />
                 </label>
                 <div className="product-image">
-                    <img src="images/item240.webp" alt="상품 이미지" />
+                    <img src="images/products/item240.webp" alt="상품 이미지" />
                 </div>
 
                 <div className="product-info">
