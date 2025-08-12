@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap');
+@font-face {
+    font-family: 'Pretendard Variable';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url('./woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+:root {
+    font-family: 'EB Garamond', serif;
+    font-family: 'Pretendard', sans-serif;
+    --main: #fbbb01;
+    --point: #002274;
+    --sub: #00274c;
+    --unknown: #001868;
+    --w: #ffffff;
+    --red: #ff0000;
+    --background: #f9f5f0;
+    --background2: #f2f7f2;
+    --foundation-yellow-b: #000000;
+    --foundation-yellow-light: #fff9e6;
+    --foundation-yellow-light-hover: #fff7d9;
+    --foundation-yellow-light-active: #feeeb0;
+    --foundation-yellow-main: #fdc700;
+    --foundation-yellow-normal-hover: #e4b300;
+    --foundation-yellow-normal-active: #ca9f00;
+    --foundation-yellow-dark: #be9500;
+    --foundation-yellow-dark-hover: #987700;
+    --foundation-yellow-dark-active: #725a00;
+    --foundation-yellow-darker: #594600;
+    --foundation-blue-light: #e6eaf4;
+    --foundation-blue-light-hover: #d9dfef;
+    --foundation-blue-light-active: #b0bdde;
+    --foundation-blue-point: #002a93;
+    --foundation-blue-normal-hover: #002684;
+    --foundation-blue-normal-active: #002276;
+    --foundation-blue-dark: #00206e;
+    --foundation-blue-dark-hover: #001958;
+    --foundation-blue-dark-active: #001342;
+    --foundation-blue-darker: #000f33;
+}
