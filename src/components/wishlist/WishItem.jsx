@@ -1,5 +1,4 @@
 import { IoCloseOutline } from 'react-icons/io5';
-import { PiMinus, PiPlus } from 'react-icons/pi';
 import { WishtItemStyle } from './style';
 
 const WishItem = () => {
