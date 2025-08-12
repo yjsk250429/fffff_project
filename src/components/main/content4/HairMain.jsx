@@ -8,7 +8,7 @@ const HairMain = () => {
                     <img src="/images/main/con4-m.png" alt="bodycare" />
                 </div>
                 <div className="text">
-                    <h2>Hair Care 장새미</h2>
+                    <h2>Hair Care</h2>
                     <em>자연이 전하는 부드러운 윤기 </em>
                     <p>
                         프로방스의 자연이 전하는 영양과 향기로

@@ -8,7 +8,7 @@ const BodyMain = () => {
                     <img src="/images/main/con2-m.png" alt="bodycare" />
                 </div>
                 <div className="text">
-                    <h2>Body Care 상범</h2>
+                    <h2>Body Care</h2>
                     <em>몸과 마음에 머무는 자연의 결</em>
                     <p>
                         자연이 전해주는 순수함으로, 지친 하루의 끝에 나를 다독여 주세요.
