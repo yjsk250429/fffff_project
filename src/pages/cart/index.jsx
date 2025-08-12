@@ -1,10 +1,10 @@
 import CartEmpty from '../../components/cart/CartEmpty';
-import CartList from '../../components/cart/CartList';
+import CartWrap from '../../components/cart/CartWrap';
 
 const Cart = () => {
     return (
         <>
-            <CartList />
+            <CartWrap />
             <CartEmpty />
             {/* {
                     carts.length > 0 ?
