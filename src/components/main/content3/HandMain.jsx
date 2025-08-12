@@ -8,7 +8,7 @@ const HandMain = () => {
                     <img src="/images/main/con3-m.png" alt="bodycare" />
                 </div>
                 <div className="text">
-                    <h2>Hand Care</h2>
+                    <h2>Hand Care 양한슬</h2>
                     <em>향으로 기억되는 손길</em>
                     <p>
                         손끝에서 느껴지는 작은 위로
