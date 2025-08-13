@@ -1,3 +1,4 @@
+import BodyMainList from './BodyMainList';
 import { BodyMainStyle } from './style';
 
 const BodyMain = () => {
@@ -18,7 +19,7 @@ const BodyMain = () => {
                     </p>
                     <p><button>제품 보기</button></p>
                 </div>
-                <div className="list"></div>
+                <BodyMainList/>
             </div>
         </BodyMainStyle>
     );

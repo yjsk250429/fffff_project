@@ -1,5 +1,4 @@
 export { default as Main } from './main';
-// export { default as About } from './about';
 export { default as Cart } from './cart';
 export { default as Collection } from './collection';
 export { default as Event } from './event';

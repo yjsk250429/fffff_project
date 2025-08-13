@@ -1,3 +1,4 @@
+import HairMainList from './HairMainList';
 import { HairMainStyle } from './style';
 
 const HairMain = () => {
@@ -19,7 +20,7 @@ const HairMain = () => {
                     </p>
                     <p><button>제품 보기</button></p>
                 </div>
-                <div className="list"></div>
+                <HairMainList/>
             </div>
         </HairMainStyle>
     );

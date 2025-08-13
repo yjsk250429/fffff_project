@@ -14,17 +14,15 @@ export const BestProductStyle = styled.div`
         margin-right: 124px;
   
         h2{
-            font-size: 50px;
-            font-weight: 600;
+            font-size: 50px !important;
             margin-top: 88px;
-            margin-bottom: 22px;
         }
         p{
             font-weight: 500;
             line-height: 25px;
             width: 450px;
             word-break: keep-all;
-            color:#4E4E4E;
+            color:var(--foundation-white-darker);
         }
     }
     `;
@@ -64,7 +62,7 @@ export const SwiperWrap = styled.div`
   .swiper { overflow: visible; }
   .swiper-scrollbar {
     --swiper-scrollbar-bottom: 0;
-    --swiper-scrollbar-drag-bg-color: #4E4E4E;
+    --swiper-scrollbar-drag-bg-color:var(--foundation-white-darker);
     --swiper-scrollbar-size: 2px;
   }
   .swiper-slide {
@@ -84,7 +82,7 @@ export const PostImgWrap = styled.div`
   width: 347px;
   height:353.63px;
 position: relative;
-  background: #F9F5F0;
+  background: var(--background);
   margin-bottom: 15px;
 .post-img{
  opacity:1;
@@ -99,13 +97,13 @@ export const PostImg = styled.img`
   transition:0.6s;
 `;
 export const PostName = styled.h2`
-  font-size: 16px;
+  font-size: 16px !important;
   font-weight: 600;
   text-align:center;
 `;
 
 export const PostAuthor = styled.p`
   font-size: 14px;
-  color:#4E4E4E;
+  color:var(--foundation-white-darker);
   text-align:center;
 `;

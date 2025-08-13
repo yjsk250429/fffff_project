@@ -7,7 +7,7 @@ export const HairMainStyle = styled.div`
         display: flex;
         height: 1000px;
         padding: 93px 0;
-        align-items: center;
+        align-items: flex-start;
     }
     .img-wrap {
         width: 1039px;
@@ -21,4 +21,85 @@ export const HairMainStyle = styled.div`
             transform:scale(0.9)
         }
     }
+`;
+export const Container = styled.div`
+  position: absolute;
+  right: 0;
+  bottom:0;
+`;
+
+export const ContainerInner = styled.div`
+
+`;
+
+export const SliderWrap = styled.div`
+  margin: 0 auto 0 0;
+  width: 1205px;
+  height: 200px;
+  overflow: visible;
+
+  .swiper{
+    height: 200px;
+  }
+
+  .swiper-wrapper {
+    width: 305px;
+    cursor: grab;
+  }
+  .swiper-slide {
+    background: #ccc;
+  }
+  .swiper-scrollbar{
+    display:none;
+  }
+  .slider__listItem{
+    margin-right: 10px;
+  }
+`;
+
+export const Scroll = styled.div`
+height: 2px;
+  position: relative;
+  left: -350px;
+  bottom: 46.5px;
+  margin-top: calc(40em / 16);
+  width: 20%;
+  overflow: hidden;
+  border-radius:0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+    margin: auto 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--foundation-white-normal-hover);
+  }
+
+  /* Swiper의 실제 드래그 핸들 */
+  & .swiper-scrollbar-drag {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    background-color:#000;
+    border-radius: 0;
+    transform-origin: right center;
+    will-change: transform;
+    cursor: grab;
+  }
+`;
+
+export const ScrollGrowbar = styled.div`
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: 100%;
+  background: #000;
 `;

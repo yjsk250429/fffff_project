@@ -1,10 +1,13 @@
-const DailyItem = () => {
+const DailyItem = ({daily}) => {
+    const {title, desc, tags, img} = daily;
     return (
         <li>
-            <img src="" alt="" />
-            <strong></strong>
-            <p></p>
-            <p>{/* {<span>tags</span>} */}</p>
+            <img src={img} alt={title} />
+            <strong>{title}</strong>
+            <p>{desc}</p>
+            <p>{
+                tags.map((tag)=><span key={tag}>#{tag}</span>)
+                }</p>
         </li>
     );
 };

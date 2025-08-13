@@ -7,7 +7,7 @@ export const HandMainStyle = styled.div`
         display: flex;
         height: 1000px;
         padding: 93px 0;
-      align-items: center;
+        align-items: flex-start;
     }
     .text{
         margin: 0 160px 0 324px;
