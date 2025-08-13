@@ -3,7 +3,7 @@ import { Container, ContainerInner, Scroll, ScrollGrowbar, SliderWrap } from "./
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar } from "swiper/modules";
+import { Mousewheel, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
 
@@ -66,10 +66,11 @@ const BodyMainList = () => {
       <ContainerInner>
         <SliderWrap className="slider">
           <Swiper
-            modules={[Scrollbar]}
+            modules={[Scrollbar, Mousewheel]}
             spaceBetween={10}
             grabCursor
             slidesPerView={3.5}
+            mousewheel={{ invert: false }}
             // JSX에서 ref가 첫 렌더에 null일 수 있으므로 onBeforeInit에서 안전하게 주입
             onBeforeInit={(swiper) => {
               swiper.params.scrollbar = swiper.params.scrollbar || {};

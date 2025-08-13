@@ -1,3 +1,4 @@
+import HandMainList from './HandMainList';
 import { HandMainStyle } from './style';
 
 const HandMain = () => {
@@ -18,7 +19,7 @@ const HandMain = () => {
                 <div className="img-wrap">
                     <img src="/images/main/con3-m.png" alt="bodycare" />
                 </div>
-                <div className="list"></div>
+                <HandMainList/>
             </div>
         </HandMainStyle>
     );
