@@ -5,7 +5,6 @@ export const MainContentStyle = styled.section`
    
     }
     .img-wrap {
-        height: 600px;
         overflow: hidden;
     }
     .text{

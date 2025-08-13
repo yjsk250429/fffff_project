@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState} from "react";
+import { useMemo, useRef, useEffect, useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Scrollbar } from "swiper/modules";
 import {
@@ -9,7 +9,8 @@ import {
   Post,
   PostImg,
   PostName,
-  PostAuthor
+  PostAuthor,
+  PostImgWrap
 } from './style';
 
 import "swiper/css";
@@ -94,7 +95,11 @@ const PostCard = ({ post, isHovered }) => {
 
   return (
     <Post>
-      <PostImg className="post-img" src={isHovered?post.subImg: post.image} alt="product" />
+      <PostImgWrap className="img-wrap">
+        
+     <PostImg className={isHovered ? 'post-img' : ''} src={post.subImg} alt="product" />
+     <PostImg className={isHovered ? '' : 'post-img'} src={post.image} alt="product" />
+      </PostImgWrap>
 
         <div className="post-detail">
           <PostName className="post-name">{post.title}</PostName>

@@ -6,7 +6,6 @@ export const BestProductStyle = styled.div`
         background-position: 0px 90px;
     .inner{
         display:flex;
-        width: 1700px;
         height: 944px;
         padding:250px 0;
     }
@@ -82,10 +81,23 @@ width: 347px;
   cursor: pointer;
 `;
 
+export const PostImgWrap = styled.div`
+  width: 347px;
+  height:353.63px;
+position: relative;
+  background: #F9F5F0;
+  margin-bottom: 15px;
+.post-img{
+ opacity:1;
+}
+`;
+
 export const PostImg = styled.img`
   width: 347px;
   height:353.63px;
-  background: #F9F5F0;
+  opacity:0;
+  position: absolute;
+  transition:0.6s;
 `;
 export const PostName = styled.h2`
   font-size: 16px;

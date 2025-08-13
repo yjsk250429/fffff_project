@@ -6,6 +6,11 @@ export const SloganStyle = styled.div`
         height: 900px;
         padding: 100px 0;
     }
+    .text{
+        h2{
+            font-family: 'Pretendard', sans-serif;
+        }
+    }
     .video-wrap {
         width: 986px;
         height: 702px;

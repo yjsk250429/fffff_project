@@ -11,6 +11,7 @@ export const BodyMainStyle = styled.div`
     }
     .img-wrap {
         width: 1039px;
+        height: 600px;
         margin-right: 140px;
         position: relative;
         img{
