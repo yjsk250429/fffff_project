@@ -4,11 +4,10 @@ export const GiftVisualStyle = styled.section`
     .visual {
         width: 100%;
         height: 600px;
-        /* background-image: url();
-    background-position: 0 0;
-    background-size: cover;
-    background-repeat: no-repeat; */
-        background: pink;
+        background-image: url('/images/gift/gift_banner.png');
+        background-position: 0 0;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 `;
 
@@ -27,10 +26,10 @@ export const AutoSliderStyle = styled.div`
     }
 
     .track {
-        position: absolute;
+        /* position: absolute; */
         white-space: nowrap;
         will-change: transform;
-        animation: marquee 30s linear infinite;
+        /* animation: marquee 30s linear infinite; */
     }
 
     @keyframes marquee {
@@ -51,7 +50,8 @@ export const AutoSliderStyle = styled.div`
             height: 72px;
 
             li {
-              font-family: 'EB Garamond', 'Pretendard Variable', 'Pretendard', system-ui, -apple-system, serif;
+                font-family: 'EB Garamond', 'Pretendard Variable', 'Pretendard', system-ui,
+                    -apple-system, serif;
                 width: 100px;
                 font-size: 20px;
             }

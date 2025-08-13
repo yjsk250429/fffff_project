@@ -718,6 +718,8 @@ export const BcorpStyle = styled.article`
     }
     #con2 {
         margin-bottom: 220px;
+        display: flex;
+        justify-content: center;
     }
     #con3 {
         display: flex;

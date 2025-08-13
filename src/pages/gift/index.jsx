@@ -21,7 +21,6 @@ const Gift = () => {
             <GiftVisualStyle>
                 <div className="visual"></div>
             </GiftVisualStyle>
-
             <SliderStyle>
                 <AutoSliderStyle class="marquee">
                     <div class="track">
@@ -35,7 +34,7 @@ const Gift = () => {
                     </div>
                 </AutoSliderStyle>
             </SliderStyle>
-            <GiftList/>
+            <GiftList />
         </>
     );
 };

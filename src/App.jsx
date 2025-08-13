@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styled/GlobalStyle';
 import Layout from './common/Layout';
 import {
-    About,
+    Bcorp,
     Body,
     BodyDetail,
     Cart,
@@ -16,9 +16,11 @@ import {
     HairDetail,
     Hand,
     HandDetail,
+    Intro,
     Join,
     Login,
     Main,
+    Promise,
     Refill,
     RefillDetail,
     Skin,
@@ -31,9 +33,6 @@ import JoinInfo from './components/join/JoinInfo';
 import JoinComplete from './components/join/JoinComplete';
 import Payment from './pages/payment/Payment';
 import PayComplete from './pages/payment/PayComplete';
-import Intro from './components/about/Intro';
-import Bcorp from './components/about/Bcorp';
-import Promise from './components/about/Promise';
 import Faq from './components/cscenter/Faq';
 import Contact from './components/cscenter/Contact';
 
@@ -79,7 +78,7 @@ const App = () => {
                         <Route path="/collection" element={<Collection />} />
                         <Route path="/event" element={<Event />} />
 
-                        <Route path="/about" element={<About />}>
+                        <Route path="/about">
                             <Route index element={<Intro />} />
                             <Route path="intro" element={<Intro />} />
                             <Route path="promise" element={<Promise />} />
@@ -88,10 +87,10 @@ const App = () => {
 
                         <Route path="/snoopy" element={<Snoopy />} />
 
-                        <Route path="/cscenter" element={<CsCenter />} >
-                            <Route index element={<Faq/>}/>
-                            <Route path="faq" element={<Faq/>}/>
-                            <Route path="contact" element={<Contact/>}/>
+                        <Route path="/cscenter" element={<CsCenter />}>
+                            <Route index element={<Faq />} />
+                            <Route path="faq" element={<Faq />} />
+                            <Route path="contact" element={<Contact />} />
                         </Route>
 
                         <Route path="/cart">

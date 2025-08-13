@@ -1,10 +1,5 @@
-
 const GiftItem = () => {
-    return (
-        <li>
-            
-        </li>
-    );
+    return <li></li>;
 };
 
 export default GiftItem;
