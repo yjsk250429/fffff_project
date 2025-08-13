@@ -7,10 +7,6 @@ const About = () => {
 
     return (
         <>
-            <AboutStyle>
-                <div className="visual">{/* <img src="" alt="" /> */}</div>
-                
-            </AboutStyle>
             <Outlet />
         </>
     );

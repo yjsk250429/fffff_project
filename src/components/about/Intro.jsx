@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
-import { IntroStyle, TabBarStyle } from './style';
+import { Intro_VisualStyle, IntroStyle, TabBarStyle } from './style';
 import { PiDotOutlineFill } from 'react-icons/pi';
 
 const Intro = () => {
     return (
         <IntroStyle>
+            <Intro_VisualStyle>
+                <div className="visual"></div>
+            </Intro_VisualStyle>
             <TabBarStyle className="tabBar">
                 <li className="on">
                     <Link to="/about/intro">브랜드 소개</Link>
@@ -95,9 +98,9 @@ const Intro = () => {
                                 <img src="/images/about/story05.png" alt="우리는 자연을 키웁니다" />
                             </div>
                             <div className="right">
-                                <em>02</em>
                                 <span>We Reveal Wonders</span>
                                 <strong>우리는 경이로움을 발견합니다</strong>
+                                <em>02</em>
                                 <p>
                                     자연이 그러하듯 모발/피부에도 저마다 고유의 생태계를 가지고
                                     있습니다.
@@ -107,7 +110,7 @@ const Intro = () => {
                                 </p>
                             </div>
                         </li>
-                        {/* 2 */}
+                        {/* 3 */}
                         <li className="story_right">
                             <div className="left">
                                 <em>03</em>
@@ -127,20 +130,20 @@ const Intro = () => {
                                 <img src="/images/about/story06.png" alt="우리는 자연을 키웁니다" />
                             </div>
                         </li>
-                        {/* 2 */}
+                        {/* 4 */}
                         <li className="story_left">
                             <div className="left">
                                 <img src="/images/about/story07.png" alt="우리는 자연을 키웁니다" />
                             </div>
                             <div className="right">
-                                <em>04</em>
                                 <span>We Act Locally</span>
                                 <strong>우리는 자연을 키웁니다.</strong>
+                                <em>04</em>
                                 <p>
                                     세상은 변화해야하며 우리는 이 변화에 책임을 갖고 있습니다.
                                     <br />
-                                    록시땅의 직원과 고객 그리고 우리가 매일 함께하고 있는 모두가
-                                    변화를 만들어낼 수 있습니다.
+                                    록시땅의 직원과 고객 그리고 <br />
+                                    우리가 매일 함께하고 있는 모두가 변화를 만들어낼 수 있습니다.
                                     <br />
                                     지역적 차원에서 취하는 행동은 세계적으로 더 좋은 삶을 만들 수
                                     있습니다.
@@ -238,7 +241,8 @@ const Intro = () => {
                             자연과 사람을 위한 더 나은 내일을 만들기 위해, 록시땅은 다양한 노력을
                             이어갑니다. <br />
                             우리는 쓰레기를 줄이고, 시각 장애 어린이의 꿈을 지키며, 생물 다양성을
-                            보존하는 활동을 통해 지속가능한 아름다움을 전하고자 합니다.
+                            보존하는 활동을 통해
+                            <br /> 지속가능한 아름다움을 전하고자 합니다.
                         </p>
                         <p className="btn">
                             <button>함께하는 여정 보기</button>
