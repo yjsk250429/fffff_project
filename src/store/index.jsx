@@ -3,6 +3,7 @@ import auth from './modules/authSlice';
 import products from './modules/productSlice';
 import cart from './modules/cartSlice';
 import pagination from './modules/paginationSlice';
+import gift from './modules/giftSlice';
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         products,
         cart,
         pagination,
+        gift,
     },
 });
 

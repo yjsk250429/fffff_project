@@ -1,4 +1,8 @@
-import GiftList from '../../components/gift/GiftList';
+import BestGift from '../../components/gift/content1/BestGift';
+import GiftList from '../../components/gift/content2/GiftList';
+import GiftMyself from '../../components/gift/content3/GiftMyself';
+import SheaButter from '../../components/gift/content4/SheaButter';
+
 import { AutoSliderStyle, GiftVisualStyle, SliderStyle } from './style';
 
 const gift = [
@@ -22,9 +26,9 @@ const Gift = () => {
                 <div className="visual"></div>
             </GiftVisualStyle>
             <SliderStyle>
-                <AutoSliderStyle class="marquee">
-                    <div class="track">
-                        <div class="content">
+                <AutoSliderStyle className="marquee">
+                    <div className="track">
+                        <div className="content">
                             <ul>
                                 {texts.map((text, i) => (
                                     <li key={i}>{text}</li>
@@ -34,7 +38,10 @@ const Gift = () => {
                     </div>
                 </AutoSliderStyle>
             </SliderStyle>
+            <BestGift />
             <GiftList />
+            <GiftMyself />
+            <SheaButter />
         </>
     );
 };
