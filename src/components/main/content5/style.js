@@ -8,7 +8,6 @@ export const SloganStyle = styled.div`
     }
     .text{
         h2{
-            font-family: 'Pretendard', sans-serif;
         }
     }
     .video-wrap {

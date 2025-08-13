@@ -39,4 +39,14 @@
     --foundation-blue-dark-hover: #001958;
     --foundation-blue-dark-active: #001342;
     --foundation-blue-darker: #000f33;
+    --foundation-white-light: #FCFCFC;
+    --foundation-white-light-hover: #FAFAFA;
+    --foundation-white-light-active: #F5F5F5;
+    --foundation-white-normal: #E0E0E0;
+    --foundation-white-normal-hover: #CACACA;
+    --foundation-white-normal-active: #B3B3B3;
+    --foundation-white-dark: #A8A8A8;
+    --foundation-white-dark-hover: #868686;
+    --foundation-white-dark-active: #656565;
+    --foundation-white-darker: #4E4E4E;
 }
