@@ -1,19 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import productData from '../../assets/api/productData';
 
-const initialState = { 
-    products:productData,
+const initialState = {
+    products: productData,
 };
 
-export const paginationSlice = createSlice({
-    name: 'pagination',
+export const productSlice = createSlice({
+    name: 'product',
     initialState,
     reducers: {
-        xx:(state, action)=>{           
-        },      
+        xx: (state, action) => {},
     },
-
 });
 
-export const paginationActions = paginationSlice.actions;
-export default paginationSlice.reducer;
+export const productActions = productSlice.actions;
+export default productSlice.reducer;

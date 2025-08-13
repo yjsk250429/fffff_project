@@ -12,7 +12,7 @@ export const MainContentStyle = styled.section`
         h2{
             font-size: 40px;
             font-weight: 600;
-            font-family: 'EB Garamond', serif;
+            font-family: 'EB Garamond', 'Pretendard Variable', 'Pretendard', system-ui, -apple-system, serif;
             margin-bottom: 20px;
         }
         em{

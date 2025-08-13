@@ -14,7 +14,6 @@ export const BestProductStyle = styled.div`
         margin-right: 124px;
   
         h2{
-          font-family: 'Pretendard', sans-serif;
             font-size: 50px;
             font-weight: 600;
             margin-top: 88px;
