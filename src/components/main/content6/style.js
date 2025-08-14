@@ -41,7 +41,6 @@ export const NatureStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: relative; */
     border: none;
 }
 

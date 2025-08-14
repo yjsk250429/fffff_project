@@ -4,7 +4,7 @@ import HandItem from "./HandItem";
 
 
 const HandList = () => {
-    const {products} = useSelector((state)=>state.products)
+    const {products} = useSelector((state)=>state.product);
 
     return (
         <ProductListWrap className="cart-box">
