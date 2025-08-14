@@ -2,16 +2,40 @@ import styled from 'styled-components';
 export const JoinInfoStyle = styled.div`
     .inner {
         height: auto;
-        width: 720px;
+        width: 670px;
     }
     input {
         width: 350px;
-        height: 40px;
+        height: 45px;
     }
     .txt {
         justify-content: space-between;
+        align-items: center;
         display: flex;
-        border-bottom: 3px solid #656565;
+
+        .text-right {
+            padding-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+                display: block;
+                color: red;
+                padding-right: 2px;
+            }
+            strong {
+                display: block;
+            }
+        }
+    }
+    .txt2 {
+        margin-top: 50px;
+        h4 {
+            margin-bottom: 18px;
+            span {
+                font-size: 14px;
+            }
+        }
     }
     h2 {
         text-align: center;
@@ -22,7 +46,7 @@ export const JoinInfoStyle = styled.div`
     h3 {
         font-size: 20px;
         font-weight: 500;
-        padding: 10px;
+        padding: 10px 0;
     }
     strong {
         font-size: 14px;
@@ -53,11 +77,26 @@ export const JoinInfoStyle = styled.div`
             font-weight: 400;
         }
     }
+    .choices {
+    }
     .separator {
         margin: 0 8px;
         color: #a8a8a8;
         font-weight: normal;
     }
+    h4 {
+        margin: 10px 0;
+        font-size: 16px;
+        font-weight: 500;
+        span {
+            font-size: 14px;
+            font-weight: 500;
+            color: #656565;
+        }
+    }
+`;
+
+export const TableStyle = styled.table`
     table {
         width: 100%;
         border-collapse: collapse;
@@ -68,6 +107,12 @@ export const JoinInfoStyle = styled.div`
         font-size: 14px;
     }
     .pass {
+        display: block;
+        p {
+            span {
+                color: rgb(185, 185, 185);
+            }
+        }
     }
     td {
         &:first-child {
@@ -79,30 +124,37 @@ export const JoinInfoStyle = styled.div`
         vertical-align: middle;
         border-bottom: 1px solid #999;
     }
-    input:focus {
-        border-color: #0078d4;
-    }
+
     td {
         padding: 8px;
         vertical-align: middle;
 
         input {
-            width: 300px;
-            height: 40px;
-
             &::placeholder {
                 padding: 10px;
                 font-family: 'Pretendard', sans-serif;
             }
         }
     }
+    .post-input {
+        background-color: var(--foundation-white-light-active);
+        border: 1px solid #999;
+    }
+
+    .addr-input {
+        background-color: var(--foundation-white-light-active);
+        border: 1px solid #999;
+    }
     tr td {
-        border-bottom: 1px solid #999;
+        border-bottom: 1px solid #dcdcdc;
         padding: 12px 16px;
         vertical-align: middle;
     }
 
     tr {
+        &:first-child {
+            border-top: 3px solid #656565;
+        }
         &:nth-child(5) {
             td {
                 &:last-child {
@@ -115,20 +167,32 @@ export const JoinInfoStyle = styled.div`
         }
     }
 
-    .inline-input input {
-        flex: 1;
+    .inline-input {
+        .adress {
+            display: block;
+        }
+        p {
+            display: flex;
+            gap: 5px;
+        }
     }
 
     .inline-input button {
         flex-shrink: 0;
     }
-    .input-btn {
-        display: flex;
-    }
+
     span {
         color: red;
     }
     .inline-input {
+        .adress {
+            input {
+                &::placeholder {
+                    color: #a8a8a8;
+                    font-family: 'Pretendard';
+                }
+            }
+        }
         .chk {
             width: 90px;
             height: 40px;
@@ -138,31 +202,53 @@ export const JoinInfoStyle = styled.div`
             font-family: 'Pretendard', sans-serif;
         }
     }
-    .btns {
+
+    .tell {
+        display: flex;
+        gap: 10px;
+    }
+
+    .time {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 20px;
+        border: none;
+        p {
+            display: flex;
+            gap: 8px;
+        }
+    }
+    .time2 {
+        display: flex;
+        gap: 10px;
+        border: none;
+    }
+    label {
         display: flex;
         gap: 15px;
     }
+`;
 
+export const BtnStyle = styled.div`
+    margin-top: 80px;
+    display: flex;
+    gap: 10px;
     button {
-        width: 354px;
+        width: 300px;
         height: 50px;
-        justify-content: center;
-        align-items: center;
         cursor: pointer;
         font-family: 'Pretendard', sans-serif;
-    }
 
-    button.on {
-        margin-top: 50px;
-        background: #000;
-        color: #fff;
-        border: none;
-    }
-    button.off {
-        margin-top: 50px;
-        background: #fff;
-        border: 1px solid rgb(192, 192, 192);
-        color: #000;
+        &.on {
+            background: #000;
+            color: #fff;
+            border: none;
+        }
+        &.off {
+            background: #fff;
+            border: 1px solid rgb(192, 192, 192);
+            color: #000;
+        }
     }
 `;
 
@@ -232,6 +318,7 @@ export const JoinCompleteStyle = styled.div`
             color: #4e4e4e;
         }
     }
+
     .btns {
         display: flex;
         gap: 15px;
