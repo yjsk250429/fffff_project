@@ -262,6 +262,7 @@ export const CartRightStyle = styled.div`
         box-sizing: border-box;
         position: relative;
         margin-bottom: 30px;
+
         h3 {
             width: 440px;
             font-size: 30px;
@@ -388,20 +389,32 @@ export const CartRightStyle = styled.div`
             line-height: 1.4;
             word-break: keep-all;
         }
-        strong {
-            display: block;
-            width: 440px;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1;
-            margin-top: 25px;
-            margin-bottom: 10px;
+
+        .textarea-wrapper {
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.4s ease;
+            strong {
+                display: block;
+                width: 440px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1;
+                /* margin-top: 25px; */
+                margin-bottom: 10px;
+            }
+            textarea {
+                display: block;
+                width: 440px;
+                height: 120px;
+                border: 1px solid #a8a8a8;
+                box-sizing: border-box;
+            }
         }
-        textarea {
-            display: block;
-            width: 440px;
-            height: 120px;
-            border: 1px solid #a8a8a8;
+        .textarea-wrapper.show {
+            max-height: 440px; /* textarea 높이보다 살짝 크게 */
+            opacity: 1;
+            padding-top: 25px;
         }
     }
 `;

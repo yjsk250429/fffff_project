@@ -5,8 +5,9 @@ export const CollectionIntroStyle = styled.div`
     padding: 100px;
     h2 {
         font-family: 'EB Garamond', serif;
-        font-size: 100px;
+        font-size: 150px;
         line-height: 1;
+        letter-spacing: -2px;
         color: #e0e0e0;
         margin-bottom: 55px;
     }
@@ -18,7 +19,7 @@ export const CollectionIntroStyle = styled.div`
         color: #4e4e4e;
         text-align: end;
         position: absolute;
-        top: 255px;
+        top: 305px;
         right: 100px;
     }
     .image-wrap {
@@ -97,9 +98,12 @@ export const CollectionItemStyle = styled.li`
             gap: 26px;
             margin-bottom: 90px;
             li {
+                width: 265px;
+                height: 331px;
                 img {
                     width: 265px;
-                    height: 100%;
+                    height: 331px;
+                    object-fit: cover;
                 }
             }
         }
@@ -135,11 +139,12 @@ export const CollectionProductStyle = styled.div`
         }
         ul {
             width: 1702px;
-            background: cyan;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 34px;
             li {
                 width: 400px;
+                margin-bottom: 40px;
                 position: relative;
                 &::after {
                     content: '';
@@ -176,6 +181,7 @@ export const CollectionProductStyle = styled.div`
                             width: 300px;
                             height: 52px;
                             font-size: 22px;
+                            line-height: 1.2;
                             font-weight: 600;
                             word-break: keep-all;
                         }

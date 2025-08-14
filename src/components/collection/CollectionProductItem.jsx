@@ -1,7 +1,7 @@
 import { PiHandbagSimple } from 'react-icons/pi';
 import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 
-const CollectionProductItem = () => {
+const CollectionProductItem = ({ product }) => {
     return (
         <li>
             <div className="img-wrap">
@@ -13,7 +13,10 @@ const CollectionProductItem = () => {
             </div>
             <div className="text-wrap">
                 <p className="product-info">
-                    <strong>아몬드 딜리셔스 핸드크림</strong>
+                    <strong>
+                        아몬드 딜리셔스 핸드크림 <br />
+                        아몬드 딜리셔스 핸드크림
+                    </strong>
                     <span>★ 5.0</span>
                     <em>NO.1 핸드크림</em>
                 </p>

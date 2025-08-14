@@ -5,6 +5,7 @@ import cart from './modules/cartSlice';
 import pagination from './modules/paginationSlice';
 import gift from './modules/giftSlice';
 import nature from './modules/natureSlice';
+import collection from './modules/collectionSlice';
 
 const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
         pagination,
         gift,
         nature,
+        collection,
     },
 });
 
