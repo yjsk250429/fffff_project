@@ -56,6 +56,21 @@ export const GiftContentStyle = styled.div`
             margin-top: 70px;
         }
     }
+    .btn {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        p {
+            color: var(--w, #fff);
+            text-align: center;
+        }
+    }
 `;
 export const GiftItemStyle = styled.li`
     border: 1px solid #000;

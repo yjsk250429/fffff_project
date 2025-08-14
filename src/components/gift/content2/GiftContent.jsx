@@ -1,29 +1,3 @@
-// import { useSelector } from 'react-redux';
-// import GiftItem from './GiftItem';
-
-// // 탭별 아이템 렌더
-// const GiftContent = () => {
-//     const { gifts } = useSelector((state) => state.gift);
-//     const { id, label, image, items } = gifts;
-//     return (
-//         <div className="content-wrap">
-//             <div className="left">
-//                 <img src={image} alt={label} />
-//             </div>
-//             <div className="right">
-//                 <strong className="title">{label}</strong>
-//                 {/* <p className="tags">
-//                     {tags.map((tag) => (
-//                         <span key={tag}>#{tag}</span>
-//                     ))}
-//                 </p> */}
-//                 <ul className="grid">{/* <GiftItem /> */}</ul>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default GiftContent;import { useSelector } from 'react-redux';
 import { useSelector } from 'react-redux';
 import GiftItem from './GiftItem';
 import { GiftContentStyle } from './style';
@@ -55,8 +29,13 @@ const GiftContent = () => {
                         <GiftItem key={idx} item={item} />
                     ))}
                 </ul>
-                {/* 더보기 버튼 */}
             </div>
+            <p className="btn">
+                <button>
+                    <img src="/images/gift/icons_right.png" alt="더보기 버튼" />
+                </button>
+                {/* <p>더보기</p> */}
+            </p>
         </GiftContentStyle>
     );
 };

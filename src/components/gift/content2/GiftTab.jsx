@@ -1,26 +1,3 @@
-// // 상단 탭 버튼
-
-// import { useSelector } from 'react-redux';
-
-// const GiftTab = () => {
-//     const { gifts } = useSelector((state) => state.gift);
-//     const { label } = gifts;
-//     return (
-//         <ul className="tab">
-//             {gifts.map((gift) => (
-//                 <li
-//                     key={gift.id}
-//                     // className={activeTab === index ? 'active' : ''}
-//                     // onClick={() => setActiveTab(index)}
-//                 >
-//                     {label}
-//                 </li>
-//             ))}
-//         </ul>
-//     );
-// };
-
-// export default GiftTab;
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveId } from '../../../store/modules/giftSlice';
 import { GiftTabStyle } from './style';
