@@ -5,9 +5,14 @@ export const CollectionIntroStyle = styled.div`
     padding: 100px;
     h2 {
         font-family: 'EB Garamond', serif;
-        font-size: 100px;
+        font-size: 150px;
         line-height: 1;
+<<<<<<< HEAD
+        letter-spacing: -2px;
+        color: #e0e0e0;
+=======
         color: var(--foundation-white-normal);
+>>>>>>> d58c1bbb0bf75eea41c80d99c5cc4d97e21c01ad
         margin-bottom: 55px;
     }
     p {
@@ -18,7 +23,7 @@ export const CollectionIntroStyle = styled.div`
         color: var(--foundation-white-darker);
         text-align: end;
         position: absolute;
-        top: 255px;
+        top: 305px;
         right: 100px;
     }
     .image-wrap {
@@ -97,9 +102,12 @@ export const CollectionItemStyle = styled.li`
             gap: 26px;
             margin-bottom: 90px;
             li {
+                width: 265px;
+                height: 331px;
                 img {
                     width: 265px;
-                    height: 100%;
+                    height: 331px;
+                    object-fit: cover;
                 }
             }
         }
@@ -138,8 +146,13 @@ export const CollectionProductStyle = styled.div`
         ul {
             width: 1702px;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 34px;
             li {
+<<<<<<< HEAD
+                width: 400px;
+                margin-bottom: 40px;
+=======
                 a{
                 cursor: default;
             }
@@ -151,6 +164,7 @@ export const CollectionProductStyle = styled.div`
                 cursor: pointer;
                 width: 100%;
                 background: var(--background);
+>>>>>>> d58c1bbb0bf75eea41c80d99c5cc4d97e21c01ad
                 position: relative;
                 img {
                     width: 100%;
@@ -189,6 +203,36 @@ export const CollectionProductStyle = styled.div`
                         bottom: 0;
                     }
                 }
+<<<<<<< HEAD
+                .text-wrap {
+                    .product-info {
+                        width: 400px;
+                        position: relative;
+                        strong {
+                            display: block;
+                            width: 300px;
+                            height: 52px;
+                            font-size: 22px;
+                            line-height: 1.2;
+                            font-weight: 600;
+                            word-break: keep-all;
+                        }
+                        span {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: #000;
+                        }
+                        em {
+                            display: block;
+                            padding-top: 10px;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 1;
+                        }
+=======
             .price-info {
                 width: 100%;
                 line-height: 35px;
@@ -200,6 +244,7 @@ export const CollectionProductStyle = styled.div`
                 position: relative;
                     span {
                         font-size: 18px;
+>>>>>>> d58c1bbb0bf75eea41c80d99c5cc4d97e21c01ad
                     }
                     i{
                         font-size: 24px;
