@@ -139,11 +139,11 @@ export const LoginStyle = styled.div`
 
     .divider {
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         height: 500px;
-        font-weight: 600;
         font-size: 18px;
+        font-family: 'EB Garamond', serif;
     }
 
     .divider::before,
