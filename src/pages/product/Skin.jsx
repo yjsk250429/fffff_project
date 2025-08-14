@@ -1,10 +1,11 @@
 import ProductBanner from "../../components/product/banner/ProductBanner";
+import { ProductStyle } from "./style";
 
 const Skin = () => {
     return (
-        <div>
+        <ProductStyle>
              <ProductBanner/>
-        </div>
+        </ProductStyle>
     );
 };
 

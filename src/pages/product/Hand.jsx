@@ -1,17 +1,25 @@
 import ProductBanner from "../../components/product/banner/ProductBanner";
 import HandList from "../../components/product/hand/HandList";
-import { HandStyle } from "./style";
+import Latest from "../../components/product/latest/Latest";
+import {ProductStyle} from "./style"
 
 const Hand = () => {
 
     return (
-        <HandStyle>
+        <ProductStyle>
              <ProductBanner/>
             <div className="inner">
-                <h2>핸드케어</h2>
+                <Latest/>
+                    <ul className="tabs">
+                        <li className="on">전체보기</li>
+                        <li>핸드크림</li>
+                        <li>핸드&네일케어</li>
+                        <li>솝</li>
+                        <li>핸드워시</li>
+                    </ul>
                 <HandList/>
             </div>
-        </HandStyle>
+        </ProductStyle>
     );
 };
 

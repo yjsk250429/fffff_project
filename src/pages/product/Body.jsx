@@ -1,12 +1,13 @@
 import ProductBanner from "../../components/product/banner/ProductBanner";
+import { ProductStyle } from "./style";
 
 
 const Body = () => {
     return (
-        <div>
+        <ProductStyle>
             <ProductBanner/>
             
-        </div>
+        </ProductStyle>
     );
 };
 

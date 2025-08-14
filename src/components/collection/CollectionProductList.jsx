@@ -8,9 +8,9 @@ const CollectionProductList = () => {
                 <h2>시어버터 컬렉션</h2>
                 <ul>
                     <CollectionProductItem />
+                    {/* <CollectionProductItem />
                     <CollectionProductItem />
-                    <CollectionProductItem />
-                    <CollectionProductItem />
+                    <CollectionProductItem /> */}
                 </ul>
             </div>
         </CollectionProductStyle>

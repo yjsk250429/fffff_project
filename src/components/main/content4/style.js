@@ -47,7 +47,25 @@ export const SliderWrap = styled.div`
     cursor: grab;
   }
   .swiper-slide {
-    background: #ccc;
+    width: 305px;
+    height: 200px;
+    background: #E4EDE4;
+    position: relative;
+    &:first-child{
+      img{
+        position: absolute;
+        left: 50%;
+      top: 50%;
+      transform:translate(-50%, -50%) scale(1.4);
+      }
+    }
+    img{
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform:translate(-50%, -50%);
+    }
   }
   .swiper-scrollbar{
     display:none;

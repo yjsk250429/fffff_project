@@ -7,7 +7,7 @@ export const CollectionIntroStyle = styled.div`
         font-family: 'EB Garamond', serif;
         font-size: 100px;
         line-height: 1;
-        color: #e0e0e0;
+        color: var(--foundation-white-normal);
         margin-bottom: 55px;
     }
     p {
@@ -15,7 +15,7 @@ export const CollectionIntroStyle = styled.div`
         font-size: 18px;
         font-weight: 400;
         line-height: 1.6;
-        color: #4e4e4e;
+        color: var(--foundation-white-darker);
         text-align: end;
         position: absolute;
         top: 255px;
@@ -82,7 +82,7 @@ export const CollectionItemStyle = styled.li`
         }
         em {
             display: block;
-            color: #4e4e4e;
+            color: var(--foundation-white-darker);
             width: 847px;
             font-size: 16px;
             font-weight: 400;
@@ -107,25 +107,27 @@ export const CollectionItemStyle = styled.li`
             width: 847px;
             text-align: center;
             button {
-                font-family: 'Pretendard', sans-serif;
+                /* font-family: 'Pretendard', sans-serif;
                 font-size: 16px;
                 font-weight: 500;
-                background: #000;
-                color: #fff;
+                background-color: var(--b);
+                color: var(--w);
+                border: none;
                 width: 152px;
                 height: 42px;
                 line-height: 42px;
                 text-align: center;
-                padding: 0;
+                padding: 0; */
             }
         }
     }
 `;
-// 예진님 쓰세요
+
 export const CollectionProductStyle = styled.div`
     .inner {
         width: 1700px;
         padding: 100px 0;
+    }
         h2 {
             text-align: center;
             line-height: 1;
@@ -135,84 +137,79 @@ export const CollectionProductStyle = styled.div`
         }
         ul {
             width: 1702px;
-            background: cyan;
             display: flex;
             justify-content: space-between;
             li {
-                width: 400px;
+                a{
+                cursor: default;
+            }
+            width: 400px;
+            margin-bottom: 60px;
+            .img-wrap {
+                width: 100%;
+                height: 400px;
+                cursor: pointer;
+                width: 100%;
+                background: var(--background);
                 position: relative;
-                &::after {
-                    content: '';
-                    display: block;
-                    position: absolute;
+                img {
                     width: 100%;
-                    height: 1px;
-                    background: #cacaca;
-                    left: 0;
-                    bottom: 35px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform:translate(-50%, -50%) scale(0.9);
                 }
-                .img-wrap {
-                    width: 400px;
+            }
+            .text-wrap{
+                width: 100%;
+           
+                .product-info{
+                    padding-top: 25px;
+                    height: 111px;
                     position: relative;
-                    img {
-                        width: 400px;
-                        height: 400px;
-                        background: #dcdcdc;
+                    strong{
+                        display:block;
+                        width: 300px;
+                        font-size: 22px;
+                        font-weight: 600;
+                        margin-bottom: 36px;
+                        word-break:keep-all;
                     }
-                    i {
-                        font-size: 24px;
-                        color: #999;
+                    span{
+                            font-size: 16px;
+                            font-weight: 400;
+                            position: absolute;
+                            top: 25px;
+                            right: 0;
+                            cursor: pointer;
+                        }
+                    }
+                    em{
                         position: absolute;
-                        top: 24px;
-                        right: 24px;
+                        bottom: 0;
                     }
                 }
-                .text-wrap {
-                    .product-info {
-                        width: 400px;
-                        position: relative;
-                        strong {
-                            display: block;
-                            width: 300px;
-                            height: 52px;
-                            font-size: 22px;
-                            font-weight: 600;
-                            word-break: keep-all;
-                        }
-                        span {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            font-size: 16px;
-                            font-weight: 400;
-                            color: #000;
-                        }
-                        em {
-                            display: block;
-                            padding-top: 10px;
-                            font-size: 16px;
-                            font-weight: 400;
-                            line-height: 1;
-                        }
+            .price-info {
+                width: 100%;
+                line-height: 35px;
+                border-top: 1px solid var(--foundation-white-normal);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                position: relative;
+                    span {
+                        font-size: 18px;
                     }
-                    .price-info {
-                        width: 400px;
-                        position: relative;
-                        margin-top: 20px;
-                        span {
-                            font-size: 18px;
-                            font-weight: 400;
-                        }
-                        i {
-                            font-size: 24px;
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            transform: translateY(-5px);
-                        }
+                    i{
+                        font-size: 24px;
+                        position: absolute;
+                        top: 5px;
+                        right: 0;      
+                        cursor: pointer;   
                     }
                 }
             }
         }
-    }
+        
 `;
