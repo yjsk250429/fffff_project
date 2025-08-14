@@ -292,7 +292,6 @@ export const JoinStyle = styled.div`
         margin-top: 50px;
         width: 354px;
         height: 50px;
-
         justify-content: center;
         align-items: center;
         cursor: pointer;

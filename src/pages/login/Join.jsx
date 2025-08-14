@@ -44,7 +44,7 @@ const Login = () => {
                             name="terms"
                             checked={agree.terms}
                             onChange={onChaked}
-                        />{' '}
+                        />
                         서비스이용약관 관련 동의 전체동의
                     </label>
                     <label className="choice">
