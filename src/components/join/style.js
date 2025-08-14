@@ -234,7 +234,7 @@ export const BtnStyle = styled.div`
     display: flex;
     gap: 10px;
     button {
-        width: 300px;
+        width: 330px;
         height: 50px;
         cursor: pointer;
         font-family: 'Pretendard', sans-serif;
