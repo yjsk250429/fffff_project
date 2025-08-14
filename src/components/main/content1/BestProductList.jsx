@@ -1,10 +1,7 @@
-import { useMemo, useRef, useEffect, useState} from "react";
+import { useMemo, useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Scrollbar } from "swiper/modules";
 import {
-  Page,
-  Section,
-  RecipeContainer,
   SwiperWrap,
   Post,
   PostImg,
@@ -12,13 +9,9 @@ import {
   PostAuthor,
   PostImgWrap
 } from './style';
-
 import "swiper/css";
 import "swiper/css/scrollbar";
 
-// ------------------------------------------------------
-// Data
-// ------------------------------------------------------
 const POSTS = [
   {
     id: "post1",
@@ -71,28 +64,8 @@ const POSTS = [
   },
 ];
 
-// ------------------------------------------------------
-// Helpers
-// ------------------------------------------------------
-const useOnClickOutside = (ref, handler) => {
-  useEffect(() => {
-    const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) return;
-      handler(event);
-    };
-    document.addEventListener("click", listener);
-    return () => document.removeEventListener("click", listener);
-  }, [ref, handler]);
-};
 
-// ------------------------------------------------------
-// Components
-// ------------------------------------------------------
 const PostCard = ({ post, isHovered }) => {
-  const popoverRef = useRef(null);
-  useOnClickOutside(popoverRef, () => setOpen(false));
-
-
   return (
     <Post>
       <PostImgWrap className="img-wrap">
@@ -115,9 +88,7 @@ const BestProductList = () => {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <Page>
-      <Section>
-        <RecipeContainer>
+
           <SwiperWrap>
             <Swiper
               modules={[Scrollbar, Mousewheel]}
@@ -134,9 +105,7 @@ const BestProductList = () => {
               ))}
             </Swiper>
           </SwiperWrap>
-        </RecipeContainer>
-      </Section>
-    </Page>
+
   );
 };
 

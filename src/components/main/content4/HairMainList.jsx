@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import {Mousewheel, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const HairMainList = () => {
     const scrollbarRef = useRef(null);
@@ -61,6 +63,12 @@ const HairMainList = () => {
       return () => cancelAnimationFrame(id);
     }, []);
   
+    const {products} = useSelector((state)=>state.product);
+    const bestArr = [6, 20, 23, 42, 24];
+    
+    const bodyBest = products.filter((best) => bestArr.includes(best.id));
+  
+
     return (
       <Container>
         <ContainerInner>
@@ -81,12 +89,17 @@ const HairMainList = () => {
               onProgress={handleProgress}
               scrollbar={{ draggable: true }}
             >
-              <SwiperSlide className="slider__listItem" />
-              <SwiperSlide className="slider__listItem" />
-              <SwiperSlide className="slider__listItem" />
-              <SwiperSlide className="slider__listItem" />
-              <SwiperSlide className="slider__listItem" />
-              <SwiperSlide className="slider__listItem" />
+           <SwiperSlide>
+              <img src="/images/main/con4-0.png" alt="texture" />
+            </SwiperSlide>
+            {bodyBest.map((best)=>
+            <SwiperSlide className="slider__listItem" key={best.id}>
+              <Link to={`/hair/${best.id}`}>
+              <img src={best.image} alt={best.title} />
+              </Link>
+            </SwiperSlide>
+         
+            )}
             </Swiper>
           </SliderWrap>
   

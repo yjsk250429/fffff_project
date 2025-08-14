@@ -1,10 +1,20 @@
 import styled from "styled-components";
 
-export const HandStyle = styled.div`
+export const ProductStyle = styled.div`
     .inner {
-        padding: 100px 0;
+        padding: 150px 0;
     }
-    h2 {
-        font-weight: 700;
+    .tabs{
+        display:flex;
+        gap:25px;
+        font-size: 24px;
+        li{
+            color: var(--foundation-white-dark);
+            &.on{
+                font-weight: 500;
+                color: var(--b);
+            }
+        }
     }
+ 
 `;

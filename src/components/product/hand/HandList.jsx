@@ -4,12 +4,12 @@ import HandItem from "./HandItem";
 
 
 const HandList = () => {
-    const {products} = useSelector((state)=>state.products)
+    const {products} = useSelector((state)=>state.product);
 
     return (
-        <ProductListWrap className="cart-box">
+        <ProductListWrap className="product-wrap">
             {
-                products.filter((product)=> product.category==="skin").map((product)=><HandItem key={product.id} product={product}/>)
+                products.filter((product)=> product.category==="hand").map((product)=><HandItem key={product.id} product={product}/>)
             }
         </ProductListWrap>
     );

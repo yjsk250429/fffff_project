@@ -1,28 +1,38 @@
 import { Link } from "react-router-dom";
+import { PiHandbagSimple } from "react-icons/pi";
 
 const HandItem = ({product}) => {
-    const {id, label, title, unit, description, image, option} = product;
-    // const {size, price} = option[0];
+    const {id, label, title, unit, description, image, option, rating} = product;
+    const { rate, count } =rating;
     const selectedOption = option?.length > 1 
     ? option[1] 
     : option?.length === 1 
       ? option[0] 
       : null;
 
-  const price = selectedOption?.price ?? "가격 없음";
-  const size = selectedOption?.size ?? "사이즈 정보 없음";
+
+  const price = selectedOption?.price ?? "";
+  const size = selectedOption?.size ?? "";
 
     return (
         <article>
             <Link to={`/hand/${id}`}>
-            <div>
+            <div className="img-wrap">
                 <img src={image} alt={title} />
             </div>
-            <h3>{label}</h3>
-            <h4>{title}</h4>
-            <p>
-                {size}{unit}<span>{price}원</span>
-            </p>
+            <div className="text-wrap">
+                <p className="product-info">
+                    <strong>{title}</strong>
+                    {rate && count &&
+                        <span>★
+                        {rate.toFixed(1)} ({count})
+                    </span>}
+                    <em>{label}</em>
+                </p>
+                <p className="price-info">
+                <span>{size} {unit} / {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</span> <i><PiHandbagSimple /></i>
+                </p>
+            </div>
             </Link>
         </article>
     );

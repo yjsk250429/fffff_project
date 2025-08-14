@@ -29,9 +29,9 @@ const CollectionProductList = ({ products, title }) => {
                 <h2>{title} 컬렉션</h2>
                 <ul>
                     <CollectionProductItem />
+                    {/* <CollectionProductItem />
                     <CollectionProductItem />
-                    <CollectionProductItem />
-                    <CollectionProductItem />
+                    <CollectionProductItem /> */}
                 </ul>
             </div>
         </CollectionProductStyle>

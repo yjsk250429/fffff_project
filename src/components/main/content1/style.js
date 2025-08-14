@@ -15,6 +15,7 @@ export const BestProductStyle = styled.div`
   
         h2{
             font-size: 50px !important;
+          
             margin-top: 88px;
         }
         p{
@@ -34,25 +35,7 @@ export const BestProductStyle = styled.div`
     overflow:hidden;
 
 `;
-export const Page = styled.div`
-  height: 424px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
-export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-`;
-
-export const RecipeContainer = styled.div`
-  width: 1235px;
-`;
 
 
 export const SwiperWrap = styled.div`
