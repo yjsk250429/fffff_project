@@ -106,6 +106,8 @@ const BodyMainList = () => {
         <Scroll className="scroll swiper-scrollbar" ref={scrollbarRef}>
           <ScrollGrowbar id="js-slider__scrollGrowbar" ref={growbarRef} />
         </Scroll>
+                    <p className="num"><span>01</span><span>05</span></p>
+
       </ContainerInner>
     </Container>
   );

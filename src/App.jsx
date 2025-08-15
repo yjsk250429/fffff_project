@@ -7,9 +7,10 @@ import {
     BodyDetail,
     Cart,
     Collection,
-    CsCenter,
+    Contact,
     DarkEdition,
     Event,
+    Faq,
     Fragrance,
     FragranceDetail,
     Gift,
@@ -33,8 +34,6 @@ import JoinInfo from './components/join/JoinInfo';
 import JoinComplete from './components/join/JoinComplete';
 import Payment from './pages/payment/Payment';
 import PayComplete from './pages/payment/PayComplete';
-import Faq from './components/cscenter/Faq';
-import Contact from './components/cscenter/Contact';
 
 const App = () => {
     return (
@@ -87,7 +86,7 @@ const App = () => {
 
                         <Route path="/darkedition" element={<DarkEdition />} />
 
-                        <Route path="/cscenter" element={<CsCenter />}>
+                        <Route path="/cscenter">
                             <Route index element={<Faq />} />
                             <Route path="faq" element={<Faq />} />
                             <Route path="contact" element={<Contact />} />

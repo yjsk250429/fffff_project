@@ -6,7 +6,8 @@ export { default as Gift } from './gift';
 
 export { default as Join } from './login/Join';
 export { default as Login } from './login/Login';
-export { default as CsCenter } from './cscenter';
+export { default as Faq } from './cscenter/Faq';
+export { default as Contact } from './cscenter/Contact';
 
 export { default as Hair } from './product/Hair';
 export { default as Body } from './product/Body';

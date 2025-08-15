@@ -34,7 +34,20 @@ export const Container = styled.div`
 `;
 
 export const ContainerInner = styled.div`
-
+    position: relative;
+  .num{
+        font-family: 'EB Garamond', serif;
+        font-size: 14px;
+        font-weight: 600;
+    position: absolute;
+    bottom: 71px;
+    right: -310px;
+    span{
+      &:first-child{
+        margin-right: 220px;
+      }
+    }
+  }
 `;
 
 export const SliderWrap = styled.div`
@@ -61,7 +74,7 @@ export const SliderWrap = styled.div`
         position: absolute;
         left: 50%;
       top: 50%;
-      transform:translate(-50%, -50%) scale(1.4);
+      transform:translate(-50%, -50%) scale(1.2);
       }
     }
     img{
@@ -83,12 +96,12 @@ export const SliderWrap = styled.div`
 `;
 
 export const Scroll = styled.div`
-height: 2px;
+height: 1px;
   position: relative;
   left: 1300px;
-  bottom: 46.5px;
+  bottom: 80px;
   margin-top: calc(40em / 16);
-  width: 20%;
+  width: 15%;
   overflow: hidden;
   border-radius:0;
   transform:scaleX(-1);

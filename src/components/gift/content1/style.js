@@ -49,6 +49,7 @@ export const BestGiftStyle = styled.div`
             display: flex;
             gap: 36px;
             li {
+                cursor: pointer;
                 text-align: center;
                 img {
                     /* margin-bottom: 15px; */

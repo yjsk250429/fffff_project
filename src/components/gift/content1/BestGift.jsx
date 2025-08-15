@@ -1,5 +1,27 @@
 import { BestGiftStyle } from './style';
 
+const bestGiftArr = [
+    {
+        id:1,
+        path:'/hair/',
+        image:'/images/gift/gift_con1_0.png',
+        title:'헤어 세럼 듀오',
+    },
+    {
+        id:2,
+        path:'/body/',
+        image:'/images/gift/gift_con1_1.png',
+        title:'아몬드 바디 듀오 리추얼',
+    },
+    {
+        id:3,
+        path:'/body/',
+        image:'/images/gift/gift_con1_2.png',
+        title:'리퀴드 솝 & 핸드 앤 바디 듀오',
+    },
+]
+
+
 const BestGift = () => {
     return (
         <BestGiftStyle>

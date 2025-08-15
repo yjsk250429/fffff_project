@@ -46,30 +46,29 @@ export const CartWrapStyle = styled.div`
         justify-content: space-between;
         align-items: center;
         margin-bottom: 30px;
-
         strong {
+            display:block;
             font-size: 18px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            img {
-                width: 24px;
-                height: 24px;
-                display: block;
-                margin-right: 8px;
+            position: relative;
+            padding-left: 28px;
+            i {
+                position: absolute;
+                left: 0;
+                font-size: 20px;
             }
         }
         em {
-            color: #777;
+            display:block;
+            color: var(--foundation-white-dark-hover);
             font-size: 16px;
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            img {
-                width: 20px;
-                height: 20px;
-                display: block;
-                margin-right: 6px;
+            position: relative;
+            padding-left: 28px;
+            i {
+                position: absolute;
+                left: 0;
+                font-size: 20px;
             }
         }
     }

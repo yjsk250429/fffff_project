@@ -55,9 +55,13 @@ export const GiftMyselfStyle = styled.div`
         gap: 127px;
         li {
             .img-wrap {
+                width: 480px;
+                height: 540px;
                 position: relative;
                 overflow: hidden;
                 img {
+                    width: 100%;
+                    height: 100%;
                     transition: transform 0.3s ease;
                     &:hover {
                         cursor: pointer;

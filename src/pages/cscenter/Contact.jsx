@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
-import { ContactStyle } from "./style";
+import { ContactStyle, CsCenterVisual } from "./style";
 import { TabBarStyle } from "../about/style";
 
 const Contact = () => {
     return (
+        
         <ContactStyle>
+        <CsCenterVisual>
+            <div className="inner"></div>
+        </CsCenterVisual>
                   <TabBarStyle className="tabBar">
                     <li >
                         <Link to="/cscenter/faq">FAQ</Link>        
@@ -19,6 +23,7 @@ const Contact = () => {
                 영업일 2일내에 고객님의 이메일로 답변드리겠습니다.</em>
             </div>
         </ContactStyle>
+        
     );
 };
 

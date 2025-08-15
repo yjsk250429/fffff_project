@@ -1,5 +1,5 @@
 
-import { Container, ContainerInner, Scroll, ScrollGrowbar, SliderWrap } from "./style";
+import { Container, ContainerInner, Scroll, ScrollGrowbar, SliderWrap } from "../content2/style";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -106,6 +106,8 @@ const HairMainList = () => {
           <Scroll className="scroll swiper-scrollbar" ref={scrollbarRef}>
             <ScrollGrowbar id="js-slider__scrollGrowbar" ref={growbarRef} />
           </Scroll>
+            <p className="num"><span>01</span><span>05</span></p>
+
         </ContainerInner>
       </Container>
     );
