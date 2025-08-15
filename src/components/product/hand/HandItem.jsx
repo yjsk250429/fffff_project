@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PiHandbagSimple } from "react-icons/pi";
+import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 
 const HandItem = ({product}) => {
     const {id, label, title, unit, description, image, option, rating} = product;
@@ -19,6 +20,10 @@ const HandItem = ({product}) => {
             <Link to={`/hand/${id}`}>
             <div className="img-wrap">
                 <img src={image} alt={title} />
+                <i>
+                    <IoHeartOutline />
+                       {/* <IoHeart /> */}
+                </i>
             </div>
             <div className="text-wrap">
                 <p className="product-info">

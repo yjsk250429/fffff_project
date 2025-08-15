@@ -63,6 +63,12 @@ margin-top: 62px;
                     left: 50%;
                     transform:translate(-50%, -50%) scale(0.9);
                 }
+                i{
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    font-size: 24px;
+                }
             }
             .text-wrap{
                 width: 100%;
@@ -93,6 +99,7 @@ margin-top: 62px;
                         bottom: 0;
                     }
                 }
+                .text-wrap{
             .price-info {
                 width: 100%;
                 line-height: 35px;
@@ -113,7 +120,7 @@ margin-top: 62px;
                         cursor: pointer;   
                     }
                 }
-            }
+            }}
         }
         
 `;

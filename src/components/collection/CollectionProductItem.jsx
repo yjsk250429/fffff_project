@@ -8,10 +8,10 @@ const CollectionProductItem = ({ product }) => {
             <Link to="">
                 <div className="img-wrap">
                     <img src="" alt="" />
-                    {/* <i>
+                    <i>
                     <IoHeartOutline />
-                    <IoHeart />
-                </i> */}
+                    {/* <IoHeart /> */}
+                </i>
                 </div>
                 <div className="text-wrap">
                     <p className="product-info">

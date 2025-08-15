@@ -87,6 +87,10 @@ export const NavStyle = styled.nav`
             &:hover::after {
                 width: 100%;
             }
+            &:last-child{
+                font-family: 'EB Garamond', serif;
+                font-style:italic;
+            }
         }
         span {
             font-size: 18px;

@@ -7,12 +7,9 @@ export const CollectionIntroStyle = styled.div`
         font-family: 'EB Garamond', serif;
         font-size: 150px;
         line-height: 1;
-<<<<<<< HEAD
         letter-spacing: -2px;
         color: #e0e0e0;
-=======
         color: var(--foundation-white-normal);
->>>>>>> d58c1bbb0bf75eea41c80d99c5cc4d97e21c01ad
         margin-bottom: 55px;
     }
     p {
@@ -149,10 +146,8 @@ export const CollectionProductStyle = styled.div`
             flex-wrap: wrap;
             gap: 34px;
             li {
-<<<<<<< HEAD
                 width: 400px;
                 margin-bottom: 40px;
-=======
                 a{
                 cursor: default;
             }
@@ -164,7 +159,6 @@ export const CollectionProductStyle = styled.div`
                 cursor: pointer;
                 width: 100%;
                 background: var(--background);
->>>>>>> d58c1bbb0bf75eea41c80d99c5cc4d97e21c01ad
                 position: relative;
                 img {
                     width: 100%;
@@ -172,6 +166,12 @@ export const CollectionProductStyle = styled.div`
                     top: 50%;
                     left: 50%;
                     transform:translate(-50%, -50%) scale(0.9);
+                }
+                i{
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    font-size: 24px;
                 }
             }
             .text-wrap{
@@ -203,8 +203,7 @@ export const CollectionProductStyle = styled.div`
                         bottom: 0;
                     }
                 }
-<<<<<<< HEAD
-                .text-wrap {
+                    .text-wrap {
                     .product-info {
                         width: 400px;
                         position: relative;
@@ -225,6 +224,7 @@ export const CollectionProductStyle = styled.div`
                             font-weight: 400;
                             color: #000;
                         }
+                    }
                         em {
                             display: block;
                             padding-top: 10px;
@@ -232,7 +232,8 @@ export const CollectionProductStyle = styled.div`
                             font-weight: 400;
                             line-height: 1;
                         }
-=======
+                    }
+                .text-wrap{
             .price-info {
                 width: 100%;
                 line-height: 35px;
@@ -244,7 +245,6 @@ export const CollectionProductStyle = styled.div`
                 position: relative;
                     span {
                         font-size: 18px;
->>>>>>> d58c1bbb0bf75eea41c80d99c5cc4d97e21c01ad
                     }
                     i{
                         font-size: 24px;
@@ -256,5 +256,7 @@ export const CollectionProductStyle = styled.div`
                 }
             }
         }
+    }
+        
         
 `;

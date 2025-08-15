@@ -82,7 +82,7 @@ const Nav = () => {
                                 <Link to="/about/promise">록시땅의 약속</Link>
                             </li>
                             <li>
-                                <Link to="/about/bcorp">B crop</Link>
+                                <Link to="/about/bcorp">B corp</Link>
                             </li>
                         </ul>
                     </li>
@@ -92,7 +92,7 @@ const Nav = () => {
                             setSubOn(false);
                         }}
                     >
-                        <Link to="/snoopy">L'OCCITANE with 스누피</Link>
+                        <Link to="/darkedition">L'OCCITANE Dark Edition</Link>
                     </li>
                 </ul>
             </NavStyle>

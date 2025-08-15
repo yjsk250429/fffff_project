@@ -1,5 +1,5 @@
 
-const Snoopy = () => {
+const DarkEdition = () => {
     return (
         <div>
             
@@ -7,4 +7,4 @@ const Snoopy = () => {
     );
 };
 
-export default Snoopy;
+export default DarkEdition;

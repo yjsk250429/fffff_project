@@ -14,7 +14,7 @@ export { default as Fragrance } from './product/Fragrance';
 export { default as Hand } from './product/Hand';
 export { default as Refill } from './product/Refill';
 export { default as Skin } from './product/Skin';
-export { default as Snoopy } from './snoopy';
+export { default as DarkEdition } from './darkEdition';
 export { default as Wish } from './wishlist';
 export { default as HairDetail } from './productDetail/HairDetail';
 export { default as BodyDetail } from './productDetail/BodyDetail';

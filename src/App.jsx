@@ -8,6 +8,7 @@ import {
     Cart,
     Collection,
     CsCenter,
+    DarkEdition,
     Event,
     Fragrance,
     FragranceDetail,
@@ -25,7 +26,6 @@ import {
     RefillDetail,
     Skin,
     SkinDetail,
-    Snoopy,
     Wish,
 } from './pages';
 import Notfiles from './pages/notfiles';
@@ -85,7 +85,7 @@ const App = () => {
                             <Route path="bcorp" element={<Bcorp />} />
                         </Route>
 
-                        <Route path="/snoopy" element={<Snoopy />} />
+                        <Route path="/darkedition" element={<DarkEdition />} />
 
                         <Route path="/cscenter" element={<CsCenter />}>
                             <Route index element={<Faq />} />
