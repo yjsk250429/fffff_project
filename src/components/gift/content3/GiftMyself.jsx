@@ -1,4 +1,5 @@
 import { GiftMyselfStyle } from './style';
+import { Link } from 'react-router-dom';
 
 const GiftMyself = () => {
     return (
@@ -11,22 +12,28 @@ const GiftMyself = () => {
                     </div>
                     <ul className="type">
                         <li>
-                            <div className="img-wrap">
-                                <img src="/images/gift/gift_con4_0.png" alt="Body" />
-                                <p>Body</p>
-                            </div>
+                            <Link to="/body">
+                                <div className="img-wrap">
+                                    <img src="/images/gift/gift_con4_0.png" alt="Body" />
+                                    <p>Body</p>
+                                </div>
+                            </Link>
                         </li>
                         <li>
-                            <div className="img-wrap">
-                                <img src="/images/gift/gift_con4_1.png" alt="Hair" />
-                                <p>Hair</p>
-                            </div>
+                            <Link to="/hair">
+                                <div className="img-wrap">
+                                    <img src="/images/gift/gift_con4_1.png" alt="Hair" />
+                                    <p>Hair</p>
+                                </div>
+                            </Link>
                         </li>
                         <li>
-                            <div className="img-wrap">
-                                <img src="/images/gift/gift_con4_2.png" alt="Hand" />
-                                <p>Hand</p>
-                            </div>
+                            <Link to="/hand">
+                                <div className="img-wrap">
+                                    <img src="/images/gift/gift_con4_2.png" alt="Hand" />
+                                    <p>Hand</p>
+                                </div>
+                            </Link>
                         </li>
                     </ul>
                 </div>
