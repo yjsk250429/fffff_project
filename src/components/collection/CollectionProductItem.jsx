@@ -7,21 +7,23 @@ const CollectionProductItem = ({ product }) => {
         <li>
             <Link to="">
                 <div className="img-wrap">
-                    <img src="" alt="" />
+                    <img src={product.image} alt={product.title} />
                     <i>
-                    <IoHeartOutline />
-                    {/* <IoHeart /> */}
-                </i>
+                        <IoHeartOutline />
+                        {/* <IoHeart /> */}
+                    </i>
                 </div>
                 <div className="text-wrap">
                     <p className="product-info">
-                        <strong>아몬드 딜리셔스 핸드크림 아몬드 딜리셔스 핸드크림</strong>
-
-                        <span>★ 5.0</span>
-                        <em>NO.1 핸드크림</em>
+                        <strong>{product.title}</strong>
+                        <span>★ {product.rating.rate}</span>
+                        <em>{product.label}</em>
                     </p>
                     <p className="price-info">
-                        <span>150ml / 41,000원</span>
+                        <span>
+                            {product.option[0].size}
+                            {product.unit} / {product.option[0].price.toLocaleString()}원
+                        </span>
                         <i>
                             <PiHandbagSimple />
                         </i>

@@ -1,35 +1,3 @@
-/*
-import CollectionIntro from '../../components/collection/CollectionIntro';
-import CollectionList from '../../components/collection/CollectionList';
-import CollectionProductList from '../../components/collection/CollectionProductList';
-import { CollectionLineupStyle, CollectionVisualStyle } from './style';
-
-const Collection = () => {
-    return (
-        <>
-            <CollectionVisualStyle>
-                <section className="visual"></section>
-            </CollectionVisualStyle>
-            <CollectionIntro />
-            <CollectionLineupStyle>
-                <li>시어버터</li>
-                <li>버베나</li>
-                <li>체리 블라썸 </li>
-                <li>아몬드</li>
-                <li>이모르뗄</li>
-                <li>라벤더</li>
-                <li>꺄드</li>
-                <li>로즈</li>
-            </CollectionLineupStyle>
-            <CollectionList />
-            <CollectionProductList />
-        </>
-    );
-};
-
-export default Collection;
-*/
-
 import { useSelector, useDispatch } from 'react-redux';
 import { collectionActions } from '../../store/modules/collectionSlice';
 import { CollectionLineupStyle, CollectionVisualStyle } from './style';
@@ -43,8 +11,33 @@ const Collection = () => {
 
     const selectedCollection = collections.find((line) => line.id === selectedId);
 
-    // 선택된 컬렉션에 속한 제품만 필터링
-    const filteredProducts = products.filter((product) => product.collection == selectedId);
+    // Switch문으로 컬렉션 매칭 (문자열만)
+    const filteredProducts = products.filter((product) => {
+        if (!selectedCollection || !product.collection) return false;
+
+        switch (selectedCollection.title) {
+            case '시어 버터':
+                return product.collection === '시어 버터';
+            case '버베나':
+                return product.collection === '버베나';
+            case '체리 블라썸':
+                return product.collection === '체리 블라썸';
+            case '아몬드':
+                return product.collection === '아몬드';
+            case '아몬드':
+                return product.collection === '아몬드';
+            case '이모르뗄':
+                return product.collection === '이모르뗄';
+            case '라벤더':
+                return product.collection === '라벤더';
+            case '꺄드':
+                return product.collection === '꺄드';
+            case '로즈':
+                return product.collection === '로즈';
+            default:
+                return false;
+        }
+    });
 
     return (
         <>
@@ -63,7 +56,7 @@ const Collection = () => {
                 ))}
             </CollectionLineupStyle>
             <CollectionList />
-            <CollectionProductList />
+            <CollectionProductList products={filteredProducts} title={selectedCollection?.title} />
         </>
     );
 };

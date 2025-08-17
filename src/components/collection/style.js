@@ -133,22 +133,22 @@ export const CollectionProductStyle = styled.div`
         width: 1700px;
         padding: 100px 0;
     }
-        h2 {
-            text-align: center;
-            line-height: 1;
-            font-size: 30px;
-            font-weight: 600;
-            margin-bottom: 50px;
-        }
-        ul {
-            width: 1702px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 34px;
-            li {
-                width: 400px;
-                margin-bottom: 40px;
-                a{
+    h2 {
+        text-align: center;
+        line-height: 1;
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 50px;
+    }
+    ul {
+        width: 1702px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 34px;
+        li {
+            width: 400px;
+            margin-bottom: 40px;
+            a {
                 cursor: default;
             }
             width: 400px;
@@ -165,98 +165,109 @@ export const CollectionProductStyle = styled.div`
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    transform:translate(-50%, -50%) scale(0.9);
+                    transform: translate(-50%, -50%) scale(0.9);
                 }
-                i{
+                i {
                     position: absolute;
                     top: 16px;
                     right: 16px;
                     font-size: 24px;
                 }
             }
-            .text-wrap{
+            .text-wrap {
                 width: 100%;
-           
-                .product-info{
+
+                .product-info {
                     padding-top: 25px;
                     height: 111px;
                     position: relative;
-                    strong{
-                        display:block;
+                    strong {
+                        display: block;
                         width: 300px;
                         font-size: 22px;
                         font-weight: 600;
                         margin-bottom: 36px;
-                        word-break:keep-all;
+                        word-break: keep-all;
                     }
-                    span{
-                            font-size: 16px;
-                            font-weight: 400;
-                            position: absolute;
-                            top: 25px;
-                            right: 0;
-                            cursor: pointer;
-                        }
-                    }
-                    em{
+                    span {
+                        font-size: 16px;
+                        font-weight: 400;
                         position: absolute;
-                        bottom: 0;
+                        top: 25px;
+                        right: 0;
+                        cursor: pointer;
                     }
                 }
-                    .text-wrap {
-                    .product-info {
-                        width: 400px;
+                em {
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+            .text-wrap {
+                .product-info {
+                    width: 400px;
+                    position: relative;
+                    strong {
+                        display: block;
+                        width: 300px;
+                        height: 52px;
+                        font-size: 22px;
+                        line-height: 1.2;
+                        font-weight: 600;
+                        word-break: keep-all;
+                    }
+                    span {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #000;
+                    }
+                }
+                em {
+                    display: block;
+                    padding-top: 10px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 1;
+                }
+            }
+            .text-wrap {
+                .price-info {
+                    width: 100%;
+                    line-height: 35px;
+                    border-top: 1px solid var(--foundation-white-normal);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 10px;
+                    position: relative;
+                    strong {
+                        display: block;
+                        width: 300px;
+                        height: 52px;
+                        font-size: 22px;
+                        line-height: 1.2;
+                        font-weight: 600;
+                        word-break: keep-all;
                         position: relative;
-                        strong {
-                            display: block;
-                            width: 300px;
-                            height: 52px;
-                            font-size: 22px;
-                            line-height: 1.2;
-                            font-weight: 600;
-                            word-break: keep-all;
-                        }
-                        span {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            font-size: 16px;
-                            font-weight: 400;
-                            color: #000;
-                        }
                     }
-                        em {
-                            display: block;
-                            padding-top: 10px;
-                            font-size: 16px;
-                            font-weight: 400;
-                            line-height: 1;
-                        }
-                    }
-                .text-wrap{
-            .price-info {
-                width: 100%;
-                line-height: 35px;
-                border-top: 1px solid var(--foundation-white-normal);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 10px;
-                position: relative;
                     span {
                         font-size: 18px;
+                        position: absolute;
+                        top: 25px;
+                        right: 0;
                     }
-                    i{
+                    i {
                         font-size: 24px;
                         position: absolute;
                         top: 5px;
-                        right: 0;      
-                        cursor: pointer;   
+                        right: 0;
+                        cursor: pointer;
                     }
                 }
             }
         }
     }
-        
-        
 `;
