@@ -1,3 +1,4 @@
+import Button from '../../../ui/Button';
 import { BestGiftStyle } from './style';
 import { Link } from 'react-router-dom';
 
@@ -33,9 +34,7 @@ const BestGift = ({ title }) => {
                         사랑하는 마음을 가장 아름답게
                         <br /> 담는 방법, 향기와 감촉으로 기억될 단 하나의 선물을 지금 만나보세요.
                     </p>
-                    {/* <p className="btn">
-                        <button>자세히 보기</button>
-                    </p> */}
+                    <Button text="자세히 보기" bgColor="#000" textColor="#fff"/>
                 </div>
                 <div className="img-wrap">
                     <ul className="list">

@@ -1,3 +1,4 @@
+import Button from '../../../ui/Button';
 import BodyMainList from './BodyMainList';
 import { BodyMainStyle } from './style';
 
@@ -17,7 +18,7 @@ const BodyMain = () => {
                         록시땅의 바디 케어는 전통과 자연을 담아
                         <br /> 당신의 몸과 마음에 포근한 휴식을 선물합니다.
                     </p>
-                    <p><button>제품 보기</button></p>
+                    <Button text="제품 보기"/>
                 </div>
                 <BodyMainList/>
             </div>

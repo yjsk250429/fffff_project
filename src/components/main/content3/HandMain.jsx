@@ -1,3 +1,4 @@
+import Button from '../../../ui/Button';
 import HandMainList from './HandMainList';
 import { HandMainStyle } from './style';
 
@@ -14,7 +15,7 @@ const HandMain = () => {
                         록시땅 핸드 케어와 함께라면 바쁜 하루 속에서도
                         <br /> 당신의 손은 늘 따뜻하게 감싸집니다.
                     </p>
-                    <p><button>제품 보기</button></p>
+                    <Button text="제품 보기"/>
                 </div>
                 <div className="img-wrap">
                     <img src="/images/main/con3-m.png" alt="bodycare" />

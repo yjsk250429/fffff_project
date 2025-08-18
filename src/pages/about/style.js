@@ -623,15 +623,7 @@ export const PromiseStyle = styled.article`
                         p {
                             color: var(--Foundation-White-Darker, #4e4e4e);
                         }
-                        .btn {
-                            button {
-                                width: 218px;
-                                height: 52px;
-                                background: #000;
-                                color: var(--w);
-                                border: none;
-                            }
-                        }
+                       
                     }
                 }
             }

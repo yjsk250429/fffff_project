@@ -110,21 +110,7 @@ export const CollectionItemStyle = styled.li`
             }
         }
         .button-wrap {
-            width: 847px;
             text-align: center;
-            button {
-                /* font-family: 'Pretendard', sans-serif;
-                font-size: 16px;
-                font-weight: 500;
-                background-color: var(--b);
-                color: var(--w);
-                border: none;
-                width: 152px;
-                height: 42px;
-                line-height: 42px;
-                text-align: center;
-                padding: 0; */
-            }
         }
     }
 `;

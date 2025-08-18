@@ -1,6 +1,7 @@
 import { Promise_VisualStyle, PromiseStyle } from '../../components/about/style';
 import { Link } from 'react-router-dom';
 import { IntroStyle, TabBarStyle } from '../../components/about/style';
+import Button from '../../ui/Button';
 const Promise = () => {
     return (
         <PromiseStyle>
@@ -199,7 +200,7 @@ const Promise = () => {
                                 <strong>매장 방문을 통한 참여</strong>
                                 <p>가까운 록시땅 매장에서 공병수거 캠페인에 참여하세요.</p>
                                 <p className="btn">
-                                    <button>매장 찾기</button>
+                                <Button text="매장 찾기" width="200px" bgColor="#000" textColor="#fff"/>
                                 </p>
                             </li>
                             <li>
@@ -210,7 +211,7 @@ const Promise = () => {
                                 <strong>온라인 채널을 통한 참여</strong>
                                 <p>테라사이클 홈페이지에서 온라인 수거를 신청하세요.</p>
                                 <p className="btn">
-                                    <button>참여 신청하기</button>
+                                <Button text="참여 신청하기" width="200px" bgColor="#000" textColor="#fff"/>
                                 </p>
                             </li>
                             <li>
@@ -218,7 +219,7 @@ const Promise = () => {
                                 <strong>에코리필</strong>
                                 <p>환경을 위하는 록시땅과 함께 해주세요.</p>
                                 <p className="btn">
-                                    <button>리필 제품 보기</button>
+                                    <Button text="리필 제품 보기" width="200px" bgColor="#000" textColor="#fff"/>
                                 </p>
                             </li>
                         </ul>

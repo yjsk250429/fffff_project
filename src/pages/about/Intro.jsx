@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Intro_VisualStyle, IntroStyle, TabBarStyle } from '../../components/about/style';
 import { PiDotOutlineFill } from 'react-icons/pi';
+import Button from '../../ui/Button';
 
 const Intro = () => {
     return (
@@ -245,7 +246,7 @@ const Intro = () => {
                             <br /> 지속가능한 아름다움을 전하고자 합니다.
                         </p>
                         <p className="btn">
-                            <button>함께하는 여정 보기</button>
+                            <Button text="함께하는 여정 보기" width="200px" bgColor="var(--sub)" textColor="#fff"/>
                         </p>
                     </div>
                 </section>

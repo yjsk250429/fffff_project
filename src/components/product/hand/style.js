@@ -2,41 +2,86 @@ import styled from 'styled-components';
 
 
 export const ProductSearchWrap = styled.div`
-    margin-bottom: 30px;
-    position: relative;
+margin-top: 30px;
     form {
-        display: flex;
-        justify-content: space-between;
-        p {
-            input[type='text'] {
-                width: 350px;
-                box-sizing: border-box;
-                height: 45px;
-                padding: 10px;
-                border: 1px solid #999;
+        display:flex;
+        justify-content:space-between;
+        .search {
+            height: 24px;
+            width: 235px;
+            position: relative;
+            i{
+                position: absolute;
+                font-size: 24px;
+                left: 0;
+                top: 50%;
+                transform:translateY(-50%);
             }
-            /* button {
-                width: 100px;
-                height: 45px;
-                vertical-align: top;
-            } */
-            select {
+            input[type="text"]{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform:translateY(-50%);
+                margin-left: 30px;
                 width: 200px;
-                height: 45px;
+                height: 24px;
+                border: none;
+                border-bottom: 1px solid #000;
+                padding:15px 0;
                 box-sizing: border-box;
-                padding: 10px;
-                border: 1px solid #999;
+                font-size: 18px;
+                &:focus{
+                    outline:none;
+                }
             }
-            span {
-                margin-left: 15px;
+          
+        }
+        .filter{
+            position: relative;
+            button{
                 cursor: pointer;
+                border: none;
+                background: none;
+                font-size: 24px;
+                font-weight: 500;
+                font-family: 'Pretendard', sans-serif;
+            }
+        }
+   
+    .option{
+        border: 1px solid #000;
+        width: 250px;
+        height: 860px;
+        padding:30px;
+        box-sizing: border-box;
+        position: absolute;
+        right: 0;
+        top: 36px;
+        z-index:10;
+        background: var(--w);
+        display:none;
+        &.on{
+            display:block;
+        }
+        ul{
+            margin-bottom: 20px;
+            li{
+                margin-bottom: 4px;
+                &:first-child{
+                    font-size: 18px;
+                    margin-bottom: 8px;
+                }
+                input[type="checkbox"]{
+                    margin-right: 8px;
+                }
             }
         }
     }
+}
 `;
 
 export const ProductListWrap = styled.article`
-margin-top: 62px;
+margin-top: 60px;
     &.product-wrap {
         display: flex;
         justify-content: space-between;

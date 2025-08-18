@@ -2,11 +2,10 @@ import BestGift from '../../components/gift/content1/BestGift';
 import GiftList from '../../components/gift/content2/GiftList';
 import GiftMyself from '../../components/gift/content3/GiftMyself';
 import SheaButter from '../../components/gift/content4/SheaButter';
-
-import { AutoSliderStyle, GiftVisualStyle, SliderStyle } from './style';
+import { GiftVisualStyle, SliderStyle, AutoSliderStyle } from './style';
 
 const gift = [
-    'Cadea u',
+    'Cadeau',
     'Regalo',
     'هدية',
     'Gift',
@@ -17,7 +16,6 @@ const gift = [
     'Hadiah',
     'Geschenk',
 ];
-const texts = [...gift, ...gift, ...gift];
 
 const Gift = () => {
     return (
@@ -25,19 +23,21 @@ const Gift = () => {
             <GiftVisualStyle>
                 <div className="visual"></div>
             </GiftVisualStyle>
+
+            {/* ✅ 무한 슬라이더 */}
             <SliderStyle>
-                <AutoSliderStyle className="marquee">
+                <AutoSliderStyle>
                     <div className="track">
-                        <div className="content">
-                            <ul>
-                                {texts.map((text, i) => (
-                                    <li key={i}>{text}</li>
-                                ))}
-                            </ul>
-                        </div>
+                        {/* 배열을 3번 반복해서 더 안정적인 무한 반복 */}
+                        {[...gift, ...gift, ...gift].map((text, i) => (
+                            <div className="item" key={i}>
+                                {text}
+                            </div>
+                        ))}
                     </div>
                 </AutoSliderStyle>
             </SliderStyle>
+
             <BestGift />
             <GiftList />
             <GiftMyself />

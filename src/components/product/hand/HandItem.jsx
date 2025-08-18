@@ -35,7 +35,8 @@ const HandItem = ({product}) => {
                     <em>{label}</em>
                 </p>
                 <p className="price-info">
-                <span>{size} {unit} / {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</span> <i><PiHandbagSimple /></i>
+                <span>
+                {typeof size === "number" ? `${size} ${unit} /` : ""} {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</span> <i><PiHandbagSimple /></i>
                 </p>
             </div>
             </Link>
