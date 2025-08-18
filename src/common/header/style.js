@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderStyle = styled.header`
+    background: var(--bg-header, #fff);
     .inner {
         height: 150px;
         padding: 25px 0 40px 0;
@@ -24,6 +25,10 @@ export const SmallUtilStyle = styled.ul`
     li {
         position: relative;
         font-size: 14px;
+        color: var(--text-header);
+        a {
+            color: var(--text-header);
+        }
         &:nth-child(1) {
             cursor: pointer;
             margin-right: 8px;
@@ -34,6 +39,7 @@ export const SmallUtilStyle = styled.ul`
                 position: absolute;
                 top: 1px;
                 font-size: 16px;
+                color: var(--text-header);
             }
         }
         &:nth-child(2) {
@@ -63,6 +69,7 @@ export const BigUtilStyle = styled.ul`
     i {
         font-size: 28px;
         cursor: pointer;
+        color: var(--text-header);
     }
 `;
 
@@ -87,19 +94,21 @@ export const NavStyle = styled.nav`
             &:hover::after {
                 width: 100%;
             }
-            &:last-child{
+            &:last-child {
                 font-family: 'EB Garamond', serif;
-                font-style:italic;
+                font-style: italic;
             }
         }
         span {
             font-size: 18px;
             /* font-weight: 300; */
             cursor: pointer;
+            color: var(--text-header);
         }
         a {
             font-size: 18px;
             /* font-weight: 300; */
+            color: var(--text-header);
         }
     }
     .submenu1 {

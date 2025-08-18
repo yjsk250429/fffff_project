@@ -43,71 +43,72 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Main />} />
-                        <Route path="/hair">
+                        <Route path="hair">
                             <Route index element={<Hair />} />
                             <Route path=":hairID" element={<HairDetail />} />
                         </Route>
 
-                        <Route path="/hand">
+                        <Route path="hand">
                             <Route index element={<Hand />} />
                             <Route path=":handID" element={<HandDetail />} />
                         </Route>
 
-                        <Route path="/body">
+                        <Route path="body">
                             <Route index element={<Body />} />
                             <Route path=":bodyID" element={<BodyDetail />} />
                         </Route>
 
-                        <Route path="/skin">
+                        <Route path="skin">
                             <Route index element={<Skin />} />
                             <Route path=":skinID" element={<SkinDetail />} />
                         </Route>
 
-                        <Route path="/refill">
+                        <Route path="refill">
                             <Route index element={<Refill />} />
                             <Route path=":refillID" element={<RefillDetail />} />
                         </Route>
 
-                        <Route path="/fragrance">
+                        <Route path="fragrance">
                             <Route index element={<Fragrance />} />
                             <Route path=":fragranceID" element={<FragranceDetail />} />
                         </Route>
 
-                        <Route path="/gift" element={<Gift />} />
-                        <Route path="/collection" element={<Collection />} />
-                        <Route path="/event" element={<Event />} />
+                        <Route path="gift" element={<Gift />} />
+                        <Route path="collection" element={<Collection />} />
+                        <Route path="event" element={<Event />} />
 
-                        <Route path="/about">
+                        <Route path="about">
                             <Route index element={<Intro />} />
                             <Route path="intro" element={<Intro />} />
                             <Route path="promise" element={<Promise />} />
                             <Route path="bcorp" element={<Bcorp />} />
                         </Route>
 
-                        <Route path="/darkedition" element={<DarkEdition />} />
-
-                        <Route path="/cscenter">
+                        <Route path="cscenter">
                             <Route index element={<Faq />} />
                             <Route path="faq" element={<Faq />} />
                             <Route path="contact" element={<Contact />} />
                         </Route>
 
-                        <Route path="/cart">
+                        <Route path="cart">
                             <Route index element={<Cart />} />
                             <Route path="payment" element={<Payment />} />
                             <Route path="paycomplete" element={<PayComplete />} />
                         </Route>
 
-                        <Route path="/wish" element={<Wish />} />
+                        <Route path="wish" element={<Wish />} />
 
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/join">
+                        <Route path="login" element={<Login />} />
+                        <Route path="join">
                             <Route index element={<Join />} />
                             <Route path="joininfo" element={<JoinInfo />} />
                             <Route path="joincomplete" element={<JoinComplete />} />
                         </Route>
 
                         <Route path="*" element={<Notfiles />} />
+                    </Route>
+                    <Route path="/darkedition" element={<Layout theme="special" />}>
+                        <Route index element={<DarkEdition />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

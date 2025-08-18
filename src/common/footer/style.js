@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 export const FooterStyle = styled.footer`
-    border-top: 1px solid #cacaca;
+    border-top: 1px solid var(--border-footer, #cacaca);
+    background: var(--bg-footer);
     .inner {
         height: 600px;
         text-align: center;
@@ -20,17 +21,18 @@ export const FooterStyle = styled.footer`
         li {
             font-size: 14px;
             font-weight: 500;
-            color: #333;
+            color: var(--text-footer, #333);
             position: relative;
             a {
                 font-weight: 400;
+                color: var(--text-footer, #333);
             }
             &::after {
                 content: '';
                 display: block;
                 width: 1px;
                 height: 11px;
-                background: #b0bcc8;
+                background: var(--text-footer, #b0bcc8);
                 position: absolute;
                 right: -12px;
                 top: 50%;

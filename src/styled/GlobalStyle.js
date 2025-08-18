@@ -18,6 +18,14 @@ const GlobalStyle = createGlobalStyle`
   table {
     width: 100%;
   }
+  [data-theme="special"]{
+    --bg-header:#0D0F1A;
+    --text-header:#fff;
+    --bg-footer:#0D0F1A;
+    --text-footer:#fff;
+    --border-footer:"none";
+    --border-header:"none";
+  }
   .main {
       width: 100%;
       overflow:hidden;
