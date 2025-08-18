@@ -42,6 +42,7 @@ export const ContainerInner = styled.div`
     position: absolute;
     bottom: 71px;
     right: -310px;
+    color: #000;
     span{
       &:first-child{
         margin-right: 220px;

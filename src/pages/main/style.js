@@ -27,11 +27,13 @@ export const MainContentStyle = styled.section`
             font-size: 24px;
             font-weight: 500;
             margin-bottom: 40px;
+            color: var(--foundation-white-darker);
         }
         p{
             line-height: 25px;
             margin-bottom: 130px;
             font-size: 18px;
+            color: var(--foundation-white-darker);
         }
     }
 `;

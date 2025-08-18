@@ -42,9 +42,39 @@ export const DailyMomentsStyle = styled.div`
             justify-content: center;
             align-items: top;
             li{
-                height:672px;
-                img{
-                   width: 380px; 
+              &:nth-child(odd){
+                .img-wrap{
+                    height: 470px;
+                }
+                }
+              &:nth-child(even){
+                .img-wrap{
+                   height: 380px;
+                   img{
+                    height: 100%;
+                   }
+                }
+              }
+              &:nth-child(3){
+                .img-wrap{
+                    img{
+                        top: -30px;
+                    }
+                }
+              }
+                .img-wrap{
+                    cursor: pointer;
+                width: 380px;
+                position: relative;
+                overflow:hidden;
+                    img{
+                        position: absolute; 
+                        width: 380px; 
+                        transition:1s ease;
+                        &:hover{
+                            transform:scale(1.1);
+                        }
+                    }
                 }
                 strong{
                     display:block;

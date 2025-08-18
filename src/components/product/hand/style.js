@@ -117,7 +117,6 @@ margin-top: 60px;
             }
             .text-wrap{
                 width: 100%;
-           
                 .product-info{
                     padding-top: 25px;
                     height: 111px;

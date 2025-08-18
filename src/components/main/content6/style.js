@@ -98,10 +98,12 @@ export const NatureItemStyle = styled.li`
     margin: auto;
     position: relative;
     img{
+        /* height: 56px; */
         position: absolute;
         left: 50%;
-        top: 50%;
-        transform:translate(-50%, -50%);
+        top: 0;
+        /* top: 50%; */
+        transform:translateX(-50%);
     }
     }
     p{

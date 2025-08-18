@@ -27,7 +27,7 @@ export const ProductDetailStyle = styled.article`
     scrollbar-width: none;
     .detail{
         width: 100%;
-        height: 680px;
+        height: 800px;
     padding:50px 100px; 
     position: relative;
     box-sizing: border-box;

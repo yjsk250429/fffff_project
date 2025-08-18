@@ -37,6 +37,7 @@ position: relative;
     position: absolute;
     bottom: 71px;
     left: -310px;
+    color: #000;
     span{
       &:first-child{
         margin-right: 220px;

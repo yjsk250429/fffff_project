@@ -12,11 +12,9 @@ export const BestProductStyle = styled.div`
     .text{
         height: 424px;
         margin-right: 124px;
-  
+        margin-top: 90px !important;
         h2{
             font-size: 50px !important;
-          
-            margin-top: 88px;
         }
         p{
             font-weight: 500;
@@ -24,6 +22,7 @@ export const BestProductStyle = styled.div`
             width: 450px;
             word-break: keep-all;
             color:var(--foundation-white-darker);
+            margin-bottom: 50px;
         }
     }
     `;
