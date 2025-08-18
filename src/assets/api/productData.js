@@ -2845,7 +2845,7 @@ export default [
             {
                 id: 'option-1',
                 size: null,
-                price: 0,
+                price: 34000,
             },
         ],
     },

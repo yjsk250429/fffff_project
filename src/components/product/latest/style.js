@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const LatestStyle = styled.article`
-text-align: center;
+.inner{
+padding-top: 150px;
+    text-align: center;
+}
 h2{
     font-size: 40px;
     font-weight: 600;
@@ -16,7 +19,6 @@ em{
     width: 1810px;
     height: 600px;
     margin-top: 94px;
-    margin-bottom: 290px;
     display:flex;
     gap: 30px;
     justify-content: space-between;
