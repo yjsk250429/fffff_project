@@ -1,3 +1,4 @@
+import Button from '../../../ui/Button';
 import HairMainList from './HairMainList';
 import { HairMainStyle } from './style';
 
@@ -18,7 +19,7 @@ const HairMain = () => {
                         <br />
                         부드럽고 건강한 머릿결을 오래도록 지켜줍니다.
                     </p>
-                    <p><button>제품 보기</button></p>
+                    <Button text="제품 보기"/>
                 </div>
                 <HairMainList/>
             </div>

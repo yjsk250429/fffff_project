@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { collectionActions } from '../../store/modules/collectionSlice';
 import { CollectionItemStyle } from './style';
+import Button from '../../ui/Button';
 
 const CollectionItem = () => {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const CollectionItem = () => {
                     ))}
                 </ul>
                 <p className="button-wrap">
-                    <button>제품 보기</button>
+                    <Button text="제품보기" bgColor="#000" textColor="#fff"/>
                 </p>
             </div>
         </CollectionItemStyle>

@@ -399,16 +399,6 @@ export const IntroStyle = styled.article`
                 }
                 .btn {
                     margin-top: 30px;
-                    button {
-                        width: 215px;
-                        height: 55px;
-                        background: var(--sub, #00274c);
-                        border: none;
-                        color: var(--w);
-                        font-size: 16px;
-                        /* font-weight: 700; */
-                        line-height: 30px;
-                    }
                 }
             }
         }
