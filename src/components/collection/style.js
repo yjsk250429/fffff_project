@@ -26,6 +26,7 @@ export const CollectionIntroStyle = styled.div`
     .image-wrap {
         width: 1700px;
         height: 710px;
+        overflow: hidden;
         display: flex;
         justify-content: space-between;
         li {
@@ -174,58 +175,58 @@ export const CollectionProductStyle = styled.div`
                     font-size: 24px;
                 }
             }
-            .text-wrap{
+            .text-wrap {
                 width: 100%;
-           
-                .product-info{
-                    padding-top: 25px;
-                    height: 111px;
+
+                .product-info {
+                    padding-top: 20px;
+                    height: 90px;
                     position: relative;
-                    strong{
-                        display:block;
+                    strong {
+                        display: block;
                         width: 300px;
+                        height: 55px;
                         font-size: 22px;
+                        line-height: 1.3;
                         font-weight: 600;
-                        margin-bottom: 36px;
-                        word-break:keep-all;
+                        /* margin-bottom: 36px; */
+                        word-break: keep-all;
                     }
-                    span{
-                            font-size: 16px;
-                            font-weight: 400;
-                            position: absolute;
-                            top: 25px;
-                            right: 0;
-                            cursor: pointer;
-                        }
+                    span {
+                        font-size: 16px;
+                        font-weight: 400;
+                        position: absolute;
+                        top: 25px;
+                        right: 0;
+                        cursor: pointer;
                     }
-                    em{
+                    em {
+                        line-height: 1;
                         position: absolute;
                         bottom: 0;
                     }
                 }
-                .text-wrap{
-            .price-info {
-                width: 100%;
-                line-height: 35px;
-                border-top: 1px solid var(--foundation-white-normal);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 10px;
-                position: relative;
+                .price-info {
+                    width: 100%;
+                    line-height: 35px;
+                    border-top: 1px solid var(--foundation-white-normal);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 10px;
+                    position: relative;
                     span {
                         font-size: 18px;
                     }
-                    i{
+                    i {
                         font-size: 24px;
                         position: absolute;
                         top: 5px;
-                        right: 0;      
-                        cursor: pointer;   
+                        right: 0;
+                        cursor: pointer;
                     }
                 }
-            }}
+            }
         }
-        
-
+    }
 `;

@@ -26,13 +26,10 @@ import collectionData from '../../assets/api/collectionData';
 import productData from '../../assets/api/productData';
 
 const initialState = {
-    products: localStorage.getItem('products')
-        ? JSON.parse(localStorage.getItem('products'))
-        : productData,
-    collections: localStorage.getItem('collections')
-        ? JSON.parse(localStorage.getItem('collections'))
-        : collectionData, // 전체 데이터
+    products: productData,
+    collections: collectionData, // 전체 데이터
     selectedId: collectionData[0]?.id || null, // 기본 선택
+    showProducts: false,
 };
 
 export const collectionSlice = createSlice({
@@ -40,7 +37,14 @@ export const collectionSlice = createSlice({
     initialState,
     reducers: {
         selectCollection: (state, action) => {
-            state.selectedId = action.payload; // 클릭한 id로 변경
+            state.selectedId = action.payload;
+            state.showProducts = false; // 컬렉션 변경시 제품 목록 숨김
+        },
+        toggleProducts: (state) => {
+            state.showProducts = !state.showProducts;
+        },
+        showProducts: (state) => {
+            state.showProducts = true;
         },
     },
 });

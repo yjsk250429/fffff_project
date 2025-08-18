@@ -7,7 +7,9 @@ import CollectionIntro from '../../components/collection/CollectionIntro';
 
 const Collection = () => {
     const dispatch = useDispatch();
-    const { collections, selectedId, products } = useSelector((state) => state.collection);
+    const { collections, selectedId, products, showProducts } = useSelector(
+        (state) => state.collection
+    );
 
     const selectedCollection = collections.find((line) => line.id === selectedId);
 
@@ -22,8 +24,6 @@ const Collection = () => {
                 return product.collection === '버베나';
             case '체리 블라썸':
                 return product.collection === '체리 블라썸';
-            case '아몬드':
-                return product.collection === '아몬드';
             case '아몬드':
                 return product.collection === '아몬드';
             case '이모르뗄':
@@ -56,7 +56,12 @@ const Collection = () => {
                 ))}
             </CollectionLineupStyle>
             <CollectionList />
-            <CollectionProductList products={filteredProducts} title={selectedCollection?.title} />
+            {showProducts && (
+                <CollectionProductList
+                    products={filteredProducts}
+                    title={selectedCollection?.title}
+                />
+            )}
         </>
     );
 };

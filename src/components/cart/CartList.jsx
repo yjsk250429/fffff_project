@@ -1,8 +1,10 @@
 import { CartListStyle, CartSampleStyle } from './style';
 import CartItem from './CartItem';
 import CartSample from './CartSample';
+import { useSelector } from 'react-redux';
 
 const CartList = () => {
+    const { carts } = useSelector((state) => state.cart);
     return (
         <CartListStyle>
             <div className="cart-left">
@@ -16,7 +18,9 @@ const CartList = () => {
                     </div>
                 </div>
                 <ul>
-                    <CartItem />
+                    {carts.map((cart) => (
+                        <CartItem key={cart.id} cart={cart} />
+                    ))}
                     {
                         // products.map((product)=> (<CartItem key={product.id} product={product}/>))
                     }
