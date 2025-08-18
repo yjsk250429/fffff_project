@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const CollectionIntroStyle = styled.div`
+    width: 1700px;
+    margin: auto;
     position: relative;
     padding: 100px;
     h2 {
@@ -72,6 +74,8 @@ export const CollectionItemStyle = styled.li`
     }
     .description {
         width: 1152px;
+        margin: auto;
+
         height: 100%;
         padding: 70px 151px;
         box-sizing: border-box;
@@ -177,11 +181,11 @@ export const CollectionProductStyle = styled.div`
                         font-weight: 600;
                         /* margin-bottom: 36px; */
                         word-break: keep-all;
-                        display: -webkit-box;     
+                        display: -webkit-box;
                         -webkit-box-orient: vertical;
-                        overflow: hidden;       
-                        text-overflow: ellipsis; 
-                        -webkit-line-clamp: 2;  
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        -webkit-line-clamp: 2;
                     }
                     span {
                         font-size: 16px;
