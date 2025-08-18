@@ -35,7 +35,7 @@ export const CartWrapStyle = styled.div`
         align-items: center;
         margin-bottom: 30px;
         strong {
-            display:block;
+            display: block;
             font-size: 18px;
             font-weight: 600;
             position: relative;
@@ -47,7 +47,7 @@ export const CartWrapStyle = styled.div`
             }
         }
         em {
-            display:block;
+            display: block;
             color: var(--foundation-white-dark-hover);
             font-size: 16px;
             font-weight: 500;
@@ -107,6 +107,7 @@ export const CartItemStyle = styled.ul`
                     right: 0;
                     font-size: 18px;
                     color: #999;
+                    cursor: pointer;
                 }
             }
             .product-size {
@@ -213,6 +214,7 @@ export const CartListStyle = styled.div`
                         display: block;
                         margin-left: 24px;
                         position: relative;
+                        cursor: pointer;
 
                         &::after {
                             position: absolute;

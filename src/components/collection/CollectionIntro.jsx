@@ -18,7 +18,7 @@ const CollectionIntro = () => {
         if (!container || !imageItems.length) return;
 
         gsap.set(imageItems, {
-            y: 150,
+            y: 350,
             opacity: 0,
             scale: 0.9,
         });

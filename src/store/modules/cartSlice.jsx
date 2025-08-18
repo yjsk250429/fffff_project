@@ -8,6 +8,7 @@ const initialState = {
     carts: localStorage.getItem('carts') ? JSON.parse(localStorage.getItem('carts')) : [],
     priceTotal: 500,
     quantityTotal: 10,
+    isChecked: false,
 };
 let no = 1;
 
@@ -37,11 +38,8 @@ export const cartSlice = createSlice({
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },
 
-        emptyCart: (state, action) => {
-            const b = action.payload;
-            if (b) {
-                state.carts = [];
-            }
+        emptyCart: (state) => {
+            state.carts = [];
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },
 
@@ -81,6 +79,26 @@ export const cartSlice = createSlice({
                     item.itemTotal = item.option[0].price * item.quantity;
                 }
             }
+            localStorage.setItem('carts', JSON.stringify(state.carts));
+        },
+        checkAll: (state, action) => {
+            state.isChecked = action.payload;
+            state.carts = state.carts.map((cart) => ({
+                ...cart,
+                checked: action.payload,
+            }));
+            localStorage.setItem('carts', JSON.stringify(state.carts));
+        },
+
+        checkSelected: (state, action) => {
+            const id = action.payload;
+            const item = state.carts.find((cart) => cart.id === id);
+            if (item) {
+                item.checked = !item.checked;
+            }
+            // filter로 전체 체크 여부 판단
+            const checkedCount = state.carts.filter((cart) => cart.checked).length;
+            state.isChecked = checkedCount === state.carts.length && state.carts.length > 0;
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },
     },
