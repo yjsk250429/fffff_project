@@ -177,6 +177,11 @@ export const CollectionProductStyle = styled.div`
                         font-weight: 600;
                         /* margin-bottom: 36px; */
                         word-break: keep-all;
+                        display: -webkit-box;     
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;       
+                        text-overflow: ellipsis; 
+                        -webkit-line-clamp: 2;  
                     }
                     span {
                         font-size: 16px;
