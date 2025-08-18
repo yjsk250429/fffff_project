@@ -10,6 +10,17 @@ const CollectionProductItem = ({ product }) => {
     const { carts } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
+    // 현재 상품이 장바구니에 있는지 확인
+    const isInCart = carts.some((item) => item.id === product.id);
+    // 장바구니 토글 핸들러
+    const handleCartToggle = (e) => {
+        e.preventDefault(); // Link 클릭 막기
+        if (isInCart) {
+            dispatch(cartActions.removeCart(product.id)); // 장바구니에서 제거
+        } else {
+            dispatch(cartActions.addCart(product)); // 장바구니에 추가
+        }
+    };
     return (
         <li>
             <Link to="">
@@ -32,7 +43,7 @@ const CollectionProductItem = ({ product }) => {
                                 : ''}
                             {option?.[0]?.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                         </span>
-                        <i onClick={() => dispatch(cartActions.addCart(product))}>
+                        <i onClick={handleCartToggle} className={isInCart ? 'active' : ''}>
                             <PiHandbagSimple />
                         </i>
                     </p>
