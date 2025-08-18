@@ -2438,7 +2438,6 @@ export default [
             },
         ],
     },
-    ,
     {
         id: 83,
         category: 'hand',
