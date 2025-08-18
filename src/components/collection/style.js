@@ -174,100 +174,58 @@ export const CollectionProductStyle = styled.div`
                     font-size: 24px;
                 }
             }
-            .text-wrap {
+            .text-wrap{
                 width: 100%;
-
-                .product-info {
+           
+                .product-info{
                     padding-top: 25px;
                     height: 111px;
                     position: relative;
-                    strong {
-                        display: block;
+                    strong{
+                        display:block;
                         width: 300px;
                         font-size: 22px;
                         font-weight: 600;
                         margin-bottom: 36px;
-                        word-break: keep-all;
+                        word-break:keep-all;
                     }
-                    span {
-                        font-size: 16px;
-                        font-weight: 400;
+                    span{
+                            font-size: 16px;
+                            font-weight: 400;
+                            position: absolute;
+                            top: 25px;
+                            right: 0;
+                            cursor: pointer;
+                        }
+                    }
+                    em{
                         position: absolute;
-                        top: 25px;
-                        right: 0;
-                        cursor: pointer;
+                        bottom: 0;
                     }
                 }
-                em {
-                    position: absolute;
-                    bottom: 0;
-                }
-            }
-            .text-wrap {
-                .product-info {
-                    width: 400px;
-                    position: relative;
-                    strong {
-                        display: block;
-                        width: 300px;
-                        height: 52px;
-                        font-size: 22px;
-                        line-height: 1.2;
-                        font-weight: 600;
-                        word-break: keep-all;
-                    }
-                    span {
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        font-size: 16px;
-                        font-weight: 400;
-                        color: #000;
-                    }
-                }
-                em {
-                    display: block;
-                    padding-top: 10px;
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 1;
-                }
-            }
-            .text-wrap {
-                .price-info {
-                    width: 100%;
-                    line-height: 35px;
-                    border-top: 1px solid var(--foundation-white-normal);
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-top: 10px;
-                    position: relative;
-                    strong {
-                        display: block;
-                        width: 300px;
-                        height: 52px;
-                        font-size: 22px;
-                        line-height: 1.2;
-                        font-weight: 600;
-                        word-break: keep-all;
-                        position: relative;
-                    }
+                .text-wrap{
+            .price-info {
+                width: 100%;
+                line-height: 35px;
+                border-top: 1px solid var(--foundation-white-normal);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                position: relative;
                     span {
                         font-size: 18px;
-                        position: absolute;
-                        top: 25px;
-                        right: 0;
                     }
-                    i {
+                    i{
                         font-size: 24px;
                         position: absolute;
                         top: 5px;
-                        right: 0;
-                        cursor: pointer;
+                        right: 0;      
+                        cursor: pointer;   
                     }
                 }
-            }
+            }}
         }
-    }
+        
+
 `;
