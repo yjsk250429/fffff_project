@@ -31,7 +31,12 @@ const CollectionItem = () => {
                     ))}
                 </ul>
                 <p className="button-wrap">
-                    <Button onClick={handleShowProducts} text="제품보기" bgColor="#000" textColor="#fff"/>
+                    <Button
+                        onClick={handleShowProducts}
+                        text="제품보기"
+                        bgColor="#000"
+                        textColor="#fff"
+                    />
                 </p>
             </div>
         </CollectionItemStyle>

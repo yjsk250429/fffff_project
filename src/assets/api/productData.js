@@ -234,7 +234,7 @@ export default [
         id: 9,
         label: '두피 & 모발 활력 솔루션',
         category: 'hair',
-        title: '[기프트] 볼륨 & 스트렝스 샴푸 500ml 세트 (+두피 브러쉬)',
+        title: '[기프트] 볼륨 & 스트렝스 샴푸 500ml 세트git (+두피 브러쉬)',
         description:
             '건강한 볼륨감을 선사하는 두피 & 모발 활력 솔루션, 볼륨 & 스트렝스 샴푸 & 두피 브러쉬 세트',
         quantity: 1,
@@ -2844,7 +2844,7 @@ export default [
             {
                 id: 'option-1',
                 size: null,
-                price: 34000,
+                price: 0,
             },
         ],
     },

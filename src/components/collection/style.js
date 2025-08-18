@@ -166,7 +166,7 @@ export const CollectionProductStyle = styled.div`
 
                 .product-info {
                     padding-top: 20px;
-                    height: 90px;
+                    height: 85px;
                     position: relative;
                     strong {
                         display: block;
@@ -210,6 +210,10 @@ export const CollectionProductStyle = styled.div`
                         top: 5px;
                         right: 0;
                         cursor: pointer;
+                        transition: 0.2s;
+                        &.active {
+                            color: #987700; /* 장바구니에 있을 때 색 */
+                        }
                     }
                 }
             }
