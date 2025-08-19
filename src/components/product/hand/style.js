@@ -84,7 +84,7 @@ export const ProductListWrap = styled.article`
 margin-top: 60px;
     &.product-wrap {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
         gap: 32px;
         &.empty{

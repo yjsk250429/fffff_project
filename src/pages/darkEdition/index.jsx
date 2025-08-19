@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { DarkStyle, DarkTitleStyle } from './style';
 import Button from '../../ui/Button';
-import DarkLimited from '../../components/darkEdition/DarkLimited';
 import DarkCards from '../../components/darkEdition/DarkCards';
+import DarkCollection from '../../components/darkEdition/DarkCollection';
+import DarkProduct from '../../components/darkEdition/DarkProduct';
+import DarkPackage from '../../components/darkEdition/DarkPackage';
 
 const DarkEdition = () => {
     useEffect(() => {
@@ -23,8 +25,10 @@ const DarkEdition = () => {
                 <p className="more"><Button text="자세히 보기" textColor="var(--hover-header)" borderColor="var(--hover-header)" width="184px"/></p>
             </div>
             </DarkTitleStyle>
-            <DarkLimited/>
+            <DarkPackage/>
             <DarkCards/>
+            <DarkCollection/>
+            <DarkProduct/>
         </DarkStyle>
     );
 };

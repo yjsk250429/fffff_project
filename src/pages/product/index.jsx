@@ -52,7 +52,7 @@ const Product = () => {
                         </select>
                     </div>
                 <HandInput/>
-                <ProductList category={category} activeTab={activeTab}/>
+                <ProductList key={`${category}:${activeTab}`} category={category} activeTab={activeTab}/>
                 { pageData.length > 0 &&<Pagination/>}
             </div>
         </ProductStyle>

@@ -7,11 +7,11 @@ import { paginationActions } from "../../../store/modules/paginationSlice";
 
 const ProductList = ({category, activeTab}) => {
     const {products} = useSelector((state)=>state.product);
-    const { pageData, perPage, currentPage} = useSelector((state)=>state.pagination);
+    const {perPage, currentPage} = useSelector((state)=>state.pagination);
     const dispatch = useDispatch();
 
     let list = products;
-    if ( category && category !== "all"){
+    if ( category){
         list = list.filter((product)=>product.category === category);
     }
     if (activeTab && activeTab !== "ALL") {

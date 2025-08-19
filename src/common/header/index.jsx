@@ -60,7 +60,9 @@ const Header = ({ theme }) => {
                                     <PiHandbagSimple />
                                 </i>
                             </Link>
-                                <Badge text={quantityTotal}/>
+                                {
+                                    carts.length > 0 && <Badge text={quantityTotal}/>
+                                }
                         </li>
                         <li>
                             <Link to="/wish">

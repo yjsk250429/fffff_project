@@ -1,10 +1,13 @@
+import { DarkProductStyle } from "./style";
 
 const DarkProduct = () => {
     return (
-        <div>
+        <DarkProductStyle>
+            <div className="inner">
             <div className="left"></div>
             <div className="right"></div>
-        </div>
+            </div>
+        </DarkProductStyle>
     );
 };
 

@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const DarkStyle = styled.section`
     background: var(--bg-header);
+    h2, h3, h4, em, p, strong, span{
+        color: #fff;
+    }
 `;
 
 export const DarkTitleStyle = styled.article`
@@ -11,12 +14,10 @@ export const DarkTitleStyle = styled.article`
         text-align: center;
     }
         em{
-            color: #fff;
             font-weight: 500;
             font-size: 20px;
         }
         strong{
-            color: #fff;
             font-weight: 600;
             display:block;
             margin-top: 12px;
@@ -28,6 +29,7 @@ export const DarkTitleStyle = styled.article`
             font-family: 'EB Garamond', serif;
             color:var(--hover-header);
             font-size: 100px;
+            margin-bottom: 113px;
         }
         .more{}
 `;
