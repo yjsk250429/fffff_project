@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { TabBarStyle } from '../about/style';
 import { CsCenterVisual, FaqStyle } from './style';
+import FaqMain from '../../components/cscenter/faq/FaqMain';
 
 const Faq = () => {
     return (
@@ -17,8 +18,7 @@ const Faq = () => {
                 </li>
             </TabBarStyle>
             <div className="inner">
-                <h2>자주 하는 질문</h2>
-                <em>FAQ</em>
+                <FaqMain />
             </div>
         </FaqStyle>
     );

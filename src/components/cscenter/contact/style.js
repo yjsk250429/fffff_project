@@ -10,6 +10,7 @@ export const CustomerAddStyle = styled.div`
         font-size: 40px;
         font-weight: 600;
         padding-bottom: 24px;
+        margin-top: 30px;
     }
     em {
         color: var(--foundation-white-dark-active, #656565);
