@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-import { TabBarStyle } from "../about/style";
-import { CsCenterVisual, FaqStyle } from "./style";
+import { Link } from 'react-router-dom';
+import { TabBarStyle } from '../about/style';
+import { CsCenterVisual, FaqStyle } from './style';
+import FaqMain from '../../components/cscenter/faq/FaqMain';
 
 const Faq = () => {
     return (
-    
-            <FaqStyle>
-        <CsCenterVisual>
-            <div className="inner"></div>
-        </CsCenterVisual>
+        <FaqStyle>
+            <CsCenterVisual>
+                <div className="inner"></div>
+            </CsCenterVisual>
             <TabBarStyle className="tabBar">
-                <li className="on" >
+                <li className="on">
                     <Link to="/cscenter/faq">FAQ</Link>
                 </li>
                 <li>
@@ -18,11 +18,9 @@ const Faq = () => {
                 </li>
             </TabBarStyle>
             <div className="inner">
-                <h2>자주 하는 질문</h2>
-                <em>FAQ</em>
+                <FaqMain />
             </div>
         </FaqStyle>
-    
     );
 };
 

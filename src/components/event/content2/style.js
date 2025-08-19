@@ -35,7 +35,6 @@ export const ItemStyle = styled.li`
     background: #4e4e4e;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
-    cursor: pointer;
     img {
         &:hover {
             transform: scale(1.1);
