@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     --text-footer:#fff;
     --border-footer:"none";
     --border-header:"none";
+    --hover-header:#D2B870;
   }
   .main {
       width: 100%;

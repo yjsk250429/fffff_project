@@ -8,7 +8,7 @@ import {ProductStyle} from "./style"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const index = () => {
+const Product = () => {
     const {category} = useParams();
     const [activeTab, setActiveTab] = useState("ALL");
     const {pageData} = useSelector((state)=>state.pagination);
@@ -59,4 +59,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Product;

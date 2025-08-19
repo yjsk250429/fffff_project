@@ -6,7 +6,7 @@ export const ButtonStyle = styled.button`
     width: ${(props) => props.width || '150px'};
     height: ${(props) => props.height || '42px'};
     border: none;
-    border: 1px solid var(--foundation-white-darker);
+    border: 1px solid ${(props)=> props.borderColor|| 'var(--foundation-white-darker)'};
     text-align: center;
     cursor: pointer;
     padding: 12px 20px;
@@ -38,4 +38,16 @@ export const InputStyle = styled.input`
     &:focus {
         border: 1px solid #666;
     }
+`;
+
+export const BadgeStyle = styled.p`
+    background: var(--foundation-yellow-dark-hover);
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius:50%;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    font-size: 10px;
 `;

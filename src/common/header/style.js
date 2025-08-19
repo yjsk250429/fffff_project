@@ -62,15 +62,21 @@ export const BigUtilStyle = styled.ul`
     gap: 20px;
     position: absolute;
     right: 0;
-    /* img {
-        width:28px;
-        cursor: pointer;
-    } */
-    i {
-        font-size: 28px;
-        cursor: pointer;
-        color: var(--text-header);
+    li{
+        position: relative;
+
+            i {
+                font-size: 28px;
+                cursor: pointer;
+                color: var(--text-header);
+            }
+
+        p{
+            right: -5px;
+            top: 0;
+        }
     }
+    
 `;
 
 export const NavStyle = styled.nav`
@@ -84,7 +90,7 @@ export const NavStyle = styled.nav`
                 display: block;
                 width: 0;
                 height: 2px;
-                background: #00274c;
+                background:var(--text-header, #00274c) ;
                 position: absolute;
                 bottom: 0;
                 left: 50%;
@@ -118,18 +124,18 @@ export const NavStyle = styled.nav`
         width: 1530px;
         height: 0px;
         padding: 30px 0 0 380px;
-        border-top: 1px solid #dcdcdc;
+        border-top: 1px solid var(--bg-header, #dcdcdc);
         left: -380px;
         top: 72px;
         transition: 0.2s;
         li {
             display: none;
             a {
-                color: #656565;
+                color:var(--text-header,#656565 ) ;
             }
             &:hover {
                 a {
-                    color: #00274c;
+                    color:var(--hover-header, #00274c);
                     font-weight: 600;
                 }
             }
@@ -138,7 +144,7 @@ export const NavStyle = styled.nav`
             height: 60px;
             padding: 30px 0 0 380px;
             z-index: 100;
-            background: #fff;
+            background:var(--bg-header, #fff);
             li {
                 display: block;
             }
@@ -151,18 +157,18 @@ export const NavStyle = styled.nav`
         width: 1043px;
         height: 0px;
         padding: 30px 0 0 872px;
-        border-top: 1px solid #dcdcdc;
+        border-top: 1px solid var(--bg-header, #dcdcdc);
         left: -872px;
         top: 72px;
         transition: 0.2s;
         li {
             display: none;
             a {
-                color: #656565;
+                color:var(--text-header,#656565 ) ;
             }
             &:hover {
                 a {
-                    color: #00274c;
+                    color:var(--hover-header, #00274c);
                     font-weight: 600;
                 }
             }
@@ -171,7 +177,7 @@ export const NavStyle = styled.nav`
             height: 60px;
             padding: 30px 0 0 872px;
             z-index: 100;
-            background: #fff;
+            background:var(--bg-header, #fff);
             li {
                 display: block;
             }

@@ -6,10 +6,20 @@ import { PiHandbagSimple } from 'react-icons/pi';
 import { IoSearchOutline } from 'react-icons/io5';
 import { IoHeartOutline } from 'react-icons/io5';
 import { IoPersonOutline } from 'react-icons/io5';
+import Badge from '../../ui/Badge';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { cartActions } from '../../store/modules/cartSlice';
 
 const Header = ({ theme }) => {
+    const { carts, quantityTotal } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
     const logoChange =
-        theme === 'special' ? '/images/header_logo_white.png' : '/images/header_logo.png';
+        theme === 'special' ? '/images/header_logo_2.png' : '/images/header_logo.png';
+
+        useEffect(()=>{
+            dispatch(cartActions.totalCart());
+        },[carts]);
     return (
         <HeaderStyle>
             <div className="inner">
@@ -37,7 +47,7 @@ const Header = ({ theme }) => {
                             <img src={logoChange} alt="loccitane" />
                         </Link>
                     </h1>
-                    <Nav />
+                    <Nav/>
                     <BigUtilStyle>
                         <li>
                             <i>
@@ -50,6 +60,7 @@ const Header = ({ theme }) => {
                                     <PiHandbagSimple />
                                 </i>
                             </Link>
+                                <Badge text={quantityTotal}/>
                         </li>
                         <li>
                             <Link to="/wish">

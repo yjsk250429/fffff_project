@@ -1,24 +1,31 @@
 import { Link } from 'react-router-dom';
 import { FooterStyle } from './style';
 
-const Footer = () => {
+const Footer = ({theme}) => {
+    const logoChange =
+    theme === 'special' ? '/images/footer_logo_2.png' : '/images/footer_logo.png';
+
+    const instaW = theme === 'special' ? '/images/instagram_w.png' : '/images/instagram.png';
+    const youtubeW = theme === 'special' ? "/images/youtube_w.png" : "/images/youtube.png";
+    const kakaoW = theme === 'special' ? "/images/kakaochanel_w.png" : "/images/kakaochanel.png";
+
     return (
         <FooterStyle>
             <div className="inner">
                 <ul className="sns">
                     <li>
                         <a href="https://www.instagram.com/loccitanekorea/#">
-                            <img src="/images/instagram.png" alt="instagram" />
+                            <img src={instaW} alt="instagram" />
                         </a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/channel/UCThkOG1gSayUnxQQzEZur1A/featured">
-                            <img src="/images/youtube.png" alt="youtube" />
+                            <img src={youtubeW} alt="youtube" />
                         </a>
                     </li>
                     <li>
                         <a href="https://pf.kakao.com/_fwQxaz">
-                            <img src="/images/kakaochanel.png" alt="kakaochanel" />
+                            <img src={kakaoW} alt="kakaochanel" />
                         </a>
                     </li>
                 </ul>
@@ -38,7 +45,7 @@ const Footer = () => {
                     <li>록시땅 프로방스 국가/도시 변경</li>
                 </ul>
                 <h1>
-                    <img src="/images/footer_logo.png" alt="loccitane" />
+                    <img src={logoChange} alt="loccitane" />
                 </h1>
                 <ul className="info1">
                     <li>록시땅코리아 유한책임회사</li>
