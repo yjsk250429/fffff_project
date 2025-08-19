@@ -1,34 +1,53 @@
+import { useDispatch, useSelector } from 'react-redux';
 import CartGift from './CartGift';
 import { CartRightStyle } from './style';
+import { useEffect } from 'react';
+import { cartActions } from '../../store/modules/cartSlice';
 
 const CartRight = () => {
+    const { carts, priceTotal, quantityTotal } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(cartActions.totalCart());
+    }, [carts, dispatch]);
+
+    const shippingFee = priceTotal > 0 && priceTotal < 50000 ? 3000 : 0;
+    const discountAmount = 0;
+    const finalTotal = priceTotal + shippingFee - discountAmount;
+
+    const formatPrice = (price) => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
     return (
         <CartRightStyle>
             <div className="cart-right">
                 <h3>결제 정보</h3>
                 <strong>
-                    총 결제 금액<span>price원</span>
+                    총 결제 금액
+                    <span>{formatPrice(finalTotal)}원</span>
                 </strong>
                 <p>
-                    상품 금액<span>price원</span>
+                    상품 금액
+                    <span>{formatPrice(priceTotal)}원</span>
                 </p>
                 <p>
-                    배송비<span>price원</span>
+                    배송비
+                    <span>{formatPrice(shippingFee)}원</span>
                 </p>
                 <p>
-                    할인 금액<span>price원</span>
+                    할인 금액
+                    <span>{formatPrice(discountAmount)}원</span>
                 </p>
                 <div className="button-wrap">
                     <p>
-                        <button>총 totalCount개</button>
+                        <button>총 {quantityTotal}개</button>
                     </p>
                     <p>
-                        <button>price원 주문하기</button>
+                        <button>{formatPrice(finalTotal)}원 주문하기</button>
                     </p>
                 </div>
             </div>
             <CartGift />
-            {/*  {isOrderComplete? "" : <CartGift/>} */}
         </CartRightStyle>
     );
 };

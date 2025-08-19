@@ -163,6 +163,10 @@ export const CollectionProductStyle = styled.div`
                     top: 16px;
                     right: 16px;
                     font-size: 24px;
+
+                    &.active {
+                        color: red; /* 위시리스트에 있을 때 색 */
+                    }
                 }
             }
             .text-wrap {
@@ -219,7 +223,6 @@ export const CollectionProductStyle = styled.div`
                         top: 5px;
                         right: 0;
                         cursor: pointer;
-                        transition: 0.2s;
                         &.active {
                             color: #987700; /* 장바구니에 있을 때 색 */
                         }

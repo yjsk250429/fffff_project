@@ -105,7 +105,7 @@ export const WishtItemStyle = styled.ul`
                 display: flex;
                 align-items: center;
                 position: relative;
-                p {
+                .btn {
                     color: #594600;
                     width: 121px;
                     height: 30px;
@@ -115,6 +115,7 @@ export const WishtItemStyle = styled.ul`
                     font-size: 14px;
                     font-weight: 500;
                     border: 1px solid var(--foundation-yellow-darker);
+                    cursor: pointer;
                 }
                 .item-price {
                     position: absolute;

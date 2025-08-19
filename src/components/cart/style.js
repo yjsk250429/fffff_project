@@ -209,12 +209,11 @@ export const CartListStyle = styled.div`
                     position: relative;
                     display: flex;
                     align-items: center;
-
-                    span {
+                    cursor: pointer;
+                    &:last-child {
                         display: block;
                         margin-left: 24px;
                         position: relative;
-                        cursor: pointer;
 
                         &::after {
                             position: absolute;
@@ -382,7 +381,7 @@ export const CartRightStyle = styled.div`
         .textarea-wrapper {
             max-height: 0;
             opacity: 0;
-            transition: all 0.4s ease;
+            transition: 0.2s;
             strong {
                 display: block;
                 width: 440px;

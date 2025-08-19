@@ -6,6 +6,7 @@ import pagination from './modules/paginationSlice';
 import gift from './modules/giftSlice';
 import nature from './modules/natureSlice';
 import collection from './modules/collectionSlice';
+import wish from './modules/wishSlice';
 
 const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
         gift,
         nature,
         collection,
+        wish,
     },
 });
 
