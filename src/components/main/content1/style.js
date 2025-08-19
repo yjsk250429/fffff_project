@@ -45,7 +45,7 @@ export const SwiperWrap = styled.div`
   .swiper-scrollbar {
     --swiper-scrollbar-bottom: 0;
     --swiper-scrollbar-drag-bg-color:var(--foundation-white-darker);
-    --swiper-scrollbar-size: 2px;
+    --swiper-scrollbar-size: 1px;
   }
   .swiper-slide {
     margin-right: 15px; 

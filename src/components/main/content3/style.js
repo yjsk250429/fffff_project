@@ -7,17 +7,18 @@ export const HandMainStyle = styled.div`
         display: flex;
         height: 1000px;
         padding: 93px 0;
-        
-        align-items: flex-start;
+        justify-content: end;
     }
     .text{
-        margin-left: 324px;
+        width: 418px;
+        margin-right: 160px;
     }
     .img-wrap {
         width: 1018px;
         height: 600px;
         overflow: hidden;
         position: relative;
+        /* margin-left: 95px; */
         img{
             position: absolute;
             left: 0;
