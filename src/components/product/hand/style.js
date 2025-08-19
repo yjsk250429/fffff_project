@@ -87,6 +87,14 @@ margin-top: 60px;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 32px;
+        &.empty{
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            p{
+                font-size:30px;
+            }
+        }
         article {
             a{
                 cursor: default;

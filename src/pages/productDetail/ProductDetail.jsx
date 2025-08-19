@@ -9,13 +9,13 @@ import Ingredient from "./Ingredient";
 import Reivew from "./Reivew";
 import Recommand from "./RecommandList";
 
-const HandDetail = () => {
-    const {handID} = useParams();
+const ProductDetail = () => {
+    const {category, productID} = useParams();
     const {products} = useSelector((state)=>state.product);
     if (!products) {
         return <p>상품 데이터를 불러오는 중입니다.</p>;
       }
-    const thisItem = products.find((product)=>product.id === Number(handID));
+    const thisItem = products.find((product)=>product.id === Number(productID));
     if (!thisItem) {
         return <p>해당 상품을 찾을 수 없습니다.</p>;
     }
@@ -65,4 +65,4 @@ const HandDetail = () => {
     );
 };
 
-export default HandDetail;
+export default ProductDetail;

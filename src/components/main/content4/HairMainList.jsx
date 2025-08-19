@@ -94,7 +94,7 @@ const HairMainList = () => {
             </SwiperSlide>
             {bodyBest.map((best)=>
             <SwiperSlide className="slider__listItem" key={best.id}>
-              <Link to={`/hair/${best.id}`}>
+              <Link to={`/product/${best.category}/${best.id}`}>
               <img src={best.image} alt={best.title} />
               </Link>
             </SwiperSlide>

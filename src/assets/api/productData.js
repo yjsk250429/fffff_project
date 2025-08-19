@@ -93,7 +93,7 @@ export default [
         description:
             '손상된 모발 +115% 개선. 더 강력해진 극손상 모발 개선 샴푸 대용량 & 극손상 모발 개선 컨디셔너 대용량 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -238,7 +238,7 @@ export default [
         description:
             '건강한 볼륨감을 선사하는 두피 & 모발 활력 솔루션, 볼륨 & 스트렝스 샴푸 & 두피 브러쉬 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -266,7 +266,7 @@ export default [
         description:
             '손상된 모발 +115%* 개선. 더 강력해진 극손상 모발 개선 샴푸 & 두피 브러쉬 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -321,7 +321,7 @@ export default [
         description:
             '공식몰 단독. 모근에 영양을 선사하여 건강한 헤어 사이클을 유지하고 두피 컨디션 개선에 도움을 주어 탄탄한 모발 뿌리를 만드는 두피 세럼 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -348,7 +348,7 @@ export default [
         title: '[기프트] 스칼프 나이트 세럼 50ml 세트 (+ 프리미엄 괄사 증정)',
         description: '잠든 사이 최적의 두피 컨디션으로 만들어주는 두피 세럼 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -465,7 +465,7 @@ export default [
         description:
             '건강한 볼륨감을 선사하는 두피 & 모발 활력 솔루션, 볼륨 & 스트렝스 샴푸와 컨디셔너 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -493,7 +493,7 @@ export default [
         description:
             '공식몰 단독. 페퍼민트 에센셜 오일을 함유해 두피를 상쾌하고 개운하게 케어, 퓨리파잉 프레시니스 헤어 듀오 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -602,7 +602,7 @@ export default [
         title: '인텐시브 리페어 서블리메이팅 오일',
         description: '손상된 모발을 케어해주는 오일 타입의 헤어 에센스',
         quantity: 1,
-        type: '오일 & 에센스',
+        type: '오일&에센스',
         rating: {
             rate: 5.0,
             count: 4,
@@ -962,7 +962,7 @@ export default [
         description:
             '진정 효과가 있는 라벤더 에센셜 오일이 함유되어 민감한 두피를 부드럽게 클렌징하고 모발에 가볍고 촉촉한 수분감을 선사하는 샴푸 & 컨디셔너 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1058,7 +1058,7 @@ export default [
         description:
             '페퍼민트 에센셜 오일을 함유해 두피를 상쾌하고 개운하게 케어하고 불쾌한 두피 냄새를 제거해 청량감을 선사하는 샴푸 & 두피 브러쉬 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1086,7 +1086,7 @@ export default [
         description:
             '손상된 모발 +115% 개선. 부드러운 크림 텍스처로 엉키고 손상된 모발을 윤기있게 케어해주는 더 강력해진 극손상 모발 개선 컨디셔너 대용량 & 에코 리필 구성 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1113,7 +1113,7 @@ export default [
         title: '인텐시브 리페어 서블리메이팅 오일',
         description: '손상된 모발을 케어해주는 오일 타입의 헤어 에센스',
         quantity: 1,
-        type: '오일 & 에센스',
+        type: '오일&에센스',
         rating: {
             rate: null,
             count: null,
@@ -1181,7 +1181,7 @@ export default [
         description:
             '손상된 모발 +115%* 개선. 더 강력해진 극손상 모발 개선 샴푸 대용량 & 에코 리필 구성 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1209,7 +1209,7 @@ export default [
         description:
             '페퍼민트 에센셜 오일을 함유해 두피를 상쾌하고 개운하게 케어하고 불쾌한 두피 냄새를 제거해 청량감을 선사하는 샴푸',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1265,7 +1265,7 @@ export default [
         description:
             '페퍼민트 에센셜 오일을 함유해 두피를 상쾌하고 개운하게 케어하고 불쾌한 두피 냄새를 제거해 청량감을 선사하는 샴푸 & 에코 리필 & 헤어 브러쉬 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1415,7 +1415,7 @@ export default [
         description:
             '공식몰 단독. 건강한 볼륨감을 선사하는 두피 & 모발 활력 솔루션, 볼륨 & 스트렝스 헤어 듀오 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1443,7 +1443,7 @@ export default [
         description:
             '손상된 모발 +115% 개선. 더 강력해진 극손상 모발 개선 샴푸 & 에코 리필 & 헤어 브러쉬 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1498,7 +1498,7 @@ export default [
         description:
             '페퍼민트 에센셜 오일을 함유해 두피를 상쾌하고 개운하게 케어하고 끈적임 없이 모발을 보호해주는 수분 컨디셔너',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -1526,7 +1526,7 @@ export default [
         description:
             '공식몰 단독. 손상된 모발 +115% 개선. 더 강력해진 극손상 모발 개선, 인텐시브 리페어 헤어 듀오 세트',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -2003,7 +2003,7 @@ export default [
     {
         id: 68,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '시어 버베나 핸드 워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
         description: null,
@@ -2097,7 +2097,7 @@ export default [
     {
         id: 71,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: 'NO.1 핸드크림',
         title: '[기프트] 시어 버터 핸드크림 150ml 세트',
         description: null,
@@ -2123,7 +2123,7 @@ export default [
     {
         id: 72,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 시어 버터 핸드크림 & 스틱 립 밤 듀오',
         description: null,
@@ -2300,7 +2300,7 @@ export default [
     {
         id: 78,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 시어 & 체리 핸드크림 듀오',
         description: null,
@@ -2389,7 +2389,7 @@ export default [
     {
         id: 81,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 시어 & 플로럴 핸드크림 트리오',
         description: null,
@@ -2503,7 +2503,7 @@ export default [
     {
         id: 85,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 시어 버터 & 아몬드 핸드크림 듀오',
         description: null,
@@ -2736,7 +2736,7 @@ export default [
     {
         id: 93,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 시어 버터 핸드크림 & 립 밤 듀오',
         description: null,
@@ -2799,7 +2799,7 @@ export default [
     {
         id: 95,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 체리 & 로즈 핸드크림 듀오',
         description: null,
@@ -2825,7 +2825,7 @@ export default [
     {
         id: 96,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 시어 버터 핸드크림 듀오',
         description: null,
@@ -2877,7 +2877,7 @@ export default [
     {
         id: 98,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 버베나 핸드크림 듀오',
         description: null,
@@ -2939,7 +2939,7 @@ export default [
     {
         id: 100,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 버베나 핸드 & 시어 스틱 립 밤 듀오',
         description: null,
@@ -2965,7 +2965,7 @@ export default [
     {
         id: 101,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 록시땅 베스트 핸드 트리오',
         description: null,
@@ -3110,7 +3110,7 @@ export default [
     {
         id: 106,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 클래식 시어 핸드크림 트리오',
         description: null,
@@ -3136,7 +3136,7 @@ export default [
     {
         id: 107,
         category: 'hand',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '[기프트] 체리 블라썸 핸드 & 체리 립 밤 듀오',
         description: null,
@@ -3214,7 +3214,7 @@ export default [
     {
         id: 110,
         category: 'body',
-        type: '바스 & 샤워젤', //바스 & 샤워젤|로션 & 크림|솝|오일|스크럽||미스트||기프트 세트
+        type: '바스&샤워젤', //바스&샤워젤|로션&크림|솝|오일|스크럽||미스트||Gift&Set
         label: null,
         title: '시어 버베나 핸드 앤 바디 리퀴드 솝',
         description: null,
@@ -3302,7 +3302,7 @@ export default [
     {
         id: 113,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: '25% 시어 버터 함유',
         title: '시어 버터 울트라 리치 바디 크림',
         description: null,
@@ -3462,7 +3462,7 @@ export default [
     {
         id: 119,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '아몬드 릴랙싱 앤 모이스쳐라이징 밀크배쓰',
         description: null,
@@ -3514,7 +3514,7 @@ export default [
     {
         id: 121,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: '바디케어 1위*',
         title: '아몬드 모이스쳐라이징 샤워 오일',
         description:
@@ -3546,7 +3546,7 @@ export default [
     {
         id: 122,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '버베나 샤워 젤',
         description:
@@ -3578,7 +3578,7 @@ export default [
     {
         id: 123,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: '바디케어 1위*',
         title: '아몬드 모이스쳐라이징 샤워 오일',
         description:
@@ -3610,7 +3610,7 @@ export default [
     {
         id: 124,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: '15% 시어 버터 함유',
         title: '시어 버터 울트라 리치 바디 로션',
         description: null,
@@ -3688,7 +3688,7 @@ export default [
     {
         id: 127,
         category: 'body',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '시어 버베나 핸드 워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
         description: null,
@@ -3714,7 +3714,7 @@ export default [
     {
         id: 128,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '아몬드 밀크 베일',
         description: null,
@@ -3740,7 +3740,7 @@ export default [
     {
         id: 129,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '버베나 바디 밀크',
         description: null,
@@ -3766,7 +3766,7 @@ export default [
     {
         id: 130,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '로즈 샤워 젤',
         description: null,
@@ -3797,7 +3797,7 @@ export default [
     {
         id: 131,
         category: 'body',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: '공식몰 단독',
         title: '시어 버터 바디 케어 듀오 세트 (+핸드크림 10ml 증정)',
         description: '극강의 건조함을 위한 시어 버터 솔루션의 샤워 젤 & 바디 로션 듀오 세트',
@@ -3823,7 +3823,7 @@ export default [
     {
         id: 132,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '시어 버베나 엑스트라 젠틀 핸드 앤 바디 로션',
         description: null,
@@ -3849,7 +3849,7 @@ export default [
     {
         id: 133,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '아몬드 밀크 컨센트레이트',
         description: null,
@@ -3901,7 +3901,7 @@ export default [
     {
         id: 135,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '체리 블라썸 바디 로션',
         description: null,
@@ -3927,7 +3927,7 @@ export default [
     {
         id: 136,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: '2025 리미티드',
         title: '리미티드 버베나 아이시 샤워 젤',
         description: '2025 리미티드 에디션. 멘톨이 함유되어 더운 여름날 사용하기에 적합한 샤워 젤',
@@ -3963,7 +3963,7 @@ export default [
     {
         id: 137,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: '2025 리미티드',
         title: '리미티드 버베나 쿨링 바디 젤',
         description: '2025 리미티드 에디션. 멘톨이 함유되어 더운 여름날 사용하기에 적합한 쿨링 젤',
@@ -3989,7 +3989,7 @@ export default [
     {
         id: 138,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '체리 블라썸 샤워 젤',
         description: null,
@@ -4015,7 +4015,7 @@ export default [
     {
         id: 139,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '버베나 샤워 젤',
         description:
@@ -4047,7 +4047,7 @@ export default [
     {
         id: 140,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '오 드 쎄드라 샤워 젤',
         description: null,
@@ -4073,7 +4073,7 @@ export default [
     {
         id: 141,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '시트러스 버베나 프레쉬 밀크',
         description: null,
@@ -4125,7 +4125,7 @@ export default [
     {
         id: 143,
         category: 'body',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: '바디케어 1위*',
         title: '아몬드 샤워 오일 & 아몬드 밀크 컨센트레이트 듀오 (+ 아몬드 미니 핸드 & 스파츌라 증정)',
         description:
@@ -4179,7 +4179,7 @@ export default [
     {
         id: 145,
         category: 'body',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '아몬드 바디 케어 듀오 (샤워 오일 + 밀크 베일)',
         description: null,
@@ -4205,7 +4205,7 @@ export default [
     {
         id: 146,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '시어 버터 엑스트라 젠틀 핸드 앤 바디 로션',
         description: null,
@@ -4310,7 +4310,7 @@ export default [
     {
         id: 150,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '시어 베이비 커들 앤 버블 포밍 크림',
         description: null,
@@ -4336,7 +4336,7 @@ export default [
     {
         id: 151,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '라벤더 샤워 젤',
         description: null,
@@ -4362,7 +4362,7 @@ export default [
     {
         id: 152,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '시트러스 버베나 샤워 젤',
         description: null,
@@ -4388,7 +4388,7 @@ export default [
     {
         id: 153,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: '5% 시어 버터 함유',
         title: '시어 센서티브 스킨 샤워 크림',
         description: null,
@@ -4497,7 +4497,7 @@ export default [
     {
         id: 157,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '에르베 젠틀 샤워 젤',
         description: null,
@@ -4523,7 +4523,7 @@ export default [
     {
         id: 158,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '에르베 뷰티 밀크',
         description: null,
@@ -4633,7 +4633,7 @@ export default [
     {
         id: 162,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '캡 쎄드라 샤워 젤',
         description: null,
@@ -4659,7 +4659,7 @@ export default [
     {
         id: 163,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '시어 라벤더 핸드 앤 바디 리퀴드 솝',
         description: null,
@@ -4690,7 +4690,7 @@ export default [
     {
         id: 164,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '시어 라벤더 핸드 앤 바디 리퀴드 솝',
         description: null,
@@ -4721,8 +4721,8 @@ export default [
     {
         id: 165,
         category: 'body',
-        type: '기프트 세트',
-        label: '바스 & 샤워젤',
+        type: 'Gift&Set',
+        label: '바스&샤워젤',
         title: '시어 버터 바디 케어 듀오 (샤워 크림 & 바디 로션)',
         description: null,
         quantity: 1,
@@ -4747,7 +4747,7 @@ export default [
     {
         id: 166,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: '공식몰 단독',
         title: '아몬드 밀크 컨센트레이트 200ml 세트 (+ 바디 디럭스 증정)',
         description:
@@ -4774,7 +4774,7 @@ export default [
     {
         id: 167,
         category: 'body',
-        type: '바스 & 샤워젤',
+        type: '바스&샤워젤',
         label: null,
         title: '로즈 샤워 젤',
         description: null,
@@ -4883,7 +4883,7 @@ export default [
     {
         id: 171,
         category: 'body',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '로즈 바디 케어 듀오 세트 (샤워 젤 + 바디 로션)',
         description: null,
@@ -4909,7 +4909,7 @@ export default [
     {
         id: 172,
         category: 'body',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: '공식몰 단독',
         title: '시어 버터 패밀리 토탈 케어 세트',
         description: null,
@@ -4935,7 +4935,7 @@ export default [
     {
         id: 173,
         category: 'body',
-        type: '기프트 세트',
+        type: 'Gift&Set',
         label: null,
         title: '시어 핸드 워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
         description: null,
@@ -4961,7 +4961,7 @@ export default [
     {
         id: 174,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '라벤더 블랑쉬 바디 밀크',
         description: null,
@@ -4987,7 +4987,7 @@ export default [
     {
         id: 175,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '로즈 바디 로션',
         description: null,
@@ -5013,7 +5013,7 @@ export default [
     {
         id: 176,
         category: 'body',
-        type: '로션 & 크림',
+        type: '로션&크림',
         label: null,
         title: '아몬드 딜라이트풀 바디 밤',
         description: null,
@@ -5499,7 +5499,7 @@ export default [
         title: '[기프트] 시어 버터 핸드크림 & 스틱 립 밤 듀오',
         description: null,
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: 5.0,
             count: 6,
@@ -5584,7 +5584,7 @@ export default [
         title: '[기프트] 이모르뗄 리셋 오일 인 세럼 50ml 세트',
         description: '1분에 1개씩 판매되는 록시땅 베스트셀러',
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,
@@ -6040,7 +6040,7 @@ export default [
         title: '[기프트] 버베나 핸드 & 시어 스틱 립 밤 듀오',
         description: null,
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: 2,
@@ -7007,7 +7007,7 @@ export default [
         title: '[기프트] 이모르뗄 오버나이트 리셋 오일 인 세럼 30ml 세트',
         description: null,
         quantity: 1,
-        type: '기프트 세트',
+        type: 'Gift&Set',
         rating: {
             rate: null,
             count: null,

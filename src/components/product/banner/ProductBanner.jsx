@@ -11,19 +11,19 @@ const ProductBanner = () => {
     const navigate = useNavigate();
 
     const goHand = ()=>{
-        navigate('/hand');
+        navigate('/product/hand');
     };
     const goHair = ()=>{
-        navigate('/hair');
+        navigate('/product/hair');
     };
     const goSkin = ()=>{
-        navigate('/skin');
+        navigate('/product/skin');
     };
     const goBody = ()=>{
-        navigate('/body');
+        navigate('/product/body');
     };
     const goFragrance = ()=>{
-        navigate('/fragrance');
+        navigate('/product/fragrance');
     };
 
     return (

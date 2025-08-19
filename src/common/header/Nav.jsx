@@ -21,22 +21,22 @@ const Nav = () => {
                             onMouseLeave={() => setHeaderOn(false)}
                         >
                             <li>
-                                <Link to="/hand">핸드 케어</Link>
+                                <Link to="/product/hand">핸드 케어</Link>
                             </li>
                             <li>
-                                <Link to="/hair">헤어 케어</Link>
+                                <Link to="/product/hair">헤어 케어</Link>
                             </li>
                             <li>
-                                <Link to="/skin">스킨 케어</Link>
+                                <Link to="/product/skin">스킨 케어</Link>
                             </li>
                             <li>
-                                <Link to="/body">바디 케어</Link>
+                                <Link to="/product/body">바디 케어</Link>
                             </li>
                             <li>
-                                <Link to="/fragrance">홈 & 프래그런스</Link>
+                                <Link to="/product/fragrance">홈 & 프래그런스</Link>
                             </li>
                             <li>
-                                <Link to="/refill">리필</Link>
+                                <Link to="/product/refill">리필</Link>
                             </li>
                         </ul>
                     </li>

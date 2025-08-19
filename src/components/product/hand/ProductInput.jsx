@@ -2,7 +2,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { ProductSearchWrap } from "./style";
 import { useState } from "react";
 
-const HandInput = () => {
+const ProductInput = () => {
     const [filterOn, setFilterOn] = useState(false);
 
     const onFilter = (e) =>{
@@ -123,4 +123,4 @@ const HandInput = () => {
     );
 };
 
-export default HandInput;
+export default ProductInput;

@@ -6,10 +6,11 @@ export const ProductStyle = styled.div`
     .tabs{
         margin-top: 180px;
         display:flex;
-        gap:25px;
+        gap:30px;
         font-size: 24px;
         li{
             color: var(--foundation-white-dark);
+            cursor: pointer;
             &.on{
                 font-weight: 500;
                 color: var(--b);

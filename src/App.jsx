@@ -3,30 +3,20 @@ import GlobalStyle from './styled/GlobalStyle';
 import Layout from './common/Layout';
 import {
     Bcorp,
-    Body,
-    BodyDetail,
     Cart,
     Collection,
     Contact,
     DarkEdition,
     Event,
     Faq,
-    Fragrance,
-    FragranceDetail,
     Gift,
-    Hair,
-    HairDetail,
-    Hand,
-    HandDetail,
     Intro,
     Join,
     Login,
     Main,
+    Product,
+    ProductDetail,
     Promise,
-    Refill,
-    RefillDetail,
-    Skin,
-    SkinDetail,
     Wish,
 } from './pages';
 import Notfiles from './pages/notfiles';
@@ -43,35 +33,9 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Main />} />
-                        <Route path="hair">
-                            <Route index element={<Hair />} />
-                            <Route path=":hairID" element={<HairDetail />} />
-                        </Route>
 
-                        <Route path="hand">
-                            <Route index element={<Hand />} />
-                            <Route path=":handID" element={<HandDetail />} />
-                        </Route>
-
-                        <Route path="body">
-                            <Route index element={<Body />} />
-                            <Route path=":bodyID" element={<BodyDetail />} />
-                        </Route>
-
-                        <Route path="skin">
-                            <Route index element={<Skin />} />
-                            <Route path=":skinID" element={<SkinDetail />} />
-                        </Route>
-
-                        <Route path="refill">
-                            <Route index element={<Refill />} />
-                            <Route path=":refillID" element={<RefillDetail />} />
-                        </Route>
-
-                        <Route path="fragrance">
-                            <Route index element={<Fragrance />} />
-                            <Route path=":fragranceID" element={<FragranceDetail />} />
-                        </Route>
+                        <Route path="product/:category" element={<Product />} />
+                        <Route path="product/:category/:productID" element={<ProductDetail />} />
 
                         <Route path="gift" element={<Gift />} />
                         <Route path="collection" element={<Collection />} />

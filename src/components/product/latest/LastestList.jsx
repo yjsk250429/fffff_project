@@ -2,8 +2,17 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Mousewheel } from 'swiper/modules';
+import { useSelector } from 'react-redux';
 
-const LastestList = () => {
+const LastestList = ({category}) => {
+  const {products} = useSelector((state)=>state.product);
+
+  let list = products.filter((product)=> product.isNew === true);
+  if(category){
+    list = list.filter((item)=>item.category === category);
+  }
+  list = [...list].sort((a, b) => b.id - a.id);
+
     return (
         <Swiper
         modules={[ Mousewheel]}
@@ -12,27 +21,20 @@ const LastestList = () => {
         spaceBetween={15}
         mousewheel={{ invert: false }}
       >
-        <SwiperSlide>
+        {
+          list.map((item)=>(
+          <SwiperSlide key={item.id}>
             <div className="img-wrap">
-            <img src="/images/products/item1.webp" alt="" />
+            <img src={item.image} alt={item.title} />
             </div>
             <div className="text">
-                <strong>시어 버베나 핸드워시 & 핸드로션 듀오</strong>
-                <span>300ml</span>
-                <em>80,000원</em>
+                <strong>{item.title}</strong>
+                <span>{item.option[0].size}{item.unit}</span>
+                <em>{item.option[0].price}원</em>
             </div>
         </SwiperSlide>
-        <SwiperSlide>
-
-        </SwiperSlide>
-        <SwiperSlide>
-        </SwiperSlide>
-        <SwiperSlide>
-
-        </SwiperSlide>
-        <SwiperSlide>
-
-        </SwiperSlide>
+          ))
+        }
 
       </Swiper>
     );

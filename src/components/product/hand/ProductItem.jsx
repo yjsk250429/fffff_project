@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { PiHandbagSimple } from "react-icons/pi";
 import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 
-const HandItem = ({product}) => {
+const ProductItem = ({product}) => {
     const {id, label, title, unit, description, image, option, rating} = product;
     const { rate, count } =rating;
     const selectedOption = option?.length > 1 
@@ -17,7 +17,7 @@ const HandItem = ({product}) => {
 
     return (
         <article>
-            <Link to={`/hand/${id}`}>
+            <Link to={`/product/${product.category}/${product.id}`}>
             <div className="img-wrap">
                 <img src={image} alt={title} />
                 <i>
@@ -44,4 +44,4 @@ const HandItem = ({product}) => {
     );
 };
 
-export default HandItem;
+export default ProductItem;

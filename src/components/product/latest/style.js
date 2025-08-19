@@ -30,6 +30,7 @@ em{
         overflow: hidden;
         position: relative;
         img{
+            width: 100%;
             position: absolute;
             left: 50%;
             transform:translateX(-50%);
