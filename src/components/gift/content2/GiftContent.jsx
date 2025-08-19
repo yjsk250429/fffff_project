@@ -30,12 +30,6 @@ const GiftContent = () => {
                     ))}
                 </ul>
             </div>
-            <p className="btn">
-                <button>
-                    <img src="/images/gift/icons_right.png" alt="더보기 버튼" />
-                </button>
-                {/* <p>더보기</p> */}
-            </p>
         </GiftContentStyle>
     );
 };

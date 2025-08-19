@@ -35,7 +35,7 @@ export const GiftContentStyle = styled.div`
     .left {
         img {
         }
-        margin-right: 85px;
+        margin-right: 176px;
     }
 
     .right {
@@ -73,7 +73,7 @@ export const GiftContentStyle = styled.div`
     }
 `;
 export const GiftItemStyle = styled.li`
-cursor: pointer;
+    cursor: pointer;
     border: 1px solid #000;
     display: flex;
     flex-direction: column;

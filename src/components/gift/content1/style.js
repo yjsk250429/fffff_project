@@ -11,8 +11,7 @@ export const BestGiftStyle = styled.div`
         width: 222px;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
-        margin-top: 80px;
+        margin-top: 165px;
         em {
             color: var(--Foundation-White-Darker, #4e4e4e);
             font-size: 16px;
@@ -26,7 +25,6 @@ export const BestGiftStyle = styled.div`
             line-height: 1;
         }
         p {
-            margin-bottom: 122px;
             color: var(--Foundation-White-Darker, #4e4e4e);
             font-size: 16px;
             line-height: 30px;

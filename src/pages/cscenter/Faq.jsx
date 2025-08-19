@@ -1,16 +1,15 @@
-import { Link } from "react-router-dom";
-import { TabBarStyle } from "../about/style";
-import { CsCenterVisual, FaqStyle } from "./style";
+import { Link } from 'react-router-dom';
+import { TabBarStyle } from '../about/style';
+import { CsCenterVisual, FaqStyle } from './style';
 
 const Faq = () => {
     return (
-    
-            <FaqStyle>
-        <CsCenterVisual>
-            <div className="inner"></div>
-        </CsCenterVisual>
+        <FaqStyle>
+            <CsCenterVisual>
+                <div className="inner"></div>
+            </CsCenterVisual>
             <TabBarStyle className="tabBar">
-                <li className="on" >
+                <li className="on">
                     <Link to="/cscenter/faq">FAQ</Link>
                 </li>
                 <li>
@@ -22,7 +21,6 @@ const Faq = () => {
                 <em>FAQ</em>
             </div>
         </FaqStyle>
-    
     );
 };
 
