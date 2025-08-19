@@ -9,7 +9,7 @@ const Layout = ({ theme = 'default' }) => {
             <main className="main">
                 <Outlet />
             </main>
-            <Footer theme={theme}/>
+            <Footer theme={theme} />
         </div>
     );
 };

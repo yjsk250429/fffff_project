@@ -1,6 +1,5 @@
-import RecommandItem from "./RecommandItem";
-import { RecommandListStyle } from "./style";
-
+import RecommandItem from './RecommandItem';
+import { RecommandListStyle } from './style';
 
 const RecommandList = () => {
     return (
@@ -8,8 +7,8 @@ const RecommandList = () => {
             <div className="inner">
                 <h2>관련 추천 제품</h2>
                 <ul>
-                    <RecommandItem/>
-                {/* map, include 사용 */}
+                    <RecommandItem />
+                    {/* map, include 사용 */}
                 </ul>
             </div>
         </RecommandListStyle>
