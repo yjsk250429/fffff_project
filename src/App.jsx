@@ -22,7 +22,7 @@ import {
 import Notfiles from './pages/notfiles';
 import JoinInfo from './components/join/JoinInfo';
 import JoinComplete from './components/join/JoinComplete';
-import Payment from './pages/payment/Payment';
+import Payment from './pages/payment';
 import PayComplete from './pages/payment/PayComplete';
 
 const App = () => {
