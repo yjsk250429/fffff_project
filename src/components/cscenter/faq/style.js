@@ -18,9 +18,12 @@ export const FaqItemStyle = styled.div`
     width: 1128px;
     margin: auto;
     border-bottom: 1px solid #999;
+    &:first-of-type{
+        border-top: 1px solid #999;
+    }
 
     .faq-trigger {
-        font-family: Pretendard !important;
+        font-family: 'Pretendard', sans-serif;
         border-bottom: 1px solid #ddd;
         width: 100%;
         height: 95px;
@@ -65,7 +68,8 @@ export const FaqItemStyle = styled.div`
         padding: 10px 15px;
         color: #333;
         text-align: start;
-        font-size: 20px;
-        line-height: 2;
+       padding:20px 74px;
+        font-size: 18px;
+        word-break:keep-all;
     }
 `;
