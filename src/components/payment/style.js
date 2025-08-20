@@ -120,6 +120,7 @@ export const PaymentWrapStyle = styled.div`
         .payment-items {
             width: 100%;
             padding-top: 50px;
+
             .title {
                 width: 100%;
                 height: 26px;
@@ -127,6 +128,8 @@ export const PaymentWrapStyle = styled.div`
                 font-weight: 600;
                 margin-bottom: 60px;
                 position: relative;
+                cursor: pointer; /* 클릭 가능 표시 */
+
                 &::after {
                     content: '';
                     display: block;
@@ -137,17 +140,29 @@ export const PaymentWrapStyle = styled.div`
                     left: 0;
                     bottom: -20px;
                 }
+
                 i {
                     position: absolute;
                     font-size: 24px;
                     right: 0;
                     top: 0;
+                    transition: transform 0.3s ease; /* 회전 애니메이션 */
+                    display: inline-flex; /* flex로 잡으면 transform-origin이 정확히 중앙 */
+                    align-items: center;
+                    justify-content: center;
+                    transform-origin: center; /* 회전 중심을 아이콘 중앙으로 지정 */
                 }
             }
+
+            ul {
+                width: 100%;
+                overflow: hidden; /* 슬라이드 애니메이션 시 잘림 방지 */
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
         }
-        ul {
-            width: 100%;
-        }
+
         .payment-discount {
             width: 100%;
             padding-top: 50px;

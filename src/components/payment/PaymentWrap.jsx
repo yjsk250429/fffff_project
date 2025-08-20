@@ -2,16 +2,29 @@ import { useSelector } from 'react-redux';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { PaymentWrapStyle } from './style';
 import PaymentProductItem from './PaymentProductItem';
+import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 const PaymentWrap = () => {
     const { carts, priceTotal } = useSelector((state) => state.cart);
+    const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(true); // 아코디언 상태
 
-    // 샘플 포함 모든 상품
+    const onBack = () => {
+        navigate(-1);
+    };
+    const onComplete = () => {
+        navigate(`/cart/paycomplete`);
+    };
+
+    // 아코디언 토글 함수
+    const toggleOpen = () => {
+        setIsOpen((prev) => !prev);
+    };
+
     const allProducts = carts;
-
-    // 샘플 포함 총 수량
     const totalQuantity = carts.reduce((sum, c) => sum + (c.quantity || 0), 0);
-
     const shippingFee = priceTotal > 0 && priceTotal < 50000 ? 3000 : 0;
     const discountAmount = 0; // 나중에 적용
     const finalTotal = priceTotal + shippingFee - discountAmount;
@@ -98,22 +111,35 @@ const PaymentWrap = () => {
                         </tr>
                     </tbody>
                 </table>
+
+                {/* 주문상품 아코디언 */}
                 <div className="payment-items">
-                    <p className="title products">
+                    <p className="title products" onClick={toggleOpen}>
                         주문상품 (총 {totalQuantity}개)
-                        <i>
+                        <motion.i
+                            animate={{ rotate: isOpen ? 180 : 0 }} // 열릴 때 회전
+                            transition={{ duration: 0.3 }}
+                        >
                             <MdKeyboardArrowDown />
-                        </i>
+                        </motion.i>
                     </p>
-                    <ul>
-                        {allProducts.map((product) => (
-                            <PaymentProductItem
-                                key={product.id}
-                                product={product} // name 통일
-                            />
-                        ))}
-                    </ul>
+
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.ul
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {allProducts.map((product) => (
+                                    <PaymentProductItem key={product.id} product={product} />
+                                ))}
+                            </motion.ul>
+                        )}
+                    </AnimatePresence>
                 </div>
+
                 <div className="payment-discount">
                     <p className="title discount">쿠폰 적립금</p>
                     <div className="input-wrap">
@@ -145,6 +171,8 @@ const PaymentWrap = () => {
                     </div>
                 </div>
             </div>
+
+            {/* 결제 요약 */}
             <div className="payment-right">
                 <h3>결제 정보</h3>
                 <strong>
@@ -171,10 +199,10 @@ const PaymentWrap = () => {
                 </p>
                 <div className="button-wrap">
                     <p>
-                        <button>총 {totalQuantity}개</button>
+                        <button onClick={onBack}>취소</button>
                     </p>
                     <p>
-                        <button>{formatPrice(finalTotal)}원 주문하기</button>
+                        <button onClick={onComplete}>{formatPrice(finalTotal)}원 주문하기</button>
                     </p>
                 </div>
             </div>
