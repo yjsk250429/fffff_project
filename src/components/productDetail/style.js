@@ -12,6 +12,7 @@ export const DescStyle = styled.ul`
 `;
 
 export const IngredientStyle = styled.div`
+background: #FDFDFD;
     .inner {
         padding: 100px 40px;
         display: block;
@@ -77,12 +78,103 @@ export const RecommandListStyle = styled.div`
     h2 {
         font-size: 30px;
         font-weight: 600;
+        margin-bottom: 60px;
     }
-    li {
-        position: relative;
-        .img-wrap {
-            width: 324px;
-            height: 324px;
+    ul{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:space-between;
+        gap:20px;
+        li {
+            width: 340px;
+            height: 340px;
+            margin-bottom: 60px;
+            a{
+                cursor: default;
+
+            }
+            .img-wrap {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                position: relative;
+                img {
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.9);
+                }
+                i {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                font-size: 24px;
+                &.active{
+                    color: red;
+                }
+                }
+            }
+            }
+            .text-wrap {
+        width: 100%;
+        .product-info {
+            padding-top: 15px;
+            height: 85px;
+            position: relative;
+            text-align: left;
+            strong {
+                display: block;
+                width: 250px;
+                line-height: 1.2;
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 36px;
+                word-break: keep-all;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+            }
+            span {
+                font-size: 14px;
+                font-weight: 400;
+                position: absolute;
+                top: 15px;
+                right: 0;
+                cursor: pointer;
+            }
+        }
+        em {
+            position: absolute;
+            bottom: 0;
         }
     }
+
+        .price-info {
+            width: 100%;
+            line-height: 35px;
+            border-top: 1px solid var(--foundation-white-normal);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            position: relative;
+            span {
+                font-size: 16px;
+            }
+            i {
+                font-size: 20px;
+                position: absolute;
+                top: 5px;
+                right: 0;
+                cursor: pointer;
+                &.active{
+                    color:var(--foundation-yellow-dark) ;
+                }
+            }
+        }
+        }
+    
 `;

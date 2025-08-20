@@ -4,6 +4,12 @@ const DarkCollection = () => {
     return (
         <DarkCollectionStyle>
             <div className="bg">
+                <video src="/images/dark/smoke1.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        ></video>
             </div>
             <div className="inner">
                 <h2>Limited Night Collection</h2>

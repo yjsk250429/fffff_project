@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import CartGift from './CartGift';
 import { CartRightStyle } from './style';
 import { useEffect } from 'react';
@@ -7,6 +8,10 @@ import { cartActions } from '../../store/modules/cartSlice';
 const CartRight = () => {
     const { carts, priceTotal, quantityTotal } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const onGo = () => {
+        navigate(`/cart/payment`);
+    };
 
     useEffect(() => {
         dispatch(cartActions.totalCart());
@@ -43,7 +48,7 @@ const CartRight = () => {
                         <button>총 {quantityTotal}개</button>
                     </p>
                     <p>
-                        <button>{formatPrice(finalTotal)}원 주문하기</button>
+                        <button onClick={onGo}>{formatPrice(finalTotal)}원 주문하기</button>
                     </p>
                 </div>
             </div>

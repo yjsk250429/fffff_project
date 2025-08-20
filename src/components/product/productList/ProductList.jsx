@@ -44,9 +44,12 @@ const ProductList = ({ category, activeTab }) => {
 
     return (
         <ProductListWrap className="product-wrap">
+            <ul>
+
             {currentProducts.map((product) => (
                 <ProductItem key={product.id} product={product} />
             ))}
+            </ul>
         </ProductListWrap>
     );
 };

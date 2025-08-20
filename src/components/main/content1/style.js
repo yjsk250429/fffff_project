@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
 export const BestProductStyle = styled.div`
-        background-image: url('images/Bg_Best_product.png');
+        /* background-image: url('images/Bg_Best_product.png');
         background-repeat: no-repeat;
-        background-position: 0px 90px;
+        background-position: 0px 90px; */
+        position: relative;
+        .bg{
+          position: absolute;
+          top: 90px;
+          left: 0;
+          height: 944px;
+        }
     .inner{
         display:flex;
         height: 944px;

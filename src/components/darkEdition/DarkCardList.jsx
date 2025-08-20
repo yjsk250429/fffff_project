@@ -35,15 +35,15 @@ const DarkCardList = () => {
     return (
         <CardListStyle>
             {cardArr.map((card) => (
-                <div key={card.id} card={card} class="wrap">
-                    <div class="side-a">
+                <div key={card.id} card={card} className="wrap">
+                    <div className="side-a">
                         <p style={{ color: card.fontColor }}>
                             DARK
                             <br />
                             L’OCCITANE
                         </p>
                     </div>
-                    <div class="side-b">
+                    <div className="side-b">
                         <img src={card.img} alt={card.name} />
                         <span>{card.engName}</span>
                         <strong>{card.name}</strong>

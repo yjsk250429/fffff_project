@@ -7,6 +7,8 @@ const memberData = [
         tel: '010-0000-0000',
         email: 'abc@naver.com',
         password: 'a1234',
+        addr:'',
+        birth:'',
     },
 ];
 const initialState = {
