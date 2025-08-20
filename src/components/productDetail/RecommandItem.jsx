@@ -62,7 +62,7 @@ const RecommandItem = ({product}) => {
                 </p>
                 <p className="price-info">
                         <span>
-                            {typeof size === 'number' ? `${size} ${unit} /` : ''}{' '}
+                            {typeof size === 'number' && `${size} ${unit} /`}{' '}
                             {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                         </span>
                         <i onClick={handleCartToggle} className={isInCart ? 'active' : ''}>

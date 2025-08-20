@@ -6,6 +6,11 @@ import { useSelector } from 'react-redux';
 
 const LastestList = ({category}) => {
   const {products} = useSelector((state)=>state.product);
+  const { id, label, title, unit, description, image, option, rating } = products;
+  const selectedOption = option?.length > 1 ? option[1] : option?.length === 1 ? option[0] : null;
+
+  const price = selectedOption?.price ?? '';
+  const size = selectedOption?.size ?? '';
 
   let list = products.filter((product)=> product.isNew === true);
   if(category){
@@ -29,8 +34,9 @@ const LastestList = ({category}) => {
             </div>
             <div className="text">
                 <strong>{item.title}</strong>
-                <span>{item.option[0].size}{item.unit}</span>
-                <em>{item.option[0].price}원</em>
+                {/* <span>{item.option[0].size}{item.unit}</span> */}
+                <span> {typeof item.option[0].size === 'number' && `${item.option[0].size} ${item.unit}`}</span>
+                <em>{item.option[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</em>
             </div>
         </SwiperSlide>
           ))

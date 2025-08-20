@@ -82,15 +82,16 @@ export const ProductListWrap = styled.article`
     margin-top: 60px;
     &.product-wrap {
         ul{
-
+            
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
             gap: 32px;
         }
         &.empty {
+            display:flex;
             justify-content: center;
-            align-items: center;
+            align-items: center; 
             height: 500px;
             p {
                 font-size: 30px;

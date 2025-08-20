@@ -13,7 +13,7 @@ import { cartActions } from '../../store/modules/cartSlice';
 
 const Header = ({ theme }) => {
     const { carts, quantityTotal } = useSelector((state) => state.cart);
-    const dispatch = useDispatch();
+        const dispatch = useDispatch();
     const logoChange =
         theme === 'special' ? '/images/header_logo_2.png' : '/images/header_logo.png';
 

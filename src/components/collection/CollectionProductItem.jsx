@@ -53,8 +53,7 @@ const CollectionProductItem = ({ product }) => {
                     <p className="price-info">
                         <span>
                             {option?.[0]?.size && typeof option[0].size === 'number'
-                                ? `${option[0].size}${unit} / `
-                                : ''}
+                                && `${option[0].size}${unit} / `}
                             {option?.[0]?.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                         </span>
                         <i onClick={handleCartToggle} className={isInCart ? 'active' : ''}>
