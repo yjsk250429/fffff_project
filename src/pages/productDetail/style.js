@@ -60,6 +60,7 @@ export const ProductDetailStyle = styled.article`
                     transform: translateY(-40%);
                     font-size: 24px;
                     color: var(--foundation-white-darker);
+
                 }
             }
             em {
@@ -115,6 +116,10 @@ export const ProductDetailStyle = styled.article`
                 i {
                     font-size: 32px;
                     margin-top: 10px;
+                    cursor: pointer;
+                    &.active{
+                        color: red;
+                    }
                 }
                 button {
                     font-size: 20px;

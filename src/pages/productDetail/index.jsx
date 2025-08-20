@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { IoSearchOutline } from 'react-icons/io5';
 import { ProductDetailStyle } from './style';
@@ -7,6 +7,8 @@ import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 import Description from '../../components/productDetail/Description';
 import Ingredient from '../../components/productDetail/Ingredient';
 import RecommandList from '../../components/productDetail/RecommandList';
+import { cartActions } from '../../store/modules/cartSlice';
+import { wishActions } from '../../store/modules/wishSlice';
 
 const ProductDetail = () => {
     const { productID } = useParams();
@@ -19,6 +21,30 @@ const ProductDetail = () => {
         return <p>해당 상품을 찾을 수 없습니다.</p>;
     }
     const { id, title, label, description, unit, option } = thisItem;
+
+     const { carts } = useSelector((state) => state.cart);
+        const { wishes } = useSelector((state) => state.wish);
+        const dispatch = useDispatch();
+
+        const isInCart = carts.some((item) => item.id === id);
+        const isInWishlist = wishes.some((item) => item.id === id);
+          
+        const handleCartToggle = (e) => {
+                e.preventDefault();
+                if (isInCart) {
+                    alert('상품을 장바구니에서 삭제하였습니다.');
+                    dispatch(cartActions.removeCart(id)); 
+                } else {
+                    alert('상품을 장바구니에 담았습니다.');
+                    dispatch(cartActions.addCart(thisItem));
+                }
+            };
+        
+            const handleWishToggle = (e) => {
+                e.preventDefault();
+                dispatch(wishActions.toggleWish(thisItem));
+            };
+
 
     return (
         <ProductDetailStyle>
@@ -51,11 +77,10 @@ const ProductDetail = () => {
                         <span>{description}</span>
 
                         <p>
-                            <i>
-                                {' '}
-                                <IoHeartOutline />
+                            <i onClick={handleWishToggle} className={isInWishlist ? 'active' : ''}>
+                            {isInWishlist ? <IoHeart /> : <IoHeartOutline />}
                             </i>
-                            <Button text="장바구니" width="340px" height="60px" textColor="#000" />
+                            <Button onClick={handleCartToggle} className={isInCart ? 'active' : ''} text="장바구니" width="340px" height="60px" textColor={isInCart? "#dcdcdc":"#000"} bgColor={isInCart ? 'var(--foundation-yellow-dark-hover)' : ''}/>
                             <Button
                                 text="구매하기"
                                 bgColor="#000"

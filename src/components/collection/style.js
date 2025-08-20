@@ -224,7 +224,7 @@ export const CollectionProductStyle = styled.div`
                         right: 0;
                         cursor: pointer;
                         &.active {
-                            color: #987700; /* 장바구니에 있을 때 색 */
+                            color:var(--foundation-yellow-dark) ;
                         }
                     }
                 }
