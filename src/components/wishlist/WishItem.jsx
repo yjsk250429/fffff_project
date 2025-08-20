@@ -4,11 +4,11 @@ import { WishtItemStyle } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { cartActions } from '../../store/modules/cartSlice';
+import { wishActions } from '../../store/modules/wishSlice';
 
-const CartItem = ({ wish }) => {
+const WishItem = ({ wish }) => {
     const { id, image, title, quantity, option, unit, isChecked } = wish;
     const navigate = useNavigate();
-
     const onGo = () => {
         navigate(`/cart`);
     };
@@ -17,7 +17,6 @@ const CartItem = ({ wish }) => {
     const size = option && option[0] ? option[0].size : 0;
     const price = option && option[0] ? option[0].price : 0;
 
-    const { carts } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     // 가격 포맷팅 함수
@@ -25,31 +24,9 @@ const CartItem = ({ wish }) => {
         return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
 
-    // 수량 증가 핸들러
-    const handleIncrease = () => {
-        dispatch(cartActions.increaseQuantity(id));
-        // 수량 변경 후 총계 재계산
-        setTimeout(() => {
-            dispatch(cartActions.totalCart());
-        }, 0);
-    };
-
-    // 수량 감소 핸들러
-    const handleDecrease = () => {
-        dispatch(cartActions.decreaseQuantity(id));
-        // 수량 변경 후 총계 재계산
-        setTimeout(() => {
-            dispatch(cartActions.totalCart());
-        }, 0);
-    };
-
-    // 아이템 제거 핸들러
+    // 찜 목록에서 제거 핸들러 (변경됨)
     const handleRemove = () => {
-        dispatch(cartActions.removeCart(id));
-        // 아이템 제거 후 총계 재계산
-        setTimeout(() => {
-            dispatch(cartActions.totalCart());
-        }, 0);
+        dispatch(wishActions.removeWish(id)); // wishActions 사용
     };
 
     return (
@@ -60,10 +37,7 @@ const CartItem = ({ wish }) => {
                         type="checkbox"
                         checked={isChecked ?? true}
                         onChange={() => {
-                            dispatch(cartActions.checkSelected(id));
-                            setTimeout(() => {
-                                dispatch(cartActions.totalCart());
-                            }, 0);
+                            dispatch(wishActions.checkSelected(id)); // wishActions 사용
                         }}
                     />
                 </label>
@@ -74,7 +48,13 @@ const CartItem = ({ wish }) => {
                 <div className="product-info">
                     <p className="product-name">
                         {title}
-                        <i onClick={handleRemove}>
+                        <i
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation(); // 이벤트 버블링 방지
+                                handleRemove();
+                            }}
+                        >
                             <IoCloseOutline />
                         </i>
                     </p>
@@ -101,4 +81,4 @@ const CartItem = ({ wish }) => {
     );
 };
 
-export default CartItem;
+export default WishItem;
