@@ -14,14 +14,20 @@ const CartItem = ({ cart }) => {
 
     const formatPrice = (price) => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+    // 체크박스 토글
+    const handleCheck = () => {
+        dispatch(cartActions.checkSelected(id));
+        setTimeout(() => dispatch(cartActions.totalCart()), 0);
+    };
+
     return (
         <CartItemStyle>
             <li>
                 <label className="checkbox-wrap">
                     <input
                         type="checkbox"
-                        checked={isChecked ?? true}
-                        onChange={() => dispatch(cartActions.checkSelected(id))}
+                        checked={isChecked} // Redux 상태 기반
+                        onChange={handleCheck}
                     />
                 </label>
                 <div className="product-image">
@@ -32,7 +38,7 @@ const CartItem = ({ cart }) => {
                         {title}
                         <i
                             onClick={() => {
-                                dispatch(cartActions.removeCart(id));
+                                dispatch(cartActions.removeCart(id)); // 항목 삭제
                                 dispatch(cartActions.totalCart());
                             }}
                         >

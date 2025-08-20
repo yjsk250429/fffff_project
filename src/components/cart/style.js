@@ -437,6 +437,9 @@ export const CartSampleStyle = styled.div`
         margin-bottom: 30px;
     }
     .sample-left {
+        display: flex;
+        gap: 16px;
+
         li {
             width: 186px;
             height: 202px;
@@ -467,5 +470,18 @@ export const CartSampleStyle = styled.div`
                 margin: 0;
             }
         }
+    }
+
+    .sample-left li.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .sample-left li.disabled input[type='checkbox'] {
+        cursor: not-allowed;
+    }
+
+    .sample-left li.disabled label {
+        cursor: not-allowed;
     }
 `;

@@ -6,23 +6,28 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { useEffect } from 'react';
 
 const CartList = () => {
-    const { carts, isChecked } = useSelector((state) => state.cart);
+    const { carts, isChecked } = useSelector((state) => state.cart); // Redux 상태 조회
     const dispatch = useDispatch();
 
+    // carts 변경 시 총 합계 계산
     useEffect(() => {
         dispatch(cartActions.totalCart());
     }, [carts, dispatch]);
 
+    // 전체 체크박스 토글
     const handleCheckAll = (e) => {
         dispatch(cartActions.checkAll(e.target.checked));
+        // 체크 후 총 합계 계산
         setTimeout(() => dispatch(cartActions.totalCart()), 0);
     };
 
+    // 장바구니 전체 삭제
     const handleEmptyCart = () => {
         dispatch(cartActions.emptyCart());
         setTimeout(() => dispatch(cartActions.totalCart()), 0);
     };
 
+    // 선택된 항목 삭제
     const handleDeleteSelected = () => {
         dispatch(cartActions.removeSelected());
         setTimeout(() => dispatch(cartActions.totalCart()), 0);
@@ -32,7 +37,11 @@ const CartList = () => {
         <CartListStyle>
             <div className="cart-left">
                 <div className="check-all">
-                    <input type="checkbox" checked={isChecked} onChange={handleCheckAll} />
+                    <input
+                        type="checkbox"
+                        checked={isChecked} // 전체 체크 상태
+                        onChange={handleCheckAll}
+                    />
                     <span>전체</span>
                     <div className="delete-wrap">
                         <p onClick={handleDeleteSelected}>선택 삭제</p>
@@ -40,9 +49,11 @@ const CartList = () => {
                     </div>
                 </div>
                 <ul>
-                    {carts.map((cart) => (
-                        <CartItem key={cart.id} cart={cart} />
-                    ))}
+                    {carts
+                        .filter((cart) => !cart.isSample) // 샘플 제외
+                        .map((cart) => (
+                            <CartItem key={cart.id} cart={cart} />
+                        ))}
                 </ul>
             </div>
             <CartSample />

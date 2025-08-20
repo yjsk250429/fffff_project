@@ -16,18 +16,6 @@ export const WishEmptyStyle = styled.section`
         font-weight: 500;
         margin-bottom: 30px;
     }
-    p {
-        button {
-            font-family: 'Pretendard', sans-serif;
-            background: var(--foundation-yellow-b);
-            color: var(--w);
-            width: 120px;
-            height: 35px;
-            font-weight: 500;
-            font-size: 16px;
-            padding: 0;
-        }
-    }
 `;
 
 export const WishListStyle = styled.div`

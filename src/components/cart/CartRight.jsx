@@ -6,16 +6,23 @@ import { useEffect } from 'react';
 import { cartActions } from '../../store/modules/cartSlice';
 
 const CartRight = () => {
-    const { carts, priceTotal, quantityTotal } = useSelector((state) => state.cart);
+    const { carts, priceTotal } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const onGo = () => {
         navigate(`/cart/payment`);
+        window.scrollTo(0, 0);
     };
 
     useEffect(() => {
         dispatch(cartActions.totalCart());
     }, [carts, dispatch]);
+
+    // 총 개수: 샘플 포함
+    const totalQuantityWithSample = carts
+        .filter((cart) => cart.isChecked)
+        .reduce((sum, cart) => sum + (cart.quantity || 0), 0);
 
     const shippingFee = priceTotal > 0 && priceTotal < 50000 ? 3000 : 0;
     const discountAmount = 0;
@@ -45,7 +52,7 @@ const CartRight = () => {
                 </p>
                 <div className="button-wrap">
                     <p>
-                        <button>총 {quantityTotal}개</button>
+                        <button>총 {totalQuantityWithSample}개</button>
                     </p>
                     <p>
                         <button onClick={onGo}>{formatPrice(finalTotal)}원 주문하기</button>
