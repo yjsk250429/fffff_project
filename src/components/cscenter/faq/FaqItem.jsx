@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
-import { FaPlus, FaMinus } from 'react-icons/fa';
+import { LiaAngleUpSolid, LiaAngleDownSolid } from 'react-icons/lia';
+
 import { FaqItemStyle } from './style';
 
 const FaqItem = ({ id, title, sub, children, openId, setOpenId }) => {
@@ -24,7 +25,13 @@ const FaqItem = ({ id, title, sub, children, openId, setOpenId }) => {
             <button className="faq-trigger" onClick={toggle}>
                 <span>{title}</span>
                 <p>{sub}</p>
-                {isOpen ? <FaMinus /> : <FaPlus />}
+                {isOpen ? (
+                    <LiaAngleUpSolid style={{ width: '24px', height: '24px', color: '#4E4E4E' }} />
+                ) : (
+                    <LiaAngleDownSolid
+                        style={{ width: '24px', height: '24px', color: '#4E4E4E' }}
+                    />
+                )}
             </button>
 
             <div ref={contentRef} className="faq-content">

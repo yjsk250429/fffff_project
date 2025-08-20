@@ -1,25 +1,70 @@
 import { useNavigate } from 'react-router-dom';
 import { LoginStyle } from './style';
+import { useEffect, useState } from 'react';
+import { authActions } from '../../store/modules/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Login = () => {
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
+    const { authed, user: authUser } = useSelector((state) => state.auth);
+    const [user, setUser] = useState({
+        email: '',
+        password: '',
+    });
+    const { email, password } = user;
+    const changeInput = (e) => {
+        const { value, name } = e.target;
+        setUser({
+            ...user,
+            [name]: value,
+        });
+    };
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if (!password.trim() || !email.trim()) return;
+        dispatch(authActions.login(user));
+    };
     const goToJoin = () => {
         navigate('/join');
     };
+    useEffect(() => {
+        if (authed && authUser) {
+            setUser({
+                password: '',
+                email: '',
+            });
+            navigate(`/`);
+        } else if (!authed && user === null) {
+            alert('로그인 실패: 이메일 또는 비밀번호를 확인하세요.');
+            setUser({ ...preview, password: '   ' });
+        }
+    }, [authed, authUser]);
 
     return (
         <LoginStyle>
             <div className="inner">
                 <h2>로그인</h2>
-                <form>
+                <form onSubmit={onSubmit}>
                     <div className="left">
                         <div className="login-input">
                             <p>
-                                <input type="email" name="email" placeholder="아이디 or 이메일" />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="abc@naver.com"
+                                    value={email}
+                                    onChange={changeInput}
+                                />
                             </p>
                             <p>
-                                <input type="password" name="password" placeholder="비밀번호" />
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="비밀번호"
+                                    value={password}
+                                    onChange={changeInput}
+                                />
                             </p>
                         </div>
 
@@ -30,7 +75,9 @@ const Login = () => {
                             <span>아이디 찾기 | 비밀번호 찾기</span>
                         </p>
                         <div className="btn1">
-                            <button className="on">로그인</button>
+                            <button className="on" type="submit">
+                                로그인
+                            </button>
                             <button className="off" onClick={goToJoin}>
                                 회원가입
                             </button>

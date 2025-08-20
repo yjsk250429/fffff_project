@@ -1,22 +1,3 @@
-// import { createSlice } from '@reduxjs/toolkit';
-// import giftData from '../../assets/api/giftData';
-
-// const initialState = {
-//     gifts: giftData,
-// };
-
-// export const giftSlice = createSlice({
-//     name: 'gift',
-//     initialState,
-//     reducers: {
-//         xx: (state, action) => {},
-//     },
-// });
-
-// export const giftActions = giftSlice.actions;
-// export default giftSlice.reducer;
-
-// 이거임
 import { createSlice } from '@reduxjs/toolkit';
 import giftsData from '../../assets/api/giftData';
 

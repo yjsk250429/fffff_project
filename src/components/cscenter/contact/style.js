@@ -1,6 +1,52 @@
 import styled from 'styled-components';
 
-export const CustomerLIstStyle = styled.div``;
+export const CustomerListStyle = styled.div`
+    margin: 0px 260px 100px;
+    .customerTable {
+        width: 100%;
+        font-size: 18px;
+        caption {
+            font-size: 40px;
+            font-weight: 500;
+            /* text-align: start; */
+            margin-bottom: 30px;
+        }
+        .type {
+            width: 190px;
+        }
+        .title {
+            width: auto;
+        }
+        .name {
+            width: 138px;
+        }
+        .date {
+            width: 138px;
+        }
+        th,
+        td {
+            height: 57px;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--foundation-white-normal-hover, #cacaca);
+        }
+        th {
+            background: #f6f6f6;
+            border-top: 1.5px solid #000;
+        }
+        td {
+            &:nth-of-type(2) {
+                text-align: left;
+            }
+        }
+    }
+    p {
+        display: flex;
+        justify-content: end;
+        Button {
+            margin-top: 100px;
+        }
+    }
+`;
 
 export const CustomerAddStyle = styled.div`
     /* border: 1px solid #999; */
@@ -36,12 +82,10 @@ export const CustomerAddItemStyle = styled.table`
     /* width: 964px; */
     border-collapse: collapse;
     margin: 20px 0 30px;
+    border-top: 3px solid #000;
 
     tbody {
         tr {
-            &:nth-of-type(1) {
-                border-top: 3px solid #000;
-            }
             td {
                 border-bottom: 1px solid #dcdcdc;
                 vertical-align: middle;
@@ -79,9 +123,13 @@ export const CustomerAddItemStyle = styled.table`
         }
 
         select[name='inquiryType'] {
-            width: 156px;
+            width: 140px;
             justify-content: start;
             display: flex;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 24px;
         }
         .email-wrap {
             display: flex;
@@ -103,6 +151,7 @@ export const CustomerAddItemStyle = styled.table`
                 flex: 0 0 auto;
                 margin-left: 0;
                 height: 40px;
+                padding-left: 10px;
             }
             .at {
                 color: #000;
@@ -118,5 +167,38 @@ export const CustomerAddItemStyle = styled.table`
         }
     }
 `;
+export const SelectWrapper = styled.div`
+    position: relative;
+    display: inline-block;
+    width: 156px;
+    display: flex;
+    select {
+        width: 100%;
+        padding: 0 32px 0 10px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
 
+    .icon {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #333;
+        font-size: 14px;
+    }
+`;
+export const DomainSelectWrapper = styled(SelectWrapper)`
+    width: 227px;
+`;
 export const CustomerDetailStyle = styled.div``;
+export const CustomerItemStyle = styled.tr`
+    td {
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+            color: var(--Foundation-White-Darker, #4e4e4e);
+        }
+    }
+`;

@@ -69,10 +69,10 @@ const Login = () => {
                     </label>
                 </p>
                 <p className="btns">
-                    <button className="on" onClick={goToLoin}>
+                    <button className="off" onClick={goToLoin}>
                         취소
                     </button>
-                    <button className="off" onClick={Next}>
+                    <button className="on" onClick={Next}>
                         다음
                     </button>
                 </p>

@@ -150,7 +150,7 @@ const JoinInfo = () => {
                         </tr>
                     </tbody>
                 </TableStyle>
-                
+
                 <div className="txt2">
                     <h4>
                         기존정보 <span>(선택)</span>
@@ -215,10 +215,10 @@ const JoinInfo = () => {
                 </TableStyle>
                 <BtnStyle>
                     <p>
-                        <button className="on">취소</button>
+                        <button className="off">취소</button>
                     </p>
                     <p>
-                        <button className="off" onClick={goJoinCom}>
+                        <button className="on" onClick={goJoinCom}>
                             다음
                         </button>
                     </p>

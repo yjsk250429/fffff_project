@@ -31,5 +31,11 @@ export const ContactStyle = styled.article`
     .inner {
         text-align: center;
         padding: 50px 0 150px 0;
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            padding-bottom: 24px;
+            margin-top: 30px;
+        }
     }
 `;

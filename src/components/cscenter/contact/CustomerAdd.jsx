@@ -28,7 +28,7 @@ const CustomerAdd = () => {
             e.preventDefault();
             if (!title.trim()) return;
             data.data = `${now.getFullYear()}-${now.getUTCMonth() + 1}-${now.getDay()}`;
-            dispatch(customerActions.addCustomer(data));
+            dispatch(customerActions.addCustomer(date));
             navigate('/customer');
         };
     };

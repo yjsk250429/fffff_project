@@ -7,6 +7,7 @@ import gift from './modules/giftSlice';
 import nature from './modules/natureSlice';
 import collection from './modules/collectionSlice';
 import wish from './modules/wishSlice';
+import customer from './modules/customerSlice';
 
 const store = configureStore({
     reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
         nature,
         collection,
         wish,
+        customer,
     },
 });
 

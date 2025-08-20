@@ -15,7 +15,7 @@ const Slogan = () => {
                         <br />
                         세대와 세대를 잇는 아름다움을 전합니다.
                     </p>
-                    <Button text="브랜드 스토리" bgColor="#000" textColor="#fff"/>
+                    <Button text="브랜드 스토리" bgColor="#000" textColor="#fff" />
                 </div>
                 <div className="video-wrap">
                     <video src="/images/SloganVideo.mp4" autoPlay loop muted playsInline></video>
