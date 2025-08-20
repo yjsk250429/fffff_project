@@ -8,8 +8,19 @@ export const DarkStyle = styled.section`
 `;
 
 export const DarkTitleStyle = styled.article`
+position: relative;
+.bg{
+    background-image: url('/images/dark/main01.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    height: 800px;
+    width: 100%;
+}
     .inner {
-        padding:218px 0 145px 0;
+        padding:150px 0 145px 0;
         height: 800px;
         text-align: center;
     }
@@ -31,6 +42,17 @@ export const DarkTitleStyle = styled.article`
             font-size: 100px;
             margin-bottom: 113px;
         }
-        .more{}
+        .more{
+            opacity:0;
+            animation: fadein 1s linear 4s forwards ;
+        }
+        @keyframes fadein {
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+        }
 `;
 

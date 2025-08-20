@@ -4,7 +4,9 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useState } from "react";
+import {useEffect, useState } from "react";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 const DarkProducts =[
     {id:1,
@@ -50,7 +52,7 @@ const DarkIngr =[
     {id:4,
         flower:'블루탄지',
         efficacy:'재생,피부톤 균형,보습',
-        caption:'은은한 푸른 향이 피부에 고요한 평온을\n남기고, 하루의 모든 열기를 식혀줍니다.',
+        caption:'은은한 푸른 향이 피부에 고요한 평온을 남기고,\n하루의 모든 열기를 식혀줍니다.',
         img:'/images/dark/con4_06.png'
     },
 ]
@@ -69,13 +71,24 @@ const PRODUCT_INGR_MAP = {
 const DarkProduct = () => {
     const [activeId, setActiveId] = useState(DarkProducts[0].id);
     const activeIngr = pickIngr(activeId);
+
+    useEffect(() => {
+        AOS.init({
+          duration: 600,        
+          easing: 'ease-out', 
+          once: true,        
+          offset: 80,          
+          mirror: false,        
+        });
+      }, []);
+
     const renderSlide = (t) => (
         <SwiperSlide key={t.id}>
           <Item>
             <div className="shadow-effect">
               <img className="img-circle" src={t.img} alt={t.name} />
-                <div className="testimonial-name">{t.name}</div>
-              <p>{t.text}</p>
+              <div className="testimonial-name">{t.name}</div>
+              <p className="desc">{t.text}</p>
             </div>
           </Item>
         </SwiperSlide>

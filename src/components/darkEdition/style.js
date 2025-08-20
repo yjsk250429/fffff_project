@@ -31,6 +31,12 @@ export const DarkPackageStyle = styled.article`
         transform: translateX(-50%);
         bottom: 47px;
         z-index: 10;
+        transition:0.6s ease;
+        &:hover{
+            transform:translateX(-50%) scale(1.05);
+            filter: drop-shadow(0 0 1px var(--foundation-yellow-light-hover));
+
+        }
     }
     p {
         font-family: 'EB Garamond', serif;
@@ -47,6 +53,8 @@ export const DarkPackageStyle = styled.article`
             margin-left: 150px;
         }
     }
+
+  
 `;
 
 export const DarkCardsStyle = styled.article`
@@ -75,19 +83,27 @@ export const DarkCardsStyle = styled.article`
     }
 `;
 export const DarkCollectionStyle = styled.article`
+position: relative;
     .bg {
-        width: 100%;
-        height: 1000px;
+      width: 100%;
         position: absolute;
+        top: 0;
+        video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display:block;
+        }
+          /* 
         background-image: url('images/dark/con3_01.png');
         background-repeat: no-repeat;
         background-position: 0 0;
-        background-size: cover;
+        background-size: cover; */
     }
     .inner {
         height: 1000px;
         text-align: center;
-        padding-top: 113px;
+        padding: 113px 0;
     }
     h2 {
         color: var(--hover-header);
@@ -130,7 +146,7 @@ export const CardListStyle = styled.div`
         width: 250px;
         height: 350px;
         cursor: pointer;
-        transition: -webkit-transform 1s ease-in;
+        transition: -webkit-transform 0.6s ease-in;
         -webkit-transform-style: preserve-3d;
         &:hover {
             -webkit-transform: rotateY(180deg);
@@ -150,7 +166,7 @@ export const CardListStyle = styled.div`
                 180deg,
                 rgba(29, 43, 112, 0) 0%,
                 rgba(30, 41, 99, 0.5) 50%,
-                #0b1238 100%
+               #0b1238 100%
                 );
                 
                 &.side-a {
@@ -241,7 +257,7 @@ export const CardListStyle = styled.div`
                         to   { opacity: 1; transform: translateX(0); }
                     }
                     .txt{
-                    width: 220px;
+                    width: 260px;
                         span{
                             font-size: 14px;
                             color: var(--foundation-white-dark);
@@ -284,7 +300,6 @@ export const Wrap = styled.section`
 
 export const Item = styled.div`
 text-align: center;
-padding: 50px;
 opacity: 0.2;
 transform: scale3d(0.8, 0.8, 1);
 transition: all 0.3s ease-in-out;
@@ -326,6 +341,18 @@ export const CarouselStyle = styled.div`
   display: flex;
   justify-content: center;
 }
+.swiper-slide ${Item} .shadow-effect .desc,
+.swiper-slide ${Item} .shadow-effect .testimonial-name
+ {
+    display: none;
+  }
+  .swiper-slide-active ${Item} .shadow-effect .desc,
+  .swiper-slide-duplicate-active ${Item} .shadow-effect .desc,
+  .swiper-slide-active ${Item} .shadow-effect .testimonial-name,
+  .swiper-slide-duplicate-active ${Item} .shadow-effect .testimonial-name
+   {
+    display: block;
+  }
 .swiper-slide-active ${Item},
 .swiper-slide-duplicate-active ${Item}
  {
