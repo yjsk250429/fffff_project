@@ -9,6 +9,7 @@ import Ingredient from '../../components/productDetail/Ingredient';
 import RecommandList from '../../components/productDetail/RecommandList';
 import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
+import Reivew from '../../components/productDetail/Reivew';
 
 const ProductDetail = () => {
     const { productID } = useParams();
@@ -99,11 +100,11 @@ const ProductDetail = () => {
                     <div className="scrollZone">
                         <Description />
                         <Ingredient thisItem={thisItem} />
-                        {/* <Reivew/> */}
                     </div>
                 </div>
             </div>
             <RecommandList thisItem={thisItem} />
+            <Reivew/>
         </ProductDetailStyle>
     );
 };
