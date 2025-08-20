@@ -72,4 +72,5 @@ export const BestGiftStyle = styled.div`
             }
         }
     }
+}
 `;
