@@ -3,17 +3,16 @@ import { PaymentProductItemStyle } from './style';
 const PaymentProductItem = ({ product }) => {
     const { image, title, option, quantity, isSample, sampleImg } = product;
 
-    // 샘플이면 size와 price 처리
+    // 샘플이면 size 없고, 가격 0
     const size = isSample ? '' : option?.[0]?.size ?? '';
     const price = isSample ? 0 : option?.[0]?.price ?? 0;
 
-    // 가격 천단위 콤마 포맷
-    const formatPrice = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    // 가격 천단위 콤마
+    const formatPrice = (price) => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     return (
         <PaymentProductItemStyle>
             <div className="product-image">
-                {/* 샘플이면 sampleImg 사용, 아니면 image */}
                 <img src={isSample ? sampleImg : image} alt={title} />
             </div>
             <div className="product-info">

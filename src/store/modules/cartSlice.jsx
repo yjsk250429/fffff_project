@@ -112,17 +112,10 @@ export const cartSlice = createSlice({
         },
         // 샘플 항목 추가
         addSampleCart: (state, action) => {
-            const sample = {
-                id: `sample-${action.payload.id}`,
-                title: action.payload.title,
-                option: [{ id: 'sample-option', size: 1, price: 0 }],
-                quantity: 1,
-                isChecked: true,
-                isSample: true,
-                sampleImg: action.payload.sampleImg,
-            };
-            state.carts.push(sample);
-            localStorage.setItem('carts', JSON.stringify(state.carts));
+            const exists = state.carts.find((c) => c.id === action.payload.id);
+            if (!exists) {
+                state.carts.push(action.payload); // 수량 1 고정
+            }
         },
         // 샘플 체크박스 토글
         toggleSample: (state, action) => {
