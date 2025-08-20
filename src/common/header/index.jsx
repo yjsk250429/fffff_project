@@ -39,9 +39,6 @@ const Header = ({ theme }) => {
                             <li>ENG</li>
                         </ul>
                     </li>
-                    {/* <li>
-                        <Link to="/login">로그인</Link>
-                    </li> */}
                     <li>
                         {authed ? (
                             <span onClick={handleLogout} style={{ cursor: 'pointer' }}>
@@ -51,7 +48,6 @@ const Header = ({ theme }) => {
                             <Link to="/login">로그인</Link>
                         )}
                     </li>
-                    {/* <li>xxx 님 로그아웃</li> */}
                     <li>
                         <Link to="/cscenter/faq">고객센터</Link>
                     </li>
@@ -85,12 +81,16 @@ const Header = ({ theme }) => {
                             </Link>
                         </li>
                         <li>
-                            {/* 로그인 되어있으면 그냥 이미지만, 로그인 안 돼있으면 Link to 안에 이미지 */}
-                            <Link to="/login">
+                            {authed?
+                                 <i>
+                                 <IoPersonOutline />
+                             </i>
+                                :<Link to="/login">
                                 <i>
                                     <IoPersonOutline />
                                 </i>
                             </Link>
+                                }
                         </li>
                     </BigUtilStyle>
                 </div>
