@@ -5,7 +5,7 @@ export const FaqMainStyle = styled.div`
         font-size: 40px;
         font-weight: 600;
         padding-bottom: 15px;
-        margin-top: 30px;
+        /* margin-top: 30px; */
     }
     em {
         font-size: 20px;

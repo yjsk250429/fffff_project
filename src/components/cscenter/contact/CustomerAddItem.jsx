@@ -2,9 +2,9 @@ import { useState } from 'react';
 import Button from '../../../ui/Button';
 import { CustomerAddItemStyle, DomainSelectWrapper, SelectWrapper } from './style';
 import { LiaAngleUpSolid, LiaAngleDownSolid } from 'react-icons/lia';
-const CustomerAddItem = () => {
+const CustomerAddItem = ({ data, onChange }) => {
     const [dropdownStates, setDropdownStates] = useState({
-        inquiryType: false,
+        type: false,
         emailDomain: false,
     });
     const [emailId, setEmailId] = useState('');
@@ -43,16 +43,18 @@ const CustomerAddItem = () => {
                     <td className="inline-input">
                         <SelectWrapper>
                             <select
-                                name="inquiryType"
+                                name="type"
+                                value={data.type}
+                                onChange={onChange}
                                 style={{ paddingLeft: '10px' }}
-                                onClick={() => handleSelectFocus('inquiryType')}
-                                onBlur={() => handleSelectBlur('inquiryType')}
+                                onClick={() => handleSelectFocus('type')}
+                                onBlur={() => handleSelectBlur('type')}
                             >
                                 <option value="">선택하세요</option>
-                                <option value="delivery">배송문의</option>
-                                <option value="exchange">교환/환불</option>
-                                <option value="product">상품문의</option>
-                                <option value="etc">기타</option>
+                                <option value="배송문의">배송문의</option>
+                                <option value="교환/환불">교환/환불</option>
+                                <option value="상품문의">상품문의</option>
+                                <option value="기타">기타</option>
                             </select>
                             {dropdownStates.inquiryType ? (
                                 <LiaAngleUpSolid className="icon" />
@@ -67,7 +69,7 @@ const CustomerAddItem = () => {
                         이름 <span>*</span>
                     </td>
                     <td className="inline-input">
-                        <input type="text" name="name" />
+                        <input type="text" name="name" value={data.name} onChange={onChange} />
                     </td>
                 </tr>
                 <tr>
@@ -75,7 +77,7 @@ const CustomerAddItem = () => {
                         제목 <span>*</span>
                     </td>
                     <td className="inline-input">
-                        <input type="text" name="title" />
+                        <input type="text" name="title" value={data.title} onChange={onChange} />
                     </td>
                 </tr>
                 <tr>
@@ -85,7 +87,7 @@ const CustomerAddItem = () => {
                     <td colSpan={2}>
                         <div className="email-wrap">
                             <input
-                                type="email"
+                                type="text"
                                 name="emailId"
                                 value={emailId}
                                 onChange={(e) => setEmailId(e.target.value)}
@@ -136,6 +138,8 @@ const CustomerAddItem = () => {
                             placeholder="문의 내용을 입력하세요"
                             name="content"
                             style={{ padding: '10px' }}
+                            value={data.content}
+                            onChange={onChange}
                         />
                     </td>
                 </tr>

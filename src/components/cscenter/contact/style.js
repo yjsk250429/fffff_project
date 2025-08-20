@@ -50,6 +50,7 @@ export const CustomerListStyle = styled.div`
 
 export const CustomerAddStyle = styled.div`
     /* border: 1px solid #999; */
+    padding-bottom: 115px;
     width: 985px;
     margin: auto;
     h2 {
@@ -57,12 +58,14 @@ export const CustomerAddStyle = styled.div`
         font-weight: 600;
         padding-bottom: 24px;
         margin-top: 30px;
+        text-align: center;
     }
     em {
         color: var(--foundation-white-dark-active, #656565);
         line-height: 25px;
         display: block;
         margin-bottom: 66px;
+        text-align: center;
     }
     p {
         display: flex;

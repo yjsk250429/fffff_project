@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ContactStyle, CsCenterVisual } from './style';
 import { TabBarStyle } from '../about/style';
-import Button from '../../ui/Button';
-import CustomerAdd from '../../components/cscenter/contact/CustomerAdd';
+
 import CustomerList from '../../components/cscenter/contact/CustomerList';
 
 const Contact = () => {
@@ -20,7 +19,6 @@ const Contact = () => {
                 </li>
             </TabBarStyle>
             <div className="inner">
-                {/* <CustomerAdd /> */}
                 <CustomerList />
             </div>
         </ContactStyle>
