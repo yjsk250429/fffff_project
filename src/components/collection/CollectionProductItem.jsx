@@ -6,7 +6,7 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
 
 const CollectionProductItem = ({ product }) => {
-    const { image, title, rating, label, option, unit } = product;
+    const {id, category, image, title, rating, label, option, unit } = product;
     const { rate, count } = rating;
     const { carts } = useSelector((state) => state.cart);
     const { wishes } = useSelector((state) => state.wish);
@@ -37,7 +37,7 @@ const CollectionProductItem = ({ product }) => {
 
     return (
         <li>
-            <Link to="">
+            <Link to={`/product/${category}/${id}`}>
                 <div className="img-wrap">
                     <img src={image} alt={title} />
                     <i onClick={handleWishToggle} className={isInWishlist ? 'active' : ''}>

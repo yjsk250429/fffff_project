@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 const bestGiftArr = [
     {
         id: 1,
-        path: '/hair/6',
+        path: '/product/hair/6',
         image: '/images/gift/gift_con1_0.png',
         title: '헤어 세럼 듀오',
     },
     {
         id: 2,
-        path: '/body/143',
+        path: '/product/body/143',
         image: '/images/gift/gift_con1_1.png',
         title: '아몬드 바디 듀오 리추얼',
     },
     {
         id: 3,
-        path: '/hand/74',
+        path: '/product/hand/74',
         image: '/images/gift/gift_con1_2.png',
         title: '리퀴드 솝 & 핸드 앤 바디 듀오',
     },
@@ -40,7 +40,9 @@ const BestGift = ({ title }) => {
                         {bestGiftArr.map((best) => (
                             <li key={best.id}>
                                 <Link to={best.path}>
+                                <div className="img">
                                     <img src={best.image} alt={best.title} />
+                                </div>
                                     <p className={title}>{best.title}</p>
                                 </Link>
                             </li>

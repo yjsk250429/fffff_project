@@ -49,10 +49,23 @@ export const BestGiftStyle = styled.div`
             li {
                 cursor: pointer;
                 text-align: center;
-                img {
-                    /* margin-bottom: 15px; */
+                a{
+
+                .img{
+                    width: 370px;
+                    height: 495px;
+                    overflow:hidden;
+                    margin-bottom: 15px;
+                    img {
+                        transition:0.6s
+                    }
+                    &:hover{
+                        img{
+                            transform:scale(1.1);
+                        }
+                    }
                 }
-                .title {
+                p {
                     font-size: 20px;
                     font-weight: 500;
                 }

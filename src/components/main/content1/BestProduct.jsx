@@ -27,12 +27,7 @@ const BestProduct = () => {
           { xPercent: -100 },               // 반응형에 안전한 xPercent 권장
           { xPercent: 0, ease: "none", duration: 5 },
           0
-        ).fromTo(
-          self.selector(".inner .list"),
-          { xPercent: 100 },
-          { xPercent: 0, ease: "none", duration: 5 },
-          0
-        );
+        )
       }, rootRef);
   
       return () => ctx.revert(); // ✅ 중복 생성/메모리 누수 방지
