@@ -10,16 +10,22 @@ import Badge from '../../ui/Badge';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { cartActions } from '../../store/modules/cartSlice';
+import { authActions } from '../../store/modules/authSlice';
 
 const Header = ({ theme }) => {
     const { carts, quantityTotal } = useSelector((state) => state.cart);
+    const { authed, user } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const logoChange =
         theme === 'special' ? '/images/header_logo_2.png' : '/images/header_logo.png';
 
-        useEffect(()=>{
-            dispatch(cartActions.totalCart());
-        },[carts]);
+    useEffect(() => {
+        dispatch(cartActions.totalCart());
+    }, [carts]);
+
+    const handleLogout = () => {
+        dispatch(authActions.logout());
+    };
     return (
         <HeaderStyle>
             <div className="inner">
@@ -33,8 +39,17 @@ const Header = ({ theme }) => {
                             <li>ENG</li>
                         </ul>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/login">로그인</Link>
+                    </li> */}
+                    <li>
+                        {authed ? (
+                            <span onClick={handleLogout} style={{ cursor: 'pointer' }}>
+                                {user?.name}님 로그아웃
+                            </span>
+                        ) : (
+                            <Link to="/login">로그인</Link>
+                        )}
                     </li>
                     {/* <li>xxx 님 로그아웃</li> */}
                     <li>
@@ -47,7 +62,7 @@ const Header = ({ theme }) => {
                             <img src={logoChange} alt="loccitane" />
                         </Link>
                     </h1>
-                    <Nav/>
+                    <Nav />
                     <BigUtilStyle>
                         <li>
                             <i>
@@ -60,9 +75,7 @@ const Header = ({ theme }) => {
                                     <PiHandbagSimple />
                                 </i>
                             </Link>
-                                {
-                                    carts.length > 0 && <Badge text={quantityTotal}/>
-                                }
+                            {carts.length > 0 && <Badge text={quantityTotal} />}
                         </li>
                         <li>
                             <Link to="/wish">

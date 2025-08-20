@@ -3,6 +3,7 @@ import { ContactStyle, CsCenterVisual } from './style';
 import { TabBarStyle } from '../about/style';
 import Button from '../../ui/Button';
 import CustomerAdd from '../../components/cscenter/contact/CustomerAdd';
+import CustomerList from '../../components/cscenter/contact/CustomerList';
 
 const Contact = () => {
     return (
@@ -19,7 +20,8 @@ const Contact = () => {
                 </li>
             </TabBarStyle>
             <div className="inner">
-                <CustomerAdd />
+                {/* <CustomerAdd /> */}
+                <CustomerList />
             </div>
         </ContactStyle>
     );

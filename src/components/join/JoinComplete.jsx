@@ -34,10 +34,10 @@ const JoinComplete = () => {
                     </strong>
                 </div>
                 <p className="btns">
-                    <button className="on" onClick={goToHome}>
+                    <button className="off" onClick={goToHome}>
                         홈으로
                     </button>
-                    <button className="off" onClick={goToLoin}>
+                    <button className="on" onClick={goToLoin}>
                         로그인
                     </button>
                 </p>

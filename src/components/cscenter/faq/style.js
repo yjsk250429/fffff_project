@@ -35,7 +35,7 @@ export const FaqItemStyle = styled.div`
         cursor: pointer;
         transition: background-color 0.2s linear, color 0.2s linear;
         /* background-color: ${(props) => (props.$active ? '#F6F6F6' : 'transparent')}; */
-        border-top: ${(props) => (props.$active ? '3px solid #000' : 'transparent')};
+        border-top: ${(props) => (props.$active ? '2px solid #000' : 'transparent')};
         border-bottom: ${(props) => (props.$active ? ' 1px solid #ddd' : 'transparent')};
         span {
             font-size: 24px;

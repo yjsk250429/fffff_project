@@ -24,6 +24,7 @@ import JoinInfo from './components/join/JoinInfo';
 import JoinComplete from './components/join/JoinComplete';
 import Payment from './pages/payment';
 import PayComplete from './pages/payment/PayComplete';
+import CustomerAdd from './components/cscenter/contact/CustomerAdd';
 
 const App = () => {
     return (
@@ -52,6 +53,7 @@ const App = () => {
                             <Route index element={<Faq />} />
                             <Route path="faq" element={<Faq />} />
                             <Route path="contact" element={<Contact />} />
+                            <Route path="customeradd" element={<CustomerAdd />} />
                         </Route>
 
                         <Route path="cart">
