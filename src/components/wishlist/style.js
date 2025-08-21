@@ -108,7 +108,8 @@ export const WishtItemStyle = styled.ul`
                 .item-price {
                     position: absolute;
                     color: var(--foundation-yellow-b);
-                    width: 80px;
+                    width: 100px;
+                    text-align: end;
                     font-size: 18px;
                     font-weight: 700;
                     right: 0;

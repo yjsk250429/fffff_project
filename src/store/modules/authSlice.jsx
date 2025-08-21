@@ -1,14 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 const memberData = [
     {
         id: 1,
         name: '홍길동',
-        tel: '010-0000-0000',
+        tel: {
+            first: '010',
+            middle: '0000',
+            last: '0000',
+        },
         email: 'abc@naver.com',
-        password: 'a1234',
-        addr:'',
-        birth:'',
+        password: 'a12345678',
+        addr: {
+            zipCode: '01234',
+            mainAddr: '서울 서초구 강남대로 435',
+            detailAddr: '101호',
+        },
+        birth: {
+            year: '1999',
+            month: '01',
+            date: '01',
+            moon: 'solar',
+        },
     },
 ];
 const initialState = {
@@ -29,11 +41,9 @@ export const authSlice = createSlice({
             if (item && item.password === password) {
                 state.authed = true;
                 state.user = item;
-                console.log('로그인 성공:', item.name);
             } else {
                 state.authed = false;
                 state.user = null;
-                alert('로그인 실패: 이메일 또는 비밀번호가 틀렸습니다.');
             }
             localStorage.setItem('authed', JSON.stringify(state.authed));
             localStorage.setItem('user', JSON.stringify(state.user));
@@ -43,7 +53,6 @@ export const authSlice = createSlice({
             state.user = null;
             localStorage.setItem('authed', JSON.stringify(state.authed));
             localStorage.setItem('user', JSON.stringify(state.user));
-            alert('로그아웃 완료');
         },
         signup(state, action) {
             const user = action.payload;
@@ -53,6 +62,5 @@ export const authSlice = createSlice({
         },
     },
 });
-
 export const authActions = authSlice.actions;
 export default authSlice.reducer;

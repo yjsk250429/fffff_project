@@ -4,12 +4,19 @@ import { PaymentWrapStyle } from './style';
 import PaymentProductItem from './PaymentProductItem';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import React from 'react';
 
 const PaymentWrap = () => {
     const { carts, priceTotal } = useSelector((state) => state.cart);
+    const { user, authed } = useSelector((state) => state.auth); // 로그인 정보 추가
+    const {} = user;
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(true); // 아코디언 상태
+
+    // 체크박스 상태
+    const [isSameAsOrderer, setIsSameAsOrderer] = useState(false);
+    const [isSameAsAddress, setIsSameAsAddress] = useState(false);
 
     const onBack = () => {
         navigate(-1);
@@ -18,18 +25,81 @@ const PaymentWrap = () => {
         navigate(`/cart/paycomplete`);
     };
 
-    // 아코디언 토글 함수
-    const toggleOpen = () => {
-        setIsOpen((prev) => !prev);
-    };
+    // 아코디언 토글
+    const toggleOpen = () => setIsOpen((prev) => !prev);
 
     const allProducts = carts;
-    const totalQuantity = carts.reduce((sum, c) => sum + (c.quantity || 0), 0);
+    const checkedCarts = carts.filter((cart) => cart.isChecked);
+    const totalQuantity = checkedCarts.reduce((sum, cart) => sum + (cart.quantity || 0), 0);
     const shippingFee = priceTotal > 0 && priceTotal < 50000 ? 3000 : 0;
-    const discountAmount = 0; // 나중에 적용
+    const discountAmount = 0;
     const finalTotal = priceTotal + shippingFee - discountAmount;
 
     const formatPrice = (price) => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    // 체크된 상품들 (샘플 포함)
+
+    // Daum API 스크립트 동적 로드
+    useEffect(() => {
+        if (!window.daum) {
+            const script = document.createElement('script');
+            script.src = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+            script.async = true;
+            document.body.appendChild(script);
+        }
+    }, []);
+
+    // 주문자와 동일 체크박스 핸들러
+    const handleSameAsOrderer = (e) => {
+        const checked = e.target.checked;
+        setIsSameAsOrderer(checked);
+
+        if (checked && authed && user) {
+            // 로그인 정보로 자동 입력
+            document.getElementsByName('name')[0].value = user.name || '';
+            document.getElementsByName('tel')[0].value = user.tel || '';
+        } else {
+            // 체크 해제 시 입력값 초기화
+            document.getElementsByName('name')[0].value = '';
+            document.getElementsByName('tel')[0].value = '';
+        }
+    };
+
+    // 가입 주소와 동일 체크박스 핸들러
+    const handleSameAsAddress = (e) => {
+        const checked = e.target.checked;
+        setIsSameAsAddress(checked);
+
+        if (checked && authed && user) {
+            // 로그인 주소 정보로 자동 입력
+            document.getElementsByName('zipCode')[0].value = user.zipCode || ''; // 우편번호
+            document.getElementsByName('mainAddr')[0].value = user.mainAddr || ''; // 기본주소
+            document.getElementsByName('detailAddr')[0].value = user.detailAddr || ''; // 상세주소
+        } else {
+            // 체크 해제 시 입력값 초기화
+            document.getElementsByName('zipCode')[0].value = '';
+            document.getElementsByName('mainAddr')[0].value = '';
+            document.getElementsByName('detailAddr')[0].value = '';
+        }
+    };
+
+    // 주소 검색 핸들러
+    const handleAddressSearch = () => {
+        if (!window.daum) {
+            alert('주소검색 API 로드 중입니다. 잠시 후 다시 시도해주세요.');
+            return;
+        }
+
+        new window.daum.Postcode({
+            oncomplete: (data) => {
+                document.getElementsByName('zipCode')[0].value = data.zonecode;
+                document.getElementsByName('mainAddr')[0].value =
+                    data.roadAddress || data.jibunAddress;
+                // 주소 검색 시 체크박스 해제
+                setIsSameAsAddress(false);
+            },
+        }).open();
+    };
 
     return (
         <PaymentWrapStyle>
@@ -61,7 +131,12 @@ const PaymentWrap = () => {
                                     />
                                 </p>
                                 <p>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        checked={isSameAsOrderer}
+                                        onChange={handleSameAsOrderer}
+                                        disabled={!authed} // 로그인 안 되어 있으면 비활성화
+                                    />
                                     <label>주문자와 동일</label>
                                 </p>
                             </td>
@@ -70,18 +145,23 @@ const PaymentWrap = () => {
                             <td>주소</td>
                             <td className="inline-input">
                                 <p>
-                                    <input type="text" name="address1" placeholder="우편번호" />
-                                    <button>주소 검색</button>
+                                    <input type="text" name="zipCode" placeholder="우편번호" />
+                                    <button onClick={handleAddressSearch}>주소 검색</button>
                                 </p>
                                 <p>
-                                    <input type="text" name="address2" placeholder="기본주소" />
+                                    <input type="text" name="mainAddr" placeholder="기본주소" />
                                 </p>
                                 <p>
-                                    <input type="text" name="address3" placeholder="상세주소" />
+                                    <input type="text" name="detailAddr" placeholder="상세주소" />
                                 </p>
                                 <p>
-                                    <input type="checkbox" />
-                                    <label>최근 배송지</label>
+                                    <input
+                                        type="checkbox"
+                                        checked={isSameAsAddress}
+                                        onChange={handleSameAsAddress}
+                                        disabled={!authed} // 로그인 안 되어 있으면 비활성화
+                                    />
+                                    <label>가입 주소와 동일</label>
                                 </p>
                             </td>
                         </tr>

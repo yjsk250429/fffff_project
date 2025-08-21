@@ -6,12 +6,16 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
 
 const CollectionProductItem = ({ product }) => {
-    const {id, category, image, title, rating, label, option, unit } = product;
+    const { id, category, image, title, rating, label, option, unit } = product;
     const { rate, count } = rating;
     const { carts } = useSelector((state) => state.cart);
     const { wishes } = useSelector((state) => state.wish);
 
     const dispatch = useDispatch();
+
+    const selectedOption = option?.length > 1 ? option[1] : option?.length === 1 ? option[0] : null;
+    const price = selectedOption?.price ?? '';
+    const size = selectedOption?.size ?? '';
 
     // 현재 상품이 장바구니에 있는지 확인
     const isInCart = carts.some((item) => item.id === product.id);
@@ -52,9 +56,8 @@ const CollectionProductItem = ({ product }) => {
                     </p>
                     <p className="price-info">
                         <span>
-                            {option?.[0]?.size && typeof option[0].size === 'number'
-                                && `${option[0].size}${unit} / `}
-                            {option?.[0]?.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                            {size && typeof size === 'number' && `${size}${unit} / `}
+                            {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                         </span>
                         <i onClick={handleCartToggle} className={isInCart ? 'active' : ''}>
                             <PiHandbagSimple />
