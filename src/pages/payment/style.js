@@ -22,13 +22,15 @@ export const PaymentStyle = styled.div`
 // `;
 
 export const PaymentCompleteStyle = styled.div`
-    width: 1700px;
-    padding: 100px 0;
-    margin: auto;
+    .inner {
+        width: 1700px;
+        padding: 100px 0;
+        margin: auto;
+    }
     h2 {
         font-size: 40px;
         font-weight: 600;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         text-align: center;
     }
     .completed-info {
@@ -37,6 +39,8 @@ export const PaymentCompleteStyle = styled.div`
         box-sizing: border-box;
         border: 1px solid #a8a8a8;
         margin: auto;
+        margin-bottom: 50px;
+
         h3 {
             width: 100%;
             color: var(--foundation-white-darker);
@@ -46,7 +50,7 @@ export const PaymentCompleteStyle = styled.div`
             margin-bottom: 120px;
             position: relative;
             span {
-                color: var(--red);
+                color: var(--foundation-yellow-dark-active);
             }
             &::after {
                 content: '';
@@ -67,10 +71,12 @@ export const PaymentCompleteStyle = styled.div`
             }
         }
     }
-    p {
-        margin: auto;
-        margin-top: 100px;
+    .btn-wrap {
+        // completed-info 바깥으로 이동
+        width: 830px;
+        margin: 0 auto; // 중앙 정렬
         display: flex;
         gap: 10px;
+        justify-content: center;
     }
 `;

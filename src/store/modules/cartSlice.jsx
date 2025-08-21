@@ -5,10 +5,9 @@ import productData from '../../assets/api/productData';
 const storedCarts = localStorage.getItem('carts')
     ? JSON.parse(localStorage.getItem('carts')).map((cart) => ({
           ...cart,
-          isChecked: false, 
+          isChecked: false,
       }))
     : [];
-
 
 const initialState = {
     products: localStorage.getItem('products')
@@ -114,8 +113,10 @@ export const cartSlice = createSlice({
         // 샘플 항목 추가
         addSampleCart: (state, action) => {
             const exists = state.carts.find((c) => c.id === action.payload.id);
-            if (!exists) {
-                state.carts.push(action.payload); // 수량 1 고정
+            if (exists) {
+                exists.isChecked = true; // 이미 존재하면 체크 상태만 갱신
+            } else {
+                state.carts.push(action.payload);
             }
         },
         // 샘플 체크박스 토글
