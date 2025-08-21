@@ -24,6 +24,7 @@ const Login = () => {
         e.preventDefault();
         if (!password.trim() || !email.trim()) return;
         dispatch(authActions.login(user));
+        
     };
     const goToJoin = () => {
         navigate('/join');
