@@ -158,7 +158,6 @@ const JoinInfo = () => {
         navigate('/join/joincomplete');
       };
 
-      // Daum API 스크립트 동적 로드
           useEffect(() => {
               if (!window.daum) {
                   const script = document.createElement('script');
@@ -168,7 +167,6 @@ const JoinInfo = () => {
               }
           }, []);
 
-          // 주소 검색 핸들러
           const handleAddressSearch = () => {
             if (!window.daum) {
                 alert('주소검색 API 로드 중입니다. 잠시 후 다시 시도해주세요.');
@@ -177,10 +175,7 @@ const JoinInfo = () => {
         
             new window.daum.Postcode({
                 oncomplete: (data) => {
-                    // 도로명주소가 있으면 그걸 쓰고, 없으면 지번주소 사용
                     const selectedAddr = data.roadAddress || data.jibunAddress;
-        
-                    // state 업데이트 (React 방식)
                     changeInput({
                         target: {
                             name: "addr.zipCode",
@@ -193,8 +188,6 @@ const JoinInfo = () => {
                             value: selectedAddr,
                         },
                     });
-        
-                    // 주소 검색 시 체크박스 해제
                     setIsSameAsAddress(false);
                 },
             }).open();

@@ -13,7 +13,7 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { authActions } from '../../store/modules/authSlice';
 
 const Header = ({ theme }) => {
-    const { carts, quantityTotal } = useSelector((state) => state.cart);
+    const { carts } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const { authed, user } = useSelector((state) => state.auth);
     const logoChange =

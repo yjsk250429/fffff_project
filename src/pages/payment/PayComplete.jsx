@@ -1,8 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { PaymentCompleteStyle } from './style';
+import { useSelector } from 'react-redux';
 
 const PayComplete = () => {
+    const {payments} = useSelector((state)=>state.payment);
+    const latest = payments?.[payments.length - 1];
+    const { orderNo, items, address, orderer, summary, memo } = latest;
+    const formatPrice = (n) => Number(n || 0).toLocaleString();
+  
     const navigate = useNavigate();
     const onGo = () => {
         navigate('/product/skin');
@@ -12,44 +18,34 @@ const PayComplete = () => {
             <h2>주문이 완료되었습니다.</h2>
             <div className="completed-info">
                 <h3>
-                    주문번호: <span>2020090519683953</span>
+                    주문번호: <span>{orderNo}</span>
                 </h3>
                 <ul className="info-wrap">
                     <li>
                         <p>
                             배송지정보
                             <span>
-                                010-1234-5678
+                            {orderer?.tel}
                                 <br />
-                                홍길동
+                                {orderer?.name}
+                                <br />
+                                ({address?.zipCode}) {address?.mainAddr} {address?.detailAddr}
                             </span>
                         </p>
                     </li>
                     <li>
                         <p>
-                            배송메모<span>빠른 배송부탁드려요</span>
+                            배송메모<span>{memo || '-'}</span>
                         </p>
                     </li>
                     <li>
                         <p>
-                            배송비<span>3,000원</span>
+                            배송비<span>{formatPrice(summary?.shippingFee)}원</span>
                         </p>
                     </li>
                     <li>
                         <p>
-                            입금계좌안내
-                            <span>
-                                은행명: 국민은행 035-12345678-456
-                                <br />
-                                예금주: 록시땅(주)
-                                <br />
-                                송금자: 본인명
-                            </span>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            입금금액<span>87,000원</span>
+                            입금금액<span>{formatPrice(summary?.finalTotal)}</span>
                         </p>
                     </li>
                 </ul>

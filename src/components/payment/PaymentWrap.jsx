@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { PaymentWrapStyle } from './style';
 import PaymentProductItem from './PaymentProductItem';
@@ -6,10 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import { paymentActions } from '../../store/modules/paymentSlice';
 
 const PaymentWrap = () => {
     const { carts, priceTotal } = useSelector((state) => state.cart);
     const { user, authed } = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
+
 
     // 비회원 주문
     const name = user?.name || '';
@@ -28,9 +31,7 @@ const PaymentWrap = () => {
     const onBack = () => {
         navigate(-1);
     };
-    const onComplete = () => {
-        navigate(`/cart/paycomplete`);
-    };
+
 
     // 아코디언 토글
     const toggleOpen = () => setIsOpen((prev) => !prev);
@@ -86,6 +87,7 @@ const PaymentWrap = () => {
 
     // 주소 검색 핸들러
     const handleAddressSearch = () => {
+
         if (!window.daum) {
             alert('주소검색 API 로드 중입니다. 잠시 후 다시 시도해주세요.');
             return;
@@ -101,9 +103,62 @@ const PaymentWrap = () => {
         }).open();
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.currentTarget);
+        const data = Object.fromEntries(fd.entries());
+    
+        // payload 구성
+        const payload = {
+          orderer: {
+            name: data.name || '',
+            tel: data.tel || '',      // 필요 시 하이픈 제거/검증
+          },
+          address: {
+            zipCode: data.zipCode || '',
+            mainAddr: data.mainAddr || '',
+            detailAddr: data.detailAddr || '',
+          },
+          memo: data.memo || '',
+          paymentMethod: data.paymentMethod || 'creditCard',
+          userId: authed && user ? user.id : null, // 비회원이면 null
+    
+          // 장바구니 스냅샷(필요한 필드만 보관 권장)
+          items: checkedCarts.map(c => ({
+            id: c.id,
+            title: c.title,
+            quantity: c.quantity,
+            option: c?.option?.[0] ? { name: c.option[0].name, price: Number(c.option[0].price) } : null,
+            itemTotal: c?.option?.[0] ? Number(c.option[0].price) * c.quantity : 0,
+            // 썸네일, sku 등 조회용 추가 가능
+          })),
+    
+          summary: {
+            productTotal: priceTotal,
+            shippingFee,
+            discountAmount,
+            finalTotal,
+            quantity: totalQuantity,
+          },
+        };
+    
+        dispatch(paymentActions.onPay(payload));
+    
+        // (선택) 결제 완료 후 체크된 항목만 장바구니에서 제거하고 싶다면 cartSlice에 clearChecked 추가하여 디스패치
+        // dispatch(cartActions.clearChecked());
+    
+        // 완료 페이지로 이동
+        // 주문번호를 확인 페이지에서 쓰고 싶다면 URL 파라미터/쿼리로 넘기는 방식 추천:
+        // ex) navigate(`/cart/paycomplete?ts=${Date.now()}`)
+        navigate('/cart/paycomplete');
+      };
+
     return (
         <PaymentWrapStyle>
             <div className="payment-left">
+                <form id='paymentForm' onSubmit={handleSubmit}>
+
+             
                 <table>
                     <colgroup>
                         <col style={{ width: '175px' }} />
@@ -146,7 +201,7 @@ const PaymentWrap = () => {
                             <td className="inline-input">
                                 <p>
                                     <input type="text" name="zipCode" placeholder="우편번호" />
-                                    <button onClick={handleAddressSearch}>주소 검색</button>
+                                    <button type='button' onClick={handleAddressSearch}>주소 검색</button>
                                 </p>
                                 <p>
                                     <input type="text" name="mainAddr" placeholder="기본주소" />
@@ -170,7 +225,7 @@ const PaymentWrap = () => {
                             <td className="inline-input">
                                 <select
                                     className="domain-select"
-                                    name="emailDomain"
+                                    name="memo"
                                     style={{
                                         paddingLeft: '10px',
                                         fontWeight: 500,
@@ -178,12 +233,12 @@ const PaymentWrap = () => {
                                     }}
                                 >
                                     <option value="">배송 메모를 선택해주세요.</option>
-                                    <option value="option1">배송 전에 연락 주세요.</option>
-                                    <option value="option2">부재 시 문 앞에 놓아주세요.</option>
-                                    <option value="option3">
+                                    <option >배송 전에 연락 주세요.</option>
+                                    <option >부재 시 문 앞에 놓아주세요.</option>
+                                    <option >
                                         파손 위험이 있으니 조심히 다뤄주세요.
                                     </option>
-                                    <option value="option4">
+                                    <option >
                                         문 앞에 놓을 공간이 없으면 경비실에 맡겨주세요.
                                     </option>
                                 </select>
@@ -191,7 +246,7 @@ const PaymentWrap = () => {
                         </tr>
                     </tbody>
                 </table>
-
+                </form>
                 {/* 주문상품 아코디언 */}
                 <div className="payment-items">
                     <p className="title products" onClick={toggleOpen}>
@@ -225,7 +280,7 @@ const PaymentWrap = () => {
                     <div className="input-wrap">
                         <p>쿠폰 코드 입력</p>
                         <input type="text" placeholder="숫자 16자리" />
-                        <button>쿠폰 적용</button>
+                        <button type='button'>쿠폰 적용</button>
                     </div>
                 </div>
                 <div className="payment-tools">
@@ -282,7 +337,7 @@ const PaymentWrap = () => {
                         <button onClick={onBack}>취소</button>
                     </p>
                     <p>
-                        <button onClick={onComplete}>{formatPrice(finalTotal)}원 주문하기</button>
+                        <button type='submit' form="paymentForm">{formatPrice(finalTotal)}원 주문하기</button>
                     </p>
                 </div>
             </div>

@@ -8,6 +8,7 @@ import nature from './modules/natureSlice';
 import collection from './modules/collectionSlice';
 import wish from './modules/wishSlice';
 import customer from './modules/customerSlice';
+import payment from './modules/paymentSlice';
 
 const store = configureStore({
     reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
         collection,
         wish,
         customer,
+        payment,
     },
 });
 
