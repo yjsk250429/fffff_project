@@ -20,6 +20,9 @@ const memberData = [
             month: '01',
             date: '01',
             moon: 'solar',
+            first: '010',
+            middle: '0000',
+            last: '0000',
         },
     },
 ];

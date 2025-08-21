@@ -25,6 +25,7 @@ const Header = ({ theme }) => {
 
     const handleLogout = () => {
         dispatch(authActions.logout());
+        alert('로그아웃 완료');
     };
 
     const totalQuantity = carts.reduce((sum, cart) => sum + cart.quantity, 0);
