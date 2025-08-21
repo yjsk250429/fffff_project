@@ -45,7 +45,6 @@ export const authSlice = createSlice({
             } else {
                 state.authed = false;
                 state.user = null;
-                // alert('로그인 실패: 이메일 또는 비밀번호가 틀렸습니다.');
             }
             localStorage.setItem('authed', JSON.stringify(state.authed));
             localStorage.setItem('user', JSON.stringify(state.user));
