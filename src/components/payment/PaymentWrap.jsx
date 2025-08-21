@@ -9,10 +9,17 @@ import React from 'react';
 
 const PaymentWrap = () => {
     const { carts, priceTotal } = useSelector((state) => state.cart);
-    const { user, authed } = useSelector((state) => state.auth); // 로그인 정보 추가
-    const {} = user;
+    const { user, authed } = useSelector((state) => state.auth);
+
+    // 비회원 주문
+    const name = user?.name || '';
+    const tel = user?.tel || '';
+    const addr1 = user?.addr1 || ''; // 우편번호
+    const addr2 = user?.addr2 || ''; // 기본주소
+    const addr3 = user?.addr3 || ''; // 상세주소
+
     const navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(true); // 아코디언 상태
+    const [isOpen, setIsOpen] = useState(true);
 
     // 체크박스 상태
     const [isSameAsOrderer, setIsSameAsOrderer] = useState(false);
@@ -37,8 +44,6 @@ const PaymentWrap = () => {
 
     const formatPrice = (price) => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-    // 체크된 상품들 (샘플 포함)
-
     // Daum API 스크립트 동적 로드
     useEffect(() => {
         if (!window.daum) {
@@ -55,11 +60,9 @@ const PaymentWrap = () => {
         setIsSameAsOrderer(checked);
 
         if (checked && authed && user) {
-            // 로그인 정보로 자동 입력
-            document.getElementsByName('name')[0].value = user.name || '';
-            document.getElementsByName('tel')[0].value = user.tel || '';
+            document.getElementsByName('name')[0].value = name;
+            document.getElementsByName('tel')[0].value = tel;
         } else {
-            // 체크 해제 시 입력값 초기화
             document.getElementsByName('name')[0].value = '';
             document.getElementsByName('tel')[0].value = '';
         }
@@ -71,12 +74,10 @@ const PaymentWrap = () => {
         setIsSameAsAddress(checked);
 
         if (checked && authed && user) {
-            // 로그인 주소 정보로 자동 입력
-            document.getElementsByName('zipCode')[0].value = user.zipCode || ''; // 우편번호
-            document.getElementsByName('mainAddr')[0].value = user.mainAddr || ''; // 기본주소
-            document.getElementsByName('detailAddr')[0].value = user.detailAddr || ''; // 상세주소
+            document.getElementsByName('zipCode')[0].value = addr1;
+            document.getElementsByName('mainAddr')[0].value = addr2;
+            document.getElementsByName('detailAddr')[0].value = addr3;
         } else {
-            // 체크 해제 시 입력값 초기화
             document.getElementsByName('zipCode')[0].value = '';
             document.getElementsByName('mainAddr')[0].value = '';
             document.getElementsByName('detailAddr')[0].value = '';
@@ -95,7 +96,6 @@ const PaymentWrap = () => {
                 document.getElementsByName('zipCode')[0].value = data.zonecode;
                 document.getElementsByName('mainAddr')[0].value =
                     data.roadAddress || data.jibunAddress;
-                // 주소 검색 시 체크박스 해제
                 setIsSameAsAddress(false);
             },
         }).open();
@@ -135,7 +135,7 @@ const PaymentWrap = () => {
                                         type="checkbox"
                                         checked={isSameAsOrderer}
                                         onChange={handleSameAsOrderer}
-                                        disabled={!authed} // 로그인 안 되어 있으면 비활성화
+                                        disabled={!authed}
                                     />
                                     <label>주문자와 동일</label>
                                 </p>
@@ -159,7 +159,7 @@ const PaymentWrap = () => {
                                         type="checkbox"
                                         checked={isSameAsAddress}
                                         onChange={handleSameAsAddress}
-                                        disabled={!authed} // 로그인 안 되어 있으면 비활성화
+                                        disabled={!authed}
                                     />
                                     <label>가입 주소와 동일</label>
                                 </p>
@@ -197,7 +197,7 @@ const PaymentWrap = () => {
                     <p className="title products" onClick={toggleOpen}>
                         주문상품 (총 {totalQuantity}개)
                         <motion.i
-                            animate={{ rotate: isOpen ? 180 : 0 }} // 열릴 때 회전
+                            animate={{ rotate: isOpen ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
                         >
                             <MdKeyboardArrowDown />
