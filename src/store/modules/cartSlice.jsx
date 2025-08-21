@@ -5,9 +5,15 @@ import productData from '../../assets/api/productData';
 const storedCarts = localStorage.getItem('carts')
     ? JSON.parse(localStorage.getItem('carts')).map((cart) => ({
           ...cart,
-          isChecked: cart.isChecked !== undefined ? cart.isChecked : true, // 기존 체크 상태 유지, 없으면 true
+          isChecked: false, // 새로고침 시 모든 체크박스 해제
       }))
     : [];
+/*? JSON.parse(localStorage.getItem('carts')).map((cart) => ({
+            ...cart,
+            isChecked: cart.isChecked !== undefined ? cart.isChecked : true, // 기존 체크 상태 유지, 없으면 true
+        }))
+      : [];
+      */
 
 const initialState = {
     products: localStorage.getItem('products')
@@ -17,7 +23,9 @@ const initialState = {
     priceTotal: 0, // 선택된 항목 총 가격
     quantityTotal: 0, // 선택된 항목 총 수량
     // 전체 체크 상태: 샘플 제외하고 모두 체크된 경우만 true
-    isChecked: storedCarts.filter((c) => !c.isSample).every((c) => c.isChecked),
+    isChecked: false,
+    /*isChecked:
+        storedCarts.length > 0 && storedCarts.filter((c) => !c.isSample).every((c) => c.isChecked),*/
 };
 
 export const cartSlice = createSlice({
@@ -32,7 +40,7 @@ export const cartSlice = createSlice({
                 cart.quantity++;
                 if (cart.option?.[0]) cart.itemTotal = Number(cart.option[0].price) * cart.quantity;
             } else {
-                state.carts.push({ ...action.payload, quantity: 1, isChecked: true });
+                state.carts.push({ ...action.payload, quantity: 1, isChecked: false });
             }
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },

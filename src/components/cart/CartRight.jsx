@@ -19,6 +19,19 @@ const CartRight = () => {
         dispatch(cartActions.totalCart());
     }, [carts, dispatch]);
 
+    const handleOrderClick = () => {
+        // 체크된 아이템이 있는지 확인 (샘플 제외)
+        const checkedItems = carts.filter((cart) => cart.isChecked && !cart.isSample);
+
+        if (checkedItems.length === 0) {
+            alert('주문하실 상품을 선택해주세요.');
+            return;
+        }
+
+        // 선택된 상품이 있으면 기존 onGo 함수 실행
+        onGo();
+    };
+
     // 총 개수: 샘플 포함
     const totalQuantityWithSample = carts
         .filter((cart) => cart.isChecked)
@@ -55,7 +68,9 @@ const CartRight = () => {
                         <button>총 {totalQuantityWithSample}개</button>
                     </p>
                     <p>
-                        <button onClick={onGo}>{formatPrice(finalTotal)}원 주문하기</button>
+                        <button onClick={handleOrderClick}>
+                            {formatPrice(finalTotal)}원 주문하기
+                        </button>
                     </p>
                 </div>
             </div>

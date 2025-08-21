@@ -14,7 +14,7 @@ import { authActions } from '../../store/modules/authSlice';
 
 const Header = ({ theme }) => {
     const { carts, quantityTotal } = useSelector((state) => state.cart);
-        const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const { authed, user } = useSelector((state) => state.auth);
     const logoChange =
         theme === 'special' ? '/images/header_logo_2.png' : '/images/header_logo.png';
@@ -27,6 +27,8 @@ const Header = ({ theme }) => {
         dispatch(authActions.logout());
         alert('로그아웃 완료');
     };
+
+    const totalQuantity = carts.reduce((sum, cart) => sum + cart.quantity, 0);
     return (
         <HeaderStyle>
             <div className="inner">
@@ -72,7 +74,7 @@ const Header = ({ theme }) => {
                                     <PiHandbagSimple />
                                 </i>
                             </Link>
-                            {carts.length > 0 && <Badge text={quantityTotal} />}
+                            {carts.length > 0 && <Badge text={totalQuantity} />}
                         </li>
                         <li>
                             <Link to="/wish">
@@ -82,16 +84,17 @@ const Header = ({ theme }) => {
                             </Link>
                         </li>
                         <li>
-                            {authed?
-                                 <i>
-                                 <IoPersonOutline />
-                             </i>
-                                :<Link to="/login">
+                            {authed ? (
                                 <i>
                                     <IoPersonOutline />
                                 </i>
-                            </Link>
-                                }
+                            ) : (
+                                <Link to="/login">
+                                    <i>
+                                        <IoPersonOutline />
+                                    </i>
+                                </Link>
+                            )}
                         </li>
                     </BigUtilStyle>
                 </div>

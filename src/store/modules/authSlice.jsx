@@ -1,26 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 const memberData = [
     {
         id: 1,
         name: '홍길동',
         tel: {
-            first:'010',
-            middle:'0000',
-            last:'0000',
+            first: '010',
+            middle: '0000',
+            last: '0000',
         },
         email: 'abc@naver.com',
         password: 'a12345678',
-        addr:{
-            zipCode:'01234',
-            mainAddr:'서울 서초구 강남대로 435',
-            detailAddr:'101호',
+        addr: {
+            zipCode: '01234',
+            mainAddr: '서울 서초구 강남대로 435',
+            detailAddr: '101호',
         },
-        birth:{
-            year:'1999',
-            month:'01',
-            date:'01',
-            moon:'solar',
+        birth: {
+            year: '1999',
+            month: '01',
+            date: '01',
+            moon: 'solar',
         },
     },
 ];
@@ -61,9 +60,7 @@ export const authSlice = createSlice({
             state.members = [...state.members, user];
             localStorage.setItem('members', JSON.stringify(state.members));
         },
-
     },
 });
-
 export const authActions = authSlice.actions;
 export default authSlice.reducer;
