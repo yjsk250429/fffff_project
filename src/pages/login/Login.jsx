@@ -7,11 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { authed, user: authUser } = useSelector((state) => state.auth);
+    const { authed } = useSelector((state) => state.auth);
+    const [submitted, setSubmitted] = useState(false);
     const [user, setUser] = useState({
         email: '',
         password: '',
     });
+    
     const { email, password } = user;
     const changeInput = (e) => {
         const { value, name } = e.target;
@@ -24,23 +26,27 @@ const Login = () => {
         e.preventDefault();
         if (!password.trim() || !email.trim()) return;
         dispatch(authActions.login(user));
-        
+        setSubmitted(true);  
     };
+
+    useEffect(()=>{
+        if(!submitted) return;
+        if(authed){
+            setUser({
+                email:'', password:''
+            });
+            const ok = window.confirm('로그인했습니다.');
+        if(ok) navigate('/');
+        } else{
+            alert('이메일 또는 비밀번호가 일치하지 않습니다.');
+            setUser((prev)=>({...prev, password:''}))
+        }
+        setSubmitted(false);
+    },[authed, submitted, navigate])
+
     const goToJoin = () => {
         navigate('/join');
     };
-    useEffect(() => {
-        if (authed && authUser) {
-            setUser({
-                password: '',
-                email: '',
-            });
-            navigate(`/`);
-        } else if (!authed && user === null) {
-            alert('로그인 실패: 이메일 또는 비밀번호를 확인하세요.');
-            setUser({ ...preview, password: '   ' });
-        }
-    }, [authed, authUser]);
 
     return (
         <LoginStyle>

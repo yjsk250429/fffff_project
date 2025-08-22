@@ -215,7 +215,7 @@ width: 100%;
 position: absolute;
 top: 0;
 transform:translateY(-100%);
-z-index:10;
+z-index:200;
 transition:0.4s;
 opacity:0;
 &.on{
