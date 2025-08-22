@@ -72,3 +72,42 @@ i{
     color: ${(props) => props.color3 || 'var(--foundation-white-normal-hover)'};
   }
 `;
+
+export const SearchFormStyle = styled.form`
+                margin-bottom: 30px;
+                width: ${({ $width }) => $width || "400px"};
+                height: 45px;
+                background: var(--foundation-white-light-active);
+              
+                box-sizing: border-box;
+                position: relative;
+                input[type='text'] {
+                    width: 90%;
+                    height:100%;
+                    padding: 15px 0 15px 15px;
+                    box-sizing: border-box;
+                    background: none;
+                    border: none;
+                    position: absolute;
+                    left: 0px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: var(--foundation-white-darker);
+                    font-family: 'Pretendard', sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    &:focus{
+                        outline:none;
+                    }
+                }
+                i {
+                    cursor: pointer;
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-40%);
+                    font-size: 24px;
+                    color: var(--foundation-white-darker);
+
+                }
+`;

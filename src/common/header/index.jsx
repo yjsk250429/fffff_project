@@ -1,21 +1,25 @@
 import { Link } from 'react-router-dom';
-import { BigUtilStyle, HeaderStyle, SmallUtilStyle } from './style';
+import { BigUtilStyle, HeaderSearchWrap, HeaderStyle, SmallUtilStyle } from './style';
 import Nav from './Nav';
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { PiHandbagSimple } from 'react-icons/pi';
-import { IoSearchOutline } from 'react-icons/io5';
-import { IoHeartOutline } from 'react-icons/io5';
-import { IoPersonOutline } from 'react-icons/io5';
+import { IoSearchOutline, IoHeartOutline, IoPersonOutline } from 'react-icons/io5';
 import Badge from '../../ui/Badge';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { cartActions } from '../../store/modules/cartSlice';
 import { authActions } from '../../store/modules/authSlice';
+import SearchForm from '../../ui/SearchForm';
+import { IoCloseOutline } from "react-icons/io5";
+
 
 const Header = ({ theme }) => {
     const { carts } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const { authed, user } = useSelector((state) => state.auth);
+    const [ lang, setLang ] = useState('KOR');
+    const [openLang, setOpenLang] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
     const logoChange =
         theme === 'special' ? '/images/header_logo_2.png' : '/images/header_logo.png';
 
@@ -34,12 +38,13 @@ const Header = ({ theme }) => {
             <div className="inner">
                 <SmallUtilStyle>
                     <li>
-                        <span>KOR</span>
-                        <i>
-                            <FiChevronDown />
+                        <span onClick={()=>setOpenLang(v => !v)}>{lang}</span>
+                        <i onClick={()=>setOpenLang(v => !v)}>
+                            {openLang? <FiChevronUp />:<FiChevronDown />}
                         </i>
-                        <ul style={{ display: 'none' }}>
-                            <li>ENG</li>
+                        <ul className={openLang ? 'on' : ''}>
+                            <li onClick={()=>{setLang('KOR'); setOpenLang(false)}}>KOR</li>
+                            <li onClick={()=>{setLang('ENG'); setOpenLang(false)}}>ENG</li>
                         </ul>
                     </li>
                     <li>
@@ -63,7 +68,7 @@ const Header = ({ theme }) => {
                     </h1>
                     <Nav />
                     <BigUtilStyle>
-                        <li>
+                        <li onClick={()=>setOpenSearch(true)}>
                             <i>
                                 <IoSearchOutline />
                             </i>
@@ -99,6 +104,22 @@ const Header = ({ theme }) => {
                     </BigUtilStyle>
                 </div>
             </div>
+            <HeaderSearchWrap className={openSearch ? 'on' : ''}>
+                <div className="inner">
+                    <i onClick={()=>setOpenSearch(false)}><IoCloseOutline /></i>
+                <span>Search For Products</span>
+                <h3>무엇을 찾고 계신가요?</h3>
+                <SearchForm width="1010px"/>
+                <ul>
+                    <li>인기 검색어</li>
+                    <li>#핸드크림</li>
+                    <li>#바디워시</li>
+                    <li>#시어버터</li>
+                    <li>#핸드워시</li>
+                    <li>#헤어오일</li>
+                </ul>
+                </div>
+            </HeaderSearchWrap>
         </HeaderStyle>
     );
 };
