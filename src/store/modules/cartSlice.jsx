@@ -134,6 +134,22 @@ export const cartSlice = createSlice({
 
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },
+        // 선택된 항목만 제거
+        clearChecked: (state) => {
+            state.carts = state.carts.filter((cart) => !cart.isChecked);
+            localStorage.setItem('carts', JSON.stringify(state.carts));
+
+            // 총합 초기화
+            state.priceTotal = state.carts.reduce(
+                (sum, cart) =>
+                    sum + (Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
+                0
+            );
+            state.quantityTotal = state.carts.reduce(
+                (sum, cart) => sum + (Number(cart.quantity) || 0),
+                0
+            );
+        },
     },
 });
 

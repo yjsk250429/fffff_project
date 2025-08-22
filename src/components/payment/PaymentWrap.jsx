@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import { paymentActions } from '../../store/modules/paymentSlice';
+import { cartActions } from '../../store/modules/cartSlice';
 
 const PaymentWrap = () => {
     const { carts, priceTotal } = useSelector((state) => state.cart);
@@ -190,7 +191,8 @@ const PaymentWrap = () => {
                 quantity: totalQuantity,
             },
         };
-
+        // 체크된 항목만 장바구니에서 제거
+        dispatch(cartActions.clearChecked());
         dispatch(paymentActions.onPay(payload));
 
         // (선택) 결제 완료 후 체크된 항목만 장바구니에서 제거하고 싶다면 cartSlice에 clearChecked 추가하여 디스패치
