@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
 export const GiftListStyle = styled.div`
-    margin-top: 260px;
+    margin-top: 68px;
     h3 {
         text-align: center;
         display: block;
         font-size: 40px;
         font-weight: 600;
         margin-bottom: 30px;
+    }
+    @media (max-width: 390px) {
+        h3 {
+            font-size: 20px;
+            margin-bottom: 26px;
+        }
     }
 `;
 export const GiftTabStyle = styled.ul`
@@ -26,6 +32,12 @@ export const GiftTabStyle = styled.ul`
             font-weight: 700;
         }
     }
+    @media (max-width: 390px) {
+        gap: 16px;
+        li {
+            font-size: 12px;
+        }
+    }
 `;
 
 export const GiftContentStyle = styled.div`
@@ -37,7 +49,6 @@ export const GiftContentStyle = styled.div`
         }
         margin-right: 176px;
     }
-
     .right {
         margin-top: 112px;
         .title {
@@ -71,6 +82,36 @@ export const GiftContentStyle = styled.div`
             text-align: center;
         }
     }
+    @media (max-width: 390px) {
+        flex-direction: column;
+        width: 90.7692vw;
+        margin: auto;
+        height: 616px;
+        .left {
+            img {
+                width: 90.7692vw;
+                height: 250px;
+                object-fit: cover;
+                margin-bottom: 28px;
+            }
+        }
+
+        .right {
+            margin: 0 13px;
+            .title {
+                font-size: 20px;
+                margin-top: 28px;
+            }
+            .tags {
+                font-size: 10px;
+                gap: 15px;
+            }
+            .grid {
+                margin-top: 33px;
+                gap: 8px;
+            }
+        }
+    }
 `;
 export const GiftItemStyle = styled.li`
     cursor: pointer;
@@ -81,6 +122,8 @@ export const GiftItemStyle = styled.li`
     background: var(--w, #fff);
     width: 254px;
     height: 254px;
+    line-height: 1;
+
     img {
     }
     strong {
@@ -98,5 +141,25 @@ export const GiftItemStyle = styled.li`
     p {
         color: var(--w, #fff);
         font-size: 18px;
+    }
+    @media (max-width: 390px) {
+        width: 26.1538vw;
+        height: 101px;
+        /* margin-right: 10px; */
+        gap: 10px;
+        margin: auto;
+        img {
+            width: 26.1538vw;
+            height: 101px;
+        }
+        strong {
+            font-size: 14px;
+        }
+        em {
+            font-size: 8px;
+        }
+        p {
+            font-size: 10px;
+        }
     }
 `;

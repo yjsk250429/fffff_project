@@ -4,6 +4,7 @@ import { TabBarStyle } from '../about/style';
 
 import CustomerList from '../../components/cscenter/contact/CustomerList';
 import BreadCrumb from '../../ui/BreadCrumb';
+// import { Pagination } from 'swiper/modules';
 
 const Contact = () => {
     return (
@@ -22,6 +23,7 @@ const Contact = () => {
             <div className="inner">
             <BreadCrumb text1="HOME" text2='고객센터' text3='문의하기' color3="#000"/>
                 <CustomerList />
+                {/* <Pagination /> */}
             </div>
         </ContactStyle>
     );

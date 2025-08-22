@@ -7,6 +7,10 @@ export const GiftMyselfStyle = styled.div`
         flex-direction: column;
         align-items: center;
         margin-top: 150px;
+        @media (max-width: 390px) {
+            margin-top: 100px;
+            width: 100%;
+        }
     }
     .title {
         span {
@@ -49,6 +53,27 @@ export const GiftMyselfStyle = styled.div`
                 background: #000;
             }
         }
+        @media (max-width: 390px) {
+            width: 100%;
+            text-align: center;
+            span {
+                display: none;
+            }
+            strong {
+                font-size: 20px;
+                max-width: 100%;
+                margin: 0 auto 50px;
+
+                &::after {
+                    width: 65px;
+                    left: 0;
+                }
+                &::before {
+                    width: 65px;
+                    right: 0;
+                }
+            }
+        }
     }
     .type {
         display: flex;
@@ -78,6 +103,16 @@ export const GiftMyselfStyle = styled.div`
                     top: 50%;
                     transform: translate(-50%, -50%);
                     pointer-events: none;
+                }
+            }
+        }
+        @media (max-width: 390px) {
+            flex-direction: column;
+            gap: 20px;
+            li {
+                .img-wrap {
+                    width: 90.7692vw;
+                    height: 400px;
                 }
             }
         }

@@ -7,7 +7,6 @@ export const HeaderStyle = styled.header`
         padding: 25px 0 40px 0;
         transition: 0.3s;
     }
-
     .bottom {
         display: flex;
         align-items: center;
@@ -62,21 +61,20 @@ export const BigUtilStyle = styled.ul`
     gap: 20px;
     position: absolute;
     right: 0;
-    li{
+    li {
         position: relative;
 
-            i {
-                font-size: 28px;
-                cursor: pointer;
-                color: var(--text-header);
-            }
+        i {
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-header);
+        }
 
-        p{
+        p {
             right: -5px;
             top: 0;
         }
     }
-    
 `;
 
 export const NavStyle = styled.nav`
@@ -90,7 +88,7 @@ export const NavStyle = styled.nav`
                 display: block;
                 width: 0;
                 height: 2px;
-                background:var(--text-header, #00274c) ;
+                background: var(--text-header, #00274c);
                 position: absolute;
                 bottom: 0;
                 left: 50%;
@@ -131,11 +129,11 @@ export const NavStyle = styled.nav`
         li {
             display: none;
             a {
-                color:var(--text-header,#656565 ) ;
+                color: var(--text-header, #656565);
             }
             &:hover {
                 a {
-                    color:var(--hover-header, #00274c);
+                    color: var(--hover-header, #00274c);
                     font-weight: 600;
                 }
             }
@@ -144,7 +142,7 @@ export const NavStyle = styled.nav`
             height: 60px;
             padding: 30px 0 0 380px;
             z-index: 100;
-            background:var(--bg-header, #fff);
+            background: var(--bg-header, #fff);
             li {
                 display: block;
             }
@@ -164,11 +162,11 @@ export const NavStyle = styled.nav`
         li {
             display: none;
             a {
-                color:var(--text-header,#656565 ) ;
+                color: var(--text-header, #656565);
             }
             &:hover {
                 a {
-                    color:var(--hover-header, #00274c);
+                    color: var(--hover-header, #00274c);
                     font-weight: 600;
                 }
             }
@@ -177,7 +175,7 @@ export const NavStyle = styled.nav`
             height: 60px;
             padding: 30px 0 0 872px;
             z-index: 100;
-            background:var(--bg-header, #fff);
+            background: var(--bg-header, #fff);
             li {
                 display: block;
             }

@@ -10,26 +10,43 @@ import { ContactStyle, CsCenterVisual } from '../../../pages/cscenter/style';
 import { TabBarStyle } from '../../../pages/about/style';
 
 const CustomerAdd = () => {
+    const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [data, setData] = useState({
         name: '',
         title: '',
         content: '',
-        inquiryType: '',
+        type: '',
+        emailId: '',
+        emailDomain: '',
     });
-    const { name, title, content, date } = data;
+
     const now = new Date();
     const changeInput = (e) => {
         const { value, name } = e.target;
-        setData({
-            ...data,
+        setData((prev) => ({
+            ...prev,
             [name]: value,
-        });
+        }));
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        if (!data.title.trim()) return;
+        let newErrors = {};
+
+        if (!data.type.trim()) newErrors.type = '문의 유형을 선택하세요';
+        if (!data.title.trim()) newErrors.title = '제목을 입력하세요';
+        if (!data.name.trim()) newErrors.name = '이름을 입력하세요';
+        if (!data.emailId.trim() || !data.emailDomain.trim()) {
+            newErrors.email = '이메일을 입력하세요';
+        }
+        if (!data.content.trim()) newErrors.content = '문의내용을 입력하세요';
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+
         const payload = {
             ...data,
             date: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`,
@@ -37,6 +54,7 @@ const CustomerAdd = () => {
         dispatch(customerActions.addCustomer(payload));
         navigate('/cscenter/contact');
     };
+
     return (
         <ContactStyle>
             <CsCenterVisual>
@@ -61,7 +79,7 @@ const CustomerAdd = () => {
                     <p>
                         <span>*</span>필수입력사항
                     </p>
-                    <CustomerAddItem data={data} onChange={changeInput} />
+                    <CustomerAddItem data={data} onChange={changeInput} errors={errors} />
                     <p className="btn">
                         <Button text="제출하기" type="submit" />
                     </p>

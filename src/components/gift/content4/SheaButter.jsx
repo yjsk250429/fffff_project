@@ -10,39 +10,29 @@ const SheaButter = () => {
     const itemsRef = useRef([]);
 
     useEffect(() => {
-        const container = containerRef.current;
-        const items = itemsRef.current;
+        gsap.matchMedia().add('(min-width: 391px)', () => {
+            const container = containerRef.current;
+            const items = itemsRef.current;
 
-        if (!container || !items.length) return;
+            if (!container || !items.length) return;
 
-        // 초기 상태 세팅
-        gsap.set(items, {
-            y: 150,
-            opacity: 0,
-            scale: 0.9,
+            gsap.set(items, { y: 150, opacity: 0, scale: 0.9 });
+
+            ScrollTrigger.create({
+                trigger: container,
+                start: 'top 80%',
+                onEnter: () => {
+                    gsap.to(items, {
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        duration: 1.2,
+                        stagger: 0.25,
+                        ease: 'power3.out',
+                    });
+                },
+            });
         });
-
-        // ScrollTrigger 적용
-        ScrollTrigger.create({
-            trigger: container,
-            start: 'top 70%', // 화면에 들어오면 실행
-            end: 'bottom 30%',
-            onEnter: () => {
-                gsap.to(items, {
-                    y: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1.2,
-                    stagger: 0.25, // 순차적 등장
-                    ease: 'power3.out',
-                });
-            },
-        });
-
-        // cleanup
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
     }, []);
 
     // ref 배열에 요소 추가
@@ -55,7 +45,7 @@ const SheaButter = () => {
     return (
         <SheaButterStyle ref={containerRef}>
             <div className="inner">
-                <img src="/images/gift/bg_Shea Butter.png" alt="시어버터문구" />
+                <img className="bg" src="/images/gift/bg_Shea Butter.png" alt="시어버터문구" />
                 <div className="img-wrap">
                     <ul>
                         <li ref={addToRefs}>
