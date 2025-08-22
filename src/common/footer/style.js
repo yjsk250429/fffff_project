@@ -125,7 +125,6 @@ export const FooterStyle = styled.footer`
             }
         }
         @media (max-width: 390px) {
-            /* width: 390px; */
             flex-wrap: wrap;
             display: block;
             width: 100%;
@@ -136,7 +135,6 @@ export const FooterStyle = styled.footer`
                 font-size: 8px;
                 display: inline;
                 padding-right: 7px;
-                /* white-space: nowrap; */
                 &::after {
                     right: 3px;
                     height: 8px;
