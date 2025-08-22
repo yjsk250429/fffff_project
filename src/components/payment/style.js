@@ -109,10 +109,12 @@ export const PaymentWrapStyle = styled.div`
                     select {
                         width: 400px;
                         height: 40px;
-                        /* padding: 10px; */
+                        padding-left: 10px;
+                        padding-right: 15px; /* 화살표와 오른쪽 테두리 사이 여백 */
                         border: 1px solid #dcdcdc;
                         font-size: 14px;
                         color: #a8a8a8;
+                        box-sizing: border-box;
                     }
                 }
             }

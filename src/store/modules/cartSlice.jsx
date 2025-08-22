@@ -122,7 +122,16 @@ export const cartSlice = createSlice({
         // 샘플 체크박스 토글
         toggleSample: (state, action) => {
             const cart = state.carts.find((c) => c.id === action.payload);
-            if (cart) cart.isChecked = !cart.isChecked;
+            if (!cart) return;
+
+            if (cart.isChecked) {
+                // 해제 → 배열에서 제거
+                state.carts = state.carts.filter((c) => c.id !== action.payload);
+            } else {
+                // 체크 → 상태만 갱신
+                cart.isChecked = true;
+            }
+
             localStorage.setItem('carts', JSON.stringify(state.carts));
         },
     },

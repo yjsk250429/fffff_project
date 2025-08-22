@@ -28,7 +28,10 @@ const Header = ({ theme }) => {
         alert('로그아웃 완료');
     };
 
-    const totalQuantity = carts.reduce((sum, cart) => sum + cart.quantity, 0);
+    const totalQuantity = carts.reduce((sum, cart) => {
+        if (cart.isSample) return sum; // 샘플 제외
+        return sum + cart.quantity;
+    }, 0);
     return (
         <HeaderStyle>
             <div className="inner">

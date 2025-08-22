@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CartSampleStyle } from './style';
 import { cartActions } from '../../store/modules/cartSlice';
+import { useEffect } from 'react';
 
 // 샘플 상품 목록
 const sampleProducts = [
@@ -26,6 +27,12 @@ const CartSample = () => {
 
     // 현재 선택된 샘플 찾기
     const currentSample = carts.find((cart) => cart.isSample && cart.isChecked);
+
+    useEffect(() => {
+        if (!hasCheckedItems && currentSample) {
+            dispatch(cartActions.removeCart(currentSample.id));
+        }
+    }, [hasCheckedItems, currentSample, dispatch]);
 
     // 샘플 체크박스 클릭 핸들러
     const handleSampleClick = (product) => {

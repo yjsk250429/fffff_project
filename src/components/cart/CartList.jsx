@@ -6,13 +6,16 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { useEffect } from 'react';
 
 const CartList = () => {
-    const { carts, isChecked } = useSelector((state) => state.cart); // Redux 상태 조회
+    const { carts } = useSelector((state) => state.cart); // Redux 상태 조회
     const dispatch = useDispatch();
 
     // carts 변경 시 총 합계 계산
     useEffect(() => {
         dispatch(cartActions.totalCart());
     }, [carts, dispatch]);
+
+    // 전체 체크 상태는 carts 상태로부터 계산
+    const allChecked = carts.length > 0 && carts.every((cart) => cart.isChecked);
 
     // 전체 체크박스 토글
     const handleCheckAll = (e) => {
@@ -39,7 +42,7 @@ const CartList = () => {
                 <div className="check-all">
                     <input
                         type="checkbox"
-                        checked={isChecked} // 전체 체크 상태
+                        checked={allChecked} //  전체 체크 상태는 계산된 값 사용
                         onChange={handleCheckAll}
                     />
                     <span>전체</span>
