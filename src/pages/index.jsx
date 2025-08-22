@@ -15,3 +15,4 @@ export { default as ProductDetail } from './productDetail';
 export { default as Bcorp } from './about/Bcorp';
 export { default as Intro } from './about/Intro';
 export { default as Promise } from './about/Promise';
+export { default as MyPage } from './mypage';

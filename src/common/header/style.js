@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderStyle = styled.header`
     background: var(--bg-header, #fff);
+    width: 100%;
     .inner {
         height: 150px;
         padding: 25px 0 40px 0;
@@ -15,9 +16,22 @@ export const HeaderStyle = styled.header`
     h1 {
         margin-right: 100px;
     }
+    @media screen and (max-width: 390px) {
+        .inner{
+            height: 127px;
+            width: 100%;
+            padding:47px 20px 20px 20px;
+        }
+        h1{
+            margin:auto;
+        }
+    }
 `;
 
 export const SmallUtilStyle = styled.ul`
+ @media screen and (max-width: 390px) {
+        display:none;
+    }
     display: flex;
     justify-content: end;
     gap: 20px;
@@ -99,10 +113,32 @@ export const BigUtilStyle = styled.ul`
             right: -5px;
             top: 0;
         }
+        &.all-menu{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform:translateY(-50%);
+            cursor: pointer;
+            display: none;
+            i{
+                font-size: 1.7rem;
+            }
+        }
     }
+    @media screen and (max-width: 390px) {
+        & > li.all-menu{
+            display:block;
+        }
+        &>  li:not(:last-child){
+                display:none;
+            }
+        }
 `;
 
 export const NavStyle = styled.nav`
+  @media screen and (max-width: 390px) {
+    display:none;
+  }
     .gnb {
         display: flex;
         gap: 50px;
@@ -218,6 +254,8 @@ transform:translateY(-100%);
 z-index:200;
 transition:0.4s;
 opacity:0;
+box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
+
 &.on{
 transform:translateY(0);
 opacity: 1;

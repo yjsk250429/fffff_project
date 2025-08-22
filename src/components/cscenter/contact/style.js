@@ -85,6 +85,7 @@ export const CustomerAddStyle = styled.div`
     .btn {
         display: flex;
         justify-content: end;
+        gap: 8px;
     }
 `;
 export const CustomerAddItemStyle = styled.table`

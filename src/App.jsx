@@ -14,6 +14,7 @@ import {
     Join,
     Login,
     Main,
+    MyPage,
     Product,
     ProductDetail,
     Promise,
@@ -63,6 +64,7 @@ const App = () => {
                         </Route>
 
                         <Route path="wish" element={<Wish />} />
+                        <Route path="mypage" element={<MyPage />} />
 
                         <Route path="login" element={<Login />} />
                         <Route path="join">

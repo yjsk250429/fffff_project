@@ -74,14 +74,15 @@ const CustomerAdd = () => {
                     <em>
                         궁금하신 점을 남겨 주시면,
                         <br />
-                        영업일 2일내에 고객님의 이메일로 답변드리겠습니다.
+                        영업일 2일 이내에 답변드리겠습니다.
                     </em>
                     <p>
                         <span>*</span>필수입력사항
                     </p>
                     <CustomerAddItem data={data} onChange={changeInput} errors={errors} />
                     <p className="btn">
-                        <Button text="제출하기" type="submit" />
+                        <Button text="취소" type="button" onClick={()=>navigate(-1)} />
+                        <Button text="제출하기" type="submit" bgColor="#000" textColor="#fff"/>
                     </p>
                 </CustomerAddStyle>
             </form>

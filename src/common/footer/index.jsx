@@ -10,7 +10,7 @@ const Footer = ({ theme }) => {
     const kakaoW = theme === 'special' ? '/images/kakaochanel_w.png' : '/images/kakaochanel.png';
 
     return (
-        <FooterStyle>
+        <FooterStyle id='footer'>
             <div className="inner">
                 <ul className="sns">
                     <li>

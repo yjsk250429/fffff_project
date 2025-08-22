@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BigUtilStyle, HeaderSearchWrap, HeaderStyle, SmallUtilStyle } from './style';
 import Nav from './Nav';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
@@ -11,6 +11,7 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { authActions } from '../../store/modules/authSlice';
 import SearchForm from '../../ui/SearchForm';
 import { IoCloseOutline } from "react-icons/io5";
+import { HiBars3 } from "react-icons/hi2";
 
 
 const Header = ({ theme }) => {
@@ -20,6 +21,7 @@ const Header = ({ theme }) => {
     const [ lang, setLang ] = useState('KOR');
     const [openLang, setOpenLang] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
+    const navigate = useNavigate();
     const logoChange =
         theme === 'special' ? '/images/header_logo_2.png' : '/images/header_logo.png';
 
@@ -29,15 +31,21 @@ const Header = ({ theme }) => {
 
     const handleLogout = () => {
         dispatch(authActions.logout());
-        alert('로그아웃 완료');
+        alert('로그아웃 했습니다.');
+        navigate('/');
     };
+
+    const onLogin = () =>{
+        alert('로그인 후 이용하실 수 있습니다.');
+        navigate('/login');
+    }
 
     const totalQuantity = carts.reduce((sum, cart) => {
         if (cart.isSample) return sum; // 샘플 제외
         return sum + cart.quantity;
     }, 0);
     return (
-        <HeaderStyle>
+        <HeaderStyle id='header'>
             <div className="inner">
                 <SmallUtilStyle>
                     <li>
@@ -50,10 +58,10 @@ const Header = ({ theme }) => {
                             <li onClick={()=>{setLang('ENG'); setOpenLang(false)}}>ENG</li>
                         </ul>
                     </li>
-                    <li>
+                    <li>{ authed && <span>{user?.name} 님</span>}
                         {authed ? (
                             <span onClick={handleLogout} style={{ cursor: 'pointer' }}>
-                                {user?.name}님 로그아웃
+                                {' '}로그아웃
                             </span>
                         ) : (
                             <Link to="/login">로그인</Link>
@@ -70,7 +78,7 @@ const Header = ({ theme }) => {
                         </Link>
                     </h1>
                     <Nav />
-                    <BigUtilStyle>
+                    <BigUtilStyle className='bigUtil'>
                         <li onClick={()=>setOpenSearch(true)}>
                             <i>
                                 <IoSearchOutline />
@@ -93,16 +101,19 @@ const Header = ({ theme }) => {
                         </li>
                         <li>
                             {authed ? (
+                                <Link to="/mypage">
                                 <i>
                                     <IoPersonOutline />
                                 </i>
+                                </Link>
                             ) : (
-                                <Link to="/login">
-                                    <i>
+                                    <i onClick={onLogin}>
                                         <IoPersonOutline />
                                     </i>
-                                </Link>
                             )}
+                        </li>
+                        <li className="all-menu">
+                            <i><HiBars3 /></i>
                         </li>
                     </BigUtilStyle>
                 </div>
