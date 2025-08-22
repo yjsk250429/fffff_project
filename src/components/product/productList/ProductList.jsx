@@ -5,31 +5,21 @@ import { paginationActions } from '../../../store/modules/paginationSlice';
 import { ProductListWrap } from './style';
 
 const ProductList = ({ 
-    // category, activeTab,
     items
 }) => {
     const { products } = useSelector((state) => state.product);
     const { perPage, currentPage } = useSelector((state) => state.pagination);
     const dispatch = useDispatch();
 
-    // let list = products;
-    // if (category) {
-    //     list = list.filter((product) => product.category === category);
-    // }
-    // if (activeTab && activeTab !== 'ALL') {
-    //     list = list.filter((p) => p.type === activeTab);
-    // }
-    // list = [...list].sort((a, b) => a.id - b.id);
-
     useEffect(() => {
         dispatch(paginationActions.setData(items));
-        if (currentPage !== 1) dispatch(paginationActions.setPage(1));
+        if (currentPage !== 1) dispatch(paginationActions.goToPage(1));
     }, [products, dispatch]);
 
     useEffect(() => {
         const maxPage = Math.max(1, Math.ceil(items.length / perPage));
         if (currentPage > maxPage) {
-            dispatch(paginationActions.setPage(maxPage));
+            dispatch(paginationActions.goToPage(maxPage));
         }
     }, [items.length, perPage, currentPage, dispatch]);
 

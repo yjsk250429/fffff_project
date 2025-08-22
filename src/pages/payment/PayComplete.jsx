@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { PaymentCompleteStyle } from './style';
 import { useSelector } from 'react-redux';
+import BreadCrumb from '../../ui/BreadCrumb';
 
 const PayComplete = () => {
     const { payments } = useSelector((state) => state.payment);
@@ -11,11 +12,12 @@ const PayComplete = () => {
 
     const navigate = useNavigate();
     const onGo = () => {
-        navigate('/product/skin');
+        navigate('/product/hand');
     };
     return (
         <PaymentCompleteStyle>
             <div className="inner">
+            <BreadCrumb text1='CART' text2='ORDER' text3='ORDER COMPLETE' color3="#000"/>
                 <h2>주문이 완료되었습니다.</h2>
                 <div className="completed-info">
                     <h3>

@@ -5,6 +5,7 @@ import { IoPerson } from "react-icons/io5";
 import { FiAlertCircle } from "react-icons/fi";
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import BreadCrumb from '../../ui/BreadCrumb';
 
 const CartWrap = () => {
     const { authed } = useSelector((state) => state.auth);
@@ -12,6 +13,7 @@ const CartWrap = () => {
     return (
         <CartWrapStyle>
             <div className="inner">
+                <BreadCrumb text1='CART' text2='ORDER' text3='ORDER COMPLETE' color1="#000"/>
                 <h2>장바구니</h2>
 
            {!authed &&

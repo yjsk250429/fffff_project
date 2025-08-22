@@ -17,16 +17,19 @@ const Latest = ({category}) => {
     if(thumSrc){
     return (
         <LatestStyle>
-            <div className="inner">
 
-            <h2>신규 상품</h2>
-            <em>처음 만나는 부드러움, 록시땅의 신제품</em>
+            <h2>{category?.toLowerCase() === 'fragrance'
+    ? `HOME & ${category.toUpperCase()}`
+    : `${(category || '').toUpperCase()} CARE`
+  }</h2>
+            <em>처음 만나는 부드러움, 록시땅 프리미엄</em>
+                <h3>New Arrivals</h3>
             <div className="list-wrap">
                 <div className="img-wrap">
                     <img src={thumSrc} alt={`new ${category}`} />
                 </div>
                 <LastestList category={category}/>
-            </div>
+    
             </div>
         </LatestStyle>
     );

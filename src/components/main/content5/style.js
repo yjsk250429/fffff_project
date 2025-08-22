@@ -12,14 +12,17 @@ export const SloganStyle = styled.div`
         margin-right: 200px;
         margin-left: 50px;
         position: relative;
+        display: grid;
+    place-items: center;
         h2{
             font-size: 28px !important;
             font-weight: 800 !important;
             color: var(--foundation-yellow-dark-hover);
             margin:auto;
-            margin-bottom:64px !important;
+            margin-bottom:17px !important;
             width: 380px;
             word-break: keep-all;
+            
             &::before,
             &::after{
                 content:'';
@@ -41,22 +44,18 @@ export const SloganStyle = styled.div`
             }
             
         }
+        span{
+            display:block;
+            width: 1px;
+            height: 35px;
+            margin-bottom: 17px;
+            background: var(--foundation-yellow-dark-hover);
+        }
         strong{
             display:block;
             margin-bottom: 10px;
             font-weight: 700;
         font-size: 18px;
-        &::after{
-            content:'';
-            display:block;
-            width: 1px;
-            height: 35px;
-            position: absolute;
-            left: 50%;
-            transform:translateX(-50%);
-            top: 104px;
-            background: var(--foundation-yellow-dark-hover);
-        }
         
         }
       

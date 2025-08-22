@@ -87,6 +87,7 @@ export const ProductDetailStyle = styled.article`
                 margin-top: 12px;
                 margin-bottom: 26px;
                 display: flex;
+                gap: 10px;
                 li {
                     width: 70px;
                     height: 32px;

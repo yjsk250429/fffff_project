@@ -1,10 +1,8 @@
-//
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CollectionIntroStyle } from './style';
 
-// ScrollTrigger 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 const CollectionIntro = () => {

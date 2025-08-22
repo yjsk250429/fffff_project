@@ -10,6 +10,7 @@ import RecommandList from '../../components/productDetail/RecommandList';
 import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
 import Reivew from '../../components/productDetail/Reivew';
+import { useState, useMemo, useEffect } from 'react';
 
 const ProductDetail = () => {
     const { productID } = useParams();
@@ -22,6 +23,16 @@ const ProductDetail = () => {
         return <p>해당 상품을 찾을 수 없습니다.</p>;
     }
     const { id, title, label, description, unit, option } = thisItem;
+
+    const [selectedIdx, setSelectedIdx] = useState(0);
+    useEffect(() => {
+        setSelectedIdx(0);
+      }, [id, option.length]);
+
+      const selectedOption = useMemo(
+        () => option?.[selectedIdx] ?? option?.[0],
+        [option, selectedIdx]
+      );
 
      const { carts } = useSelector((state) => state.cart);
         const { wishes } = useSelector((state) => state.wish);
@@ -37,7 +48,12 @@ const ProductDetail = () => {
                     dispatch(cartActions.removeCart(id)); 
                 } else {
                     alert('상품을 장바구니에 담았습니다.');
-                    dispatch(cartActions.addCart(thisItem));
+                    dispatch(
+                        cartActions.addCart({
+                          ...thisItem,
+                          _selectedOption: selectedOption, // 선택 옵션 메모(필요시)
+                        })
+                      );
                 }
             };
         
@@ -45,6 +61,8 @@ const ProductDetail = () => {
                 e.preventDefault();
                 dispatch(wishActions.toggleWish(thisItem));
             };
+            
+            const formatPrice = (n) => (n ?? 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 
     return (
@@ -64,13 +82,15 @@ const ProductDetail = () => {
                         <em>{label}</em>
                         <h2>{title}</h2>
                         <strong>
-                            {option[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                        {formatPrice(selectedOption?.price)}원
                         </strong>
                         <span>용량</span>
                         <ul className="size">
-                            {option.map((item) => (
-                                <li key={item.id}>
-                                    {item.size}
+                            {option.map((opt, i) => (
+                                <li key={opt.id}
+                                className={i === selectedIdx ? 'on' : ''}
+                            onClick={() => setSelectedIdx(i)}>
+                                    {opt.size}
                                     {unit}
                                 </li>
                             ))}

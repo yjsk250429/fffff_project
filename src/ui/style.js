@@ -51,3 +51,24 @@ export const BadgeStyle = styled.p`
     line-height: 18px;
     font-size: 10px;
 `;
+
+export const BreadCrumbStyle = styled.p`
+margin-bottom: 30px;
+display:flex;
+gap: 20px;
+align-items: center;
+i{
+    color: var(--foundation-white-normal-hover);
+    font-size: 16px;
+    margin-top: 4px;
+}
+> span:first-of-type{
+    color: ${(props) => props.color1 || 'var(--foundation-white-normal-hover)'};
+  }
+  > span:nth-of-type(2){
+    color: ${(props) => props.color2 || 'var(--foundation-white-normal-hover)'};
+  }
+  > span:last-of-type{
+    color: ${(props) => props.color3 || 'var(--foundation-white-normal-hover)'};
+  }
+`;

@@ -3,6 +3,7 @@ import { ContactStyle, CsCenterVisual } from './style';
 import { TabBarStyle } from '../about/style';
 
 import CustomerList from '../../components/cscenter/contact/CustomerList';
+import BreadCrumb from '../../ui/BreadCrumb';
 
 const Contact = () => {
     return (
@@ -19,6 +20,7 @@ const Contact = () => {
                 </li>
             </TabBarStyle>
             <div className="inner">
+            <BreadCrumb text1="HOME" text2='고객센터' text3='문의하기' color3="#000"/>
                 <CustomerList />
             </div>
         </ContactStyle>

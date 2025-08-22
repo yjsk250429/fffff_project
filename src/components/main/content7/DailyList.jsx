@@ -31,9 +31,9 @@ const DailyArr = [
     }
 ];
 
-const DailyList = () => {
+const DailyList = ({addToRefs}) => {
     return <ul>
-        {DailyArr.map((daily)=><DailyItem key={daily.id} daily={daily}/>)}
+        {DailyArr.map((daily)=><DailyItem key={daily.id} daily={daily} addToRefs={addToRefs}/>)}
         </ul>;
 };
 

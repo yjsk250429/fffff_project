@@ -31,6 +31,7 @@ const CustomerList = () => {
 
     return (
         <CustomerListStyle>
+           
             <table className="customerTable">
                 <caption>고객문의</caption>
                 <colgroup>

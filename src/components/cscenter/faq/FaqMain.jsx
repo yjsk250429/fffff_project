@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FaqItem from './FaqItem';
 import { FaqMainStyle } from './style';
+import BreadCrumb from '../../../ui/BreadCrumb';
 
 // FAQ 데이터 따로 배열로 관리
 const faqData = [
@@ -142,6 +143,7 @@ const FaqMain = () => {
 
     return (
         <FaqMainStyle>
+            <BreadCrumb text1="HOME" text2='고객센터' text3='FAQ' color3="#000"/>
             <h2>자주 하는 질문</h2>
             <em>FAQ</em>
 

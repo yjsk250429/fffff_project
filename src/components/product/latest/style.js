@@ -1,24 +1,28 @@
 import styled from "styled-components";
 
 export const LatestStyle = styled.article`
-.inner{
-padding-top: 150px;
-    text-align: center;
-}
 h2{
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 10px;
+    text-align: center;
 }
-em{
+>em{
+    display:block;
+    text-align: center;
     font-weight: 500;
     font-size: 20px;
     color: var(--foundation-white-dark);
+    margin-bottom: 90px;
+}
+h3{
+    font-size:32px;
+    font-weight: 500;
 }
 .list-wrap{
     width: 1810px;
     height: 600px;
-    margin-top: 94px;
+    margin-top: 20px;
     display:flex;
     gap: 30px;
     justify-content: space-between;
@@ -57,7 +61,11 @@ em{
     }
   }
   .text{
+    height: 95px;
     text-align:left;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     strong{
         font-size: 22px;
         font-weight: 600;

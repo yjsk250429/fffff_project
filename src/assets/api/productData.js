@@ -6,7 +6,7 @@ export default [
         title: '볼륨 & 스트렝스 스트렝스닝 스칼프 세럼',
         description: '두피에 활력을 주어 풍성한 모발 볼륨감을 선사하는 두피 모발 강화 세럼',
         quantity: 1,
-        type: '세럼', // 컨디셔너 | 오일 | 로션 | 스크럽 | 세럼 | 샴푸 | 마스크
+        type: '세럼',
         rating: {
             rate: 5.0,
             count: 8,
@@ -14,8 +14,8 @@ export default [
         isNew: false,
         image: '/images/products/item1.webp',
         collection: null,
-        texture: '리퀴드', // 크림 | 밤&버터 | 리퀴드 | 솔리드 | 오일
-        concerntype: '영양 보습',
+        texture: '리퀴드',
+        concernType: '영양 보습',
         unit: 'ml',
         option: [
             {
@@ -41,7 +41,7 @@ export default [
         image: '/images/products/item2.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'ml',
         option: [
             {
@@ -68,7 +68,7 @@ export default [
         image: '/images/products/item3.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'ml',
         option: [
             {
@@ -102,7 +102,7 @@ export default [
         image: '/images/products/item4.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'set',
         option: [
             {
@@ -130,7 +130,7 @@ export default [
         image: '/images/products/item5.webp',
         collection: null,
         texture: null,
-        concerntype: '데일리 케어',
+        concernType: '데일리 케어',
         unit: 'ml',
         option: [
             {
@@ -158,7 +158,7 @@ export default [
         image: '/images/products/item6.webp',
         collection: null,
         texture: '오일',
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'ml',
         option: [
             {
@@ -185,7 +185,7 @@ export default [
         image: '/images/products/item7.png',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -213,7 +213,7 @@ export default [
         image: '/images/products/item8.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -247,7 +247,7 @@ export default [
         image: '/images/products/item9.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'gift',
         option: [
             {
@@ -275,7 +275,7 @@ export default [
         image: '/images/products/item10.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'gift',
         option: [
             {
@@ -302,7 +302,7 @@ export default [
         image: '/images/products/item11.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -330,7 +330,7 @@ export default [
         image: '/images/products/item12.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'gift',
         option: [
             {
@@ -357,7 +357,7 @@ export default [
         image: '/images/products/item13.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'gift',
         option: [
             {
@@ -385,7 +385,7 @@ export default [
         image: '/images/products/item14.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'ml',
         option: [
             {
@@ -419,7 +419,7 @@ export default [
         image: '/images/products/item15.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'ml',
         option: [
             {
@@ -446,7 +446,7 @@ export default [
         image: '/images/products/item16.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -474,7 +474,7 @@ export default [
         image: '/images/products/item17.webp',
         collection: null,
         texture: null,
-        concerntype: '영양 보습',
+        concernType: '영양 보습',
         unit: 'set',
         option: [
             {
@@ -502,7 +502,7 @@ export default [
         image: '/images/products/item18.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'gift',
         option: [
             {
@@ -529,7 +529,7 @@ export default [
         image: '/images/products/item19.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -556,7 +556,7 @@ export default [
         image: '/images/products/item20.webp',
         collection: null,
         texture: null,
-        concerntype: '수분 보습',
+        concernType: '수분 보습',
         unit: 'ml',
         option: [
             {
@@ -584,7 +584,7 @@ export default [
         image: '/images/products/item21.webp',
         collection: null,
         texture: null,
-        concerntype: '수분 보습',
+        concernType: '수분 보습',
         unit: 'ml',
         option: [
             {
@@ -611,7 +611,7 @@ export default [
         image: '/images/products/item22.webp',
         collection: '오일',
         texture: '오일',
-        concerntype: '수분 보습',
+        concernType: '수분 보습',
         unit: 'ml',
         option: [
             {
@@ -644,7 +644,7 @@ export default [
         image: '/images/products/item23.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -672,7 +672,7 @@ export default [
         image: '/images/products/item24.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -706,7 +706,7 @@ export default [
         image: '/images/products/item25.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -739,7 +739,7 @@ export default [
         image: '/images/products/item26.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -773,7 +773,7 @@ export default [
         image: '/images/products/item27.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -807,7 +807,7 @@ export default [
         image: '/images/products/item28.webp',
         collection: null,
         texture: null,
-        concerntype: '데일리 케어',
+        concernType: '데일리 케어',
         unit: 'ml',
         option: [
             {
@@ -841,7 +841,7 @@ export default [
         image: '/images/products/item29.webp',
         collection: null,
         texture: null,
-        concerntype: '수분 보습',
+        concernType: '수분 보습',
         unit: 'ml',
         option: [
             {
@@ -875,7 +875,7 @@ export default [
         image: '/images/products/item30.webp',
         collection: null,
         texture: null,
-        concerntype: '데일리 케어',
+        concernType: '데일리 케어',
         unit: 'ml',
         option: [
             {
@@ -909,7 +909,7 @@ export default [
         image: '/images/products/item31.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -937,7 +937,7 @@ export default [
         image: '/images/products/item32.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -971,7 +971,7 @@ export default [
         image: '/images/products/item33.png',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'set',
         option: [
             {
@@ -999,7 +999,7 @@ export default [
         image: '/images/products/item34.webp',
         collection: null,
         texture: '크림',
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -1033,7 +1033,7 @@ export default [
         image: '/images/products/item35.png',
         collection: null,
         texture: '크림',
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -1067,7 +1067,7 @@ export default [
         image: '/images/products/item36.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'gift',
         option: [
             {
@@ -1095,7 +1095,7 @@ export default [
         image: '/images/products/item37.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'set',
         option: [
             {
@@ -1122,7 +1122,7 @@ export default [
         image: '/images/products/item38.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -1156,7 +1156,7 @@ export default [
         image: '/images/products/item39.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -1190,7 +1190,7 @@ export default [
         image: '/images/products/item40.png',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'set',
         option: [
             {
@@ -1218,7 +1218,7 @@ export default [
         image: '/images/products/item41.png',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'set',
         option: [
             {
@@ -1246,7 +1246,7 @@ export default [
         image: '/images/products/item42.webp',
         collection: null,
         texture: null,
-        concerntype: '지성 케어',
+        concernType: '지성 케어',
         unit: 'ml',
         option: [
             {
@@ -1274,7 +1274,7 @@ export default [
         image: '/images/products/item43.webp',
         collection: null,
         texture: null,
-        concerntype: '지성 케어',
+        concernType: '지성 케어',
         unit: 'gift',
         option: [
             {
@@ -1302,7 +1302,7 @@ export default [
         image: '/images/products/item44.webp',
         collection: null,
         texture: null,
-        concerntype: '데일리 케어',
+        concernType: '데일리 케어',
         unit: 'ml',
         option: [
             {
@@ -1329,7 +1329,7 @@ export default [
         image: '/images/products/item45.webp',
         collection: null,
         texture: '리퀴드',
-        concerntype: '데일리 케어',
+        concernType: '데일리 케어',
         unit: 'ml',
         option: [
             {
@@ -1356,7 +1356,7 @@ export default [
         image: '/images/products/item46.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -1390,7 +1390,7 @@ export default [
         image: '/images/products/item47.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'ml',
         option: [
             {
@@ -1424,7 +1424,7 @@ export default [
         image: '/images/products/item48.png',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'gift',
         option: [
             {
@@ -1452,7 +1452,7 @@ export default [
         image: '/images/products/item49.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'gift',
         option: [
             {
@@ -1479,7 +1479,7 @@ export default [
         image: '/images/products/item50.webp',
         collection: '버베나',
         texture: null,
-        concerntype: '데일리 케어',
+        concernType: '데일리 케어',
         unit: 'ml',
         option: [
             {
@@ -1507,7 +1507,7 @@ export default [
         image: '/images/products/item51.webp',
         collection: null,
         texture: null,
-        concerntype: '수분 보습',
+        concernType: '수분 보습',
         unit: 'set',
         option: [
             {
@@ -1535,7 +1535,7 @@ export default [
         image: '/images/products/item52.webp',
         collection: null,
         texture: null,
-        concerntype: null,
+        concernType: null,
         unit: 'gift',
         option: [
             {
@@ -1585,7 +1585,7 @@ export default [
     {
         id: 54,
         category: 'hand',
-        type: '핸드 워시',
+        type: '핸드워시',
         label: null,
         title: '시어 버베나 핸드 앤 바디 리퀴드 솝',
         description: null,
@@ -1597,7 +1597,7 @@ export default [
         isNew: false,
         image: '/images/products/item54.webp',
         collection: null,
-        texture: '솔리드',
+        texture: '리퀴드',
         concernType: '데일리 케어',
         unit: 'ml',
         option: [
@@ -1729,7 +1729,7 @@ export default [
     {
         id: 59,
         category: 'hand',
-        type: '핸드 & 네일 케어',
+        type: '핸드&네일 케어',
         label: '99.8% 시어 버터 함유',
         title: '[오가닉 인증] 퓨어 시어 버터 EFT-에코서트',
         description: null,
@@ -1755,7 +1755,7 @@ export default [
     {
         id: 60,
         category: 'hand',
-        type: '핸드 워시',
+        type: '핸드워시',
         label: null,
         title: '시어 라벤더 핸드 앤 바디 리퀴드 솝',
         description: null,
@@ -1972,7 +1972,7 @@ export default [
     {
         id: 67,
         category: 'hand',
-        type: '핸드 워시',
+        type: '핸드워시',
         label: null,
         title: '버베나 리퀴드 솝',
         description: null,
@@ -2005,7 +2005,7 @@ export default [
         category: 'hand',
         type: 'Gift&Set',
         label: null,
-        title: '시어 버베나 핸드 워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
+        title: '시어 버베나 핸드워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
         description: null,
         quantity: 1,
         rating: {
@@ -2201,7 +2201,7 @@ export default [
     {
         id: 75,
         category: 'hand',
-        type: '핸드 워시',
+        type: '핸드워시',
         label: null,
         title: '시어 울트라 리치 핸드 앤 바디 워시',
         description: null,
@@ -2560,7 +2560,7 @@ export default [
     {
         id: 87,
         category: 'hand',
-        type: '핸드 & 네일 케어',
+        type: '핸드&네일 케어',
         label: '30% 시어 오일 함유',
         title: '시어 네일 앤 큐티클 오일',
         description: null,
@@ -2903,7 +2903,7 @@ export default [
     {
         id: 99,
         category: 'hand',
-        type: '핸드 워시',
+        type: '핸드워시',
         label: null,
         title: '시어 라벤더 핸드 앤 바디 리퀴드 솝',
         description: null,
@@ -3022,7 +3022,7 @@ export default [
     {
         id: 103,
         category: 'hand',
-        type: '핸드 & 네일 케어',
+        type: '핸드&네일 케어',
         label: '10% 시어 버터 함유',
         title: '시어 원 미닛 핸드 스크럽',
         description: null,
@@ -3157,7 +3157,7 @@ export default [
     {
         id: 108,
         category: 'hand',
-        type: '핸드 & 네일 케어',
+        type: '핸드&네일 케어',
         label: null,
         title: '쁘띠 레메디 밤',
         description: null,
@@ -3209,7 +3209,7 @@ export default [
     {
         id: 110,
         category: 'body',
-        type: '바스&샤워젤', //바스&샤워젤|로션&크림|솝|오일|스크럽||미스트||Gift&Set
+        type: '바스&샤워젤', 
         label: null,
         title: '시어 버베나 핸드 앤 바디 리퀴드 솝',
         description: null,
@@ -3685,7 +3685,7 @@ export default [
         category: 'body',
         type: 'Gift&Set',
         label: null,
-        title: '시어 버베나 핸드 워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
+        title: '시어 버베나 핸드워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
         description: null,
         quantity: 1,
         rating: {
@@ -4932,7 +4932,7 @@ export default [
         category: 'body',
         type: 'Gift&Set',
         label: null,
-        title: '시어 핸드 워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
+        title: '시어 핸드워시 & 핸드 로션 300ml 듀오 (+솝 트레이 증정)',
         description: null,
         quantity: 1,
         rating: {

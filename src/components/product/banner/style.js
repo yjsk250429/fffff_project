@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const ProductBannerStyle = styled.section`
 height: 600px;
+.inner{
+    padding:130px 0;
+}
 .swiper {
   width: 100%;
   height: 100%;

@@ -35,7 +35,7 @@ const Ingredient = ({ thisItem }) => {
                     <dt>용량</dt>
                     <dd>
                         {option.map((op) => (
-                            <p key={op}>
+                            <p key={op.id}>
                                 {op.size}
                                 {unit}{' '}
                             </p>

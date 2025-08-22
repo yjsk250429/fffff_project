@@ -12,7 +12,7 @@ const GiftMyself = () => {
                     </div>
                     <ul className="type">
                         <li>
-                            <Link to="/body">
+                            <Link to="/product/body">
                                 <div className="img-wrap">
                                     <img src="/images/gift/gift_con4_0.png" alt="Body" />
                                     <p>Body</p>
@@ -20,7 +20,7 @@ const GiftMyself = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/hair">
+                            <Link to="/product/hair">
                                 <div className="img-wrap">
                                     <img src="/images/gift/gift_con4_1.png" alt="Hair" />
                                     <p>Hair</p>
@@ -28,7 +28,7 @@ const GiftMyself = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/hand">
+                            <Link to="/product/hand">
                                 <div className="img-wrap">
                                     <img src="/images/gift/gift_con4_2.png" alt="Hand" />
                                     <p>Hand</p>

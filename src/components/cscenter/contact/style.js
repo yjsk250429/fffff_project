@@ -7,9 +7,8 @@ export const CustomerListStyle = styled.div`
         font-size: 18px;
         caption {
             font-size: 40px;
-            font-weight: 500;
-            /* text-align: start; */
-            margin-bottom: 30px;
+            font-weight: 600;
+            margin-bottom: 60px;
         }
         .type {
             width: 190px;

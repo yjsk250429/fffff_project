@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductInput from '../../components/product/productList/ProductInput';
 import ProductList from '../../components/product/productList/ProductList';
 import { paginationActions } from '../../store/modules/paginationSlice';
+import BreadCrumb from '../../ui/BreadCrumb';
 
 const Product = () => {
     const { category } = useParams();
@@ -17,8 +18,16 @@ const Product = () => {
     const { products } = useSelector((state) => state.product);
     const dispatch = useDispatch();
 
+    const [filters, setFilters] = useState({
+      concernType: [], // e.g. ['데일리 케어', '수분 보습']
+      texture: [],     // e.g. ['크림', '오일']
+      collection: [],  // e.g. ['시어버터']
+      price: [],       // e.g. ['10k','20k','30k','40k','50k+']
+      q: ''            // 검색어 (원하면 사용)
+    });
+
     const tabsByCategory = {
-        hand: ['ALL', '핸드크림', '핸드&네일케어', '솝', '핸드워시'],
+        hand: ['ALL', '핸드크림', '핸드&네일 케어', '솝', '핸드워시'],
         hair: [
             'ALL',
             '컨디셔너',
@@ -61,6 +70,7 @@ const Product = () => {
     useEffect(() => {
         setActiveTab('ALL');
         setSort('');     
+        setFilters({ concernType: [], texture: [], collection: [], price: [], q: '' });
     }, [category]);
 
     const getFirstPrice = (p) =>
@@ -113,7 +123,7 @@ const Product = () => {
           return (b.id ?? 0) - (a.id ?? 0);
         });
 
-        const filtered = useMemo(() => {
+        const filteredBase = useMemo(() => {
             let list = products;
           
             if (category && category !== "ALL") {
@@ -127,6 +137,52 @@ const Product = () => {
             return list;
           }, [products, category, activeTab]);
 
+          const priceInBuckets = (price, buckets) => {
+            if (!buckets || buckets.length === 0) return true;
+            // buckets: ['10k','20k','30k','40k','50k+']
+            return buckets.some((b) => {
+              if (b === '10k') return price >= 10000 && price < 20000;
+              if (b === '20k') return price >= 20000 && price < 30000;
+              if (b === '30k') return price >= 30000 && price < 40000;
+              if (b === '40k') return price >= 40000 && price < 50000;
+              if (b === '50k+') return price >= 50000;
+              return true;
+            });
+          };
+
+          const matchMulti = (fieldValue, selected) => {
+            if (!selected || selected.length === 0) return true; // 선택 없으면 통과
+            if (fieldValue == null) return false;
+            // 제품 데이터가 문자열인 경우
+            if (typeof fieldValue === 'string') return selected.includes(fieldValue);
+            // 배열인 경우 (교집합 있으면 통과)
+            if (Array.isArray(fieldValue)) return fieldValue.some((v) => selected.includes(v));
+            return false;
+          };
+
+          const filtered = useMemo(() => {
+            return filteredBase.filter((p) => {
+              const price = getFirstPrice(p);
+              const okConcern = matchMulti(p.concernType, filters.concernType);
+              const okTexture = matchMulti(p.texture, filters.texture);
+              const okCollection = matchMulti(p.collection, filters.collection);
+              const okPrice = priceInBuckets(price, filters.price);
+        
+              // (선택) 검색어 - 이름/설명/type 등에 적용하고 싶으면 활성화
+              const q = (filters.q || '').trim().toLowerCase();
+              const okSearch = q === ''
+                ? true
+                : [p.title, p.desc, p.type, p.collection, p.concernType]
+                    .flat()
+                    .filter(Boolean)
+                    .join(' ')
+                    .toLowerCase()
+                    .includes(q);
+        
+              return okConcern && okTexture && okCollection && okPrice && okSearch;
+            });
+          }, [filteredBase, filters]);
+
         const sorted = useMemo(() => {
             if (sort === 'best')  return sortByBest(filtered);
             if (sort === 'new')   return sortByNew(filtered);
@@ -135,11 +191,31 @@ const Product = () => {
             return [...filtered]; // 정렬 없음
           }, [filtered, sort]);
 
+          useEffect(() => {
+            dispatch(paginationActions.goToPage(1));
+          }, [filters, sort, dispatch]);
+
+          const toggleFilter = (group, value) => {
+            setFilters((prev) => {
+              const set = new Set(prev[group]);
+              if (set.has(value)) set.delete(value);
+              else set.add(value);
+              return { ...prev, [group]: Array.from(set) };
+            });
+          };
+
+          const setSearch = (q) => setFilters((prev) => ({ ...prev, q }));
+
+          const setPriceBucket = (value) => toggleFilter('price', value);
+        
     return (
         <ProductStyle>
             <ProductBanner />
-            <Latest category={category} />
             <div className="inner">
+            <BreadCrumb text1='HOME' text2='SHOP' text3={category.toUpperCase()} color3="#000"/>
+            
+            <Latest category={category} />
+            <div className="controls">
                 <ul className="tabs">
                     {currentTabs.map((tab) => (
                         <li
@@ -157,7 +233,7 @@ const Product = () => {
                     value={sort}
                     onChange={(e) => {
                       setSort(e.target.value);
-                      dispatch(paginationActions.setPage(1))
+                      dispatch(paginationActions.goToPage(1))
                     }}
                     >
                         <option value="">== 정렬 ==</option>
@@ -167,11 +243,13 @@ const Product = () => {
                         <option value="high">높은 가격 순</option>
                     </select>
                 </div>
-                <ProductInput />
+                <ProductInput items={sorted} filters={filters}
+          onToggle={toggleFilter}  
+          onTogglePrice={setPriceBucket}
+          onSearch={setSearch}/>
+</div>
                 <ProductList
-                    // key={`${category}:${activeTab}`}
-                    // category={category}
-                    // activeTab={activeTab}
+                
                     items={sorted}
                 />
                 {pageData.length > 0 && <Pagination />}

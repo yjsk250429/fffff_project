@@ -34,6 +34,7 @@ export const DailyMomentsStyle = styled.div`
         text-align: center;
         margin-top: 10px;
         margin-bottom: 70px;
+        font-size: 22px;
     }
     .insta-wrap{
         ul{

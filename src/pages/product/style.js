@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const ProductStyle = styled.div`
     .inner {
+       padding-top:100px;
     }
+    .controls{
+        position: relative;
     .tabs{
         margin-top: 180px;
         display:flex;
@@ -39,6 +42,7 @@ export const ProductStyle = styled.div`
         background-position: right 15px center;
         background-size: 16px;
     }
+}
 }
  
 `;

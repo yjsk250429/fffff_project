@@ -37,11 +37,6 @@ const CustomerAdd = () => {
         dispatch(customerActions.addCustomer(payload));
         navigate('/cscenter/contact');
     };
-
-    const onGo = (e) => {
-        e.preventDefault();
-        navigate('/cscenter/contact');
-    };
     return (
         <ContactStyle>
             <CsCenterVisual>
