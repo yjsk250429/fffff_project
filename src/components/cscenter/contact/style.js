@@ -10,6 +10,9 @@ export const CustomerListStyle = styled.div`
             font-weight: 600;
             margin-bottom: 60px;
         }
+        .number {
+            width: 80px;
+        }
         .type {
             width: 190px;
         }
@@ -34,7 +37,11 @@ export const CustomerListStyle = styled.div`
         }
         td {
             &:nth-of-type(2) {
+                text-align: center;
+            }
+            &:nth-of-type(3) {
                 text-align: left;
+                padding-left: 30px;
             }
         }
     }

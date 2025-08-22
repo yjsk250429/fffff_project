@@ -33,35 +33,7 @@ export const ProductDetailStyle = styled.article`
             box-sizing: border-box;
             form {
                 margin-left: 400px;
-                margin-bottom: 30px;
-                width: 400px;
-                height: 45px;
-                background: var(--foundation-white-light-active);
-                padding: 15px 20px;
-                box-sizing: border-box;
-                position: relative;
-                input[type='text'] {
-                    background: none;
-                    border: none;
-                    height: 45px;
-                    position: absolute;
-                    left: 20px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    color: var(--foundation-white-darker);
-                    font-family: 'Pretendard', sans-serif;
-                    font-size: 14px;
-                    font-weight: 500;
-                }
-                i {
-                    position: absolute;
-                    right: 10px;
-                    top: 50%;
-                    transform: translateY(-40%);
-                    font-size: 24px;
-                    color: var(--foundation-white-darker);
-
-                }
+               
             }
             em {
                 display: block;

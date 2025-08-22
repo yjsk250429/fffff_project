@@ -11,6 +11,7 @@ import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
 import Reivew from '../../components/productDetail/Reivew';
 import { useState, useMemo, useEffect } from 'react';
+import SearchForm from '../../ui/SearchForm';
 
 const ProductDetail = () => {
     const { productID } = useParams();
@@ -73,12 +74,7 @@ const ProductDetail = () => {
                 </div>
                 <div className="right">
                     <div className="detail">
-                        <form>
-                            <input type="text" name="" id="" placeholder="#Search" />
-                            <i>
-                                <IoSearchOutline />
-                            </i>
-                        </form>
+                        <SearchForm/>
                         <em>{label}</em>
                         <h2>{title}</h2>
                         <strong>

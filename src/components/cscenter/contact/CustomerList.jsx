@@ -18,8 +18,10 @@ const CustomerList = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if(!customers) return;
+        dispatch(paginationActions.setPerPage(10));
         dispatch(paginationActions.setData(customers));
-    }, [customers]);
+    }, [customers, dispatch]);
     const onMake = () => {
         if (authed) {
             navigate(`/cscenter/customeradd`);
@@ -35,6 +37,7 @@ const CustomerList = () => {
             <table className="customerTable">
                 <caption>고객문의</caption>
                 <colgroup>
+                    <col className="number" />
                     <col className="type" />
                     <col className="title" />
                     <col className="name" />
@@ -42,6 +45,7 @@ const CustomerList = () => {
                 </colgroup>
                 <thead>
                     <tr>
+                        <th>번호</th>
                         <th>구분</th>
                         <th>제목</th>
                         <th>작성자</th>

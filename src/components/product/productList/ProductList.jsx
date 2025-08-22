@@ -12,6 +12,7 @@ const ProductList = ({
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(paginationActions.setPerPage(12));
         dispatch(paginationActions.setData(items));
         if (currentPage !== 1) dispatch(paginationActions.goToPage(1));
     }, [products, dispatch]);

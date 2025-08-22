@@ -33,8 +33,14 @@ export const paginationSlice = createSlice({
             if(num>= 1 && num <= state.totalPages)
             state.currentPage = num;
         },         
-
-       
+        setPerPage(state, action) {
+            const next = Number(action.payload) || state.perPage;
+            state.perPage = next;
+            state.totalPages = Math.max(1, Math.ceil(state.totalCount / next));
+            if (state.currentPage > state.totalPages) {
+              state.currentPage = state.totalPages;
+            }
+        },
     },
 });
 
