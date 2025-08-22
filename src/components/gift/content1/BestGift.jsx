@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Button from '../../../ui/Button';
 import { BestGiftStyle } from './style';
 import { Link } from 'react-router-dom';
@@ -24,6 +25,15 @@ const bestGiftArr = [
 ];
 
 const BestGift = ({ title }) => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 390);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 390);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <BestGiftStyle>
             <div className="inner">
@@ -31,8 +41,18 @@ const BestGift = ({ title }) => {
                     <em>A Gift from the Heart</em>
                     <strong>Best Gift</strong>
                     <p>
-                        사랑하는 마음을 가장 아름답게
-                        <br /> 담는 방법, 향기와 감촉으로 기억될 단 하나의 선물을 지금 만나보세요.
+                        {isMobile ? (
+                            <>
+                                사랑하는 마음을 가장 아름답게 담는 방법,
+                                <br /> 향기와 감촉으로 기억될 단 하나의 선물을 지금 만나보세요.
+                            </>
+                        ) : (
+                            <>
+                                사랑하는 마음을 가장 아름답게
+                                <br /> 담는 방법, 향기와 감촉으로 기억될 단 하나의 선물을 지금
+                                만나보세요.
+                            </>
+                        )}
                     </p>
                 </div>
                 <div className="img-wrap">
@@ -40,9 +60,9 @@ const BestGift = ({ title }) => {
                         {bestGiftArr.map((best) => (
                             <li key={best.id}>
                                 <Link to={best.path}>
-                                <div className="img">
-                                    <img src={best.image} alt={best.title} />
-                                </div>
+                                    <div className="img">
+                                        <img src={best.image} alt={best.title} />
+                                    </div>
                                     <p className={title}>{best.title}</p>
                                 </Link>
                             </li>

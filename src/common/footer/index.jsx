@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FooterStyle } from './style';
 
-const Footer = ({theme}) => {
+const Footer = ({ theme }) => {
     const logoChange =
-    theme === 'special' ? '/images/footer_logo_2.png' : '/images/footer_logo.png';
+        theme === 'special' ? '/images/footer_logo_2.png' : '/images/footer_logo.png';
 
     const instaW = theme === 'special' ? '/images/instagram_w.png' : '/images/instagram.png';
-    const youtubeW = theme === 'special' ? "/images/youtube_w.png" : "/images/youtube.png";
-    const kakaoW = theme === 'special' ? "/images/kakaochanel_w.png" : "/images/kakaochanel.png";
+    const youtubeW = theme === 'special' ? '/images/youtube_w.png' : '/images/youtube.png';
+    const kakaoW = theme === 'special' ? '/images/kakaochanel_w.png' : '/images/kakaochanel.png';
 
     return (
         <FooterStyle>

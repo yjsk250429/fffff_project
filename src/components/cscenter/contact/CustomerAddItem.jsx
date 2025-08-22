@@ -2,13 +2,13 @@ import { useState } from 'react';
 import Button from '../../../ui/Button';
 import { CustomerAddItemStyle, DomainSelectWrapper, SelectWrapper } from './style';
 import { LiaAngleUpSolid, LiaAngleDownSolid } from 'react-icons/lia';
-const CustomerAddItem = ({ data, onChange }) => {
+const CustomerAddItem = ({ data, onChange, errors }) => {
     const [dropdownStates, setDropdownStates] = useState({
         type: false,
         emailDomain: false,
     });
-    const [emailId, setEmailId] = useState('');
-    const [emailDomain, setEmailDomain] = useState('');
+    // const [emailId, setEmailId] = useState('');
+    // const [emailDomain, setEmailDomain] = useState('');
     const [isCustomDomain, setIsCustomDomain] = useState(false);
 
     const handleSelectFocus = (selectName) => {
@@ -27,10 +27,12 @@ const CustomerAddItem = ({ data, onChange }) => {
         const value = e.target.value;
         if (value === 'custom') {
             setIsCustomDomain(true);
-            setEmailDomain('');
+            // setEmailDomain('');
+            onChange({ target: { name: 'emailDomain', value: '' } });
         } else {
             setIsCustomDomain(false);
-            setEmailDomain(value);
+            // setEmailDomain(value);
+            onChange({ target: { name: 'emailDomain', value } });
         }
     };
     return (
@@ -46,7 +48,10 @@ const CustomerAddItem = ({ data, onChange }) => {
                                 name="type"
                                 value={data.type}
                                 onChange={onChange}
-                                style={{ paddingLeft: '10px' }}
+                                style={{
+                                    paddingLeft: '10px',
+                                    borderColor: errors?.type ? 'red' : '#ccc',
+                                }}
                                 onClick={() => handleSelectFocus('type')}
                                 onBlur={() => handleSelectBlur('type')}
                             >
@@ -69,7 +74,14 @@ const CustomerAddItem = ({ data, onChange }) => {
                         이름 <span>*</span>
                     </td>
                     <td className="inline-input">
-                        <input type="text" name="name" value={data.name} onChange={onChange} />
+                        <input
+                            type="text"
+                            name="name"
+                            value={data.name}
+                            onChange={onChange}
+                            placeholder={errors?.name ? errors.name : ''}
+                            style={{ borderColor: errors?.name ? 'red' : '#ccc' }}
+                        />
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +89,14 @@ const CustomerAddItem = ({ data, onChange }) => {
                         제목 <span>*</span>
                     </td>
                     <td className="inline-input">
-                        <input type="text" name="title" value={data.title} onChange={onChange} />
+                        <input
+                            type="text"
+                            name="title"
+                            value={data.title}
+                            onChange={onChange}
+                            placeholder={errors?.title ? errors.title : ''}
+                            style={{ borderColor: errors?.title ? 'red' : '#ccc' }}
+                        />
                     </td>
                 </tr>
                 <tr>
@@ -89,15 +108,20 @@ const CustomerAddItem = ({ data, onChange }) => {
                             <input
                                 type="text"
                                 name="emailId"
-                                value={emailId}
-                                onChange={(e) => setEmailId(e.target.value)}
+                                value={data.emailId}
+                                // onChange={(e) => setEmailId(e.target.value)}
+                                onChange={onChange}
+                                placeholder={errors?.emailId || ''}
+                                style={{ borderColor: errors?.email ? 'red' : '#ccc' }}
                             />
                             <span className="at">@</span>
                             <input
                                 type="text"
                                 name="emailDomainInput"
-                                value={emailDomain}
-                                onChange={(e) => setEmailDomain(e.target.value)}
+                                value={data.emailDomain}
+                                // onChange={(e) => setEmailDomain(e.target.value)}
+                                onChange={onChange}
+                                placeholder={errors?.emailId || ''}
                                 disabled={!isCustomDomain}
                             />
                             <DomainSelectWrapper>
@@ -135,11 +159,12 @@ const CustomerAddItem = ({ data, onChange }) => {
                     </td>
                     <td className="inline-input">
                         <textarea
-                            placeholder="문의 내용을 입력하세요"
                             name="content"
-                            style={{ padding: '10px' }}
+                            // style={{ padding: '10px' }}
                             value={data.content}
                             onChange={onChange}
+                            placeholder={errors?.content ? errors.content : ''}
+                            style={{ borderColor: errors?.content ? 'red' : '#ccc' }}
                         />
                     </td>
                 </tr>
