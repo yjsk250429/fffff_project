@@ -6,11 +6,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 const DailyMoments = () => {
- const containerRef = useRef(null);
+    const containerRef = useRef(null);
     const imageItemsRef = useRef([]);
-useEffect(() => {
+    useEffect(() => {
         const container = containerRef.current;
         const imageItems = imageItemsRef.current;
 
@@ -38,13 +37,11 @@ useEffect(() => {
             },
         });
 
-        // 컴포넌트 언마운트시 ScrollTrigger 정리
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, []);
 
-    // ref 배열에 요소 추가하는 함수
     const addToRefs = (el) => {
         if (el && !imageItemsRef.current.includes(el)) {
             imageItemsRef.current.push(el);
@@ -54,11 +51,13 @@ useEffect(() => {
     return (
         <DailyMomentsStyle>
             <div className="inner">
-                <h2>Daily Moments <span>with L’Occitane</span></h2>
+                <h2>
+                    Daily Moments <span>with L’Occitane</span>
+                </h2>
                 <em>록시땅과 함께하는 하루의 순간들</em>
 
                 <div className="insta-wrap" ref={containerRef}>
-                    <DailyList addToRefs={addToRefs}/>
+                    <DailyList addToRefs={addToRefs} />
                 </div>
             </div>
         </DailyMomentsStyle>

@@ -17,49 +17,48 @@ export const HeaderStyle = styled.header`
         margin-right: 100px;
     }
     @media screen and (max-width: 390px) {
-        .inner{
+        .inner {
             height: 127px;
-            width: 100%;
-            padding:47px 20px 20px 20px;
+            width: 354px;
+            padding: 47px 20px 20px 20px;
         }
-        h1{
-            margin:auto;
+        h1 {
+            margin: auto;
         }
     }
 `;
 
 export const SmallUtilStyle = styled.ul`
- @media screen and (max-width: 390px) {
-        display:none;
+    @media screen and (max-width: 390px) {
+        display: none;
     }
     display: flex;
     justify-content: end;
     gap: 20px;
-    >li {
+    > li {
         position: relative;
         font-size: 14px;
         color: var(--text-header);
-        ul{
+        ul {
             border: 1px solid var(--sub);
             background: #fff;
-            padding:14px 30px;
-            border-radius:5px;
+            padding: 14px 30px;
+            border-radius: 5px;
             position: absolute;
-           top: 30px;
-           left: 50%;
-           transform:translate(-50%, -20%);
-           transition:0.4s;
-            opacity:0;
+            top: 30px;
+            left: 50%;
+            transform: translate(-50%, -20%);
+            transition: 0.4s;
+            opacity: 0;
             pointer-events: none;
-            &.on{
-                transform:translate(-50%, 0);
-                z-index:1;
-                opacity:1;
+            &.on {
+                transform: translate(-50%, 0);
+                z-index: 1;
+                opacity: 1;
                 pointer-events: all;
-
             }
-            li{
-                &:first-child{
+            li {
+                &:first-child {
                     margin-bottom: 14px;
                 }
             }
@@ -113,32 +112,32 @@ export const BigUtilStyle = styled.ul`
             right: -5px;
             top: 0;
         }
-        &.all-menu{
+        &.all-menu {
             position: absolute;
             right: 0;
             top: 50%;
-            transform:translateY(-50%);
+            transform: translateY(-50%);
             cursor: pointer;
             display: none;
-            i{
+            i {
                 font-size: 1.7rem;
             }
         }
     }
     @media screen and (max-width: 390px) {
-        & > li.all-menu{
-            display:block;
+        & > li.all-menu {
+            display: block;
         }
-        &>  li:not(:last-child){
-                display:none;
-            }
+        & > li:not(:last-child) {
+            display: none;
         }
+    }
 `;
 
 export const NavStyle = styled.nav`
-  @media screen and (max-width: 390px) {
-    display:none;
-  }
+    @media screen and (max-width: 390px) {
+        display: none;
+    }
     .gnb {
         display: flex;
         gap: 50px;
@@ -244,27 +243,26 @@ export const NavStyle = styled.nav`
     }
 `;
 
-
 export const HeaderSearchWrap = styled.div`
-background: var(--w);
-width: 100%;
-position: absolute;
-top: 0;
-transform:translateY(-100%);
-z-index:200;
-transition:0.4s;
-opacity:0;
-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
+    background: var(--w);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+    z-index: 200;
+    transition: 0.4s;
+    opacity: 0;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
 
-&.on{
-transform:translateY(0);
-opacity: 1;
-}
-    .inner{
+    &.on {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .inner {
         height: 450px;
-        padding:128px 0 83px;
+        padding: 128px 0 83px;
         text-align: center;
-        >i{
+        > i {
             position: absolute;
             cursor: pointer;
             top: 80px;
@@ -272,38 +270,37 @@ opacity: 1;
             font-size: 32px;
         }
     }
-    span{
+    span {
         font-size: 14px;
         margin-bottom: 10px;
-        font-family: "EB Garamond", serif;
+        font-family: 'EB Garamond', serif;
     }
-    h3{
+    h3 {
         font-size: 26px;
         font-weight: 600;
         margin-bottom: 34px;
         color: var(--point);
     }
-    form{
-        margin:auto;
+    form {
+        margin: auto;
         margin-bottom: 60px;
     }
-    ul{
-        display:flex;
+    ul {
+        display: flex;
         justify-content: center;
         align-items: center;
         gap: 30px;
-        li:first-child{
+        li:first-child {
             color: var(--point);
         }
-        li:not(:first-child){
+        li:not(:first-child) {
             width: 100px;
             height: 40px;
             background: var(--foundation-white-light-active);
             line-height: 40px;
-            border-radius:110px;
+            border-radius: 110px;
             letter-spacing: 0.5px;
             color: var(--foundation-white-dark-hover);
         }
     }
-
 `;

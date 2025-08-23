@@ -13,4 +13,10 @@ export const VisualStyle = styled.section`
         object-fit: cover;
         display: block;
     }
+    @media screen and (max-width: 390px) {
+        .inner {
+            width: 354px;
+            height: 400px;
+        }
+    }
 `;
