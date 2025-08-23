@@ -8,9 +8,6 @@ export const LoginStyle = styled.div`
         align-items: center;
         /* height: 800px; */
         width: 100%;
-        @media (max-width: 390px) {
-            height: auto !important;
-        }
     }
     form {
         display: flex;
@@ -21,7 +18,6 @@ export const LoginStyle = styled.div`
         @media (max-width: 390px) {
             flex-direction: column;
             gap: 0px;
-            /* margin-bottom: 0; */
         }
     }
     .number-input {
@@ -176,7 +172,6 @@ export const LoginStyle = styled.div`
     .sns-login::after {
         content: '';
         position: absolute;
-
         top: 50%;
         width: 90px;
         height: 0.5px;
@@ -208,7 +203,7 @@ export const LoginStyle = styled.div`
             margin-top: 28px;
             justify-content: center;
             img {
-                width: 42px !important;
+                width: 10.7692vw !important;
                 height: 42px !important;
             }
         }
@@ -299,7 +294,8 @@ export const JoinStyle = styled.div`
         padding: 150px 0;
         @media (max-width: 390px) {
             width: 100%;
-            padding: 80px 18px;
+            padding: 80px 18px 120px;
+            height: auto;
             .required {
             }
         }
@@ -356,8 +352,6 @@ export const JoinStyle = styled.div`
         }
         &.optional {
             margin-bottom: 100px;
-            @media (max-width: 390px) {
-            }
         }
         label {
             display: block;
@@ -392,12 +386,12 @@ export const JoinStyle = styled.div`
                 font-size: 14px;
             }
             @media (max-width: 390px) {
-                input[type='checkbox'] {
-                    /* margin-right: 0; */
-                }
                 &.allagree {
                     font-size: 16px;
                     gap: 10px;
+                    input[type='checkbox'] {
+                        margin-right: 0;
+                    }
                 }
             }
         }
