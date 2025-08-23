@@ -3,9 +3,8 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 import { PaymentWrapStyle } from './style';
 import PaymentProductItem from './PaymentProductItem';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import React from 'react';
 import { paymentActions } from '../../store/modules/paymentSlice';
 import { cartActions } from '../../store/modules/cartSlice';
 

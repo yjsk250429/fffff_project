@@ -15,16 +15,16 @@ import {
     Login,
     Main,
     MyPage,
+    Notfiles,
+    PayComplete,
+    Payment,
     Product,
     ProductDetail,
     Promise,
     Wish,
 } from './pages';
-import Notfiles from './pages/notfiles';
 import JoinInfo from './components/join/JoinInfo';
 import JoinComplete from './components/join/JoinComplete';
-import Payment from './pages/payment';
-import PayComplete from './pages/payment/PayComplete';
 import CustomerAdd from './components/cscenter/contact/CustomerAdd';
 
 const App = () => {

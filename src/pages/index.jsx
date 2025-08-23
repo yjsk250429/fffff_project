@@ -16,3 +16,7 @@ export { default as Bcorp } from './about/Bcorp';
 export { default as Intro } from './about/Intro';
 export { default as Promise } from './about/Promise';
 export { default as MyPage } from './mypage';
+
+export { default as Payment } from './payment/Payment';
+export { default as PayComplete } from './payment/PayComplete';
+export { default as Notfiles } from './notfiles';
