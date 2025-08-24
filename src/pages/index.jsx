@@ -20,3 +20,4 @@ export { default as MyPage } from './mypage';
 export { default as Payment } from './payment/Payment';
 export { default as PayComplete } from './payment/PayComplete';
 export { default as Notfiles } from './notfiles';
+export { default as SearchResult } from './searchResult';

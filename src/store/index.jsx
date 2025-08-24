@@ -9,6 +9,7 @@ import collection from './modules/collectionSlice';
 import wish from './modules/wishSlice';
 import customer from './modules/customerSlice';
 import payment from './modules/paymentSlice';
+import search from './modules/searchSlice';
 
 const store = configureStore({
     reducer: {
@@ -22,6 +23,7 @@ const store = configureStore({
         wish,
         customer,
         payment,
+        search,
     },
 });
 

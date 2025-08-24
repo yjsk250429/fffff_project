@@ -285,7 +285,7 @@ export const HeaderSearchWrap = styled.div`
         margin: auto;
         margin-bottom: 60px;
     }
-    ul {
+    .popular {
         display: flex;
         justify-content: center;
         align-items: center;

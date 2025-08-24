@@ -81,17 +81,16 @@ export const ProductSearchWrap = styled.div`
 export const ProductListWrap = styled.article`
     margin-top: 60px;
     &.product-wrap {
-        ul{
-            
+        ul {
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
             gap: 32px;
         }
         &.empty {
-            display:flex;
+            display: flex;
             justify-content: center;
-            align-items: center; 
+            align-items: center;
             height: 500px;
             p {
                 font-size: 30px;
@@ -123,6 +122,9 @@ export const ProductItemStyle = styled.li`
             top: 16px;
             right: 16px;
             font-size: 24px;
+            &.active {
+                color: red;
+            }
         }
     }
     .text-wrap {
@@ -159,24 +161,24 @@ export const ProductItemStyle = styled.li`
         }
     }
 
-        .price-info {
-            width: 100%;
-            line-height: 35px;
-            border-top: 1px solid var(--foundation-white-normal);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-            position: relative;
-            span {
-                font-size: 18px;
-            }
-            i {
-                font-size: 24px;
-                position: absolute;
-                top: 5px;
-                right: 0;
-                cursor: pointer;
-            }
+    .price-info {
+        width: 100%;
+        line-height: 35px;
+        border-top: 1px solid var(--foundation-white-normal);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        position: relative;
+        span {
+            font-size: 18px;
         }
+        i {
+            font-size: 24px;
+            position: absolute;
+            top: 5px;
+            right: 0;
+            cursor: pointer;
+        }
+    }
 `;

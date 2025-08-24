@@ -21,6 +21,7 @@ import {
     Product,
     ProductDetail,
     Promise,
+    SearchResult,
     Wish,
 } from './pages';
 import JoinInfo from './components/join/JoinInfo';
@@ -35,6 +36,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Main />} />
+                        <Route path="/searchresult" element={<SearchResult />} />
 
                         <Route path="product/:category" element={<Product />} />
                         <Route path="product/:category/:productID" element={<ProductDetail />} />
@@ -64,6 +66,7 @@ const App = () => {
                         </Route>
 
                         <Route path="wish" element={<Wish />} />
+
                         <Route path="mypage" element={<MyPage />} />
 
                         <Route path="login" element={<Login />} />
