@@ -50,7 +50,7 @@ export const FooterStyle = styled.footer`
             &::after {
                 content: '';
                 display: block;
-                width: 0.2564vw;
+                width: 1px;
                 height: 11px;
                 background: var(--text-footer, #b0bcc8);
                 position: absolute;
