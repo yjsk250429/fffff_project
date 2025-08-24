@@ -57,6 +57,7 @@ export const BreadCrumbStyle = styled.p`
     display: flex;
     gap: 20px;
     align-items: center;
+
     i {
         color: var(--foundation-white-normal-hover);
         font-size: 16px;

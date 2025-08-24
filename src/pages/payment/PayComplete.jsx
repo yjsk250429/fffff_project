@@ -17,7 +17,7 @@ const PayComplete = () => {
     return (
         <PaymentCompleteStyle>
             <div className="inner">
-            <BreadCrumb text1='CART' text2='ORDER' text3='ORDER COMPLETE' color3="#000"/>
+                <BreadCrumb text1="CART" text2="ORDER" text3="ORDER COMPLETE" color3="#000" />
                 <h2>주문이 완료되었습니다.</h2>
                 <div className="completed-info">
                     <h3>
@@ -25,31 +25,25 @@ const PayComplete = () => {
                     </h3>
                     <ul className="info-wrap">
                         <li>
+                            <p>배송지정보</p>
                             <p>
-                                배송지정보
-                                <span>
-                                    {orderer?.tel}
-                                    <br />
-                                    {orderer?.name}
-                                    <br />({address?.zipCode}) {address?.mainAddr}{' '}
-                                    {address?.detailAddr}
-                                </span>
+                                {orderer?.tel}
+                                <br />
+                                {orderer?.name}
+                                <br />({address?.zipCode}) {address?.mainAddr} {address?.detailAddr}
                             </p>
                         </li>
                         <li>
-                            <p>
-                                배송메모<span>{memo || '-'}</span>
-                            </p>
+                            <p>배송메모</p>
+                            <p>{memo || '-'}</p>
                         </li>
                         <li>
-                            <p>
-                                배송비<span>{formatPrice(summary?.shippingFee)}원</span>
-                            </p>
+                            <p>배송비</p>
+                            <p>{formatPrice(summary?.shippingFee)}원</p>
                         </li>
                         <li>
-                            <p>
-                                입금금액<span>{formatPrice(summary?.finalTotal)}</span>
-                            </p>
+                            <p>입금금액</p>
+                            <p>{formatPrice(summary?.finalTotal)}원</p>
                         </li>
                     </ul>
                 </div>

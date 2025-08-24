@@ -64,8 +64,18 @@ export const PaymentCompleteStyle = styled.div`
         }
         .info-wrap {
             li {
+                display: flex;
                 p {
-                    span {
+                    position: relative;
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                    width: 210px;
+                    &:last-child {
+                        width: 400px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: var(--foundation-white-darker);
                     }
                 }
             }

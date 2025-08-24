@@ -2,50 +2,57 @@ import styled from 'styled-components';
 
 export const PaginationStyle = styled.div`
     div {
-        display:flex;
+        display: flex;
         justify-content: center;
         text-align: center;
         margin-top: 3px;
         margin-bottom: 150px;
-        p{
+        p {
             button {
-            width: 30px;
-            height: 30px;
-            border: none;
-            background: none;
-            margin-right: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            &.on {
-            color: #000;
-            text-decoration:underline;
-            }
+                width: 30px;
+                height: 30px;
+                border: none;
+                background: none;
+                margin-right: 5px;
+                font-size: 18px;
+                cursor: pointer;
+                &.on {
+                    color: #000;
+                    text-decoration: underline;
+                }
+                @media (max-width: 390px) {
+                    font-size: 10px;
+                    font-weight: 400;
+                }
             }
             &:first-child {
-                button{
-
+                button {
                     position: relative;
-                    img{
+                    img {
                         position: absolute;
                         top: 50%;
                         left: 50%;
-                        transform:translate(-50%, -50%) rotate(90deg);
+                        transform: translate(-50%, -50%) rotate(90deg);
+                        @media (max-width: 390px) {
+                            width: 10px;
+                        }
                     }
                 }
             }
             &:last-child {
-                button{
+                button {
                     position: relative;
-                    img{
+                    img {
                         position: absolute;
                         top: 50%;
                         left: 50%;
-                        transform:translate(-50%, -50%) rotate(-90deg);
+                        transform: translate(-50%, -50%) rotate(-90deg);
+                        @media (max-width: 390px) {
+                            width: 10px;
+                        }
                     }
                 }
             }
-          
         }
-        }
-    
+    }
 `;
