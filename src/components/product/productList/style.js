@@ -5,16 +5,31 @@ export const ProductSearchWrap = styled.div`
     form {
         display: flex;
         justify-content: space-between;
+        @media (max-width: 390px) {
+            align-items: start;
+        }
+
         .search {
             height: 24px;
             width: 235px;
             position: relative;
+            @media (max-width: 390px) {
+                height: 16px;
+            }
             i {
                 position: absolute;
                 font-size: 24px;
                 left: 0;
                 top: 50%;
                 transform: translateY(-50%);
+                @media (max-width: 390px) {
+                    left: 18px;
+                    font-size: 16px;
+                    top: 0;
+                    transform: translateY(0);
+                    width: 16px;
+                    height: 16px;
+                }
             }
             input[type='text'] {
                 position: absolute;
@@ -29,6 +44,14 @@ export const ProductSearchWrap = styled.div`
                 padding: 15px 0;
                 box-sizing: border-box;
                 font-size: 18px;
+                @media (max-width: 390px) {
+                    width: 80px;
+                    left: 0;
+                    top: 0;
+                    height: 16px;
+                    font-size: 16px;
+                    margin-left: 41px;
+                }
                 &:focus {
                     outline: none;
                 }
@@ -36,13 +59,22 @@ export const ProductSearchWrap = styled.div`
         }
         .filter {
             position: relative;
-            button {
-                cursor: pointer;
-                border: none;
-                background: none;
-                font-size: 24px;
-                font-weight: 500;
-                font-family: 'Pretendard', sans-serif;
+        }
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Pretendard', sans-serif;
+            @media (max-width: 390px) {
+                position: absolute;
+                right: 18px;
+                width: 60px;
+                text-align: end;
+                height: 16px;
+                font-size: 14px;
+                font-weight: 400;
             }
         }
 
@@ -80,12 +112,21 @@ export const ProductSearchWrap = styled.div`
 
 export const ProductListWrap = styled.article`
     margin-top: 60px;
+    @media (max-width: 390px) {
+        width: 390px;
+        padding: 0 18px;
+        box-sizing: border-box;
+        margin-top: 35px;
+    }
     &.product-wrap {
         ul {
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
             gap: 32px;
+            @media (max-width: 390px) {
+                gap: 10px;
+            }
         }
         &.empty {
             display: flex;
@@ -99,6 +140,10 @@ export const ProductListWrap = styled.article`
     }
 `;
 export const ProductItemStyle = styled.li`
+    @media (max-width: 390px) {
+        width: 170px;
+        height: 280px;
+    }
     a {
         cursor: default;
     }
@@ -110,12 +155,19 @@ export const ProductItemStyle = styled.li`
         cursor: pointer;
         background: var(--background);
         position: relative;
+        @media (max-width: 390px) {
+            width: 170px;
+            height: 240px;
+        }
         img {
             width: 100%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.9);
+            @media (max-width: 390px) {
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
         i {
             position: absolute;
@@ -125,6 +177,11 @@ export const ProductItemStyle = styled.li`
             &.active {
                 color: red;
             }
+            @media (max-width: 390px) {
+                font-size: 15px;
+                top: 8px;
+                right: 8px;
+            }
         }
     }
     .text-wrap {
@@ -133,6 +190,10 @@ export const ProductItemStyle = styled.li`
             padding-top: 25px;
             height: 111px;
             position: relative;
+            @media (max-width: 390px) {
+                padding-top: 10px;
+                height: auto;
+            }
             strong {
                 display: block;
                 width: 300px;
@@ -145,6 +206,13 @@ export const ProductItemStyle = styled.li`
                 overflow: hidden;
                 text-overflow: ellipsis;
                 -webkit-line-clamp: 2;
+                @media (max-width: 390px) {
+                    width: 170px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                    -webkit-line-clamp: 1;
+                }
             }
             span {
                 font-size: 16px;
@@ -153,11 +221,17 @@ export const ProductItemStyle = styled.li`
                 top: 25px;
                 right: 0;
                 cursor: pointer;
+                @media (max-width: 390px) {
+                    display: none;
+                }
             }
         }
         em {
             position: absolute;
             bottom: 0;
+            @media (max-width: 390px) {
+                display: none;
+            }
         }
     }
 
@@ -170,8 +244,16 @@ export const ProductItemStyle = styled.li`
         align-items: center;
         margin-top: 10px;
         position: relative;
+        @media (max-width: 390px) {
+            margin-top: 10px;
+            line-height: 25px;
+        }
         span {
             font-size: 18px;
+            @media (max-width: 390px) {
+                font-size: 10px;
+                font-weight: 500;
+            }
         }
         i {
             font-size: 24px;
@@ -179,6 +261,10 @@ export const ProductItemStyle = styled.li`
             top: 5px;
             right: 0;
             cursor: pointer;
+            @media (max-width: 390px) {
+                font-size: 15px;
+                top: 3px;
+            }
         }
     }
 `;
