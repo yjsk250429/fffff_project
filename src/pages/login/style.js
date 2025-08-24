@@ -118,6 +118,17 @@ export const LoginStyle = styled.div`
             }
         }
     }
+    .forms {
+        display: flex;
+        gap: 68px;
+        @media (max-width: 390px) {
+            flex-direction: column;
+            gap: 0;
+            .right {
+                margin-top: -120px;
+            }
+        }
+    }
     .left,
     .right {
         display: grid;
