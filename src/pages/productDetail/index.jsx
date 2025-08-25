@@ -12,6 +12,7 @@ import Reivew from '../../components/productDetail/Reivew';
 import { useState, useMemo, useEffect } from 'react';
 import SearchForm from '../../ui/SearchForm';
 import { reviewActions } from '../../store/modules/reviewSlice';
+import { useRef } from 'react';
 
 const ProductDetail = () => {
     const { productID } = useParams();
@@ -69,14 +70,33 @@ const ProductDetail = () => {
             useEffect(() => {
                 dispatch(reviewActions.getReviewsByProductId(Number(productID)));
               }, [dispatch, productID]);
+
+        const descRef = useRef(null);
+        const ingrRef = useRef(null);
+        const recomRef = useRef(null);
+        const reviewRef = useRef(null);
+
+        const scrollTo = (ref) => {
+            if (!ref?.current) return;
+            const elementTop = ref.current.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+              top: elementTop,
+              behavior: 'smooth',
+            });
+          };
+
     return (
         <ProductDetailStyle>
             <div className="inner">
                 <div className="img-wrap">
+                    <div className="sticky-img">
+
                     <img src={`/images/products/item${id}.webp`} alt={title} />
+                    </div>
                 </div>
                 <div className="right">
                     <div className="detail">
+                        <div className="top">
                         <SearchForm/>
                         <em>{label}</em>
                         <h2>{title}</h2>
@@ -109,21 +129,23 @@ const ProductDetail = () => {
                                 height="60px"
                             />
                         </p>
+                        </div>
                         <ul className="tabs">
-                            <li className="on">제품설명</li>
-                            <li>원료</li>
-                            <li>리뷰</li>
-                            <li>추천제품</li>
+                            <li className="on" onClick={()=>scrollTo(descRef)}>제품설명</li>
+                            <li onClick={()=>scrollTo(ingrRef)}>원료</li>
+                            <li onClick={()=>scrollTo(recomRef)}>추천제품</li>
+                            <li onClick={()=>scrollTo(reviewRef)}>리뷰</li>
                         </ul>
-                    </div>
-                    <div className="scrollZone">
                         <Description />
                         <Ingredient thisItem={thisItem} />
+                      
                     </div>
                 </div>
             </div>
             <RecommandList thisItem={thisItem} />
+
             <Reivew/>
+        
         </ProductDetailStyle>
     );
 };

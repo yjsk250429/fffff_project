@@ -3943,16 +3943,6 @@ export default [
                 size: 250,
                 price: 34000,
             },
-            {
-                id: 'option-2',
-                size: null,
-                price: 0,
-            },
-            {
-                id: 'option-3',
-                size: null,
-                price: 0,
-            },
         ],
     },
     {

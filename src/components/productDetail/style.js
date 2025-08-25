@@ -15,7 +15,7 @@ export const IngredientStyle = styled.div`
 background: #FDFDFD;
     .inner {
         padding: 100px 40px;
-        display: block;
+        display: block !important;
     }
     h3 {
         text-align: center;
@@ -72,7 +72,7 @@ export const RecommandListStyle = styled.div`
         width: 1700px;
         height: 850px;
         padding: 150px 140px;
-        display: block;
+        display: block !important;
         text-align: center;
     }
     h2 {
@@ -98,6 +98,7 @@ export const RecommandListStyle = styled.div`
                 height: 100%;
                 cursor: pointer;
                 position: relative;
+                background: var(--background);
                 img {
                 width: 100%;
                 position: absolute;
@@ -181,7 +182,8 @@ export const RecommandListStyle = styled.div`
 
 export const ReviewStyle = styled.article`
 .inner{
-    display:block;
+    padding-top: 50px;
+    display:block !important;
     width: 1700px;
 }
     h2{
@@ -234,7 +236,7 @@ export const ReviewStyle = styled.article`
                 button{
                     margin-right: 4px;
                     padding:0;
-                    line-height: 30px;
+                    line-height: 35px;
                 }
             }
         }
@@ -256,13 +258,7 @@ justify-content:space-between;
             width: 180px;
             height: 180px;
             margin-right: 16px;
-            /* position: relative;
-            img{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform:translate(-50%, -50%);
-            } */
+            background: var(--background);
         }
         .text-wrap{
             padding:10px 0;

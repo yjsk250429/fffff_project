@@ -25,8 +25,8 @@ const Reivew = () => {
                         <p className="totalRate"><span>{stars}</span> {avgRate} / 5.0</p>
                         <p className="sorts"><span className="on">베스트순</span><span>최신순</span></p>
                         <p className="filterBtns">
-                            <Button text="전체보기" width="100px" height="30px" type="button" className='on' bgColor="#000" textColor="#Fff"/>
-                            <Button text="포토리뷰" width="100px" height="30px" type="button"/>
+                            <Button text="전체보기" width="130px" height="35px" type="button" className='on' bgColor="#000" textColor="#Fff"/>
+                            <Button text="포토리뷰" width="130px" height="35px" type="button"/>
                         </p>
                     </div>
                     {currentProductReviews.length === 0 ? <p>아직 리뷰가 없습니다.</p>:
