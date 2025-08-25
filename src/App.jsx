@@ -27,12 +27,14 @@ import {
 import JoinInfo from './components/join/JoinInfo';
 import JoinComplete from './components/join/JoinComplete';
 import CustomerAdd from './components/cscenter/contact/CustomerAdd';
+import ScrollTop from './common/ScrollTop';
 
 const App = () => {
     return (
         <>
             <BrowserRouter>
                 <GlobalStyle />
+                <ScrollTop/>
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Main />} />

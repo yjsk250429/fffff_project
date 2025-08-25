@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { IoSearchOutline } from 'react-icons/io5';
 import { ProductDetailStyle } from './style';
 import Button from '../../ui/Button';
 import { IoHeart, IoHeartOutline } from 'react-icons/io5';
@@ -12,10 +11,12 @@ import { wishActions } from '../../store/modules/wishSlice';
 import Reivew from '../../components/productDetail/Reivew';
 import { useState, useMemo, useEffect } from 'react';
 import SearchForm from '../../ui/SearchForm';
+import { reviewActions } from '../../store/modules/reviewSlice';
 
 const ProductDetail = () => {
     const { productID } = useParams();
     const { products } = useSelector((state) => state.product);
+    const dispatch = useDispatch();
     if (!products) {
         return <p>상품 데이터를 불러오는 중입니다.</p>;
     }
@@ -37,7 +38,7 @@ const ProductDetail = () => {
 
      const { carts } = useSelector((state) => state.cart);
         const { wishes } = useSelector((state) => state.wish);
-        const dispatch = useDispatch();
+ 
 
         const isInCart = carts.some((item) => item.id === id);
         const isInWishlist = wishes.some((item) => item.id === id);
@@ -65,7 +66,9 @@ const ProductDetail = () => {
             
             const formatPrice = (n) => (n ?? 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-
+            useEffect(() => {
+                dispatch(reviewActions.getReviewsByProductId(Number(productID)));
+              }, [dispatch, productID]);
     return (
         <ProductDetailStyle>
             <div className="inner">
