@@ -117,6 +117,7 @@ export const OrderListItemStyle = styled.li`
         .text-wrap {
             .num {
                 color: var(--Foundation-White-Dark, #a8a8a8);
+                font-size: 14px;
                 span {
                     color: var(--red, #f00);
                 }

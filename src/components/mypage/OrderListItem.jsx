@@ -37,7 +37,7 @@ const OrderListItem = ({ item, index }) => {
                     height={'50px'}
                 />
                 <Button
-                    text="바로 구매하기"
+                    text="찜 하기"
                     borderColor="#00274C"
                     textColor="#00274C"
                     width={'402px'}
