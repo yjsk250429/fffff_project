@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GiftListStyle = styled.div`
-    margin-top: 68px;
+    margin-top: 200px;
     h3 {
         text-align: center;
         display: block;
@@ -10,6 +10,7 @@ export const GiftListStyle = styled.div`
         margin-bottom: 30px;
     }
     @media (max-width: 390px) {
+        margin-top: 100px;
         h3 {
             font-size: 20px;
             margin-bottom: 26px;
@@ -122,7 +123,6 @@ export const GiftItemStyle = styled.li`
     background: var(--w, #fff);
     width: 254px;
     height: 254px;
-    line-height: 1;
 
     img {
     }
@@ -131,7 +131,8 @@ export const GiftItemStyle = styled.li`
         font-size: 20px;
         font-weight: 500;
         display: block;
-        margin-top: 10px;
+        margin-top: 14px;
+        line-height: 1;
     }
     em {
         color: var(--Foundation-White-Dark, #a8a8a8);

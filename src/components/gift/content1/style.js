@@ -6,7 +6,7 @@ export const BestGiftStyle = styled.div`
         max-width: 1920px;
         display: flex;
         gap: 144px;
-        margin-top: 110px;
+        margin-top: 180px;
         justify-content: center;
         @media (max-width: 390px) {
             flex-direction: column;
