@@ -27,7 +27,7 @@ const OrderStatus = () => {
                     </p>
                     <GoChevronRight />
                     <p>
-                        <span>2</span>
+                        <span>0</span>
                         배송완료
                     </p>
                 </li>

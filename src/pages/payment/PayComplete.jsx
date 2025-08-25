@@ -59,7 +59,7 @@ const PayComplete = () => {
                     </ul>
                 </div>
                 <div className="btn-wrap">
-                    <Button text="주문 상세보기" width="150px" bgColor="#fff" textColor="#000" />
+                    <Button text="주문 상세보기" onClick={()=>navigate('/mypage')} width="150px" bgColor="#fff" textColor="#000" />
                     <Button
                         onClick={onGo}
                         text="쇼핑 계속하기"
