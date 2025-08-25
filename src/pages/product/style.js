@@ -8,6 +8,7 @@ export const ProductStyle = styled.div`
             padding-top: 45px;
         }
     }
+
     .controls {
         position: relative;
         @media (max-width: 390px) {
@@ -26,10 +27,41 @@ export const ProductStyle = styled.div`
             li {
                 color: var(--foundation-white-dark);
                 cursor: pointer;
+
+                @media (max-width: 390px) {
+                    display: none;
+                }
                 &.on {
                     font-weight: 500;
                     color: var(--b);
                 }
+            }
+        }
+        h4 {
+            display: none;
+            @media (max-width: 390px) {
+                padding: 0 18px;
+                box-sizing: border-box;
+                text-align: center;
+                display: block;
+                font-size: 18px;
+                line-height: 1;
+                font-weight: 700;
+                position: relative;
+                margin-bottom: 35px;
+                i {
+                    margin-left: 4px;
+                    font-size: 18px;
+                }
+            }
+        }
+        p {
+            display: none;
+            @media (max-width: 390px) {
+                font-size: 14px;
+                font-weight: 500;
+                display: block;
+                margin-left: 18px;
             }
         }
         .sort {
@@ -38,6 +70,7 @@ export const ProductStyle = styled.div`
             top: 0;
             @media (max-width: 390px) {
                 right: 18px;
+                top: 53px;
             }
             label {
                 opacity: 0;

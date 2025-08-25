@@ -11,6 +11,7 @@ import { paginationActions } from '../../store/modules/paginationSlice';
 import BreadCrumb from '../../ui/BreadCrumb';
 import { BreadCrumbStyle } from '../../ui/style';
 import styled from 'styled-components';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const Product = () => {
     const { category } = useParams();
@@ -226,6 +227,7 @@ const Product = () => {
                 />
 
                 <Latest category={category} />
+
                 <div className="controls">
                     <ul className="tabs">
                         {currentTabs.map((tab) => (
@@ -238,6 +240,13 @@ const Product = () => {
                             </li>
                         ))}
                     </ul>
+                    <h4>
+                        전체보기
+                        <i>
+                            <MdKeyboardArrowDown />
+                        </i>
+                    </h4>
+                    <p>총 {sorted.length}개</p>
                     <div className="sort">
                         <label htmlFor="sort">상품 순서 정렬</label>
                         <select

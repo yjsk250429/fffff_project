@@ -7,12 +7,19 @@ import BreadCrumb from '../../ui/BreadCrumb';
 const PayComplete = () => {
     const { payments } = useSelector((state) => state.payment);
     const latest = payments?.[payments.length - 1];
-    const { orderNo, items, address, orderer, summary, memo } = latest;
+    const { orderNo, items, address, orderer, summary, memo, paymentMethod } = latest;
     const formatPrice = (n) => Number(n || 0).toLocaleString();
 
     const navigate = useNavigate();
     const onGo = () => {
         navigate('/product/hand');
+    };
+
+    const methodLabels = {
+        creditCard: '신용카드',
+        mobilePay: '휴대폰 결제',
+        simplePay: '간편 결제',
+        kakaoPay: '카카오페이',
     };
     return (
         <PaymentCompleteStyle>
@@ -42,7 +49,11 @@ const PayComplete = () => {
                             <p>{formatPrice(summary?.shippingFee)}원</p>
                         </li>
                         <li>
-                            <p>입금금액</p>
+                            <p>결제수단</p>
+                            <p>{methodLabels[paymentMethod] || paymentMethod}</p>
+                        </li>
+                        <li>
+                            <p>총 결제내역</p>
                             <p>{formatPrice(summary?.finalTotal)}원</p>
                         </li>
                     </ul>

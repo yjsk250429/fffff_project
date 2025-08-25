@@ -38,7 +38,17 @@ const CartRight = () => {
         .reduce((sum, cart) => sum + (cart.quantity || 0), 0);
 
     const shippingFee = priceTotal > 0 && priceTotal < 50000 ? 3000 : 0;
-    const discountAmount = 0;
+
+    // 첫 구매 15% 할인
+    const firstPurchaseDiscount = priceTotal * 0.15;
+
+    // 공식몰 상시 5% 할인
+    const regularDiscount = priceTotal * 0.05;
+
+    // 총 할인
+    const discountAmount = Math.round(firstPurchaseDiscount + regularDiscount);
+
+    // 최종 결제 금액
     const finalTotal = priceTotal + shippingFee - discountAmount;
 
     const formatPrice = (price) => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
