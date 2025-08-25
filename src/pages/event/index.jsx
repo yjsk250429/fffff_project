@@ -2,6 +2,7 @@ import Gift_3setList from '../../components/event/content1/Gift_3setList';
 import SpecialGift from '../../components/event/content2/SpecialGift';
 import ExclusiveSet from '../../components/event/content3/ExclusiveSet';
 import Event3 from '../../components/event/content4/Event3';
+import TopBtn from '../../ui/TopBtn';
 import { EventVisualStyle, EventWrap } from './style';
 
 const Event = () => {
@@ -18,6 +19,7 @@ const Event = () => {
             <SpecialGift />
             <ExclusiveSet />
             <Event3 />
+            <TopBtn />
         </EventWrap>
     );
 };

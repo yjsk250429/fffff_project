@@ -154,6 +154,7 @@ export const ProductItemStyle = styled.li`
         cursor: pointer;
         background: var(--background);
         position: relative;
+
         @media (max-width: 390px) {
             width: 170px;
             height: 240px;

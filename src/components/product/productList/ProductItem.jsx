@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../../store/modules/cartSlice';
 import { wishActions } from '../../../store/modules/wishSlice';
 import { ProductItemStyle } from './style';
+import BestStemp from '../../../ui/BestStemp';
 
 const ProductItem = ({ product }) => {
     const { carts } = useSelector((state) => state.cart);
     const { wishes } = useSelector((state) => state.wish);
     const dispatch = useDispatch();
-    const { id, label, title, unit, description, image, option, rating } = product;
+    const { label, title, unit, image, option, rating } = product;
     const { rate, count } = rating;
     const selectedOption = option?.length > 1 ? option[1] : option?.length === 1 ? option[0] : null;
 
@@ -28,8 +29,10 @@ const ProductItem = ({ product }) => {
         e.preventDefault(); // Link 클릭 막기
         if (isInCart) {
             dispatch(cartActions.removeCart(product.id)); // 장바구니에서 제거
+            alert('장바구니에서 제거하였습니다.');
         } else {
             dispatch(cartActions.addCart(product)); // 장바구니에 추가
+            alert('상품을 장바구니에 담았습니다.');
         }
     };
 
@@ -44,6 +47,7 @@ const ProductItem = ({ product }) => {
             <Link to={`/product/${product.category}/${product.id}`}>
                 <div className="img-wrap">
                     <img src={image} alt={title} />
+                    {rate === 5 && count >= 50 ? <BestStemp className="best" /> : ''}
                     <i onClick={handleWishToggle} className={isInWishlist ? 'active' : ''}>
                         {isInWishlist ? <IoHeart /> : <IoHeartOutline />}
                     </i>

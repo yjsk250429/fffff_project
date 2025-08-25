@@ -9,13 +9,15 @@ import { paymentActions } from '../../store/modules/paymentSlice';
 import { cartActions } from '../../store/modules/cartSlice';
 
 const PaymentWrap = () => {
-    const { carts, priceTotal } = useSelector((state) => state.cart);
+    const { carts } = useSelector((state) => state.cart);
     const { user, authed } = useSelector((state) => state.auth);
     const [first, setFirst] = useState('');
     const [middle, setMiddle] = useState('');
     const [last, setLast] = useState('');
     const dispatch = useDispatch();
     const [paymentMethod, setPaymentMethod] = useState('creditCard');
+    const [checkedCarts, setCheckedCarts] = useState([]);
+    const [isReady, setIsReady] = useState(false);
 
     const changeInput = (e) => {
         const { value, name } = e.target;
@@ -63,6 +65,11 @@ const PaymentWrap = () => {
 
     // 아코디언 토글
     const toggleOpen = () => setIsOpen((prev) => !prev);
+    // const checkedCarts = carts.filter((cart) => cart.isChecked);
+    const priceTotal = checkedCarts.reduce(
+        (sum, cart) => sum + (Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
+        0
+    );
 
     const firstPurchaseDiscountRate = 0.15; // 15%
     const officialDiscountRate = 0.05; // 5%
@@ -73,7 +80,6 @@ const PaymentWrap = () => {
     // 총 할인
     const totalDiscount = firstPurchaseDiscount + officialDiscount;
 
-    const checkedCarts = carts.filter((cart) => cart.isChecked);
     const totalQuantity = checkedCarts.reduce((sum, cart) => sum + (cart.quantity || 0), 0);
     const shippingFee = priceTotal > 0 && priceTotal < 50000 ? 3000 : 0;
     const discountAmount = 0;
@@ -227,18 +233,24 @@ const PaymentWrap = () => {
             },
         };
         // 체크된 항목만 장바구니에서 제거
-        dispatch(cartActions.clearChecked());
         dispatch(paymentActions.onPay(payload));
-
-        // (선택) 결제 완료 후 체크된 항목만 장바구니에서 제거하고 싶다면 cartSlice에 clearChecked 추가하여 디스패치
-        // dispatch(cartActions.clearChecked());
-
-        // 완료 페이지로 이동
-        // 주문번호를 확인 페이지에서 쓰고 싶다면 URL 파라미터/쿼리로 넘기는 방식 추천:
-        // ex) navigate(`/cart/paycomplete?ts=${Date.now()}`)
         navigate('/cart/paycomplete');
     };
 
+    useEffect(() => {
+        const selected = carts.filter((cart) => cart.isChecked);
+        setCheckedCarts(selected);
+        setIsReady(true);
+    }, [carts]);
+    useEffect(() => {
+        if (isReady && checkedCarts.length === 0) {
+            alert('결제할 상품이 없습니다.');
+            navigate('/cart'); // 또는 홈으로 보내도 됨
+        }
+    }, [isReady, checkedCarts, navigate]);
+    if (!isReady) {
+        return <p>결제 정보를 불러오는 중입니다...</p>;
+    }
     return (
         <PaymentWrapStyle>
             <div className="payment-left">

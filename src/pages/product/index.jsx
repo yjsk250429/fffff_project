@@ -12,6 +12,7 @@ import BreadCrumb from '../../ui/BreadCrumb';
 import { BreadCrumbStyle } from '../../ui/style';
 import styled from 'styled-components';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import TopBtn from '../../ui/TopBtn';
 
 const Product = () => {
     const { category } = useParams();
@@ -276,6 +277,7 @@ const Product = () => {
                 <ProductList items={sorted} />
                 {pageData.length > 0 && <Pagination />}
             </div>
+            <TopBtn />
         </ProductStyle>
     );
 };

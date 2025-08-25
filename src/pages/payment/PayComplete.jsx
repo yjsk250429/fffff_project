@@ -1,15 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { PaymentCompleteStyle } from './style';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import BreadCrumb from '../../ui/BreadCrumb';
+import { cartActions } from '../../store/modules/cartSlice';
+import { useEffect } from 'react';
 
 const PayComplete = () => {
     const { payments } = useSelector((state) => state.payment);
     const latest = payments?.[payments.length - 1];
-    const { orderNo, items, address, orderer, summary, memo, paymentMethod } = latest;
+    const { orderNo, address, orderer, summary, memo, paymentMethod } = latest;
     const formatPrice = (n) => Number(n || 0).toLocaleString();
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(cartActions.clearChecked());
+    }, [dispatch]);
     const navigate = useNavigate();
     const onGo = () => {
         navigate('/product/hand');
@@ -59,7 +64,13 @@ const PayComplete = () => {
                     </ul>
                 </div>
                 <div className="btn-wrap">
-                    <Button text="주문 상세보기" onClick={()=>navigate('/mypage')} width="150px" bgColor="#fff" textColor="#000" />
+                    <Button
+                        text="주문 상세보기"
+                        onClick={() => navigate('/mypage')}
+                        width="150px"
+                        bgColor="#fff"
+                        textColor="#000"
+                    />
                     <Button
                         onClick={onGo}
                         text="쇼핑 계속하기"

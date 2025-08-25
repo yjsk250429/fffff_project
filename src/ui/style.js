@@ -111,3 +111,54 @@ export const SearchFormStyle = styled.form`
         color: var(--foundation-white-darker);
     }
 `;
+
+export const TopBtnStyle = styled.div`
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #fff;
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    &.on {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+`;
+
+export const BestStempStyle = styled.div`
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    @media screen and (max-width: 390px) {
+        width: 50px;
+        height: 50px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+`;

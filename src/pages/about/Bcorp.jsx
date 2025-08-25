@@ -5,6 +5,7 @@ import Content1 from '../../components/about/becorp/content1';
 import Content2 from '../../components/about/becorp/content2';
 import Content3 from '../../components/about/becorp/content3';
 import Content4 from '../../components/about/becorp/content4';
+import TopBtn from '../../ui/TopBtn';
 
 const Bcorp = () => {
     return (
@@ -29,6 +30,7 @@ const Bcorp = () => {
                 <Content3 />
                 <Content4 />
             </div>
+            <TopBtn />
         </BcorpStyle>
     );
 };

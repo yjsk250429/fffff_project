@@ -6,6 +6,7 @@ import Content2 from '../../components/about/intro/Content2';
 import Content3 from '../../components/about/intro/Content3';
 import Content4 from '../../components/about/intro/Content4';
 import Content5 from '../../components/about/intro/Content5';
+import TopBtn from '../../ui/TopBtn';
 
 const Intro = () => {
     return (
@@ -31,6 +32,7 @@ const Intro = () => {
                 <Content4 />
                 <Content5 />
             </div>
+            <TopBtn />
         </IntroStyle>
     );
 };

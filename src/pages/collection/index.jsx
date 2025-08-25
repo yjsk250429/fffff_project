@@ -4,6 +4,7 @@ import { CollectionLineupStyle, CollectionVisualStyle, CollectionWrap } from './
 import CollectionList from '../../components/collection/CollectionList';
 import CollectionProductList from '../../components/collection/CollectionProductList';
 import CollectionIntro from '../../components/collection/CollectionIntro';
+import TopBtn from '../../ui/TopBtn';
 
 const Collection = () => {
     const dispatch = useDispatch();
@@ -62,6 +63,7 @@ const Collection = () => {
                     title={selectedCollection?.title}
                 />
             )}
+            <TopBtn />
         </CollectionWrap>
     );
 };

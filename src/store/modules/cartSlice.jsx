@@ -2,12 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 import productData from '../../assets/api/productData';
 
 // 로컬스토리지에서 carts 불러오기
-const storedCarts = localStorage.getItem('carts')
-    ? JSON.parse(localStorage.getItem('carts')).map((cart) => ({
-          ...cart,
-          isChecked: false,
-      }))
-    : [];
+const storedCarts = (() => {
+    const raw = localStorage.getItem('carts');
+    if (!raw) return [];
+    try {
+        const arr = JSON.parse(raw);
+        // 로컬에 저장되어 있던 isChecked 값을 그대로 존중(없으면 false)
+        return Array.isArray(arr) ? arr.map((c) => ({ ...c, isChecked: !!c.isChecked })) : [];
+    } catch {
+        return [];
+    }
+})();
 
 const initialState = {
     products: localStorage.getItem('products')
@@ -29,7 +34,7 @@ export const cartSlice = createSlice({
             const id = action.payload.id;
             const cart = state.carts.find((cart) => cart.id === id);
             if (cart) {
-                cart.quantity++;
+                cart.quantity;
                 if (cart.option?.[0]) cart.itemTotal = Number(cart.option[0].price) * cart.quantity;
             } else {
                 state.carts.push({ ...action.payload, quantity: 1, isChecked: false });
@@ -50,7 +55,7 @@ export const cartSlice = createSlice({
         increaseQuantity: (state, action) => {
             const cart = state.carts.find((cart) => cart.id === action.payload);
             if (cart) {
-                cart.quantity++;
+                cart.quantity;
                 if (cart.option?.[0]) cart.itemTotal = Number(cart.option[0].price) * cart.quantity;
             }
             localStorage.setItem('carts', JSON.stringify(state.carts));
@@ -87,11 +92,11 @@ export const cartSlice = createSlice({
             const checkedCarts = state.carts.filter((cart) => cart.isChecked);
             state.priceTotal = checkedCarts.reduce(
                 (sum, cart) =>
-                    sum + (Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
+                    sum(Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
                 0
             );
             state.quantityTotal = checkedCarts.reduce(
-                (sum, cart) => sum + (Number(cart.quantity) || 0),
+                (sum, cart) => sum(Number(cart.quantity) || 0),
                 0
             );
 
@@ -99,16 +104,26 @@ export const cartSlice = createSlice({
         },
         // 총 가격 및 수량 계산
         totalCart: (state) => {
-            const checkedCarts = state.carts.filter((cart) => cart.isChecked && !cart.isSample);
-            state.priceTotal = checkedCarts.reduce(
-                (sum, cart) =>
-                    sum + (Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
-                0
+            const checkedCarts = Array.isArray(state.carts)
+                ? state.carts.filter((c) => c?.isChecked && !c?.isSample)
+                : [];
+
+            const { price, qty } = checkedCarts.reduce(
+                (acc, c) => {
+                    const priceNum =
+                        Number(
+                            Array.isArray(c?.option) ? c.option?.[0]?.price : c?.option?.price
+                        ) || 0;
+                    const quantity = Number(c?.quantity) || 0;
+                    acc.price = priceNum * quantity;
+                    acc.qty = quantity;
+                    return acc;
+                },
+                { price: 0, qty: 0 }
             );
-            state.quantityTotal = checkedCarts.reduce(
-                (sum, cart) => sum + (Number(cart.quantity) || 0),
-                0
-            );
+
+            state.priceTotal = price;
+            state.quantityTotal = qty;
         },
         // 샘플 항목 추가
         addSampleCart: (state, action) => {
@@ -142,13 +157,43 @@ export const cartSlice = createSlice({
             // 총합 초기화
             state.priceTotal = state.carts.reduce(
                 (sum, cart) =>
-                    sum + (Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
+                    sum(Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
                 0
             );
             state.quantityTotal = state.carts.reduce(
-                (sum, cart) => sum + (Number(cart.quantity) || 0),
+                (sum, cart) => sum(Number(cart.quantity) || 0),
                 0
             );
+        },
+        buyNow: (state, action) => {
+            const id = action.payload.id;
+            const selectedOption = action.payload.option?.[0] || {};
+
+            // 전체 체크 해제
+            const newCarts = state.carts.map((cart) => ({
+                ...cart,
+                isChecked: false,
+            }));
+
+            const existsIndex = newCarts.findIndex((cart) => cart.id === id);
+
+            const newItem = {
+                ...action.payload,
+                quantity: 1,
+                isChecked: true,
+                _selectedOption: selectedOption,
+                option: [selectedOption], // 일관성
+            };
+
+            if (existsIndex >= 0) {
+                newCarts[existsIndex] = newItem;
+            } else {
+                newCarts.push(newItem);
+            }
+
+            state.carts = newCarts;
+            localStorage.setItem('carts', JSON.stringify(state.carts));
+            console.log('[buyNow]', newCarts);
         },
     },
 });

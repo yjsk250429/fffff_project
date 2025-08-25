@@ -1,9 +1,11 @@
+import { forwardRef } from 'react';
 import { IngredientStyle } from './style';
 
-const Ingredient = ({ thisItem }) => {
+const Ingredient = forwardRef((props, ref) => {
+    const { thisItem } = props;
     const { title, unit, option } = thisItem;
     return (
-        <IngredientStyle>
+        <IngredientStyle ref={ref}>
             <div className="inner">
                 <h3>원료</h3>
                 <ul>
@@ -85,6 +87,6 @@ const Ingredient = ({ thisItem }) => {
             </div>
         </IngredientStyle>
     );
-};
+});
 
 export default Ingredient;

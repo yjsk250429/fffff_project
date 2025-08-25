@@ -7,12 +7,46 @@ import Button from '../../ui/Button';
 const Join = () => {
     const navigate = useNavigate();
     const [openRequired, setOpenRequired] = useState(false);
-    const [openOptional, setOpenOptional] = useState(false);
+    const [openOptional, setOpenOptional] = useState(true);
 
     const [agree, setAgree] = useState({ terms: false, sms: false, email: false });
     const onChecked = (e) => {
         const { name, checked } = e.target;
         setAgree((prev) => ({ ...prev, [name]: checked }));
+    };
+    const isAllChecked = agree.terms && agree.sms && agree.email;
+    const handleAllCheck = (e) => {
+        const checked = e.target.checked;
+        setAgree({
+            terms: checked,
+            sms: checked,
+            email: checked,
+        });
+    };
+    const handleTermsCheck = (e) => {
+        const checked = e.target.checked;
+        setAgree({
+            terms: checked,
+            sms: false,
+            email: false,
+        });
+    };
+
+    const handleOptionalCheck = (e) => {
+        const checked = e.target.checked;
+        setAgree((prev) => ({
+            ...prev,
+            sms: checked,
+            email: checked,
+        }));
+    };
+
+    const handleIndividualCheck = (e) => {
+        const { name, checked } = e.target;
+        setAgree((prev) => ({
+            ...prev,
+            [name]: checked,
+        }));
     };
     const Next = () => {
         if (!agree.terms) {
@@ -42,7 +76,8 @@ const Join = () => {
                 </div>
                 <p className="all">
                     <label className="allagree">
-                        <input type="checkbox" /> 전체 동의
+                        <input type="checkbox" checked={isAllChecked} onChange={handleAllCheck} />
+                        전체 동의
                     </label>
                 </p>
                 <p className="required">
@@ -52,7 +87,7 @@ const Join = () => {
                             type="checkbox"
                             name="terms"
                             checked={agree.terms}
-                            onChange={onChecked}
+                            onChange={handleTermsCheck}
                         />
                         서비스이용약관 관련 동의 (필수)
                         <i onClick={() => setOpenRequired((v) => !v)}>
@@ -63,7 +98,13 @@ const Join = () => {
                 </p>
                 <p className="optional">
                     <label htmlFor="opt-master">
-                        <input id="opt-master" type="checkbox" readOnly /> 쇼핑정보 수신 동의 (선택)
+                        <input
+                            id="opt-master"
+                            type="checkbox"
+                            checked={agree.sms && agree.email}
+                            onChange={handleOptionalCheck}
+                        />
+                        쇼핑정보 수신 동의 (선택)
                         <i onClick={() => setOpenOptional((v) => !v)}>
                             <TfiAngleDown />
                         </i>

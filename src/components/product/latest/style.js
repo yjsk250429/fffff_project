@@ -78,7 +78,6 @@ export const LatestStyle = styled.article`
             margin-left: 0;
             margin-right: auto;
             position: relative;
-            /* overflow: hidden; */
             list-style: none;
             padding: 0;
             z-index: 1;

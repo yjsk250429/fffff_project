@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 const CartList = () => {
     const { carts } = useSelector((state) => state.cart); // Redux 상태 조회
+    const { authed } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
     // carts 변경 시 총 합계 계산
@@ -59,7 +60,7 @@ const CartList = () => {
                         ))}
                 </ul>
             </div>
-            <CartSample />
+            {authed && <CartSample />}
         </CartListStyle>
     );
 };

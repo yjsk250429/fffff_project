@@ -1,7 +1,19 @@
 import { OrderStatusStyle } from './style';
 import { GoChevronRight } from 'react-icons/go';
+import { useSelector } from 'react-redux';
 
 const OrderStatus = () => {
+    const { authed, user } = useSelector((state) => state.auth);
+    const payments = useSelector((state) => state.payment.payments);
+    const loginName = (user?.name || '').trim().toLowerCase();
+    const hasLogin = !!authed && !!loginName;
+    const paidCount = hasLogin
+        ? payments.filter(
+              (p) =>
+                  (p?.orderer?.name || '').trim().toLowerCase() === loginName && p.status === 'PAID'
+          ).length
+        : 0;
+
     return (
         <OrderStatusStyle>
             <div className="text-wrap">
@@ -12,7 +24,7 @@ const OrderStatus = () => {
             <ul>
                 <li>
                     <p>
-                        <span>1</span>
+                        <span>{paidCount}</span>
                         결제완료
                     </p>
                     <GoChevronRight />

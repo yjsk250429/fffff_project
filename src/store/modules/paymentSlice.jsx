@@ -27,18 +27,40 @@ export const paymentSlice = createSlice({
     name: 'payment',
     initialState,
     reducers: {
-        // payload: 아래 PaymentWrap에서 만드는 객체 구조
+        // ✅ payload에 들어온 상품 항목을 정제하여 저장
         onPay: (state, action) => {
             const orderNo = makeOrderNo();
             const payment = {
                 orderNo,
-                status: 'PAID', // 초기 상태
+                status: 'PAID',
                 createdAt: new Date().toISOString(),
-                ...action.payload, // orderer, address, memo, paymentMethod, items, summary, userId 등
+                ...action.payload,
+                items: (action.payload.items || []).map((item) => {
+                    const selectedOpt = item._selectedOption || item.option || {};
+                    return {
+                        id: item.id,
+                        title: item.title || item.name || '(상품명)',
+                        quantity: item.quantity || 1,
+                        option: {
+                            name: selectedOpt.name || '',
+                            price: Number(selectedOpt.price) || 0,
+                        },
+                        _selectedOption: selectedOpt,
+                        itemTotal: Number(selectedOpt.price || 0) * (item.quantity || 1),
+                        image:
+                            selectedOpt.image ||
+                            item.image ||
+                            (typeof item.id === 'number'
+                                ? `/images/products/item${item.id}.webp`
+                                : ''),
+                    };
+                }),
             };
+
             state.payments = [...state.payments, payment];
             save('payments', state.payments);
         },
+
         setGuestLookup: (state, action) => {
             const { orderNo, name } = action.payload || {};
             state.guestLookup = {
@@ -57,67 +79,76 @@ export const paymentSlice = createSlice({
 
 export const paymentActions = paymentSlice.actions;
 
-// 주문번호로 조회하는 선택자(컴포넌트에서 사용)
+// 주문번호로 조회하는 선택자
 export const selectPaymentByOrderNo = (state, orderNo) =>
     state.payment.payments.find((p) => p.orderNo === orderNo);
+
 export const selectPaymentByGuest = (state) => {
     const gl = state.payment.guestLookup;
     if (!gl?.orderNo) return null;
     const pay = state.payment.payments.find((p) => p.orderNo === gl.orderNo);
     if (!pay) return null;
 
-    // 이름 체크(대소문자/공백 무시). 필요 없으면 항상 true로 바꿔도 됨
     const payName = (pay.orderer?.name || '').trim().toLowerCase();
     const lookupName = (gl.name || '').trim().toLowerCase();
     const nameOk = !lookupName || payName === lookupName;
 
     return nameOk ? pay : null;
 };
-// store/modules/paymentSlice.js
 
-// 샘플 판별 유틸(선택자에서도 재사용)
+// 샘플 상품 여부 확인 유틸
 const isSampleItem = (it) => {
     const id = it?.id;
     if (typeof id !== 'string') return false;
     if (!id.startsWith('sample-')) return false;
     const n = Number(id.replace('sample-', ''));
     return n >= 1000 && n <= 1002;
-  };
-  
-  // 로그인 유저 이름으로 결제건 가져오되, 샘플 제외한 아이템만 남겨서 반환
-  export const selectDisplayableRowsByUser = (state, userName) => {
+};
+
+// 마이페이지용 주문 리스트 반환
+export const selectDisplayableRowsByUser = (state, userName) => {
     const name = (userName || '').trim().toLowerCase();
     if (!name) return [];
-  
+
     const payments = state.payment.payments.filter(
-      (p) => (p?.orderer?.name || '').trim().toLowerCase() === name
+        (p) => (p?.orderer?.name || '').trim().toLowerCase() === name
     );
-  
-    // 결제건들을 화면 행으로 평탄화(샘플 제외)
-    const statusMap = { PAID:'결제완료', READY:'상품준비중', SHIPPED:'배송중', DELIVERED:'배송완료', CANCELLED:'취소', REFUNDED:'환불완료' };
-  
-    const toRows = (payment) => {
-      const status = statusMap[payment.status] || payment.status || '결제완료';
-      const number = payment.orderNo;
-      const items = Array.isArray(payment.items) ? payment.items : [];
-      const rows = items
-        .filter((it) => !isSampleItem(it))
-        .map((it, i) => ({
-          id: `${number}-${i}`,
-          status,
-          title: it?.title || it?.name || '(상품명)',
-          number,
-          price: it?._selectedOption?.price ?? it?.option?.price ?? it?.price ?? it?.summary?.total ?? 0,
-          img:
-            it?.image ||
-            it?._selectedOption?.image ||
-            (typeof it?.id === 'number' ? `/images/products/item${it.id}.webp` : '/images/products/item.png'),
-        }));
-      return rows;
+
+    const statusMap = {
+        PAID: '결제완료',
+        READY: '상품준비중',
+        SHIPPED: '배송중',
+        DELIVERED: '배송완료',
+        CANCELLED: '취소',
+        REFUNDED: '환불완료',
     };
-  
+
+    const toRows = (payment) => {
+        const status = statusMap[payment.status] || payment.status || '결제완료';
+        const number = payment.orderNo;
+        const items = Array.isArray(payment.items) ? payment.items : [];
+
+        return items
+            .filter((it) => !isSampleItem(it))
+            .map((it, i) => ({
+                id: `${number}-${i}`,
+                status,
+                title: it?.title || it?.name || '(상품명)',
+                number,
+                price:
+                    it?._selectedOption?.price ??
+                    it?.option?.price ??
+                    it?.price ??
+                    it?.summary?.total ??
+                    0,
+                img:
+                    it?.image ||
+                    it?._selectedOption?.image ||
+                    (typeof it?.id === 'number' ? `/images/products/item${it.id}.webp` : ''),
+            }));
+    };
+
     return payments.flatMap(toRows);
-  };
-  
+};
 
 export default paymentSlice.reducer;

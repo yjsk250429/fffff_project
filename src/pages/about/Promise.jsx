@@ -5,6 +5,7 @@ import Content2 from '../../components/about/promise/Content2';
 import Content3 from '../../components/about/promise/Content3';
 import Content4 from '../../components/about/promise/Content4';
 import { PromiseStyle } from '../../components/about/promise/style';
+import TopBtn from '../../ui/TopBtn';
 const Promise = () => {
     return (
         <PromiseStyle>
@@ -28,6 +29,7 @@ const Promise = () => {
                 <Content3 />
                 <Content4 />
             </div>
+            <TopBtn />
         </PromiseStyle>
     );
 };
