@@ -5,14 +5,14 @@ export const BestProductStyle = styled.div`
     overflow:hidden;
     .bg {
         position: absolute;
-        top: 90px;
+        top: 50px;
         left: 0;
-        height: 944px;
+        height: 850px;
     }
     .inner {
         display: flex;
-        height: 944px;
-        padding: 250px 0;
+        height: 800px;
+        padding: 210px 0 0px 0;
     }
     .text {
         height: 424px;

@@ -5,7 +5,7 @@ export const HairMainStyle = styled.div`
     .inner {
         width: 100%;
         display: flex;
-        height: 1000px;
+        height: 1020px;
         padding: 93px 0;
         align-items: flex-start;
     }

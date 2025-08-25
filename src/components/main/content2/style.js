@@ -5,7 +5,7 @@ export const BodyMainStyle = styled.div`
     .inner {
         width: 100%;
         display: flex;
-        height: 1000px;
+        height: 1020px;
         padding: 93px 0;
         align-items: flex-start;
     }
@@ -46,7 +46,7 @@ export const BodyMainStyle = styled.div`
 export const Container = styled.div`
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 40px;
     @media screen and (max-width: 390px) {
         left: 0;
         bottom: 98px;

@@ -21,7 +21,7 @@ const DarkPackage = () => {
                     <span>Dark L’OCCITANE</span> 한정판과 함께, <span>당신의 밤</span>을 완성하세요.
                 </h3>
                 <img src="/images/dark/con1.png" alt="package box" />
-                <p data-aos="fade-up" data-aos-delay="450">
+                <p>
                     DARK
                     <br />
                     L’OCCITA<span>CCITANE</span>

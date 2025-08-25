@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductDetailStyle } from './style';
 import Button from '../../ui/Button';
 import { IoHeart, IoHeartOutline } from 'react-icons/io5';
@@ -13,11 +13,13 @@ import { useState, useMemo, useEffect } from 'react';
 import SearchForm from '../../ui/SearchForm';
 import { reviewActions } from '../../store/modules/reviewSlice';
 import { useRef } from 'react';
+import { searchActions } from '../../store/modules/searchSlice';
 
 const ProductDetail = () => {
     const { productID } = useParams();
     const { products } = useSelector((state) => state.product);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     if (!products) {
         return <p>상품 데이터를 불러오는 중입니다.</p>;
     }
@@ -84,6 +86,18 @@ const ProductDetail = () => {
               behavior: 'smooth',
             });
           };
+          const [text, setText] = useState('');
+          const changeInput = (e) => {
+              const { value } = e.target;
+              setText(value);
+          };
+              const onSubmit = (e) => {
+                  e.preventDefault();
+                  dispatch(searchActions.setKeyword(text));
+                  dispatch(searchActions.onSearch(text));
+                  navigate('/searchresult');
+                  setText('');
+              };
 
     return (
         <ProductDetailStyle>
@@ -97,7 +111,7 @@ const ProductDetail = () => {
                 <div className="right">
                     <div className="detail">
                         <div className="top">
-                        <SearchForm/>
+                        <SearchForm value={text} onSubmit={onSubmit} onChange={changeInput}/>
                         <em>{label}</em>
                         <h2>{title}</h2>
                         <strong>
@@ -120,7 +134,7 @@ const ProductDetail = () => {
                             <i onClick={handleWishToggle} className={isInWishlist ? 'active' : ''}>
                             {isInWishlist ? <IoHeart /> : <IoHeartOutline />}
                             </i>
-                            <Button onClick={handleCartToggle} className={isInCart ? 'active' : ''} text="장바구니" width="340px" height="60px" textColor={isInCart? "#dcdcdc":"#000"} bgColor={isInCart ? 'var(--foundation-yellow-dark-hover)' : ''}/>
+                            <Button onClick={handleCartToggle} className={isInCart ? 'active' : ''} text="장바구니" width="340px" height="60px" textColor={isInCart? "#fff":"#000"} bgColor={isInCart ? 'var(--foundation-yellow-dark-hover)' : ''}/>
                             <Button
                                 text="구매하기"
                                 bgColor="#000"

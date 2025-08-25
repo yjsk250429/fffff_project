@@ -32,7 +32,7 @@ const BestProduct = () => {
                         자연에서 온 시어버터, 아몬드, 버베나의 정수를 담아 피부에 깊은 영양과
                         촉촉함을 전합니다.
                     </p>
-                    <Button text="모두보기" />
+                    <Button text="모두보기" onClick={()=>navigate('/product/hand')}/>
                 </div>
                 <BestListStyle className="list">
                     <BestProductList />

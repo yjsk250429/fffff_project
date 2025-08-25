@@ -69,7 +69,7 @@ const Login = () => {
                                 </p>
                                 <p>
                                     <input
-                                        type="text"
+                                        type="password"
                                         name="password"
                                         placeholder="비밀번호"
                                         value={password}

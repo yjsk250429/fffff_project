@@ -5,7 +5,7 @@ export const HandMainStyle = styled.div`
     .inner {
         width: 100%;
         display: flex;
-        height: 1000px;
+        height: 1020px;
         padding: 93px 0;
         justify-content: end;
     }
@@ -58,7 +58,7 @@ export const HandMainStyle = styled.div`
 export const Container = styled.div`
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 30px;
     @media screen and (max-width: 390px) {
         bottom: 80px;
     }
