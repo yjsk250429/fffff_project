@@ -42,6 +42,16 @@ export const wishSlice = createSlice({
             state.wishes = [];
             localStorage.setItem('wishes', JSON.stringify(state.wishes));
         },
+
+        //위시리스트 내에서 체크 선택/해제
+        toggleCheck: (state, action) => {
+            const id = action.payload;
+            const item = state.wishes.find((wish) => wish.id === id);
+            if (item) {
+                item.isChecked = !item.isChecked;
+            }
+            localStorage.setItem('wishes', JSON.stringify(state.wishes));
+        },
     },
 });
 

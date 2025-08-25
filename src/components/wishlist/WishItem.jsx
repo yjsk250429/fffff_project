@@ -37,7 +37,7 @@ const WishItem = ({ wish }) => {
                         type="checkbox"
                         checked={isChecked ?? true}
                         onChange={() => {
-                            dispatch(wishActions.checkSelected(id)); // wishActions 사용
+                            dispatch(wishActions.toggleCheck(id)); // wishActions 사용
                         }}
                     />
                 </label>
@@ -66,6 +66,7 @@ const WishItem = ({ wish }) => {
                         <p
                             className="btn"
                             onClick={() => {
+                                if (!isChecked) return;
                                 dispatch(cartActions.addCart(wish));
                                 dispatch(cartActions.totalCart());
                                 onGo();

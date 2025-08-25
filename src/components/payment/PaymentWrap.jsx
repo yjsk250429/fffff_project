@@ -51,7 +51,7 @@ const PaymentWrap = () => {
     const addr3 = user?.addr?.detailAddr || user?.addr3 || ''; // 상세주소
 
     const navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     // 체크박스 상태
     const [isSameAsOrderer, setIsSameAsOrderer] = useState(false);
@@ -279,7 +279,7 @@ const PaymentWrap = () => {
                                             onChange={changeInput}
                                             placeholder="0000"
                                             maxLength={4}
-                                            style={{ width: '100px', textAlign: 'center' }}
+                                            style={{ width: '68px', textAlign: 'center' }}
                                         />
                                         <input
                                             type="text"
@@ -288,7 +288,7 @@ const PaymentWrap = () => {
                                             onChange={changeInput}
                                             placeholder="0000"
                                             maxLength={4}
-                                            style={{ width: '100px', textAlign: 'center' }}
+                                            style={{ width: '68px', textAlign: 'center' }}
                                         />
                                     </p>
                                     <p>

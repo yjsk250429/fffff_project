@@ -1,7 +1,7 @@
 import { PaymentProductItemStyle } from './style';
 
 const PaymentProductItem = ({ product }) => {
-    const { image, title, option, quantity, isSample, sampleImg } = product;
+    const { image, title, option, quantity, isSample, sampleImg, unit } = product;
 
     // 샘플이면 size 없고, 가격 0
     const size = isSample ? '' : option?.[0]?.size ?? '';

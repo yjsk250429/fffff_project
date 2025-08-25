@@ -53,7 +53,7 @@ const PayComplete = () => {
                             <p>{methodLabels[paymentMethod] || paymentMethod}</p>
                         </li>
                         <li>
-                            <p>총 결제내역</p>
+                            <p>총 결제금액</p>
                             <p>{formatPrice(summary?.finalTotal)}원</p>
                         </li>
                     </ul>
