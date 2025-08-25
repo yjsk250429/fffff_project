@@ -23,7 +23,6 @@ export const ProductSearchWrap = styled.div`
                 top: 50%;
                 transform: translateY(-50%);
                 @media (max-width: 390px) {
-                    left: 18px;
                     font-size: 16px;
                     top: 0;
                     transform: translateY(0);
@@ -50,7 +49,7 @@ export const ProductSearchWrap = styled.div`
                     top: 0;
                     height: 16px;
                     font-size: 16px;
-                    margin-left: 41px;
+                    margin-left: 23px;
                 }
                 &:focus {
                     outline: none;

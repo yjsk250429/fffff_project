@@ -148,7 +148,6 @@ export const PaymentWrapStyle = styled.div`
                     font-size: 24px;
                     right: 0;
                     top: 0;
-                    transition: transform 0.3s ease; /* 회전 애니메이션 */
                     display: inline-flex; /* flex로 잡으면 transform-origin이 정확히 중앙 */
                     align-items: center;
                     justify-content: center;
@@ -363,6 +362,7 @@ export const PaymentProductItemStyle = styled.li`
     margin-bottom: 40px;
     .product-image {
         width: 150px;
+        background: var(--background);
         img {
             width: 150px;
             height: 150px;

@@ -15,6 +15,7 @@ const PaymentWrap = () => {
     const [middle, setMiddle] = useState('');
     const [last, setLast] = useState('');
     const dispatch = useDispatch();
+    const [paymentMethod, setPaymentMethod] = useState('creditCard');
 
     const changeInput = (e) => {
         const { value, name } = e.target;
@@ -63,11 +64,21 @@ const PaymentWrap = () => {
     // 아코디언 토글
     const toggleOpen = () => setIsOpen((prev) => !prev);
 
+    const firstPurchaseDiscountRate = 0.15; // 15%
+    const officialDiscountRate = 0.05; // 5%
+
+    const firstPurchaseDiscount = Math.floor(priceTotal * firstPurchaseDiscountRate);
+    const officialDiscount = Math.floor(priceTotal * officialDiscountRate);
+
+    // 총 할인
+    const totalDiscount = firstPurchaseDiscount + officialDiscount;
+
     const checkedCarts = carts.filter((cart) => cart.isChecked);
     const totalQuantity = checkedCarts.reduce((sum, cart) => sum + (cart.quantity || 0), 0);
     const shippingFee = priceTotal > 0 && priceTotal < 50000 ? 3000 : 0;
     const discountAmount = 0;
-    const finalTotal = priceTotal + shippingFee - discountAmount;
+    // 최종 결제금액
+    const finalTotal = priceTotal + shippingFee - totalDiscount;
 
     const formatPrice = (price) => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
@@ -155,6 +166,30 @@ const PaymentWrap = () => {
         const fd = new FormData(e.currentTarget);
         const data = Object.fromEntries(fd.entries());
 
+        // 1. 받는 분 체크
+        if (!data.name?.trim() || !first || !middle || !last) {
+            alert('받으시는 분의 성함과 연락처를 입력해주세요.');
+            return;
+        }
+
+        // 2. 주소 체크
+        if (!data.zipCode?.trim() || !data.mainAddr?.trim() || !data.detailAddr?.trim()) {
+            alert('받으시는 분의 주소를 입력해주세요.');
+            return;
+        }
+
+        // 3. 배송메모 체크
+        if (!data.memo?.trim()) {
+            alert('배송 시 요청사항을 선택해주세요.');
+            return;
+        }
+
+        // 4. 결제수단 체크
+        if (!paymentMethod) {
+            alert('결제 방법을 선택해주세요.');
+            return;
+        }
+
         // payload 구성
         const payload = {
             orderer: {
@@ -166,8 +201,9 @@ const PaymentWrap = () => {
                 mainAddr: data.mainAddr || '',
                 detailAddr: data.detailAddr || '',
             },
+            // 결제 수단 (라디오 state 값)
+            paymentMethod,
             memo: data.memo || '',
-            paymentMethod: data.paymentMethod || 'creditCard',
             userId: authed && user ? user.id : null, // 비회원이면 null
 
             // 장바구니 스냅샷(필요한 필드만 보관 권장)
@@ -367,16 +403,39 @@ const PaymentWrap = () => {
                             name="paymentMethod"
                             value="creditCard"
                             defaultChecked
+                            checked={paymentMethod === 'creditCard'}
+                            onChange={(e) => setPaymentMethod(e.target.value)}
                         />
                         <label htmlFor="creditCard">신용카드</label>
 
-                        <input type="radio" id="mobilePay" name="paymentMethod" value="mobilePay" />
+                        <input
+                            type="radio"
+                            id="mobilePay"
+                            name="paymentMethod"
+                            value="mobilePay"
+                            checked={paymentMethod === 'mobilePay'}
+                            onChange={(e) => setPaymentMethod(e.target.value)}
+                        />
                         <label htmlFor="mobilePay">휴대폰 결제</label>
 
-                        <input type="radio" id="simplePay" name="paymentMethod" value="simplePay" />
+                        <input
+                            type="radio"
+                            id="simplePay"
+                            name="paymentMethod"
+                            value="simplePay"
+                            checked={paymentMethod === 'simplePay'}
+                            onChange={(e) => setPaymentMethod(e.target.value)}
+                        />
                         <label htmlFor="simplePay">간편 결제</label>
 
-                        <input type="radio" id="kakaoPay" name="paymentMethod" value="kakaoPay" />
+                        <input
+                            type="radio"
+                            id="kakaoPay"
+                            name="paymentMethod"
+                            value="kakaoPay"
+                            checked={paymentMethod === 'kakaoPay'}
+                            onChange={(e) => setPaymentMethod(e.target.value)}
+                        />
                         <label htmlFor="kakaoPay">카카오페이</label>
                     </div>
                 </div>
@@ -399,13 +458,13 @@ const PaymentWrap = () => {
                 </p>
                 <p>
                     할인 금액
-                    <span>{formatPrice(discountAmount)}원</span>
+                    <span>{formatPrice(totalDiscount)}원</span>
                 </p>
                 <p>
-                    첫 구매 고객 15% 할인 <span>-7,200원</span>
+                    첫 구매 고객 15% 할인 <span>-{formatPrice(firstPurchaseDiscount)}원</span>
                 </p>
                 <p>
-                    공식몰 상시 5% 할인 혜택 <span>-2,040원</span>
+                    공식몰 상시 5% 할인 혜택 <span>-{formatPrice(officialDiscount)}원</span>
                 </p>
                 <div className="button-wrap">
                     <p>

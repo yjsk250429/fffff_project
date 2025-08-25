@@ -22,6 +22,10 @@ const LastestList = ({ category }) => {
             speed={400}
             slidesPerView={3.5}
             spaceBetween={15}
+            navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }}
             breakpoints={{
                 0: {
                     slidesPerView: 1,
@@ -54,6 +58,8 @@ const LastestList = ({ category }) => {
                     </Link>
                 </SwiperSlide>
             ))}
+            <div className="swiper-button-prev"></div>
+            <div className="swiper-button-next"></div>
         </Swiper>
     );
 };

@@ -91,6 +91,7 @@ export const CartItemStyle = styled.ul`
             width: 150px;
             height: 150px;
             margin-right: 25px;
+            background: var(--background);
             img {
                 width: 150px;
                 height: 150px;

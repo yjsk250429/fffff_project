@@ -85,6 +85,30 @@ export const LatestStyle = styled.article`
             display: block;
         }
     }
+    .swiper-button-prev {
+        display: none;
+        @media (max-width: 390px) {
+            width: 12px;
+            display: block;
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%) scale(0.3);
+            color: var(--b);
+        }
+    }
+    .swiper-button-next {
+        display: none;
+        @media (max-width: 390px) {
+            width: 12px;
+            display: block;
+            position: absolute;
+            left: 152px;
+            top: 50%;
+            transform: translateY(-50%) scale(0.3);
+            color: var(--b);
+        }
+    }
 
     .swiper-slide {
         font-size: 18px;
@@ -112,8 +136,7 @@ export const LatestStyle = styled.article`
                     height: 100%;
                     left: 50%;
                     top: 50%;
-                    transform: translate(-50%, -50%)  scale(0.9);
-
+                    transform: translate(-50%, -50%) scale(0.9);
                 }
             }
         }
