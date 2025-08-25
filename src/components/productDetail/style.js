@@ -4,9 +4,10 @@ export const DescStyle = styled.ul`
     width: 100%;
     li {
         width: 100%;
-
+        height: 868px;
         img {
             width: 100%;
+            height: 100%;
         }
     }
 `;
@@ -84,6 +85,7 @@ export const RecommandListStyle = styled.div`
         display:flex;
         flex-wrap: wrap;
         justify-content:space-between;
+        align-items: center;
         gap:20px;
         li {
             width: 340px;
@@ -184,7 +186,7 @@ export const ReviewStyle = styled.article`
 .inner{
     padding-top: 50px;
     display:block !important;
-    width: 1700px;
+    width: 1700px !important;
 }
     h2{
         text-align: center;
@@ -259,6 +261,11 @@ justify-content:space-between;
             height: 180px;
             margin-right: 16px;
             background: var(--background);
+            display:flex;
+            justify-content: center;
+            img{
+                display:block;
+            }
         }
         .text-wrap{
             padding:10px 0;

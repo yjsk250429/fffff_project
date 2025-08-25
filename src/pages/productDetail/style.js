@@ -9,24 +9,26 @@ export const ProductDetailStyle = styled.article`
     }
     .img-wrap {
         flex: 1;
+        height: 4375px;
         >.sticky-img{
+            position:sticky;
+            top: 0px;
             background: var(--background);
-            height: 886px;
             display:flex;
             justify-content: center;
             align-items: center;
-            position:sticky;
-            top: 150px;
-        }
-        img {
-            width: 100%;
-            height: 100%;
-            display:block;
+            img {
+                width: 100%;
+                height: auto;
+                object-fit:contain;
+                display:block;
+            }
         }
     }
     .right {
         flex: 1;
         position: relative;
+        min-width: 0;   
         .detail {
             width: 100%;
             position: relative;
@@ -107,11 +109,14 @@ export const ProductDetailStyle = styled.article`
             .tabs {
                 margin-top: 80px;
                 position:sticky;
+                top: 0px;
                 width: 100%;
                 height: 85px;
                 display: flex;
                 justify-content: space-around;
                 box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.1);
+                background: #fff;
+                z-index: 5;
                 li {
                     height: 85px;
                     line-height: 85px;

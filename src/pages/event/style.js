@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const EventWrap = styled.div`
+overflow:hidden;
+`;
+
 export const EventVisualStyle = styled.section`
     .visual {
         width: 100%;

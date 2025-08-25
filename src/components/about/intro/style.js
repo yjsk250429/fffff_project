@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const IntroStyle = styled.article`
+overflow:hidden;
     .inner {
         #con1 {
             margin-top: 175px;

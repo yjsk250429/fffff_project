@@ -2,7 +2,7 @@ import BestGift from '../../components/gift/content1/BestGift';
 import GiftList from '../../components/gift/content2/GiftList';
 import GiftMyself from '../../components/gift/content3/GiftMyself';
 import SheaButter from '../../components/gift/content4/SheaButter';
-import { GiftVisualStyle, SliderStyle, AutoSliderStyle } from './style';
+import { GiftVisualStyle, SliderStyle, AutoSliderStyle, GiftWrap } from './style';
 
 const gift = [
     'Cadeau',
@@ -19,7 +19,7 @@ const gift = [
 
 const Gift = () => {
     return (
-        <>
+        <GiftWrap>
             <GiftVisualStyle>
                 <div className="visual"></div>
             </GiftVisualStyle>
@@ -42,7 +42,7 @@ const Gift = () => {
             <GiftList />
             <GiftMyself />
             <SheaButter />
-        </>
+        </GiftWrap>
     );
 };
 
