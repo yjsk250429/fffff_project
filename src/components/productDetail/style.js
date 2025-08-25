@@ -206,7 +206,14 @@ export const ReviewStyle = styled.article`
             .totalRate{
                 margin-right: 1270px;
                 margin-bottom: 50px;
-                font-size: 20px;
+                font-size: 24px;
+                font-weight: 600;
+                span{
+                    &:last-child{
+                        margin-left: 10px;
+                        color: var(--foundation-yellow-dark-hover);
+                    }
+                }
             }
             .sorts{
                 display:flex;
@@ -214,8 +221,10 @@ export const ReviewStyle = styled.article`
                 span{
                     cursor: pointer;
                     font-size: 18px;
+                    color: var(--foundation-white-dark-hover);
+                    font-weight: 500;
                     &.on{
-                        font-weight: 600;
+                        color: #000;
                     }
                     &:first-child{
                         position: relative;
@@ -250,9 +259,9 @@ export const ReviewStyle = styled.article`
 `;
 
 export const ReviewListStyle = styled.ul`
-display:flex;
-flex-wrap: wrap;
-justify-content:space-between;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:space-between;
     li{
         display:flex;
         margin-bottom: 60px;
@@ -271,6 +280,9 @@ justify-content:space-between;
             padding:10px 0;
             box-sizing: border-box;
             width: 600px;
+            &.on{
+                width: 796px;
+            }
             .rate{
                 display:flex;
                 justify-content:space-between;

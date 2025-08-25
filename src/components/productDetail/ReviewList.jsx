@@ -1,16 +1,17 @@
-import { useSelector } from "react-redux";
+
+import { useParams } from "react-router-dom";
 import ReviewItem from "./ReviewItem";
 import { ReviewListStyle } from "./style";
 
 
-const ReviewList = () => {
-    const {currentProductReviews } = useSelector((state)=>state.review);
-
+const ReviewList = ({ reviews }) => {
+    const { productID } = useParams();
+    const pid = Number(productID);
     return (
         <ReviewListStyle>
             {
-              currentProductReviews.map((review, idx) => (
-                <ReviewItem key={idx} review={review} />
+              reviews.map((review, idx) => (
+                <ReviewItem key={idx} index={idx} review={review} productId={pid} />
             ))
             }
         </ReviewListStyle>
