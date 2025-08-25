@@ -340,19 +340,16 @@ overflow:hidden;
                     color: var(--foundation-white-dark-active, #656565);
                     margin-bottom: 30px;
                 }
-                /* .btn {
+                .btn {
                     margin-top: 30px;
-                    button {
-                        width: 215px;
-                        height: 55px;
-                        background: var(--sub, #00274c);
-                        border: none;
-                        color: var(--w);
-                        font-size: 16px;
-                       
-                        line-height: 30px;
-                    }
-                } */
+                    width: 215px;
+                    height: 55px;
+                    background: var(--sub, #00274c);
+                    border: none;
+                    color: var(--w);
+                    font-size: 16px;
+                    line-height: 30px;
+                }
             }
         }
     }

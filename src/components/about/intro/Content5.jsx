@@ -24,7 +24,14 @@ const Content5 = () => {
                 {/* <p className="btn">
                     <button>함께하는 여정 보기</button>
                 </p> */}
-                <Button text="함께하는 여정 보기" width={'215px'} height={'55px'} />
+                <Button
+                    text="함께하는 여정 보기"
+                    width={'215px'}
+                    height={'55px'}
+                    className="btn"
+                    bgColor="#00274C"
+                    textColor="#fff"
+                />
             </div>
         </section>
     );
