@@ -4,6 +4,7 @@ import { OrderListItemStyle } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
+import { useNavigate } from 'react-router-dom';
 
 const OrderListItem = ({ item, index }) => {
     const { products } = useSelector((state) => state.product);
@@ -11,6 +12,7 @@ const OrderListItem = ({ item, index }) => {
     const { carts } = useSelector((state) => state.cart);
     const { wishes } = useSelector((state) => state.wish);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const originalProduct = products.find((p) => p.title === title);
 
@@ -45,6 +47,15 @@ const OrderListItem = ({ item, index }) => {
         e.preventDefault();
         dispatch(wishActions.toggleWish(originalProduct));
     };
+    const onDetail = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!originalProduct) {
+            alert('상품 정보를 찾을 수 없습니다.');
+            return;
+        }
+        navigate(`/product/${originalProduct.category}/${originalProduct.id}`);
+    };
     return (
         <OrderListItemStyle>
             <em>{status}</em>
@@ -58,7 +69,7 @@ const OrderListItem = ({ item, index }) => {
                     <p className="price">
                         {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                     </p>
-                    <p className="more">
+                    <p className="more" role="button" tabIndex={0} onClick={onDetail}>
                         상세보기
                         <GoChevronRight />
                     </p>
