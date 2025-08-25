@@ -1,10 +1,8 @@
-import React from 'react';
-
 const Content4 = () => {
     return (
         <section id="con4">
             {/* 2 */}
-            <div className="campain_right">
+            <div className="campain_right" data-scroll-key="2">
                 <div className="text-wrap">
                     <em>02</em>
                     <span>RESPECTING BIODIVERSITY</span>
@@ -24,7 +22,7 @@ const Content4 = () => {
                 </div>
             </div>
             {/* 3 */}
-            <div className="campain_left">
+            <div className="campain_left" data-scroll-key="3">
                 <div className="img-wrap">
                     <img src="/images/about/promise17.png" alt="여성의 손끝에서 피어나는 변화" />
                 </div>
@@ -41,7 +39,7 @@ const Content4 = () => {
                 </div>
             </div>
             {/* 4 */}
-            <div className="campain_right">
+            <div className="campain_right" data-scroll-key="4">
                 <div className="text-wrap">
                     <em>04</em>
                     <span>SUPPORTING PRODUCERS</span>
@@ -61,7 +59,7 @@ const Content4 = () => {
                 </div>
             </div>
             {/* 5 */}
-            <div className="campain_left">
+            <div className="campain_left" data-scroll-key="5">
                 <div className="img-wrap">
                     <img src="/images/about/promise19.png" alt="장인의 손길로 완성되는 아름다움" />
                 </div>
@@ -80,7 +78,7 @@ const Content4 = () => {
                 </div>
             </div>
             {/* 6 */}
-            <div className="campain_right">
+            <div className="campain_right" data-scroll-key="6">
                 <div className="text-wrap">
                     <em>06</em>
                     <span>CARING FOR SIGHTS</span>

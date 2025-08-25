@@ -1,8 +1,6 @@
-import React from 'react';
-
 const Content2 = () => {
     return (
-        <section id="con2">
+        <section id="con2" data-scroll-key="1">
             <div className="top">
                 <div className="img-wrap">
                     <img src="/images/about/promise08.png" alt="지구를 위한 작은 실천, 큰 변화" />

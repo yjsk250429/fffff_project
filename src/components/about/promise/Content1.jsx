@@ -1,4 +1,4 @@
-const Content1 = () => {
+const Content1 = ({ onPick }) => {
     const items = [
         {
             id: 1,
@@ -42,7 +42,12 @@ const Content1 = () => {
         <section id="con1">
             <ul>
                 {items.map((item) => (
-                    <li key={item.id}>
+                    <li
+                        key={item.id}
+                        onClick={() => onPick && onPick(item.id)}
+                        role="button"
+                        tabIndex={0}
+                    >
                         <div className="img-wrap">
                             <img src={item.img} alt={item.alt} />
                             <div className="overlay">

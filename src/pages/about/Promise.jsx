@@ -7,6 +7,13 @@ import Content4 from '../../components/about/promise/Content4';
 import { PromiseStyle } from '../../components/about/promise/style';
 import TopBtn from '../../ui/TopBtn';
 const Promise = () => {
+    const scrollToKey = (key) => {
+        const el = document.querySelector(`[data-scroll-key="${key}"]`);
+        if (!el) return;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - 100; // 12px 여유
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    };
+
     return (
         <PromiseStyle>
             <Promise_VisualStyle>
@@ -24,7 +31,7 @@ const Promise = () => {
                 </li>
             </TabBarStyle>
             <div className="inner">
-                <Content1 />
+                <Content1 onPick={scrollToKey} />
                 <Content2 />
                 <Content3 />
                 <Content4 />
