@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { searchActions } from '../../store/modules/searchSlice';
 
 const SearchResult = () => {
-    const { results } = useSelector((state) => state.search);
+    const { keyword, results } = useSelector((state) => state.search);
     const [text, setText] = useState('');
     const dispatch = useDispatch();
     const changeInput = (e) => {
@@ -17,9 +17,12 @@ const SearchResult = () => {
         e.preventDefault();
         dispatch(searchActions.onSearch(text));
     };
+
     useEffect(() => {
-        dispatch(searchActions.onSearch(text));
-    }, [text, dispatch]);
+        if (keyword) {
+            dispatch(searchActions.onSearch(keyword));
+        }
+    }, [keyword, dispatch]);
     return (
         <SearchResultStyle>
             <div className="inner">

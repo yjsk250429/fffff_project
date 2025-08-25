@@ -30,9 +30,11 @@ const Header = ({ theme }) => {
     };
     const onSubmit = (e) => {
         e.preventDefault();
+        dispatch(searchActions.setKeyword(text));
         dispatch(searchActions.onSearch(text));
         navigate('/searchresult');
         setOpenSearch(false);
+        setText('');
     };
 
     const logoChange =

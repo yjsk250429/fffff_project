@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import productData from '../../assets/api/productData';
 const normalize = (v) => (v ?? '').toString().toLowerCase();
 const initialState = {
+    keyword:'',
     results: [],
 };
 
@@ -10,6 +11,9 @@ const searchSlice = createSlice({
     name: 'search',
     initialState,
     reducers: {
+        setKeyword: (state, action) => {
+            state.keyword = action.payload;
+        },
         onSearch: (state, action) => {
             const q = normalize(action.payload).trim();
 
