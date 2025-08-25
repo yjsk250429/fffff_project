@@ -22,11 +22,14 @@ const LastestList = ({ category }) => {
             speed={400}
             slidesPerView={3.5}
             spaceBetween={15}
-            // breakpoints={{
-            //     390: {
-            //         slidesPerView: 2,
-            //     },
-            // }}
+            breakpoints={{
+                0: {
+                    slidesPerView: 1,
+                },
+                391: {
+                    slidesPerView: 3.5,
+                },
+            }}
         >
             {list.map((item) => (
                 <SwiperSlide key={item.id}>

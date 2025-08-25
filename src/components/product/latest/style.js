@@ -98,7 +98,7 @@ export const LatestStyle = styled.article`
             height: 486px;
             margin-bottom: 15px;
             @media (max-width: 390px) {
-                width: 171px;
+                width: 175px;
                 height: 239px;
                 position: relative;
             }
@@ -108,9 +108,12 @@ export const LatestStyle = styled.article`
                 width: 100%;
                 @media (max-width: 390px) {
                     position: absolute;
-                    top: -35px;
-                    transform: scale(0.9);
-                    transform: translateX(-55%);
+                    width: 100%;
+                    height: 100%;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%)  scale(0.9);
+
                 }
             }
         }
