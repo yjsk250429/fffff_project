@@ -15,7 +15,27 @@ const reviewSlice = createSlice({
       const found = state.allReviews.find(item => item.productId === id);
       state.currentProductReviews = found ? found.reviews : [];
     },
-    // 필요하다면 리뷰 추가/삭제 액션도 여기에 작성 가능
+    toggleThumb: (state, action) => {
+        const { productId, reviewId } = action.payload;
+        const found = state.allReviews.find(item => item.productId === productId);
+        if (!found) return;
+      
+        const idx = found.reviews.findIndex(r => r.reviewId === reviewId);
+        if (idx === -1) return;
+      
+        const r = found.reviews[idx];
+        if (r.liked) {
+          r.thumbs = Math.max(0, r.thumbs - 1);
+          r.liked = false;
+        } else {
+          r.thumbs += 1;
+          r.liked = true;
+        }
+      
+        state.currentProductReviews = [...found.reviews]
+      },
+      
+  
   },
 });
 

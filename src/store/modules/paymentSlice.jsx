@@ -73,5 +73,51 @@ export const selectPaymentByGuest = (state) => {
 
     return nameOk ? pay : null;
 };
+// store/modules/paymentSlice.js
+
+// 샘플 판별 유틸(선택자에서도 재사용)
+const isSampleItem = (it) => {
+    const id = it?.id;
+    if (typeof id !== 'string') return false;
+    if (!id.startsWith('sample-')) return false;
+    const n = Number(id.replace('sample-', ''));
+    return n >= 1000 && n <= 1002;
+  };
+  
+  // 로그인 유저 이름으로 결제건 가져오되, 샘플 제외한 아이템만 남겨서 반환
+  export const selectDisplayableRowsByUser = (state, userName) => {
+    const name = (userName || '').trim().toLowerCase();
+    if (!name) return [];
+  
+    const payments = state.payment.payments.filter(
+      (p) => (p?.orderer?.name || '').trim().toLowerCase() === name
+    );
+  
+    // 결제건들을 화면 행으로 평탄화(샘플 제외)
+    const statusMap = { PAID:'결제완료', READY:'상품준비중', SHIPPED:'배송중', DELIVERED:'배송완료', CANCELLED:'취소', REFUNDED:'환불완료' };
+  
+    const toRows = (payment) => {
+      const status = statusMap[payment.status] || payment.status || '결제완료';
+      const number = payment.orderNo;
+      const items = Array.isArray(payment.items) ? payment.items : [];
+      const rows = items
+        .filter((it) => !isSampleItem(it))
+        .map((it, i) => ({
+          id: `${number}-${i}`,
+          status,
+          title: it?.title || it?.name || '(상품명)',
+          number,
+          price: it?._selectedOption?.price ?? it?.option?.price ?? it?.price ?? it?.summary?.total ?? 0,
+          img:
+            it?.image ||
+            it?._selectedOption?.image ||
+            (typeof it?.id === 'number' ? `/images/products/item${it.id}.webp` : '/images/products/item.png'),
+        }));
+      return rows;
+    };
+  
+    return payments.flatMap(toRows);
+  };
+  
 
 export default paymentSlice.reducer;

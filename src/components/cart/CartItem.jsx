@@ -45,10 +45,14 @@ const CartItem = ({ cart }) => {
                             <IoCloseOutline />
                         </i>
                     </p>
-                    <p className="product-size">
-                        {size}
-                        {unit}
-                    </p>
+                    {size ? (
+                        <p className="product-size">
+                            {size}
+                            {unit}
+                        </p>
+                    ) : (
+                        '　'
+                    )}
                     <div className="quantity-control">
                         <p
                             className="btn minus"

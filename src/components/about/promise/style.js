@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const PromiseStyle = styled.article`
+overflow:hidden;
     .inner {
         #con1 {
             background: var(--sub, #00274c);

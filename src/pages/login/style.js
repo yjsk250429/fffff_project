@@ -99,6 +99,7 @@ export const LoginStyle = styled.div`
     }
     input {
         width: 350px;
+        padding: 0 10px;
         height: 50px;
         box-sizing: border-box;
         border: 1px solid #999;
@@ -107,7 +108,6 @@ export const LoginStyle = styled.div`
             color: rgb(192, 192, 192);
             font-size: 16px;
             font-weight: 400;
-            padding: 0 10px;
             line-height: 22px;
         }
         @media (max-width: 390px) {

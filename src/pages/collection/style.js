@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const CollectionWrap = styled.div`
+overflow:hidden;
+`;
+
 export const CollectionVisualStyle = styled.section`
     .visual {
         width: 100%;

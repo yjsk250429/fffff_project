@@ -173,6 +173,7 @@ export const ProductItemStyle = styled.li`
             top: 16px;
             right: 16px;
             font-size: 24px;
+            transition: 0.2s;
             &.active {
                 color: red;
             }
@@ -260,6 +261,10 @@ export const ProductItemStyle = styled.li`
             top: 5px;
             right: 0;
             cursor: pointer;
+            transition: 0.2s;
+            &.active {
+                color: var(--foundation-yellow-dark);
+            }
             @media (max-width: 390px) {
                 font-size: 15px;
                 top: 3px;

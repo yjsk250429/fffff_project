@@ -29,6 +29,7 @@ const initialState = {
         : memberData,
     authed: localStorage.getItem('authed') ? JSON.parse(localStorage.getItem('authed')) : false, //로그인 여부
     user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null, // user에 로그인 정보를 담고, memebers에서 user가 있는지 비교
+    lastSignedUpUser: null,
 };
 let no = initialState.members.length + 1;
 export const authSlice = createSlice({
@@ -58,7 +59,9 @@ export const authSlice = createSlice({
             const user = action.payload;
             user.id = no++;
             state.members = [...state.members, user];
+            state.lastSignedUpUser = user;
             localStorage.setItem('members', JSON.stringify(state.members));
+            localStorage.setItem('lastSignedUpUser', JSON.stringify(user));
         },
     },
 });

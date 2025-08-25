@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { JoinCompleteStyle } from './style';
+import { useSelector } from 'react-redux';
 
 const JoinComplete = () => {
     const navigate = useNavigate();
@@ -10,6 +11,7 @@ const JoinComplete = () => {
     const goToLoin = () => {
         navigate('/login');
     };
+    const lastSignedUpUser = useSelector((state) => state.auth.lastSignedUpUser);
     return (
         <JoinCompleteStyle>
             <div className="inner">
@@ -28,7 +30,7 @@ const JoinComplete = () => {
 
                     <h3>회원가입이 완료되었습니다.</h3>
                     <strong>
-                        <span>정예진</span>님 환영합니다.
+                        <span>{lastSignedUpUser?.name}</span>님 환영합니다.
                         <br />
                         록시땅의 서비스를 이용하실 수 있습니다.
                     </strong>

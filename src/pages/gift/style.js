@@ -1,7 +1,11 @@
 import styled, { keyframes } from 'styled-components';
 
+export const GiftWrap = styled.div`
+overflow:hidden;
+`;
 /* 배너 */
 export const GiftVisualStyle = styled.section`
+
     .visual {
         width: 100%;
         height: 600px;

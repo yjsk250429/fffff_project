@@ -29,7 +29,6 @@ const GlobalStyle = createGlobalStyle`
   }
   .main {
       width: 100%;
-      overflow:hidden;
   }
 .inner{
     width: 1700px;

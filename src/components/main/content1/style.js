@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const BestProductStyle = styled.div`
     position: relative;
+    overflow:hidden;
     .bg {
         position: absolute;
         top: 90px;

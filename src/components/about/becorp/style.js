@@ -34,6 +34,7 @@ export const Bcorp_VisualStyle = styled.section`
 `;
 
 export const BcorpStyle = styled.article`
+overflow:hidden;
     #con1 {
         background-image: url('/images/about/Bcrop02.png');
         background-size: cover;

@@ -5,32 +5,37 @@ export const ProductDetailStyle = styled.article`
         width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items:flex-start;
     }
     .img-wrap {
-        background: var(--background);
-        width: 50%;
-        height: 886px;
-        position: relative;
-        img {
-            height: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        flex: 1;
+        height: 4375px;
+        >.sticky-img{
+            position:sticky;
+            top: 0px;
+            background: var(--background);
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 100%;
+                height: auto;
+                object-fit:contain;
+                display:block;
+            }
         }
     }
     .right {
-        width: 50%;
+        flex: 1;
         position: relative;
-        height: 886px;
-        overflow-x: hidden;
-        scrollbar-width: none;
+        min-width: 0;   
         .detail {
             width: 100%;
-            height: 800px;
-            padding: 50px 100px;
             position: relative;
-            box-sizing: border-box;
+            .top{
+                padding: 50px 74px;
+                box-sizing: border-box;
+          
             form {
                 margin-left: 400px;
                
@@ -100,17 +105,18 @@ export const ProductDetailStyle = styled.article`
                     border-color: var(--foundation-white-normal);
                 }
             }
+        }
             .tabs {
                 margin-top: 80px;
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
+                position:sticky;
+                top: 0px;
                 width: 100%;
                 height: 85px;
                 display: flex;
                 justify-content: space-around;
                 box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.1);
+                background: #fff;
+                z-index: 5;
                 li {
                     height: 85px;
                     line-height: 85px;
@@ -125,7 +131,5 @@ export const ProductDetailStyle = styled.article`
             }
         }
     }
-    .scrollZone {
-        width: 100%;
-    }
+
 `;

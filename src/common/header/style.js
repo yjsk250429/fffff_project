@@ -179,7 +179,7 @@ export const NavStyle = styled.nav`
         display: flex;
         gap: 35px;
         position: absolute;
-        width: 1530px;
+        width: 1528px;
         height: 0px;
         padding: 30px 0 0 380px;
         border-top: 1px solid var(--bg-header, #dcdcdc);
@@ -212,9 +212,10 @@ export const NavStyle = styled.nav`
         display: flex;
         gap: 35px;
         position: absolute;
-        width: 1043px;
+        width: 1040px;
         height: 0px;
         padding: 30px 0 0 872px;
+        /* box-sizing: border-box; */
         border-top: 1px solid var(--bg-header, #dcdcdc);
         left: -872px;
         top: 72px;

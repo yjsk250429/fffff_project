@@ -14,7 +14,7 @@ const OrderListItem = ({ item, index }) => {
                         주문번호 : <span> {number}</span>
                     </p>
                     <strong>{title}</strong>
-                    <p className="price">{price}원</p>
+                    <p className="price">{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
                     <p className="more">
                         상세보기
                         <GoChevronRight />
@@ -26,21 +26,21 @@ const OrderListItem = ({ item, index }) => {
                     text={index === 0 ? '취소하기' : '리뷰 작성하기'}
                     bgColor={index === 0 ? '#fff' : '#00274C'}
                     textColor={index === 0 ? '#00274C' : '#fff'}
-                    width={'402px'}
-                    height={'50px'}
+                    width='402px'
+                    height='50px'
                 />
                 <Button
                     text="장바구니 담기"
                     borderColor="#00274C"
                     textColor="#00274C"
-                    width={'402px'}
-                    height={'50px'}
+                    width='402px'
+                    height='50px'
                 />
                 <Button
                     text="찜 하기"
                     borderColor="#00274C"
                     textColor="#00274C"
-                    width={'402px'}
+                    width='402px'
                     height={'50px'}
                 />
             </div>

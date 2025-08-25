@@ -163,7 +163,7 @@ export const CollectionProductStyle = styled.div`
                     top: 16px;
                     right: 16px;
                     font-size: 24px;
-
+                    transition: 0.2s;
                     &.active {
                         color: red; /* 위시리스트에 있을 때 색 */
                     }
@@ -223,8 +223,9 @@ export const CollectionProductStyle = styled.div`
                         top: 5px;
                         right: 0;
                         cursor: pointer;
+                        transition: 0.2s;
                         &.active {
-                            color:var(--foundation-yellow-dark) ;
+                            color: var(--foundation-yellow-dark);
                         }
                     }
                 }

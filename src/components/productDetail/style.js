@@ -4,9 +4,10 @@ export const DescStyle = styled.ul`
     width: 100%;
     li {
         width: 100%;
-
+        height: 868px;
         img {
             width: 100%;
+            height: 100%;
         }
     }
 `;
@@ -15,7 +16,7 @@ export const IngredientStyle = styled.div`
 background: #FDFDFD;
     .inner {
         padding: 100px 40px;
-        display: block;
+        display: block !important;
     }
     h3 {
         text-align: center;
@@ -72,7 +73,7 @@ export const RecommandListStyle = styled.div`
         width: 1700px;
         height: 850px;
         padding: 150px 140px;
-        display: block;
+        display: block !important;
         text-align: center;
     }
     h2 {
@@ -84,6 +85,7 @@ export const RecommandListStyle = styled.div`
         display:flex;
         flex-wrap: wrap;
         justify-content:space-between;
+        align-items: center;
         gap:20px;
         li {
             width: 340px;
@@ -98,6 +100,7 @@ export const RecommandListStyle = styled.div`
                 height: 100%;
                 cursor: pointer;
                 position: relative;
+                background: var(--background);
                 img {
                 width: 100%;
                 position: absolute;
@@ -181,8 +184,9 @@ export const RecommandListStyle = styled.div`
 
 export const ReviewStyle = styled.article`
 .inner{
-    display:block;
-    width: 1700px;
+    padding-top: 50px;
+    display:block !important;
+    width: 1700px !important;
 }
     h2{
         text-align: center;
@@ -202,7 +206,14 @@ export const ReviewStyle = styled.article`
             .totalRate{
                 margin-right: 1270px;
                 margin-bottom: 50px;
-                font-size: 20px;
+                font-size: 24px;
+                font-weight: 600;
+                span{
+                    &:last-child{
+                        margin-left: 10px;
+                        color: var(--foundation-yellow-dark-hover);
+                    }
+                }
             }
             .sorts{
                 display:flex;
@@ -210,8 +221,10 @@ export const ReviewStyle = styled.article`
                 span{
                     cursor: pointer;
                     font-size: 18px;
+                    color: var(--foundation-white-dark-hover);
+                    font-weight: 500;
                     &.on{
-                        font-weight: 600;
+                        color: #000;
                     }
                     &:first-child{
                         position: relative;
@@ -234,7 +247,7 @@ export const ReviewStyle = styled.article`
                 button{
                     margin-right: 4px;
                     padding:0;
-                    line-height: 30px;
+                    line-height: 35px;
                 }
             }
         }
@@ -246,9 +259,9 @@ export const ReviewStyle = styled.article`
 `;
 
 export const ReviewListStyle = styled.ul`
-display:flex;
-flex-wrap: wrap;
-justify-content:space-between;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:space-between;
     li{
         display:flex;
         margin-bottom: 60px;
@@ -256,18 +269,20 @@ justify-content:space-between;
             width: 180px;
             height: 180px;
             margin-right: 16px;
-            /* position: relative;
+            background: var(--background);
+            display:flex;
+            justify-content: center;
             img{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform:translate(-50%, -50%);
-            } */
+                display:block;
+            }
         }
         .text-wrap{
             padding:10px 0;
             box-sizing: border-box;
             width: 600px;
+            &.on{
+                width: 796px;
+            }
             .rate{
                 display:flex;
                 justify-content:space-between;

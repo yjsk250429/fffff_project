@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { collectionActions } from '../../store/modules/collectionSlice';
-import { CollectionLineupStyle, CollectionVisualStyle } from './style';
+import { CollectionLineupStyle, CollectionVisualStyle, CollectionWrap } from './style';
 import CollectionList from '../../components/collection/CollectionList';
 import CollectionProductList from '../../components/collection/CollectionProductList';
 import CollectionIntro from '../../components/collection/CollectionIntro';
@@ -40,7 +40,7 @@ const Collection = () => {
     });
 
     return (
-        <>
+        <CollectionWrap>
             <CollectionVisualStyle>
                 <section className="visual"></section>
             </CollectionVisualStyle>
@@ -62,7 +62,7 @@ const Collection = () => {
                     title={selectedCollection?.title}
                 />
             )}
-        </>
+        </CollectionWrap>
     );
 };
 
