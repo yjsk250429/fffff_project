@@ -2,14 +2,16 @@
 
 import { useSelector } from 'react-redux';
 import { PaymentCompleteStyle } from '../../pages/payment/style';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { selectDisplayableRowsByUser, selectPaymentByOrderNo } from '../../store/modules/paymentSlice';
+import Button from '../../ui/Button';
 
 const formatPrice = (n) => (n == null ? '-' : Number(n).toLocaleString());
 
 const OrderDetail = () => {
     const { orderNo } = useParams();
     const { authed, user } = useSelector((s) => s.auth);
+    const navigate = useNavigate();
   
     // 1) 로그인 유저의 주문행들
     const myRows = useSelector((s) => selectDisplayableRowsByUser(s, user?.name));
@@ -73,6 +75,10 @@ const OrderDetail = () => {
                         </li>
                     </ul>
                 </div>
+                <p className="btn-wrap">
+
+            <Button text='뒤로가기' onClick={()=>navigate(-1)}/>
+                </p>
             </div>
         </PaymentCompleteStyle>
     );
