@@ -58,6 +58,7 @@ export const SmallUtilStyle = styled.ul`
                 pointer-events: all;
             }
             li {
+                color: #000;
                 &:first-child {
                     margin-bottom: 14px;
                 }

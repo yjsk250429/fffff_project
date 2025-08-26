@@ -121,8 +121,8 @@ const Header = ({ theme }) => {
                                 <i>
                                     <PiHandbagSimple />
                                 </i>
-                            </Link>
                             {carts.length > 0 && <Badge text={totalQuantity} />}
+                            </Link>
                         </li>
                         <li>
                             <Link to="/wish">
@@ -133,7 +133,7 @@ const Header = ({ theme }) => {
                         </li>
                         <li>
                             {authed ? (
-                                <Link to="/mypage">
+                                <Link to="/mypage/order">
                                     <i>
                                         <IoPersonOutline />
                                     </i>

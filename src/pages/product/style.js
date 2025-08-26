@@ -56,7 +56,7 @@ export const ProductStyle = styled.div`
                 }
             }
         }
-        p {
+        .sorted-length {
             display: none;
             @media (max-width: 390px) {
                 font-size: 14px;

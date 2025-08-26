@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
 import { useNavigate } from 'react-router-dom';
+import { paymentActions } from '../../store/modules/paymentSlice';
 
 const OrderListItem = ({ item, index }) => {
     const { products } = useSelector((state) => state.product);
-    const { status, title, number, price, img } = item;
+    const { status, title, number, price, img, itemIndex  } = item;
     const { carts } = useSelector((state) => state.cart);
     const { wishes } = useSelector((state) => state.wish);
     const dispatch = useDispatch();
@@ -17,8 +18,7 @@ const OrderListItem = ({ item, index }) => {
     const originalProduct = products.find((p) => p.title === title);
 
     const isInCart = carts.some((cart) => cart.title === title);
-    // 현재 상품이 위시리스트에 있는지 확인
-    // const isInWishlist = wishes.some((wish) => wish.id === item.title);
+
     const isInWishlist = wishes.some((wish) => wish.title === title);
 
     const handleCartToggle = (e) => {
@@ -34,28 +34,40 @@ const OrderListItem = ({ item, index }) => {
             dispatch(
                 cartActions.addCart({
                     ...originalProduct,
-                    option: originalProduct.option, // 기본 옵션 사용
-                    _selectedOption: originalProduct.option?.[0], // UI용 메
+                    option: originalProduct.option,
+                    _selectedOption: originalProduct.option?.[0],
                 })
             );
             alert('상품을 장바구니에 담았습니다.');
         }
     };
 
-    // 위시리스트 토글 핸들러
     const handleWishToggle = (e) => {
         e.preventDefault();
         dispatch(wishActions.toggleWish(originalProduct));
     };
+    const isMock = typeof id === 'string' && id.startsWith('MOCK-'); // 하드코딩 3건 구분
+
     const onDetail = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if (!originalProduct) {
-            alert('상품 정보를 찾을 수 없습니다.');
-            return;
-        }
-        navigate(`/product/${originalProduct.category}/${originalProduct.id}`);
+        navigate(`/mypage/order/${number}`);
     };
+    const onCancel = (e) => {
+        e.preventDefault();
+        // 배송완료는 취소 불가(시연 요건)
+        if (status === '배송완료') return;
+    
+        // itemIndex 가 있어야 실제 결제 아이템을 정확히 지울 수 있음
+        if (typeof itemIndex !== 'number') {
+          alert('취소할 수 없는 항목입니다.');
+          return;
+        }
+        dispatch(paymentActions.cancelOrderItem({ orderNo: number, itemIndex }));
+        alert('주문이 취소되었습니다.');
+      };
+    
+      const isDelivered = status === '배송완료';
     return (
         <OrderListItemStyle>
             <em>{status}</em>
@@ -69,20 +81,31 @@ const OrderListItem = ({ item, index }) => {
                     <p className="price">
                         {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                     </p>
-                    <p className="more" role="button" tabIndex={0} onClick={onDetail}>
-                        상세보기
+                    <p className="more" role="button" tabIndex={0} onClick={isMock ? undefined : onDetail}>
+                        주문내역 상세
                         <GoChevronRight />
                     </p>
                 </div>
             </div>
             <div className="btn">
-                <Button
-                    text={index === 0 ? '취소하기' : '리뷰 작성하기'}
-                    bgColor={index === 0 ? '#fff' : '#00274C'}
-                    textColor={index === 0 ? '#00274C' : '#fff'}
-                    width="402px"
-                    height="50px"
-                />
+            {isDelivered ? (
+          <Button
+            text="리뷰 작성하기"
+            bgColor="#00274C"
+            textColor="#fff"
+            width="402px"
+            height="50px"
+          />
+        ) : (
+          <Button
+            text="취소하기"
+            bgColor="#fff"
+            textColor="#00274C"
+            width="402px"
+            height="50px"
+            onClick={onCancel}
+          />
+        )}
                 <Button
                     text="장바구니 담기"
                     borderColor="#00274C"

@@ -74,6 +74,30 @@ export const paymentSlice = createSlice({
             state.guestLookup = null;
             save('guestLookup', state.guestLookup);
         },
+        cancelOrderItem: (state, action) => {
+            const { orderNo, itemIndex } = action.payload || {};
+            if (!orderNo || typeof itemIndex !== 'number') return;
+      
+            const idx = state.payments.findIndex((p) => p.orderNo === orderNo);
+            if (idx === -1) return;
+      
+            const pay = state.payments[idx];
+            // 결제완료(PAID) 상태에서만 취소하기 시연
+            if (pay.status !== 'PAID') return;
+      
+            const items = Array.isArray(pay.items) ? [...pay.items] : [];
+            if (itemIndex < 0 || itemIndex >= items.length) return;
+      
+            items.splice(itemIndex, 1);
+      
+            if (items.length === 0) {
+              // 아이템이 모두 없어지면 전체 주문 삭제
+              state.payments.splice(idx, 1);
+            } else {
+              state.payments[idx] = { ...pay, items };
+            }
+            save('payments', state.payments);
+          },
     },
 });
 
@@ -145,10 +169,37 @@ export const selectDisplayableRowsByUser = (state, userName) => {
                     it?.image ||
                     it?._selectedOption?.image ||
                     (typeof it?.id === 'number' ? `/images/products/item${it.id}.webp` : ''),
+                itemIndex:i,
             }));
     };
-
-    return payments.flatMap(toRows);
+    const liveRows = payments.flatMap(toRows);
+    const deliveredMock = [
+        {
+          id: 'MOCK-DELIV-1',
+          status: '배송완료',
+          title: '볼륨 & 스트렝스 스트렝스닝 스칼프 세럼',
+          number: 'ORD-20250801-120000-4444',
+          price: 40000,
+          img: '/images/products/item1.webp',
+        },
+        {
+          id: 'MOCK-DELIV-2',
+          status: '배송완료',
+          title: '시어 버터 솝-밀크',
+          number: 'ORD-20250802-130000-5555',
+          price: 10000,
+          img: '/images/products/item102.webp',
+        },
+        {
+          id: 'MOCK-DELIV-3',
+          status: '배송완료',
+          title: '시어 클렌징 페이스 크림',
+          number: 'ORD-20250803-140000-6666',
+          price: 35000,
+          img: '/images/products/item200.webp',
+        },
+      ];
+      return [...liveRows, ...deliveredMock];
 };
 
 export default paymentSlice.reducer;

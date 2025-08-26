@@ -21,36 +21,30 @@ const normalizePaymentToRows = (payment) => {
     const status = statusMap[payment.status] || payment.status || '결제완료';
     const number = payment.orderNo;
   
-    // payment.items 가 배열이라는 가정. (장바구니 구조에 맞춰 보수적으로 접근)
     const items = Array.isArray(payment.items) ? payment.items : [];
   
     items.forEach((it, i) => {
       const title = it?.title || it?.name || '(상품명)';
       const price =
-        // 옵션 가격 우선 → 기본 가격 → summary 단가 추정
         it?._selectedOption?.price ??
         it?.price ??
         it?.summary?.total ??
         0;
   
-      // 이미지 결정(상품 이미지 or 옵션 이미지 or fallback)
       const img =
         it?.image ||
         it?._selectedOption?.image ||
         (it?.id ? `/images/products/item${it.id}.webp` : '/images/products/item.png');
   
       rows.push({
-        id: `${number}-${i}`, // 화면용 key
-        status,
+        id: `${number}-${i}`, 
         title,
         number,
         price,
         img,
       });
     });
-  
-    // 만약 주문에 items가 비어있으면, 주문건 단위로 1개라도 보여주고 싶다면:
-    if (rows.length === 0) {
+      if (rows.length === 0) {
       rows.push({
         id: number,
         status,
