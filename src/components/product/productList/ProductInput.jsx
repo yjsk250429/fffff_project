@@ -21,7 +21,7 @@ const ProductInput = ({ filters, onToggle, onTogglePrice, onSearch }) => {
                     <input type="text" value={filters.q} onChange={(e) => onSearch(e.target.value)}/>
                 </p>
                 <div className="filter">
-                    <p>
+                    <p className='filter-btn'>
                         <button onClick={onFilter} type="button">
                             Filter <span>{filterOn ? '-' : '+'}</span>
                         </button>

@@ -57,11 +57,11 @@ export const ProductStyle = styled.div`
             }
         }
         .sorted-length {
-            display: none;
+            display: none !important;
             @media (max-width: 390px) {
                 font-size: 14px;
                 font-weight: 500;
-                display: block;
+                display: block !important;
                 margin-left: 18px;
             }
         }

@@ -58,6 +58,9 @@ export const ProductSearchWrap = styled.div`
         }
         .filter {
             position: relative;
+            .filter-btn{
+                display:block;
+            }
         }
         button {
             cursor: pointer;
