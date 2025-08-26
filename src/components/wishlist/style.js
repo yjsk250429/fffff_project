@@ -104,6 +104,10 @@ export const WishtItemStyle = styled.ul`
                     font-weight: 500;
                     border: 1px solid var(--foundation-yellow-darker);
                     cursor: pointer;
+                    &.active{
+                        color: #fff;
+                        background: var(--foundation-yellow-darker);
+                    }
                 }
                 .item-price {
                     position: absolute;

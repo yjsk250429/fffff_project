@@ -1,5 +1,4 @@
 import { IoCloseOutline } from 'react-icons/io5';
-import { PiMinus, PiPlus } from 'react-icons/pi';
 import { WishtItemStyle } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,10 +7,22 @@ import { wishActions } from '../../store/modules/wishSlice';
 
 const WishItem = ({ wish }) => {
     const { id, image, title, quantity, option, unit, isChecked } = wish;
+    const { carts } = useSelector((state) => state.cart);
+    const isInCart = carts.some((item) => item.id === wish.id);
     const navigate = useNavigate();
     const onGo = () => {
         navigate(`/cart`);
     };
+    const handleCartToggle = (e) => {
+            e.preventDefault(); // Link 클릭 막기
+            if (isInCart) {
+                dispatch(cartActions.removeCart(wish.id)); // 장바구니에서 제거
+                alert('장바구니에서 제거하였습니다.');
+            } else {
+                dispatch(cartActions.addCart(wish)); // 장바구니에 추가
+                alert('상품을 장바구니에 담았습니다.');
+            }
+        };
 
     // option 배열에서 size와 price 안전하게 추출
     const size = option && option[0] ? option[0].size : 0;
@@ -64,13 +75,8 @@ const WishItem = ({ wish }) => {
                     </p>
                     <div className="quantity-control">
                         <p
-                            className="btn"
-                            onClick={() => {
-                                if (!isChecked) return;
-                                dispatch(cartActions.addCart(wish));
-                                dispatch(cartActions.totalCart());
-                                onGo();
-                            }}
+                            className={ isInCart ?"btn active" : "btn"}
+                            onClick={handleCartToggle}
                         >
                             장바구니에 담기
                         </p>
