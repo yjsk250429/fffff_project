@@ -82,7 +82,7 @@ const OrderListItem = ({ item, index }) => {
                         {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                     </p>
                     <p className="more" role="button" tabIndex={0} onClick={isMock ? undefined : onDetail}>
-                        상세보기
+                        주문내역 상세
                         <GoChevronRight />
                     </p>
                 </div>
