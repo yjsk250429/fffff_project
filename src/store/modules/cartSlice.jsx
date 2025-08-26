@@ -155,15 +155,22 @@ export const cartSlice = createSlice({
             localStorage.setItem('carts', JSON.stringify(state.carts));
 
             // 총합 초기화
-            state.priceTotal = state.carts.reduce(
-                (sum, cart) =>
-                    sum(Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
-                0
-            );
-            state.quantityTotal = state.carts.reduce(
-                (sum, cart) => sum(Number(cart.quantity) || 0),
-                0
-            );
+            const { price, qty } = state.carts.reduce(
+                    (acc, c) => {
+                      const priceNum =
+                        Number(Array.isArray(c?.option) ? c?.option?.[0]?.price : c?.option?.price) || 0;
+                      const quantity = Number(c?.quantity) || 0;
+                      acc.price  = priceNum * quantity;
+                      acc.qty  = quantity;
+                      return acc;
+                    },
+                    { price: 0, qty: 0 }
+                  );
+                  state.priceTotal = price;
+                  state.quantityTotal = qty;
+                
+                  // 전체 체크상태 갱신(샘플 제외)
+                  state.isChecked = state.carts.filter((c) => !c.isSample).every((c) => c.isChecked);
         },
         buyNow: (state, action) => {
             const id = action.payload.id;
