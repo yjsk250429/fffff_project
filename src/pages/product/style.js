@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProductStyle = styled.div`
-overflow:hidden;
+    overflow: hidden;
     .inner {
         padding-top: 100px;
         @media (max-width: 390px) {
@@ -56,7 +56,7 @@ overflow:hidden;
                 }
             }
         }
-        p {
+        .sorted-length {
             display: none;
             @media (max-width: 390px) {
                 font-size: 14px;

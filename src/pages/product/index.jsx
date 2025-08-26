@@ -247,7 +247,7 @@ const Product = () => {
                             <MdKeyboardArrowDown />
                         </i>
                     </h4>
-                    <p>총 {sorted.length}개</p>
+                    <p className="sorted-length">총 {sorted.length}개</p>
                     <div className="sort">
                         <label htmlFor="sort">상품 순서 정렬</label>
                         <select
