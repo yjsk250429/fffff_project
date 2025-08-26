@@ -28,6 +28,7 @@ import JoinInfo from './components/join/JoinInfo';
 import JoinComplete from './components/join/JoinComplete';
 import CustomerAdd from './components/cscenter/contact/CustomerAdd';
 import ScrollTop from './common/ScrollTop';
+import OrderDetail from './components/mypage/OrderDetail';
 
 const App = () => {
     return (
@@ -69,7 +70,8 @@ const App = () => {
 
                         <Route path="wish" element={<Wish />} />
 
-                        <Route path="mypage" element={<MyPage />} />
+                        <Route path="mypage/order" element={<MyPage />} />
+                        <Route path="mypage/order/:orderNo" element={<OrderDetail/>}/>
 
                         <Route path="login" element={<Login />} />
                         <Route path="join">

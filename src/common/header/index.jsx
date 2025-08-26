@@ -133,7 +133,7 @@ const Header = ({ theme }) => {
                         </li>
                         <li>
                             {authed ? (
-                                <Link to="/mypage">
+                                <Link to="/mypage/order">
                                     <i>
                                         <IoPersonOutline />
                                     </i>

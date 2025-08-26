@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/modules/cartSlice';
 import { wishActions } from '../../store/modules/wishSlice';
 import { useNavigate } from 'react-router-dom';
+import { paymentActions } from '../../store/modules/paymentSlice';
 
 const OrderListItem = ({ item, index }) => {
     const { products } = useSelector((state) => state.product);
@@ -45,14 +46,12 @@ const OrderListItem = ({ item, index }) => {
         e.preventDefault();
         dispatch(wishActions.toggleWish(originalProduct));
     };
+    const isMock = typeof id === 'string' && id.startsWith('MOCK-'); // 하드코딩 3건 구분
+
     const onDetail = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if (!originalProduct) {
-            alert('상품 정보를 찾을 수 없습니다.');
-            return;
-        }
-        navigate(`/product/${originalProduct.category}/${originalProduct.id}`);
+        navigate(`/mypage/order/${number}`);
     };
     const onCancel = (e) => {
         e.preventDefault();
@@ -82,7 +81,7 @@ const OrderListItem = ({ item, index }) => {
                     <p className="price">
                         {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                     </p>
-                    <p className="more" role="button" tabIndex={0} onClick={onDetail}>
+                    <p className="more" role="button" tabIndex={0} onClick={isMock ? undefined : onDetail}>
                         상세보기
                         <GoChevronRight />
                     </p>
