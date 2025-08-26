@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { TabBarStyle } from '../about/style';
 import { CsCenterVisual, FaqStyle } from './style';
 import FaqMain from '../../components/cscenter/faq/FaqMain';
+import TopBtn from '../../ui/TopBtn';
 
 const Faq = () => {
     return (
@@ -20,6 +21,7 @@ const Faq = () => {
             <div className="inner">
                 <FaqMain />
             </div>
+            <TopBtn/>
         </FaqStyle>
     );
 };

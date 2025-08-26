@@ -4,6 +4,7 @@ import { SearchResultStyle } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { searchActions } from '../../store/modules/searchSlice';
+import TopBtn from '../../ui/TopBtn';
 
 const SearchResult = () => {
     const { keyword, results } = useSelector((state) => state.search);
@@ -36,6 +37,7 @@ const SearchResult = () => {
                 />
                 <SearchList />
             </div>
+            <TopBtn/>
         </SearchResultStyle>
     );
 };

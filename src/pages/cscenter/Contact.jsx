@@ -4,6 +4,7 @@ import { TabBarStyle } from '../about/style';
 import CustomerList from '../../components/cscenter/contact/CustomerList';
 import BreadCrumb from '../../ui/BreadCrumb';
 import Pagination from '../../components/pagination';
+import TopBtn from '../../ui/TopBtn';
 
 const Contact = () => {
     
@@ -25,6 +26,7 @@ const Contact = () => {
                 <CustomerList />
                 <Pagination />
             </div>
+            <TopBtn/>
         </ContactStyle>
     );
 };

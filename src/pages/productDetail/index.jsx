@@ -14,6 +14,7 @@ import SearchForm from '../../ui/SearchForm';
 import { reviewActions } from '../../store/modules/reviewSlice';
 import { useRef } from 'react';
 import { searchActions } from '../../store/modules/searchSlice';
+import TopBtn from '../../ui/TopBtn';
 
 const ProductDetail = () => {
     const { productID } = useParams();
@@ -183,6 +184,7 @@ const ProductDetail = () => {
             </div>
             <RecommandList ref={recomRef} thisItem={thisItem} />
             <Reivew ref={reviewRef} />
+            <TopBtn/>
         </ProductDetailStyle>
     );
 };
