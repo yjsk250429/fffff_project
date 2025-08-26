@@ -34,7 +34,7 @@ export const cartSlice = createSlice({
             const id = action.payload.id;
             const cart = state.carts.find((cart) => cart.id === id);
             if (cart) {
-                cart.quantity;
+                cart.quantity+=1;
                 if (cart.option?.[0]) cart.itemTotal = Number(cart.option[0].price) * cart.quantity;
             } else {
                 state.carts.push({ ...action.payload, quantity: 1, isChecked: false });
@@ -55,7 +55,7 @@ export const cartSlice = createSlice({
         increaseQuantity: (state, action) => {
             const cart = state.carts.find((cart) => cart.id === action.payload);
             if (cart) {
-                cart.quantity;
+                cart.quantity+=1;
                 if (cart.option?.[0]) cart.itemTotal = Number(cart.option[0].price) * cart.quantity;
             }
             localStorage.setItem('carts', JSON.stringify(state.carts));
@@ -88,43 +88,35 @@ export const cartSlice = createSlice({
         removeSelected: (state) => {
             state.carts = state.carts.filter((cart) => !cart.isChecked);
             localStorage.setItem('carts', JSON.stringify(state.carts));
-
-            const checkedCarts = state.carts.filter((cart) => cart.isChecked);
-            state.priceTotal = checkedCarts.reduce(
-                (sum, cart) =>
-                    sum(Number(cart.option?.[0]?.price) || 0) * (Number(cart.quantity) || 0),
-                0
-            );
-            state.quantityTotal = checkedCarts.reduce(
-                (sum, cart) => sum(Number(cart.quantity) || 0),
-                0
-            );
-
-            state.isChecked = state.carts.filter((c) => !c.isSample).every((c) => c.isChecked);
-        },
-        // 총 가격 및 수량 계산
-        totalCart: (state) => {
-            const checkedCarts = Array.isArray(state.carts)
-                ? state.carts.filter((c) => c?.isChecked && !c?.isSample)
-                : [];
-
-            const { price, qty } = checkedCarts.reduce(
-                (acc, c) => {
-                    const priceNum =
-                        Number(
-                            Array.isArray(c?.option) ? c.option?.[0]?.price : c?.option?.price
-                        ) || 0;
-                    const quantity = Number(c?.quantity) || 0;
-                    acc.price = priceNum * quantity;
-                    acc.qty = quantity;
-                    return acc;
-                },
-                { price: 0, qty: 0 }
-            );
-
+          
+            const checkedCarts = state.carts.filter((cart) => cart.isChecked && !cart.isSample);
+          
+            const { price, qty } = checkedCarts.reduce((acc, c) => {
+              const priceNum = Number(Array.isArray(c?.option) ? c.option?.[0]?.price : c?.option?.price) || 0;
+              const q = Number(c?.quantity) || 0;
+              acc.price += priceNum * q;
+              acc.qty += q;
+              return acc;
+            }, { price: 0, qty: 0 });
+          
             state.priceTotal = price;
             state.quantityTotal = qty;
-        },
+          
+            state.isChecked = state.carts.filter((c) => !c.isSample).every((c) => c.isChecked);
+          },
+        // 총 가격 및 수량 계산
+        totalCart: (state) => {
+            const checked = Array.isArray(state.carts) ? state.carts.filter((c) => c?.isChecked && !c?.isSample) : [];
+            const { price, qty } = checked.reduce((acc, c) => {
+              const priceNum = Number(Array.isArray(c?.option) ? c.option?.[0]?.price : c?.option?.price) || 0;
+              const q = Number(c?.quantity) || 0;
+              acc.price += priceNum * q; // ✅ 누적
+              acc.qty += q;              // ✅ 누적
+              return acc;
+            }, { price: 0, qty: 0 });
+            state.priceTotal = price;
+            state.quantityTotal = qty;
+          },
         // 샘플 항목 추가
         addSampleCart: (state, action) => {
             const exists = state.carts.find((c) => c.id === action.payload.id);
