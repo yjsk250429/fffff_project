@@ -121,8 +121,8 @@ const Header = ({ theme }) => {
                                 <i>
                                     <PiHandbagSimple />
                                 </i>
-                            </Link>
                             {carts.length > 0 && <Badge text={totalQuantity} />}
+                            </Link>
                         </li>
                         <li>
                             <Link to="/wish">
