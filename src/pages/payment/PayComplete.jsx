@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 
 const PayComplete = () => {
     const { payments } = useSelector((state) => state.payment);
+    const {authed} = useSelector((state)=>state.auth);
     const latest = payments?.[payments.length - 1];
     const { orderNo, address, orderer, summary, memo, paymentMethod } = latest;
     const formatPrice = (n) => Number(n || 0).toLocaleString();
@@ -64,13 +65,13 @@ const PayComplete = () => {
                     </ul>
                 </div>
                 <div className="btn-wrap">
-                    <Button
+                    {authed &&<Button
                         text="주문 상세보기"
                         onClick={() => navigate('/mypage/order')}
                         width="150px"
                         bgColor="#fff"
                         textColor="#000"
-                    />
+                    />}
                     <Button
                         onClick={onGo}
                         text="쇼핑 계속하기"
