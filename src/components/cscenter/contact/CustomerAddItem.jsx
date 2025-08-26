@@ -2,13 +2,12 @@ import { useState } from 'react';
 import Button from '../../../ui/Button';
 import { CustomerAddItemStyle, DomainSelectWrapper, SelectWrapper } from './style';
 import { LiaAngleUpSolid, LiaAngleDownSolid } from 'react-icons/lia';
+
 const CustomerAddItem = ({ data, onChange, errors }) => {
     const [dropdownStates, setDropdownStates] = useState({
         type: false,
         emailDomain: false,
     });
-    // const [emailId, setEmailId] = useState('');
-    // const [emailDomain, setEmailDomain] = useState('');
     const [isCustomDomain, setIsCustomDomain] = useState(false);
 
     const handleSelectFocus = (selectName) => {
@@ -17,24 +16,30 @@ const CustomerAddItem = ({ data, onChange, errors }) => {
             [selectName]: !prev[selectName],
         }));
     };
+
     const handleSelectBlur = (selectName) => {
         setDropdownStates((prev) => ({
             ...prev,
             [selectName]: false,
         }));
     };
+
     const handleDomainChange = (e) => {
         const value = e.target.value;
         if (value === 'custom') {
             setIsCustomDomain(true);
-            // setEmailDomain('');
             onChange({ target: { name: 'emailDomain', value: '' } });
         } else {
             setIsCustomDomain(false);
-            // setEmailDomain(value);
             onChange({ target: { name: 'emailDomain', value } });
         }
     };
+
+    // 이메일 에러 상태 확인 함수
+    const hasEmailError = () => {
+        return errors?.email || errors?.emailId || errors?.emailDomain;
+    };
+
     return (
         <CustomerAddItemStyle>
             <tbody>
@@ -61,7 +66,7 @@ const CustomerAddItem = ({ data, onChange, errors }) => {
                                 <option value="상품문의">상품문의</option>
                                 <option value="기타">기타</option>
                             </select>
-                            {dropdownStates.inquiryType ? (
+                            {dropdownStates.type ? (
                                 <LiaAngleUpSolid className="icon" />
                             ) : (
                                 <LiaAngleDownSolid className="icon" />
@@ -109,25 +114,25 @@ const CustomerAddItem = ({ data, onChange, errors }) => {
                                 type="text"
                                 name="emailId"
                                 value={data.emailId}
-                                // onChange={(e) => setEmailId(e.target.value)}
                                 onChange={onChange}
-                                placeholder={errors?.emailId || ''}
-                                style={{ borderColor: errors?.email ? 'red' : '#ccc' }}
+                                placeholder={errors?.emailId || errors?.email || ''}
+                                style={{ borderColor: hasEmailError() ? 'red' : '#ccc' }}
                             />
                             <span className="at">@</span>
                             <input
                                 type="text"
-                                name="emailDomainInput"
+                                name="emailDomain"
                                 value={data.emailDomain}
-                                // onChange={(e) => setEmailDomain(e.target.value)}
                                 onChange={onChange}
-                                placeholder={errors?.emailId || ''}
-                                disabled={!isCustomDomain}
+                                placeholder={isCustomDomain ? '직접 입력' : ''}
+                                readOnly={!isCustomDomain}
+                                style={{ borderColor: hasEmailError() ? 'red' : '#ccc' }}
                             />
                             <DomainSelectWrapper>
                                 <select
                                     className="domain-select"
-                                    name="emailDomain"
+                                    name="emailDomainSelect"
+                                    value={isCustomDomain ? 'custom' : data.emailDomain || ''}
                                     onChange={handleDomainChange}
                                     style={{
                                         paddingLeft: '10px',
@@ -160,7 +165,6 @@ const CustomerAddItem = ({ data, onChange, errors }) => {
                     <td className="inline-input">
                         <textarea
                             name="content"
-                            // style={{ padding: '10px' }}
                             value={data.content}
                             onChange={onChange}
                             placeholder={errors?.content ? errors.content : ''}
