@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Bcorp_VisualStyle, TabBarStyle } from '../../components/about/style';
-import { BcorpStyle } from '../../components/about/becorp/style';
-import Content1 from '../../components/about/becorp/content1';
-import Content2 from '../../components/about/becorp/content2';
-import Content3 from '../../components/about/becorp/content3';
-import Content4 from '../../components/about/becorp/content4';
+import { BcorpStyle } from '../../components/about/bcorp/style';
+import Content1 from '../../components/about/bcorp/Content1';
+import Content2 from '../../components/about/bcorp/Content2';
+import Content3 from '../../components/about/bcorp/Content3';
+import Content4 from '../../components/about/bcorp/Content4';
 import TopBtn from '../../ui/TopBtn';
 
 const Bcorp = () => {
