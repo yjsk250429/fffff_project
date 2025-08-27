@@ -4,7 +4,7 @@ import BodyMain from '../../components/main/content2/BodyMain';
 import HandMain from '../../components/main/content3/HandMain';
 import HairMain from '../../components/main/content4/HairMain';
 import Slogan from '../../components/main/content5/Slogan';
-import PromoBanner from '../../components/darkEdition/promoBanner';
+import PromoBanner from '../../components/darkEdition/PromoBanner';
 import Nature from '../../components/main/content6/Nature';
 import DailyMoments from '../../components/main/content7/DailyMoments';
 import { MainContentStyle } from './style';
