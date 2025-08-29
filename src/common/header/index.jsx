@@ -13,6 +13,7 @@ import SearchForm from '../../ui/SearchForm';
 import { IoCloseOutline } from 'react-icons/io5';
 import { HiBars3 } from 'react-icons/hi2';
 import { searchActions } from '../../store/modules/searchSlice';
+import Modal from '../../ui/modal';
 
 const Header = ({ theme }) => {
     const { carts } = useSelector((state) => state.cart);
@@ -21,6 +22,8 @@ const Header = ({ theme }) => {
     const [lang, setLang] = useState('KOR');
     const [openLang, setOpenLang] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalText, setModalText] = useState('');
     const navigate = useNavigate();
 
     const [text, setText] = useState('');
@@ -46,12 +49,11 @@ const Header = ({ theme }) => {
 
     const handleLogout = () => {
         dispatch(authActions.logout());
-        alert('로그아웃 했습니다.');
+        openModal(`${user?.name}님 로그아웃 했습니다.`);
         navigate('/');
     };
 
     const onLogin = () => {
-        alert('로그인 후 이용하실 수 있습니다.');
         navigate('/login');
     };
 
@@ -59,6 +61,14 @@ const Header = ({ theme }) => {
         if (cart.isSample) return sum; // 샘플 제외
         return sum + cart.quantity;
     }, 0);
+
+    const openModal = (text) => {
+        setModalText(text);
+        setModalOpen(true);
+    };
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     return (
         <HeaderStyle id="header">
@@ -121,7 +131,7 @@ const Header = ({ theme }) => {
                                 <i>
                                     <PiHandbagSimple />
                                 </i>
-                            {carts.length > 0 && <Badge text={totalQuantity} />}
+                                {carts.length > 0 && <Badge text={totalQuantity} />}
                             </Link>
                         </li>
                         <li>
@@ -175,6 +185,14 @@ const Header = ({ theme }) => {
                     </ul>
                 </div>
             </HeaderSearchWrap>
+            {modalOpen && (
+                <Modal
+                    text={modalText}
+                    onClose={closeModal}
+                    showHomeButton={false}
+                    showConfirmButton={true}
+                />
+            )}
         </HeaderStyle>
     );
 };

@@ -2,13 +2,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import CartGift from './CartGift';
 import { CartRightStyle } from './style';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { cartActions } from '../../store/modules/cartSlice';
+import Modal from '../../ui/modal';
 
 const CartRight = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalText, setModalText] = useState('');
+    const [text, setText] = useState('');
+
     const { carts, priceTotal } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const openModal = (text) => {
+        setModalText(text); // 모달 메시지 설정
+        setModalOpen(true); // 모달 열기
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     const onGo = () => {
         navigate(`/cart/payment`);
@@ -24,7 +38,7 @@ const CartRight = () => {
         const checkedItems = carts.filter((cart) => cart.isChecked && !cart.isSample);
 
         if (checkedItems.length === 0) {
-            alert('주문하실 상품을 선택해주세요.');
+            openModal('주문하실 상품을 선택해주세요.');
             return;
         }
 
@@ -85,6 +99,15 @@ const CartRight = () => {
                 </div>
             </div>
             <CartGift />
+            {/*  모달 */}
+            {modalOpen && (
+                <Modal
+                    text={modalText}
+                    onClose={closeModal}
+                    showHomeButton={true}
+                    showConfirmButton={true}
+                />
+            )}
         </CartRightStyle>
     );
 };

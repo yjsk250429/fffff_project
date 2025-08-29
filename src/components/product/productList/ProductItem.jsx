@@ -6,8 +6,12 @@ import { cartActions } from '../../../store/modules/cartSlice';
 import { wishActions } from '../../../store/modules/wishSlice';
 import { ProductItemStyle } from './style';
 import BestStemp from '../../../ui/BestStemp';
+import { useState } from 'react';
+import Modal from '../../../ui/modal';
 
 const ProductItem = ({ product }) => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalText, setModalText] = useState('');
     const { carts } = useSelector((state) => state.cart);
     const { wishes } = useSelector((state) => state.wish);
     const dispatch = useDispatch();
@@ -17,6 +21,15 @@ const ProductItem = ({ product }) => {
 
     const price = selectedOption?.price ?? '';
     const size = selectedOption?.size ?? '';
+
+    const openModal = (text) => {
+        setModalText(text); // 모달 메시지 설정
+        setModalOpen(true); // 모달 열기
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     // 현재 상품이 장바구니에 있는지 확인
     const isInCart = carts.some((item) => item.id === product.id);
@@ -29,10 +42,10 @@ const ProductItem = ({ product }) => {
         e.preventDefault(); // Link 클릭 막기
         if (isInCart) {
             dispatch(cartActions.removeCart(product.id)); // 장바구니에서 제거
-            alert('장바구니에서 제거하였습니다.');
+            openModal('상품을 장바구니에서 삭제했습니다.');
         } else {
             dispatch(cartActions.addCart(product)); // 장바구니에 추가
-            alert('상품을 장바구니에 담았습니다.');
+            openModal('상품을 장바구니에 담았습니다.');
         }
     };
 
@@ -73,6 +86,14 @@ const ProductItem = ({ product }) => {
                     </p>
                 </div>
             </Link>
+            {modalOpen && (
+                <Modal
+                    text={modalText}
+                    onClose={closeModal}
+                    showHomeButton={false}
+                    showConfirmButton={true}
+                />
+            )}
         </ProductItemStyle>
     );
 };

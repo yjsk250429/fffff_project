@@ -55,7 +55,7 @@ export const cartSlice = createSlice({
         increaseQuantity: (state, action) => {
             const cart = state.carts.find((cart) => cart.id === action.payload);
             if (cart) {
-                cart.quantity;
+                cart.quantity++;
                 if (cart.option?.[0]) cart.itemTotal = Number(cart.option[0].price) * cart.quantity;
             }
             localStorage.setItem('carts', JSON.stringify(state.carts));
@@ -156,21 +156,23 @@ export const cartSlice = createSlice({
 
             // 총합 초기화
             const { price, qty } = state.carts.reduce(
-                    (acc, c) => {
-                      const priceNum =
-                        Number(Array.isArray(c?.option) ? c?.option?.[0]?.price : c?.option?.price) || 0;
-                      const quantity = Number(c?.quantity) || 0;
-                      acc.price  = priceNum * quantity;
-                      acc.qty  = quantity;
-                      return acc;
-                    },
-                    { price: 0, qty: 0 }
-                  );
-                  state.priceTotal = price;
-                  state.quantityTotal = qty;
-                
-                  // 전체 체크상태 갱신(샘플 제외)
-                  state.isChecked = state.carts.filter((c) => !c.isSample).every((c) => c.isChecked);
+                (acc, c) => {
+                    const priceNum =
+                        Number(
+                            Array.isArray(c?.option) ? c?.option?.[0]?.price : c?.option?.price
+                        ) || 0;
+                    const quantity = Number(c?.quantity) || 0;
+                    acc.price = priceNum * quantity;
+                    acc.qty = quantity;
+                    return acc;
+                },
+                { price: 0, qty: 0 }
+            );
+            state.priceTotal = price;
+            state.quantityTotal = qty;
+
+            // 전체 체크상태 갱신(샘플 제외)
+            state.isChecked = state.carts.filter((c) => !c.isSample).every((c) => c.isChecked);
         },
         buyNow: (state, action) => {
             const id = action.payload.id;
