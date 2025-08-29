@@ -7,7 +7,7 @@ import { wishActions } from '../../../store/modules/wishSlice';
 import { ProductItemStyle } from './style';
 import BestStemp from '../../../ui/BestStemp';
 import { useState } from 'react';
-import Modal from '../../../ui/modal';
+import Modal from '../../../ui/Modal';
 
 const ProductItem = ({ product }) => {
     const [modalOpen, setModalOpen] = useState(false);
