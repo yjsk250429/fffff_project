@@ -60,7 +60,7 @@ const CartList = () => {
                         ))}
                 </ul>
             </div>
-            {authed && <CartSample />}
+            <CartSample />
         </CartListStyle>
     );
 };
