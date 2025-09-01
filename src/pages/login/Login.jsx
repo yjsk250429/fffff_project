@@ -4,51 +4,55 @@ import { useEffect, useState } from 'react';
 import { authActions } from '../../store/modules/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import GuestOrder from '../../components/login/GuestOrder';
+import Modal from '../../ui/modal'; // 모달 임포트
 
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { authed } = useSelector((state) => state.auth);
+    const { authed, user: authUser } = useSelector((state) => state.auth);
+
     const [submitted, setSubmitted] = useState(false);
-    const [user, setUser] = useState({
-        email: '',
-        password: '',
-    });
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalText, setModalText] = useState('');
+    const [user, setUser] = useState({ email: '', password: '' });
 
     const { email, password } = user;
+
     const changeInput = (e) => {
         const { value, name } = e.target;
-        setUser({
-            ...user,
-            [name]: value,
-        });
+        setUser({ ...user, [name]: value });
     };
+
     const onSubmit = (e) => {
         e.preventDefault();
-        if (!password.trim() || !email.trim()) return;
+        if (!email.trim() || !password.trim()) return;
+
         dispatch(authActions.login(user));
         setSubmitted(true);
     };
 
     useEffect(() => {
         if (!submitted) return;
-        if (authed) {
-            setUser({
-                email: '',
-                password: '',
-            });
-            const ok = window.confirm('로그인했습니다.');
-            if (ok) navigate('/');
+
+        if (authed && authUser) {
+            setModalText(`${authUser.name}님, 로그인했습니다.`);
+            setModalOpen(true);
+            setUser({ email: '', password: '' });
         } else {
-            alert('이메일 또는 비밀번호가 일치하지 않습니다.');
+            setModalText('이메일 또는 비밀번호가 일치하지 않습니다.');
+            setModalOpen(true);
             setUser((prev) => ({ ...prev, password: '' }));
         }
-        setSubmitted(false);
-    }, [authed, submitted, navigate]);
 
-    const goToJoin = () => {
-        navigate('/join');
+        setSubmitted(false);
+    }, [authed, submitted, authUser]);
+
+    const closeModal = () => {
+        setModalOpen(false);
+        if (authed) navigate('/'); // 성공 시 메인 페이지 이동
     };
+
+    const goToJoin = () => navigate('/join');
 
     return (
         <LoginStyle>
@@ -129,6 +133,16 @@ const Login = () => {
                     <GuestOrder />
                 </div>
             </div>
+
+            {/* 모달 */}
+            {modalOpen && (
+                <Modal
+                    text={modalText}
+                    onClose={closeModal}
+                    showHomeButton={false} // 홈으로 버튼 보이기
+                    showConfirmButton={true} // 확인 버튼 보이기
+                />
+            )}
         </LoginStyle>
     );
 };

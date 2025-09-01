@@ -1,8 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { WishEmptyStyle } from './style';
+import Modal from '../../ui/modal';
+import { useState } from 'react';
 
 const WishEmpty = () => {
+    const [open, setOpen] = useState(false);
+    const onOpenModal = () => {
+        setOpen(true); // 모달 열기
+    };
     const navigate = useNavigate();
     const onGo = () => {
         navigate(`/product/body`);
@@ -22,6 +28,7 @@ const WishEmpty = () => {
                     />
                 </p>
             </div>
+            {open && <Modal text="상품을 장바구니에 담았습니다." onClose={() => setOpen(false)} />}
         </WishEmptyStyle>
     );
 };

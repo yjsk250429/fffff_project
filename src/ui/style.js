@@ -17,6 +17,18 @@ export const ButtonStyle = styled.button`
     &:hover {
         /* opacity: 0.9; */
     }
+    &.modal-button1 {
+        width: ${(props) => props.width || '120px'} !important;
+        background-color: var(--background) !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        margin-right: 10px;
+    }
+    &.modal-button2 {
+        width: ${(props) => props.width || '120px'} !important;
+        background-color: #000;
+        color: #fff;
+    }
 `;
 
 export const InputStyle = styled.input`
@@ -160,5 +172,43 @@ export const BestStempStyle = styled.div`
         width: 100%;
         height: 100%;
         object-fit: contain;
+    }
+`;
+
+export const ModalStyle = styled.div`
+    position: fixed;
+    inset: 0; /* 전체 화면 덮기 */
+    background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    .modal-box {
+        width: 520px;
+        padding: 60px 40px;
+        box-sizing: border-box;
+        margin: auto;
+        background: var(--background);
+        animation: ani 0.4s ease;
+        .modal-li {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @keyframes ani {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 `;
