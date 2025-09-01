@@ -13,7 +13,7 @@ import SearchForm from '../../ui/SearchForm';
 import { IoCloseOutline } from 'react-icons/io5';
 import { HiBars3 } from 'react-icons/hi2';
 import { searchActions } from '../../store/modules/searchSlice';
-import Modal from '../../ui/modal';
+import Modal from '../../ui/Modal';
 
 const Header = ({ theme }) => {
     const { carts } = useSelector((state) => state.cart);
